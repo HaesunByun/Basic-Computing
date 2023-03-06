@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2장. 입출력과 타입변환 &#8212; Basic Computing for the first time</title>
+    <title>Chapter 2. 입출력과 타입변환 &#8212; Basic Computing for the first time</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -141,7 +141,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    소개의 글
+                    소개
                 </a>
             </li>
         </ul>
@@ -150,10 +150,10 @@ const thebe_selector_output = ".output, .cell_output"
   Python
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="B_chapter0.html">
-   1장. 프로그래밍 언어와 파이썬
+   Chapter 0. 프로그래밍 언어와 파이썬
   </a>
  </li>
  <li class="toctree-l1">
@@ -161,16 +161,9 @@ const thebe_selector_output = ".output, .cell_output"
    1장. 기본자료형과 변수
   </a>
  </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Data Science
- </span>
-</p>
-<ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   2장. 입출력과 타입변환
+   Chapter 2. 입출력과 타입변환
   </a>
  </li>
 </ul>
@@ -335,11 +328,6 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#review">
-   Review
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sample-source-code">
    Sample Source Code
   </a>
@@ -353,15 +341,29 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#print">
    print()
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     연습문제
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#input">
    input()
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     연습문제
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-type">
-   Data type 변환
+   Data type 확인과 변환
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -370,19 +372,29 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#str">
-     str()
+    <a class="reference internal nav-link" href="#float">
+     float()
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#float">
-     float()
+    <a class="reference internal nav-link" href="#str">
+     str()
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#print-f-string">
+   print()에서 +와 ,와 f-string의 출력 비교
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   종합 연습문제
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
    마무리
   </a>
  </li>
@@ -395,7 +407,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>2장. 입출력과 타입변환</h1>
+                <h1>Chapter 2. 입출력과 타입변환</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -405,11 +417,6 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#review">
-   Review
-  </a>
- </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#sample-source-code">
    Sample Source Code
@@ -424,15 +431,29 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#print">
    print()
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     연습문제
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#input">
    input()
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     연습문제
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#data-type">
-   Data type 변환
+   Data type 확인과 변환
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -441,19 +462,29 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#str">
-     str()
+    <a class="reference internal nav-link" href="#float">
+     float()
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#float">
-     float()
+    <a class="reference internal nav-link" href="#str">
+     str()
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id2">
+  <a class="reference internal nav-link" href="#print-f-string">
+   print()에서 +와 ,와 f-string의 출력 비교
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id3">
+   종합 연습문제
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id4">
    마무리
   </a>
  </li>
@@ -467,34 +498,32 @@ title="Print to PDF"
                 
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="id1">
-<h1>2장. 입출력과 타입변환<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
-<p>이 장에서는 주석을 처리하는 방법과 프로그램 실행중에 데이터를 입출력 하는 방법을 알아본다.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-2">
+<h1>Chapter 2. 입출력과 타입변환<a class="headerlink" href="#chapter-2" title="Permalink to this headline">#</a></h1>
+<p>이 장에서는 주석을 처리하는 방법, 데이터를 입력하고, 출력하는 방법, 데이터 타입을 변환하는 방법에 대해 알아본다.</p>
 <div class="info admonition">
 <p class="admonition-title">학습목표와 기대효과 </p>
 <ul class="simple">
 <li><p>학습목표</p>
 <ul>
-<li><p>주석으로 처리해보자.</p></li>
+<li><p>주석을 달아보자.</p></li>
 <li><p>결과를 출력하는 print() 함수에 대해 배워보자.</p></li>
 <li><p>데이터를 입력받는 input() 함수에 대해 배워보자.</p></li>
+<li><p>형변환 함수에 대해 알아보자.</p></li>
 </ul>
 </li>
 <li><p>기대효과</p>
 <ul>
-<li><p>데이터의 특성을 이해하고 프로그래밍에서 데이터를 입력받고 출력할 수 있다.</p></li>
+<li><p>데이터를 입,출력할 수 있으며 데이터의 특성을 이해하고 타입을 변환할 수 있다.</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="review">
-<h2>Review<a class="headerlink" href="#review" title="Permalink to this headline">#</a></h2>
 </div>
 <div class="section" id="sample-source-code">
 <h2>Sample Source Code<a class="headerlink" href="#sample-source-code" title="Permalink to this headline">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This program says hello and asks for my name.</span>
 <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Input your name. &#39;</span><span class="p">)</span> <span class="c1"># 출력</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">&#39;Input your name. &#39;</span><span class="p">)</span> 
 <span class="n">myName</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Welcome, &#39;</span> <span class="o">+</span> <span class="n">myName</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="p">)</span>
 </pre></div>
@@ -502,22 +531,22 @@ title="Print to PDF"
 <p>샘플 코드를 빈 코드셀에 옮겨 붙인 후 코드를 실행시켜보자.
 두 줄의 문장이 출력된 이후에 커서가 깜박이고 있을 것이다.
 커서가 깜박이는 곳에 이름을 입력하고 엔터를 치면 Welcome, 다음에 입력한 이름이 출력된다.</p>
-<p>방금 실행시켜 본 것이 바로 파이썬 프로그램이다.
+<p>방금 실행시켜 본 것이 바로 <strong>파이썬 프로그램</strong>이다.
 프로그램을 만들기 위해 채워 넣는 코드를 보통 <strong>소스 코드</strong>라 부른다.
-위 소스코드를 여러번 실행시켜도 항상 똑같이 동작한다.</p>
-<p>컴퓨터는 사람과 달리,
-동일한 소스 코드를 항상 같은 방식으로 읽는다.
+소스코드는 여러번 실행시켜도 항상 똑같이 동작한다.</p>
+<p>컴퓨터는 동일한 소스 코드를 항상 같은 방식으로 읽는다.
 여기에는 몇몇 원칙들이 적용된다.</p>
 <ul class="simple">
 <li><p>소스 코드는 맨 윗줄부터 순서대로 읽는다.</p></li>
-<li><p>언제나 한 줄의 코드를 다 실행한 다음에 다음 줄로 이동한다.</p></li>
+<li><p>언제나 한 줄의 코드를 다 실행한 후 다음 줄로 이동한다.</p></li>
 </ul>
-<p>동일한 소스 코드를 항상 같은 방식으로 읽기 때문에 매 번 반복하기 번거로운 작업을 프로그램으로 만들어 두면 그 이후로는 계속 편하게 실행 시켜서 결과를 얻을 수 있다.</p>
+<p>동일한 소스 코드를 항상 같은 방식으로 읽기 때문에 매 번 반복하기 번거로운 작업을 프로그램으로 만들어 두면 그 이후로는 편하게 실행 시켜서 결과를 얻을 수 있다.</p>
 </div>
 <div class="section" id="comment">
 <h2>comment<a class="headerlink" href="#comment" title="Permalink to this headline">#</a></h2>
-<p>주석은 프로그램 또는 소스코드의 부연 설명이다. 소스코드 한 줄을 주석으로 처리하기 위해서는 #(pound) 기호를 문장의 맨 앞에 붙인다. # 기호를 문장의 중간에 붙이면 # 기호부터 그 줄의 마지막까지 주석으로 처리된다.</p>
-<p>주석으로 처리된 코드는 프로그램의 실행에 전혀 영향을 미치지 않으므로 소스코드의 일부를 실행시키고 싶지 않을 때도 사용한다.</p>
+<p><strong>주석</strong>은 프로그램 또는 소스코드의 부연 설명이다. 소스코드 한 줄을 주석으로 처리하기 위해서는 #(pound) 기호를 문장의 맨 앞에 붙인다. # 기호를 문장의 중간에 붙이면 # 기호부터 그 줄의 마지막까지 주석으로 처리된다.</p>
+<p>주석으로 처리된 코드는 프로그램의 실행에 전혀 영향을 미치지 않으므로 소스코드의 일부를 실행시키고 싶지 않을 때도 사용한다.
+또한 이 코드를 읽을 사람을 위해 붙이기도 한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This program says hello and asks for my name.</span>
@@ -534,8 +563,9 @@ title="Print to PDF"
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
-<p>여러줄을 한꺼번에 주석처리 하려면 마우스로 주석처리 할 여러 줄을 블럭설정한 후(드래그) ctrl + /를 누른다.ctrl + /를 한번 더 누르면 주석이 해제된다.
+<p>여러줄을 한꺼번에 주석처리 하려면 주석처리 할 여러 줄을 블럭설정한 후(드래그) <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">/</span></code>를 누른다. ctrl + /를 한번 더 누르면 주석이 해제된다.
 ctrl + a를 누르면 현재 셀의 모든 코드를 한꺼번에 블럭설정 할 수 있다.</p>
+<p>멀티라인 스트링 기호를 써서 여러 줄을 문자열로 묶어 주석처럼 사용하기도 한다.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -590,7 +620,7 @@ hello! sunny
 </div>
 </div>
 <ul class="simple">
-<li><p>그런데, 아래의 코드는 print() 함수를 쓰지 않아도 결과가 나왔을 것이다. 이는 단지 코랩에서 제공해주는 기능으로 실행시키는 셀의 가장 마지막 라인을 결과로 되돌려주기 때문이다.</p></li>
+<li><p>그런데, 아래의 코드처럼 print() 함수를 쓰지 않아도 결과가 나온다. 이는 단지 코랩에서 제공해주는 기능으로 실행시키는 셀의 마지막 라인을 결과로 되돌려주기 때문이다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -605,7 +635,7 @@ hello! sunny
 </div>
 </div>
 <ul class="simple">
-<li><p>만약 아래의 코드처럼 여러줄을 print()없이 썼다면 전체 문장이 출력되는 것이 아니라 가장 마지막 줄만 출력한다.</p></li>
+<li><p>만약 아래의 코드처럼 여러줄을 print()없이 썼다면 전체 문장을 출력하는 것이 아니라 가장 마지막 줄만 출력한다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -622,7 +652,7 @@ hello! sunny
 </div>
 </div>
 <ul class="simple">
-<li><p>따라서 세 줄 모두 출력하려면 아래와 같이 각각 print() 괄호안에 넣어주거나 또는 하나의 print() 괄호안에 멀티라인 스트링으로 넣어준다.</p></li>
+<li><p>따라서 세 줄 모두 출력하려면 아래와 같이 각각을 print() 괄호안에 넣어주거나 또는 하나의 print() 괄호안에 멀티라인 스트링으로 넣어준다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -667,7 +697,7 @@ Nice to meet you
 </div>
 </div>
 <ul class="simple">
-<li><p>여러개의 결과를 나열하여 출력하려면 콤마(,)로 구분한다. 콤마는 문자열과 숫자를 동시에 출력할 때 매우 유용하다. 콤마를 사용하면 기본으로 한칸 띄어쓰기(공백)가 된다.</p></li>
+<li><p>여러개의 결과를 나열하여 출력하려면 콤마(,)로 구분한다. 콤마는 문자열과 숫자를 동시에 출력할 때 매우 유용하다. print() 괄호안에 콤마가 있으면 콤마 자리마다 기본으로 한칸 띄어쓰기(공백)가 된다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -695,7 +725,9 @@ Nice to meet you
 </div>
 </div>
 <ul class="simple">
-<li><p>한칸 띄어쓰기를 없애고 싶거나 다른 구분자를 넣고 싶다면, 옵션 sep을 변경하면 된다.</p></li>
+<li><p>한칸 띄어쓰기를 없애고 싶으면 옵션 sep을 변경하면 된다.</p></li>
+<li><p>sep는 seperation의 약자로 결과를 분리시킨다는 의미이다.</p></li>
+<li><p>한칸 띄어쓰기 대신에 다른 구분자를 넣을때도 sep 옵션을 사용할 수 있다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -712,7 +744,7 @@ Nice to meet you
 </div>
 </div>
 <ul class="simple">
-<li><p>f-string과 함께 사용하면 띄어쓰기, 데이터타입 등 고민 할 필요없이 수월하게 출력할 수 있다.</p></li>
+<li><p>f-string과 함께 사용하면 띄어쓰기, 데이터타입 등을 고민 할 필요없이 수월하게 출력할 수 있다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -733,19 +765,20 @@ Nice to meet you
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나&#39;</span><span class="p">,</span><span class="s1">&#39;너&#39;</span><span class="p">,</span><span class="s1">&#39;우리&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;^^&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나&#39;</span><span class="p">,</span><span class="s1">&#39;너&#39;</span><span class="p">,</span><span class="s1">&#39;우리&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나&#39;</span><span class="p">,</span><span class="s1">&#39;너&#39;</span><span class="p">,</span><span class="s1">&#39;우리&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;나&#39;</span><span class="p">,</span><span class="s1">&#39;너&#39;</span><span class="p">,</span><span class="s1">&#39;우리&#39;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39;^^;&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>나 너 우리^^나 너 우리	
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>나 너 우리	나 너 우리^^;
 </pre></div>
 </div>
 </div>
 </div>
 <ul class="simple">
-<li><p>print() 함수의 다양한 활용방법을 알고 싶다면 help()를 외쳐라.</p></li>
+<li><p>help()함수는 함수나 클래스의 옵션이나 사용방법에 도움을 주는 함수이다. help() 괄호안에 알고자 하는 함수명, 변수명, 클래스명을 넣어주면 된다.</p></li>
+<li><p>print() 함수의 다양한 옵션과 활용방법을 알고 싶다면 help(print)를 외쳐라.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -769,26 +802,50 @@ print(...)
 </div>
 </div>
 </div>
+<div class="section" id="id1">
+<h3>연습문제<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">😄문제 1. 변수를 활용하여 아래와 같은 결과가 나오도록 코드를 작성해 보세요. ‘딱!’이 나이 수만큼 출력되어야 합니다.</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;딱!&#39;</span>
+<span class="n">age</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">number</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="c1"># TODO</span>
+</pre></div>
+</div>
+<p class="sd-card-text">Output:</p>
+<p class="sd-card-text">10년후에, 너의 나이는 딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱! 31살이 될꺼야.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="input">
 <h2>input()<a class="headerlink" href="#input" title="Permalink to this headline">#</a></h2>
-<p>input() 함수는 프로그램 실행 중에 표준입력장치인 키보드로부터 데이터를 입력받는 함수이다. 프로그램 실행중에 input() 코드를 만나면 그 아래 입력박스가 생기면서 커서가 깜박거리면서 입력을 기다린다.
+<p>input() 함수는 프로그램 실행 중에 표준입력장치인 키보드로부터 데이터를 입력받는 함수이다. 프로그램 실행중에 input() 코드를 만나면 그 아래 입력박스가 생기면서 커서가 깜박이며 입력을 기다린다.
 그 박스안에 데이터를 입력하고 엔터를 치면된다.</p>
 <p>입력 받은 데이터는 일반적으로 변수에 저장한다.
-만약, 변수에 저장없이 input()만 있다면 데이터는 입력 받지만 저장하지는 않는다.</p>
+만약, 변수에 저장없이 input()만 있다면 데이터는 입력 받지만 저장되지는 않는다.</p>
 <p>아래의 코드를 실행시켜보자.</p>
 <ul class="simple">
 <li><p>‘Input your name.’을 출력한다.</p></li>
 <li><p>입력으로 ‘sunny’를 입력하면 변수 myName에 ‘sunny’가 저장된다.</p></li>
 <li><p>Welcome, sunny.가 출력된다.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>print (&#39;Input your name.&#39;)
-myName = input()
-print (f&#39;Welcome, {myName}.&#39;)
-🚀
-Input your name.
-sunny
-Welcome, sunny.
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="p">(</span><span class="s1">&#39;Input your name.&#39;</span><span class="p">)</span>
+<span class="n">myName</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">f</span><span class="s1">&#39;Welcome, {myName}.&#39;</span><span class="p">)</span>
+
+<span class="n">Input</span> <span class="n">your</span> <span class="n">name</span><span class="o">.</span>
+<span class="n">sunny</span>
+<span class="n">Welcome</span><span class="p">,</span> <span class="n">sunny</span><span class="o">.</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -796,33 +853,35 @@ Welcome, sunny.
 <li><p>Welcome, sunny.가 출력된다.</p></li>
 <li><p>왜 컴퓨터는 Alice를 입력했는데도 sunny만 환영해줄까?</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>input()
-print (f&#39;Welcome, {myName}.&#39;)
-🚀
-Alice
-Welcome, sunny.
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span><span class="p">()</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">f</span><span class="s1">&#39;Welcome, {myName}.&#39;</span><span class="p">)</span>
+
+<span class="n">Alice</span>
+<span class="n">Welcome</span><span class="p">,</span> <span class="n">sunny</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>사용자에게 무엇을 입력받을 때에는 다짜고짜 입력하라고 하지말고 무엇을 입력할것인지를 알려주는 것이 좋다. 즉, 질문을 주고 입력을 받아야 한다. 질문 문자열을 넣어주려면 input() 괄호안에 넣어주면 된다. 이때에는 입력박스는 동일라인의 질문 문자열 오른쪽에 생긴다.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>myName = input(&#39;Input your name.&#39;) 
-print (f&#39;Welcome, {myName}.&#39;)
-🚀
-Input your name.Alice
-Welcome, Alice.
+<p>사용자에게 무엇을 입력받을 때에는 다짜고짜 입력하라고 하지말고 무엇을 입력할것인지를 알려주는 것이 좋다. 즉, 질문을 주고 입력을 받아야 한다. 질문을 넣어주려면 input() 괄호안에 넣어주면 된다. 이때 입력박스는 질문 오른쪽에 생긴다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myName</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Input your name.&#39;</span><span class="p">)</span> 
+<span class="k">print</span> <span class="p">(</span><span class="n">f</span><span class="s1">&#39;Welcome, {myName}.&#39;</span><span class="p">)</span>
+
+<span class="n">Input</span> <span class="n">your</span> <span class="n">name</span><span class="o">.</span><span class="n">Alice</span>
+<span class="n">Welcome</span><span class="p">,</span> <span class="n">Alice</span><span class="o">.</span>
 </pre></div>
 </div>
-<p>input() 함수에는 절대 잊어서는 안될 중요한 특징 하나가 있다. <font color='red'>입력받은 모든 데이터를 문자열로 취급한다는 것이다.</font> 숫자를 입력해도 문자열로 취급한다. 변수 age에는 문자열이 들어 있으므로 문자열변수와 더해도 에러가 발생하지 않는다.</p>
+<p>input() 함수에는 절대 잊어서는 안될 중요한 특징 하나가 있다. <font color='red'>입력받은 모든 데이터를 문자열로 처리된다는 것이다.</font> 숫자를 입력해도 문자열로 처리된다. 아래 코드에서 변수 age에는 문자열이 들어 있으므로 문자열과 변수를 더해도 에러가 발생하지 않는다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>age = input(&#39;How old are you? &#39;)
 print (&#39;You are &#39;  + age + &#39; years old.&#39;) 
-🚀
+
 How old are you? 20
 You are 20 years old.
 </pre></div>
 </div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-header bg-light docutils">
-<p class="sd-card-text">😄Quiz 1.</p>
+<p class="sd-card-text">😄Quiz 1. 입력값 100을 주었다면 출력결과는?</p>
 </div>
 <div class="sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;5&#39;</span>
@@ -832,114 +891,112 @@ You are 20 years old.
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Quiz</span>
-<span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;5&#39;</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">StdinNotImplementedError</span><span class="g g-Whitespace">                  </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">14</span><span class="o">-</span><span class="mi">5</span><span class="n">efdf25dab06</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#Quiz</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;5&#39;</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="k">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
-
-<span class="nn">D:\users\anaconda3\lib\site-packages\ipykernel\kernelbase.py</span> in <span class="ni">raw_input</span><span class="nt">(self, prompt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">853</span>         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_allow_stdin</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">854</span>             <span class="k">raise</span> <span class="n">StdinNotImplementedError</span><span class="p">(</span>
-<span class="ne">--&gt; </span><span class="mi">855</span>                 <span class="s2">&quot;raw_input was called, but this frontend does not support input requests.&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">856</span>             <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">857</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_input_request</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
-
-<span class="ne">StdinNotImplementedError</span>: raw_input was called, but this frontend does not support input requests.
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">😄Quiz 2. 입력값 100을 주었다면 출력결과는?</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;Hello&#39;</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Quiz</span>
-<span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;Hello&#39;</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</div>
+</div>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">😄Quiz 3. 입력값 100을 주었다면 출력결과는?</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span> <span class="o">+</span> <span class="mi">100</span>
+<span class="k">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Quiz</span>
-<span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span> <span class="o">+</span> <span class="mi">100</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Quiz</span>
-<span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How old are you?&#39;</span><span class="p">)</span>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">😄Quiz 4. 입력값 20을 주었다면 출력결과는?</p>
+</div>
+<div class="sd-card-body docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How old are you?&#39;</span><span class="p">)</span>
 <span class="n">age</span> <span class="o">=</span> <span class="n">age</span> <span class="o">+</span> <span class="mi">10</span>  
-<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="s1">&#39;Ten years later, you will be </span><span class="si">{age}</span><span class="s1"> years old.&#39;</span><span class="p">)</span> 
+<span class="k">print</span> <span class="p">(</span><span class="n">f</span><span class="s1">&#39;Ten years later, you will be {age} years old.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 아래와 같이 결과가 나오도록 코드를 작성해보세요.</span>
-
-<span class="c1"># 예1</span>
-<span class="c1"># 요구르트에 김치 말아먹기 vs 라면에 초콜릿 넣기: 라면에 초콜릿 넣기</span>
-<span class="c1"># 당신은 라면에 초콜릿 넣기를 산택하셨군요!</span>
-
-<span class="c1"># 예2</span>
-<span class="c1"># 요구르트에 김치 말아먹기 vs 라면에 초콜릿 넣기: 요구르트에 김치 말아먹기</span>
-<span class="c1"># 당신은 요구르트에 김치 말아먹기를 산택하셨군요!</span>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>연습문제<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">😄문제 2. 다음과 같이 출력결과가 나오도록 코드를 작성해 보세요.</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><font color='blue'><code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">case-1</span></code></font></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>요구르트에 김치 말아먹기 vs 라면에 초콜릿 넣기: 라면에 초콜릿 넣기
+당신은 라면에 초콜릿 넣기를 선택하셨군요!
+</pre></div>
+</div>
+<p class="sd-card-text"><font color='blue'><code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">case-2</span></code></font></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>요구르트에 김치 말아먹기 vs 라면에 초콜릿 넣기: 둘 다 싫어
+당신은 둘 다 싫어를 선택하셨군요!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>요구르트에 김치 말아먹기 vs 라면에 초콜릿 넣기: 라면에 초콜릿 넣기
-당신은 라면에 초콜릿 넣기를 산택하셨군요!
-</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="data-type">
-<h2>Data type 변환<a class="headerlink" href="#data-type" title="Permalink to this headline">#</a></h2>
+<h2>Data type 확인과 변환<a class="headerlink" href="#data-type" title="Permalink to this headline">#</a></h2>
+<p><strong>형 변환</strong>은 데이터의 타입을 변환하는 것으로, 형 변환이 필요한 이유는 데이터가 어떤 타입이냐에 따라 지원하는 연산도 다르기 때문이다. 예를 들어, input() 함수로 입력 받은 데이터는 문자열로 처리되는데 입력 받은 데이터와 숫자 연산을 하려면 데이터의  타입을 정수형 또는 실수형으로 변환해주어야 한다.</p>
 <ul class="simple">
-<li><p>형 변환이 필요한 이유: Data type에 따라 지원하는 연산(기능)이 다름.</p></li>
-<li><p>예) input() 함수로 입력 받은 데이터는 문자열 처리됨. 예를 들어, 숫자 17를 입력하면 문자열 ‘17’이 됨.</p></li>
+<li><p>먼저 데이터의 타입을 확인해보자. type()함수는 데이터의 타입을 확인할 때 사용한다.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How old are you?&#39;</span><span class="p">)</span>
-<span class="n">age</span> <span class="o">=</span> <span class="n">age</span> <span class="o">+</span> <span class="mi">10</span>  
-<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="s1">&#39;Ten years later, you will be </span><span class="si">{age}</span><span class="s1"> years old.&#39;</span><span class="p">)</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">height</span> <span class="o">=</span> <span class="mi">180</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+<span class="nb">int</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Input &#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">age</span><span class="p">))</span>
-<span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">age</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">height</span> <span class="o">=</span> <span class="s1">&#39;180&#39;</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+<span class="nb">str</span>
 </pre></div>
 </div>
-</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">height</span> <span class="o">=</span> <span class="mf">180.3</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">height</span><span class="p">)</span>
+<span class="nb">float</span>
+</pre></div>
 </div>
 <div class="section" id="int">
 <h3>int()<a class="headerlink" href="#int" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>정수로 변환해주는 함수</p></li>
-</ul>
+<p>파이썬에서는 다양한 형 변환 함수를 제공한다.
+int()는 정수로 변환해주는 함수이다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
@@ -949,61 +1006,36 @@ You are 20 years old.
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#invalid case</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;3.5&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;forty-two&#39;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#invalid example</span>
-<span class="n">num</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Enter body temperature: &#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">currentAge</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;몇 살이세요?&#39;</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">f</span><span class="s1">&#39;당신의 10년 후에 나이는 {currentAge+10} 살 입니다.&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>몇 살이세요?21
-당신의 10년 후에 나이는 31 살 입니다.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+3
+42
+42
 </pre></div>
 </div>
 </div>
 </div>
+<div class="warning admonition">
+<p class="admonition-title">참고</p>
+<p>int()함수는 정수모양이 아닌 문자열은 변환하지 못한다. 예를 들어, ‘3.5’나 ‘forty-two’를 변환하려고 하면 에러를 발생시킨다.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;3.5&#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s1">&#39;forty-two&#39;</span><span class="p">))</span>
+</pre></div>
 </div>
-<div class="section" id="str">
-<h3>str()<a class="headerlink" href="#str" title="Permalink to this headline">#</a></h3>
+</div>
 <ul class="simple">
-<li><p>문자열로 변환해주는 함수</p></li>
+<li><p>입력을 받은 값에 대해서 바로 형 변환을 하려면 int(input(‘체온을 입력하세요. ‘))와 같이 함수를 중첩하여 쓰면된다.</p></li>
+<li><p>아래 예제의 경우, 체온으로 정수 35를 입력했다면 정상적으로 실행된다.</p></li>
+<li><p>그러나 실수값 36.5를 입력했다면 input() 함수에 의해 실수값은 문자열 ‘36.5’가 되어 int()함수에 의해 에러가 발생한다.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mf">3.5</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;42&#39;</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;3.5&#39;</span><span class="p">))</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;체온을 입력하세요. &#39;</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="float">
 <h3>float()<a class="headerlink" href="#float" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>실수형으로 변환해주는 함수</p></li>
-</ul>
+<p>float()은 실수형으로 변환해주는 함수이다. int()와 달리 제약이 없다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
@@ -1013,31 +1045,185 @@ You are 20 years old.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42.0
+3.5
+3.0
+3.6
+</pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="str">
+<h3>str()<a class="headerlink" href="#str" title="Permalink to this headline">#</a></h3>
+<p>str()은 문자열로 변환해주는 함수이다. 이 또한 제약이 없다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 스스로 해보세요.</span>
-<span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;딱!&#39;</span>
-<span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">number</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="c1"># 아래와 같이 출력 결과가 나오도록 위의 변수를 활용하여 코드를 작성해 보세요.</span>
-<span class="c1"># 10년후에, 너의 나이는 딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱! 31살이 될꺼야.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mf">3.5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;42&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;3.5&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>42
+3.5
+42
+3.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="info admonition">
+<p class="admonition-title">참고</p>
+<p>아래와 같이 입력받아서 변수 num에 저장한 후, 다음 라인에서 형변환을 했다. 그런 후에 type(num)을 통해 변수 num의 타입을 확인해보면 어떤 타입으로 나올까?
+그리고 그 타입으로 나오는 이유가 무엇인지 생각해보자.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span> 
+<span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="print-f-string">
+<h2>print()에서 +와 ,와 f-string의 출력 비교<a class="headerlink" href="#print-f-string" title="Permalink to this headline">#</a></h2>
+<p>형변환까지 배웠으니 마지막으로 print()에서</p>
+<ul class="simple">
+<li><p>+를 사용하여 출력하는 것</p></li>
+<li><p>,를 사용하여 출력하는 것</p></li>
+<li><p>f-string을 사용하여 출력하는 것을 비교해보자.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;홍길동&#39;</span>
+<span class="n">age</span><span class="o">=</span><span class="mi">20</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">홍길동님의</span> <span class="pre">나이는</span> <span class="pre">20살입니다.</span></code> 이와 같이 정확하게 출력하기를 바란다고 하자.</p></li>
+</ul>
+<ul class="simple">
+<li><p>‘+’연산자를 사용하는 경우, 변수 age가 정수형이므로 문자열과 더하기 위해서는 변수 age를 str()로 타입변환을 해줘야 한다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">나이는</span></code> 다음에 공백까지 생각해줘야 한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;홍길동&#39;</span>
+<span class="n">age</span><span class="o">=</span><span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;님의 나이는&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;살 입니다.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="o">+</span><span class="s1">&#39;님의 나이는 &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;살 입니다.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>홍길동님의 나이는20살 입니다.
+홍길동님의 나이는 20살 입니다.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>콤마(,)를 사용하는 경우, 콤마 있는 부분이 자동 한칸 띄어쓰기가 되므로 <code class="docutils literal notranslate"><span class="pre">20살</span></code>과 같이 나오게 하려면 <code class="docutils literal notranslate"><span class="pre">sep=''</span></code> 옵션을 줘서 띄어쓰기를 없애줘야 한다.</p></li>
+<li><p>이때 올바르게 띄어써준 부분까지 없어지기 때문에 그 부분에는 일부러 공백을 넣어줘야 한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;님의 나이는&#39;</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="s1">&#39;살 입니다.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;님의 나이는&#39;</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="s1">&#39;살 입니다.&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;님의 나이는 &#39;</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="s1">&#39;살 입니다.&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>홍길동 님의 나이는 20 살 입니다.
+홍길동님의 나이는20살 입니다.
+홍길동님의 나이는 20살 입니다.
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>f-string으로 처리하는 것이 가장 편하다.</p></li>
+<li><p>출력하고자 하는 형태 그대로 만들고, <code class="docutils literal notranslate"><span class="pre">변수명</span></code>이나 <code class="docutils literal notranslate"><span class="pre">연산식</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">함수호출</span></code> 등이 들어가야 할 자리에 {}를 씌어 넣어주면 된다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{name}</span><span class="s1">님의 나이는 </span><span class="si">{age}</span><span class="s1">살입니다.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{name}</span><span class="s1">님의 나이는 </span><span class="si">{age}</span><span class="s1">살입니다.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>홍길동님의 나이는 20살입니다.
+홍길동님의 나이는 20살입니다.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>종합 연습문제<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">😄문제 1. 두 개의 정수를 입력 받아 덧셈 연산을 실행한 후에, 연산 결과를 화면에 출력하는 프로그램을 작성하시오.</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><font color='blue'><code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">case-1</span></code></font></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>첫 번째 정수를 입력하세요: 100
+두 번째 정수를 입력하세요: 200
+
+100+200의 결과는 300입니다.
+</pre></div>
+</div>
+<p class="sd-card-text"><font color='blue'><code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">case-2</span></code></font></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>첫 번째 정수를 입력하세요: 300
+두 번째 정수를 입력하세요: 500
+
+300+500의 결과는 800입니다.
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="id2">
-<h2>마무리<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header bg-light docutils">
+<p class="sd-card-text">😄문제 2. 온도를 입력받아 계산한 후 출력하는 프로그램을 작성하시오.</p>
+</div>
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><font color='blue'><code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">case-1</span></code></font></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>온도 변환 프로그램
+화씨 온도를 입력하세요:50
+섭씨 온도는 10.0 입니다.
+
+섭씨 온도를 입력하세요:50
+화씨 온도는 122.0 입니다.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>마무리<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>‘#’은 주석처리 기호이며, 주석은 프로그램과 소스코드에 대한 부연 설명으로 프로그램의 실행에 영향을 미치지 않는다.</p></li>
 <li><p>print ( ) 함수는 표준출력장치인 스크린에 값을 출력하는 함수이며, 출력하고자 하는 내용을 괄호 안에 넣어주면 된다.</p></li>
-<li><p>input( ) 함수는 프로그램 실행 중에 값을 입력 받는 함수다. 입력 받은 데이터는 문자열이다.</p></li>
-<li><p>Data type에 따라 지원하는 연산(기능)이 다르다. 필요한 연산을 위해 Data type 변환이 필요할 수가 있다.</p></li>
-<li><p>int ( )함수는 문자열을 정수로 바꿀 때 주로 사용한다.</p></li>
-<li><p>str ( ) 함수는 정수를 문자열로 바꿀 때 주로 사용한다.</p></li>
-<li><p>float ( ) 함수는 문자열이나 정수를 실수로 바꿀 때 주로 사용한다.</p></li>
+<li><p>input( ) 함수는 프로그램 실행 중에 값을 입력 받는 함수다. 입력 받은 데이터는 모두 문자열 처리된다.</p></li>
+<li><p>데이터 타입에 따라 지원하는 연산(기능)이 다르다. 연산을 위해 데이터 타입을 변환해야 할 수도 있다.</p></li>
+<li><p>int ( )함수는 정수로 변환하는 함수이다.</p></li>
+<li><p>str ( ) 함수는 문자열로 변환하는 함수이다.</p></li>
+<li><p>float ( ) 함수는 실수타입으로 변환하는 함수이다.</p></li>
 </ul>
 </div>
 </div>
