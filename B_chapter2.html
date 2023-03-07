@@ -385,7 +385,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#print-f-string">
-   print()에서 +와 ,와 f-string의 출력 비교
+   print()에서 덧셈기호(+)와 콤마(,)와 f-string의 사용의 출력결과 비교
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -475,7 +475,7 @@ title="Print to PDF"
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#print-f-string">
-   print()에서 +와 ,와 f-string의 출력 비교
+   print()에서 덧셈기호(+)와 콤마(,)와 f-string의 사용의 출력결과 비교
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -697,7 +697,7 @@ Nice to meet you
 </div>
 </div>
 <ul class="simple">
-<li><p>여러개의 결과를 나열하여 출력하려면 콤마(,)로 구분한다. 콤마는 문자열과 숫자를 동시에 출력할 때 매우 유용하다. print() 괄호안에 콤마가 있으면 콤마 자리마다 기본으로 한칸 띄어쓰기(공백)가 된다.</p></li>
+<li><p>여러개의 결과를 나열하여 출력하려면 콤마(,)로 구분한다. 콤마는 문자열과 숫자를 나열하여 출력할 때 매우 유용하다. print() 괄호안에 콤마가 있으면 콤마 자리마다 기본으로 한칸 띄어쓰기(공백)가 된다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -707,6 +707,9 @@ Nice to meet you
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>내 나이는 20 살이야
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -744,7 +747,7 @@ Nice to meet you
 </div>
 </div>
 <ul class="simple">
-<li><p>f-string과 함께 사용하면 띄어쓰기, 데이터타입 등을 고민 할 필요없이 수월하게 출력할 수 있다.</p></li>
+<li><p>print() 괄호안에 f-string과 함께 사용하면 띄어쓰기, 데이터타입 등을 고민 할 필요없이 수월하게 출력할 수 있다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -809,7 +812,7 @@ print(...)
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-header bg-light docutils">
-<p class="sd-card-text">😄문제 1. 변수를 활용하여 아래와 같은 결과가 나오도록 코드를 작성해 보세요. ‘딱!’이 나이 수만큼 출력되어야 합니다.</p>
+<p class="sd-card-text">😄문제 1. 변수를 활용하여 아래와 같은 결과가 나오도록 코드를 작성해 보세요. ‘딱!’ 문자열이 age+number만큼 출력되어야 합니다.</p>
 </div>
 <div class="sd-card-body docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;딱!&#39;</span>
@@ -819,7 +822,7 @@ print(...)
 </pre></div>
 </div>
 <p class="sd-card-text">Output:</p>
-<p class="sd-card-text">10년후에, 너의 나이는 딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱! 31살이 될꺼야.</p>
+<p class="sd-card-text">10년후에, 너의 나이는 딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱!딱! 31살이 될꺼야.</p>
 </div>
 </div>
 </div>
@@ -1089,7 +1092,7 @@ int()는 정수로 변환해주는 함수이다.</p>
 </div>
 </div>
 <div class="section" id="print-f-string">
-<h2>print()에서 +와 ,와 f-string의 출력 비교<a class="headerlink" href="#print-f-string" title="Permalink to this headline">#</a></h2>
+<h2>print()에서 덧셈기호(+)와 콤마(,)와 f-string의 사용의 출력결과 비교<a class="headerlink" href="#print-f-string" title="Permalink to this headline">#</a></h2>
 <p>형변환까지 배웠으니 마지막으로 print()에서</p>
 <ul class="simple">
 <li><p>+를 사용하여 출력하는 것</p></li>
