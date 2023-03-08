@@ -598,7 +598,7 @@ Welcome!!
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="o">+</span><span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">50</span><span class="o">/</span><span class="mi">9</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello! &#39;</span> <span class="o">+</span> <span class="s1">&#39;sunny&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello! &#39;&#39;sunny&#39;</span><span class="p">)</span>
 <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;sunny&#39;</span>
@@ -610,7 +610,7 @@ Welcome!!
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>123
 hello
-13
+5.555555555555555
 hello! sunny
 hello! sunny
 sunny
@@ -619,8 +619,47 @@ hello! sunny
 </div>
 </div>
 </div>
+<div class="tip admonition">
+<p class="admonition-title">Tip</p>
 <ul class="simple">
-<li><p>그런데, 아래의 코드처럼 print() 함수를 쓰지 않아도 결과가 나온다. 이는 단지 코랩에서 제공해주는 기능으로 실행시키는 셀의 마지막 라인을 결과로 되돌려주기 때문이다.</p></li>
+<li><p>소수점 이하 원하는 자릿수까지만 표현하기 위한 두 가지 방법을 소개한다.</p>
+<ul>
+<li><p>round(value, n), n은 자릿수이다. n을 생략하면 반올림하여 정수로 출력한다.</p></li>
+<li><p>f’{value:.nf}’, n은 자릿수이며 생략할 수 없다. 정수로 출력하고 싶다면 n자리에 0을 넣는다.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">3.141592</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">3.141592</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="mf">3.541592</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.142
+3
+4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="si">{3.141592:.0f}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>아래의 코드처럼 print() 함수를 쓰지 않아도 결과가 나온다. 이는 단지 코랩에서 제공해주는 기능으로 실행시키는 셀의 마지막 라인을 결과로 되돌려주기 때문이다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -719,10 +758,7 @@ Nice to meet you
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10년 후의 나이는
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 30 살이야
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10년 후의 나이는 30 살이야
 </pre></div>
 </div>
 </div>
@@ -759,9 +795,6 @@ Nice to meet you
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>민지는 20살이야
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
