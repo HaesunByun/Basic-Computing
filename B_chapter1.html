@@ -1,42 +1,54 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 1. 기본자료형과 변수 &#8212; First Adventures in Computing</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    
-  <link rel="stylesheet"
-    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+    <title>Chapter 1. 기본자료형과 변수 &#8212; First Adventures in Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -75,7 +87,7 @@ var addUtterances = () => {
 }
 commentsRunWhenDOMLoaded(addUtterances);
 </script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -85,61 +97,93 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'B_chapter1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Chapter 2. 입출력과 타입변환" href="B_chapter2.html" />
     <link rel="prev" title="Chapter 0. 프로그래밍 언어와 파이썬" href="B_chapter0.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="_static/logo_bc.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">First Adventures in Computing</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="_static/logo_bc.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo_bc.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -148,370 +192,224 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Python
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="B_chapter0.html">
-   Chapter 0. 프로그래밍 언어와 파이썬
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Chapter 1. 기본자료형과 변수
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="B_chapter2.html">
-   Chapter 2. 입출력과 타입변환
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="B_chapter3.html">
-   Chapter 3. 조건문
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter0.html">Chapter 0. 프로그래밍 언어와 파이썬</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 1. 기본자료형과 변수</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter2.html">Chapter 2. 입출력과 타입변환</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter3.html">Chapter 3. 조건문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter4.html">Chapter 4. 반복문</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
-          
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
 
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
 <div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
 
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
     </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://colab.research.google.com/github/haesunbyun/Basic-Computing/blob/gh-pages/_sources/B_chapter1.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/haesunbyun/Basic-Computing/blob/gh-pages/_sources/B_chapter1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/B_chapter1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="_sources/B_chapter1.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   기본 자료형
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     숫자 데이터
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       정수형 데이터
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id4">
-       실수형 데이터
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#numeric-operators">
-       숫자형 연산자(Numeric operators)
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     문자열 데이터
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#f-string">
-       f-string
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#string-operators">
-       문자열 연산자(String operators)
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variable">
-   변수(Variable)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     변수명 짓는 규칙
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     변수에 데이터 저장하기
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
-   연습문제
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
-   마무리
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Chapter 1. 기본자료형과 변수</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id1">
-   기본 자료형
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id2">
-     숫자 데이터
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id3">
-       정수형 데이터
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id4">
-       실수형 데이터
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#numeric-operators">
-       숫자형 연산자(Numeric operators)
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id5">
-     문자열 데이터
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#f-string">
-       f-string
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#string-operators">
-       문자열 연산자(String operators)
-      </a>
-     </li>
-    </ul>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#variable">
-   변수(Variable)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id6">
-     변수명 짓는 규칙
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#id7">
-     변수에 데이터 저장하기
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id8">
-   연습문제
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id9">
-   마무리
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 1. 기본자료형과 변수</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">기본 자료형</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">숫자 데이터</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">정수형 데이터</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">실수형 데이터</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-operators">숫자형 연산자(Numeric operators)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">문자열 데이터</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-string">f-string</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#string-operators">문자열 연산자(String operators)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable">변수(Variable)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">변수명 짓는 규칙</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">변수에 데이터 저장하기</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">마무리</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
-  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-1">
-<h1>Chapter 1. 기본자료형과 변수<a class="headerlink" href="#chapter-1" title="Permalink to this headline">#</a></h1>
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="chapter-1">
+<h1>Chapter 1. 기본자료형과 변수<a class="headerlink" href="#chapter-1" title="Permalink to this heading">#</a></h1>
 <p>이 장에서는 기본 자료형(정수형, 실수형, 문자열)과  변수, 그리고 산술연산자를 이용하여 수식을 표현하는 방법을 알아본다.</p>
 <div class="info admonition">
 <p class="admonition-title">학습목표와 기대효과 </p>
@@ -531,8 +429,8 @@ title="Print to PDF"
 </li>
 </ul>
 </div>
-<div class="section" id="id1">
-<h2>기본 자료형<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<section id="id1">
+<h2>기본 자료형<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
 <p>파이썬은 다양한 데이터 타입(자료형, Data Type)을 지원하고 있다.<br />
 <strong>데이터 타입</strong>은 데이터가 가지고 있는 속성을 의미하며, 데이터 타입에 따라 지원하는 연산이 다르다.<br />
 파이썬이 지원하는 몇 가지 주요 데이터 타입을 알아보고, 그에 따른 연산식을 표현해보자.</p>
@@ -552,10 +450,10 @@ title="Print to PDF"
 <p>다른 프로그래밍 언어에서는 실수형에 float과 double형이 존재하지만 파이썬에서는 double형은 따로 존재하지 않는다.</p>
 <p>또한 문자(char) 와 문자열(string)을 따로 분류하고 있지만, 파이썬에서는 문자 길이에 상관 없이 문자열로 다루고 있다.</p>
 </div>
-<div class="section" id="id2">
-<h3>숫자 데이터<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
-<div class="section" id="id3">
-<h4>정수형 데이터<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<section id="id2">
+<h3>숫자 데이터<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<section id="id3">
+<h4>정수형 데이터<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
 <p><strong>정수형 데이터</strong>는 0을 포함한 자연수이다. 예를들어, …, -100, -10, 0, 1, 10, 100, … 등이 정수형 데이터이다.</p>
 <div class="tip admonition">
 <p class="admonition-title">Tip</p>
@@ -585,9 +483,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id4">
-<h4>실수형 데이터<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="id4">
+<h4>실수형 데이터<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
 <p><strong>실수형 데이터</strong>는 소수점을 가진 수로 -5.432, 0.0, 5.0, 9.5, … 등이 실수형 데이터이다.</p>
 <p>컴퓨터에서 실수를 표현하는 방법은 정수에 비해 훨씬 복잡하다.</p>
 <p>실수를 표현하는 방법은 고정된 자릿수의 소수를 표현하는 <strong>고정소수점</strong> 방식과, 소수점의 위치를 고정하지 않는 <strong>부동소수점</strong> 방식이 있다.</p>
@@ -704,53 +602,53 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="numeric-operators">
-<h4>숫자형 연산자(Numeric operators)<a class="headerlink" href="#numeric-operators" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="numeric-operators">
+<h4>숫자형 연산자(Numeric operators)<a class="headerlink" href="#numeric-operators" title="Permalink to this heading">#</a></h4>
 <p>정수형, 실수형 데이터는 다음과 같은 산술연산자를 사용하여 연산이 가능하다.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>연산 기호</p></th>
-<th class="text-align:left head"><p>의미</p></th>
-<th class="text-align:center head"><p>예시</p></th>
-<th class="text-align:center head"><p>실행 결과</p></th>
+<tr class="row-odd"><th class="head text-center"><p>연산 기호</p></th>
+<th class="head text-left"><p>의미</p></th>
+<th class="head text-center"><p>예시</p></th>
+<th class="head text-center"><p>실행 결과</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
-<td class="text-align:left"><p>덧셈(Addition)</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">2</span></code></p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td class="text-left"><p>덧셈(Addition)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">2</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">4</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
-<td class="text-align:left"><p>뺄셈(Subtraction)</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">2.0</span> <span class="pre">-</span> <span class="pre">2.0</span></code></p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">-</span></code></p></td>
+<td class="text-left"><p>뺄셈(Subtraction)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">2.0</span> <span class="pre">-</span> <span class="pre">2.0</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
-<td class="text-align:left"><p>곱셈(Multiplication)</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code></p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">6</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td class="text-left"><p>곱셈(Multiplication)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">3</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">6</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
-<td class="text-align:left"><p>나눗셈(Division)</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">6</span> <span class="pre">/</span> <span class="pre">3</span></code></p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">2.0</span></code></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">/</span></code></p></td>
+<td class="text-left"><p>나눗셈(Division)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">6</span> <span class="pre">/</span> <span class="pre">3</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">2.0</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
-<td class="text-align:left"><p>버림나눗셈,몫(Floor division)</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">//</span> <span class="pre">2</span></code></p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">//</span></code></p></td>
+<td class="text-left"><p>버림나눗셈,몫(Floor division)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">10</span> <span class="pre">//</span> <span class="pre">2</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">5</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
-<td class="text-align:left"><p>나머지(Remainder)</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">%</span> <span class="pre">2</span></code></p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">%</span></code></p></td>
+<td class="text-left"><p>나머지(Remainder)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">%</span> <span class="pre">2</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">1</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
-<td class="text-align:left"><p>제곱(Square)</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">3</span></code></p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">8</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">**</span></code></p></td>
+<td class="text-left"><p>제곱(Square)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">**</span> <span class="pre">3</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">8</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -825,10 +723,10 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="id5">
-<h3>문자열 데이터<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+</section>
+</section>
+<section id="id5">
+<h3>문자열 데이터<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
 <p>문자열은 텍스트의 묶음으로 <strong>홑 따옴표, 쌍 따옴표, 트리플 따옴표</strong>로 묶어준다. 즉 코드에서 이들 기호를 만나면 문자열의 시작 또는 끝을 나타내는 기호로 인식한다. 문자열이 한줄인 경우에는 홑 따옴표, 쌍 따옴표, 트리플 따옴표 구분없이 사용 가능하다. 문자열이 여러줄인 경우, 이를 멀티라인 스트링(multi-line string)이라 부르는데, 이때에는 트리플 따옴표만 사용 가능하다.</p>
 <ul class="simple">
 <li><p>문자열을 작성해보자. 문자열을 print()에 넣지 않으면 홑 따옴표를 포함한 문자열을 출력한다. print()는 다음 장에서 설명하겠지만 문자열 또는 연산의 결과를 화면에 출력하라는 함수이다.</p></li>
@@ -990,19 +888,16 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>그녀는 &#39;블랙홀&#39;을 생각하면서 &quot;충치가 깊네요&quot; 라고 말했다.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="f-string">
-<h4>f-string<a class="headerlink" href="#f-string" title="Permalink to this headline">#</a></h4>
+<section id="f-string">
+<h4>f-string<a class="headerlink" href="#f-string" title="Permalink to this heading">#</a></h4>
 <p>f-string은 문자열 포맷팅(string formatting)이다. 문자열 앞에 f를 붙이면 값을 넣어서 문자열을 만들 수 있다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;민지&quot;</span>
 <span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">f</span><span class="s1">&#39;</span><span class="si">{name}</span><span class="s1">는 </span><span class="si">{age}</span><span class="s1">살이야&#39;</span>
+<span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">는 </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1">살이야&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1016,7 +911,7 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">f</span><span class="s1">&#39;Five plus ten is {a + b} and not {2 * (a + b)}.&#39;</span>
+<span class="sa">f</span><span class="s1">&#39;Five plus ten is </span><span class="si">{</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="si">}</span><span class="s1"> and not </span><span class="si">{</span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="si">}</span><span class="s1">.&#39;</span>
 </pre></div>
 </div>
 </div>
@@ -1026,28 +921,28 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="string-operators">
-<h4>문자열 연산자(String operators)<a class="headerlink" href="#string-operators" title="Permalink to this headline">#</a></h4>
+</section>
+<section id="string-operators">
+<h4>문자열 연산자(String operators)<a class="headerlink" href="#string-operators" title="Permalink to this heading">#</a></h4>
 <p>문자열도 +, * 연산자를 사용하는 것이 가능하다. 단, 문자열에서 +연산자는 문자열의 나열을 의미하며, *연산자는 문자열의 반복을 의미한다.</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
-<tr class="row-odd"><th class="text-align:center head"><p>연산 기호</p></th>
-<th class="text-align:left head"><p>의미</p></th>
-<th class="text-align:center head"><p>예시</p></th>
-<th class="text-align:center head"><p>실행 결과</p></th>
+<tr class="row-odd"><th class="head text-center"><p>연산 기호</p></th>
+<th class="head text-left"><p>의미</p></th>
+<th class="head text-center"><p>예시</p></th>
+<th class="head text-center"><p>실행 결과</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
-<td class="text-align:left"><p>덧셈(Addition)</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'hello'</span> <span class="pre">+</span> <span class="pre">'world'</span></code></p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">helloworld</span></code></p></td>
+<tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></td>
+<td class="text-left"><p>덧셈(Addition)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">'hello'</span> <span class="pre">+</span> <span class="pre">'world'</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">helloworld</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
-<td class="text-align:left"><p>곱셈(Multiplication)</p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">'hello'</span> <span class="pre">*</span> <span class="pre">3</span></code></p></td>
-<td class="text-align:center"><p><code class="docutils literal notranslate"><span class="pre">hellohellohello</span></code></p></td>
+<tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">*</span></code></p></td>
+<td class="text-left"><p>곱셈(Multiplication)</p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">'hello'</span> <span class="pre">*</span> <span class="pre">3</span></code></p></td>
+<td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">hellohellohello</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -1087,11 +982,11 @@ title="Print to PDF"
 </div>
 <p>결론은 데이터 타입이 달라 덧셈연산을 할수가 없어 에러가 나온다.</p>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="variable">
-<h2>변수(Variable)<a class="headerlink" href="#variable" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+</section>
+<section id="variable">
+<h2>변수(Variable)<a class="headerlink" href="#variable" title="Permalink to this heading">#</a></h2>
 <p>숫자가 숫자로만 존재하거나, 문자가 문자로만 남아있다면 활용성이 떨어진다. 프로그래밍에서는 숫자, 문자 등의 값(value)를 변수에 저장해 놓으면 훨씬 활용성을 높일 수 있다.</p>
 <p><strong>변수</strong>란 값을 저장하기 위한 이름을 가진 저장공간이며, <strong>대입 연산자</strong> 기호인 =를 이용하여 값을 저장한다.</p>
 <div class="cell docutils container">
@@ -1110,8 +1005,8 @@ title="Print to PDF"
 </div>
 </div>
 <p>변수는 필요한 만큼 여러개를 만들어 사용할 수 있다. 단 변수명을 지을때는 몇 가지 규칙이 있다.</p>
-<div class="section" id="id6">
-<h3>변수명 짓는 규칙<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<section id="id6">
+<h3>변수명 짓는 규칙<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>대소문자를 서로 다른 변수로 구별한다.</p></li>
 <li><p>문자, 숫자, _(under bar)로 이루어진다.</p></li>
@@ -1174,7 +1069,7 @@ str(42) 등과 같이 작성하면 기존에 정의된 기능이 동작하지 �
 <p>물론, 한글 변수명도 가능하다. 한글 변수명을 사용하라고 말하고 싶지만 해외 운영체제의 경우 한글이 깨질 수 있으므로 가급적 영문변수명 사용을 권장한다.</p>
 </div>
 <p>다음에서 변수명으로 사용할 수 있는 것을 모두 골라보자.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>sum</p></li>
 <li><p>_count</p></li>
 <li><p>2nd_base</p></li>
@@ -1182,9 +1077,9 @@ str(42) 등과 같이 작성하면 기존에 정의된 기능이 동작하지 �
 <li><p>True</p></li>
 <li><p>King3</p></li>
 </ol>
-</div>
-<div class="section" id="id7">
-<h3>변수에 데이터 저장하기<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="id7">
+<h3>변수에 데이터 저장하기<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
 <p>변수에 값을 저장해보자. 이를 프로그래밍에서는 변수에 값을 <strong>할당한다</strong>라고 말한다.
 변수에 값을 할당하려면 대입연산자 기호인 =를 기준으로 왼쪽에는 변수명, 오른쪽에는 값 또는 표현식을 적는다.</p>
 <p>아래 코드를 설명해보면,</p>
@@ -1307,28 +1202,11 @@ str(42) 등과 같이 작성하면 기존에 정의된 기능이 동작하지 �
 <li><p>아래 코드의 에러는 NameError로 주로 변수명을 정의하지 않고 사용하였을 때 발생한다.</p></li>
 <li><p>변수에 오타가 있을때도 만나게 되는데, 변수 eggs를 정의해놓고 라인 3에서는 eggz로 사용하여 eggz를 정의하지 않은 것으로 인식하여 발생한 경우이다.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eggs</span> <span class="o">=</span> <span class="mi">20</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">eggs</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">fizz</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">spam</span> <span class="o">=</span> <span class="n">fizz</span> <span class="o">+</span> <span class="n">eggz</span>
 <span class="n">spam</span>
 </pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">33</span><span class="o">-</span><span class="n">ba8dae9bd2c7</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">eggs</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fizz</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">spam</span> <span class="o">=</span> <span class="n">fizz</span> <span class="o">+</span> <span class="n">eggz</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">spam</span>
-
-<span class="ne">NameError</span>: name &#39;eggz&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p>변수 fizz, eggs를 정의하지 않고 사용하였는데 에러가 나오지 않는다. 그 이유는 간단하다.</p></li>
@@ -1341,11 +1219,21 @@ str(42) 등과 같이 작성하면 기존에 정의된 기능이 동작하지 �
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">33</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">fizz</span> <span class="o">+</span> <span class="n">eggs</span>
+
+<span class="ne">NameError</span>: name &#39;fizz&#39; is not defined
+</pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="id8">
-<h2>연습문제<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+</section>
+</section>
+<section id="id8">
+<h2>연습문제<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -1397,9 +1285,9 @@ str(42) 등과 같이 작성하면 기존에 정의된 기능이 동작하지 �
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="id9">
-<h2>마무리<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+</section>
+<section id="id9">
+<h2>마무리<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
 <p>지금까지 우리는 정수형, 실수형, 문자열 데이터 타입과 이들 데이터 타입에서 사용할 수 있는 주요 연산자를 학습했다. 또한 연산자를 활용하여 수식을 표현하는 방법을 배웠다.
 마지막으로 변수의 개념과 변수를 활용하는 연습을 해보았다.</p>
 <p>정리하자면,</p>
@@ -1410,8 +1298,8 @@ str(42) 등과 같이 작성하면 기존에 정의된 기능이 동작하지 �
 <li><p>변수에 새로운 값을 저장하면 이전에 있던 값은 사라진다.</p></li>
 <li><p>문자열을 표현하기 위해서는 문자열의 앞과 뒤에 홑 따옴표(‘), 쌍 따옴표(“), 트리플 따옴표(‘’’ 또는 “””) 기호를 붙인다.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1425,7 +1313,7 @@ str(42) 등과 같이 작성하면 기존에 정의된 기능이 동작하지 �
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true
@@ -1433,50 +1321,119 @@ str(42) 등과 같이 작성하면 기존에 정의된 기능이 동작하지 �
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="B_chapter0.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Chapter 0. 프로그래밍 언어와 파이썬</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="B_chapter0.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 0. 프로그래밍 언어와 파이썬</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="B_chapter2.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="B_chapter2.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Chapter 2. 입출력과 타입변환</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">기본 자료형</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">숫자 데이터</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">정수형 데이터</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">실수형 데이터</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numeric-operators">숫자형 연산자(Numeric operators)</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">문자열 데이터</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#f-string">f-string</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#string-operators">문자열 연산자(String operators)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variable">변수(Variable)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">변수명 짓는 규칙</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">변수에 데이터 저장하기</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">연습문제</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">마무리</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
   
-    By hs Byun<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
-</div>
+<p class="component-author">
+By hs Byun
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
 
-      </div>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
