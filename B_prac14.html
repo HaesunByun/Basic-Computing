@@ -3,12 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>실습 WEEK14 &#8212; First Adventures in Computing</title>
   
   
@@ -44,7 +43,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -73,7 +71,7 @@ var addUtterances = () => {
     script.src = "https://utteranc.es/client.js";
     script.async = "async";
 
-    script.setAttribute("repo", "haesunbyun/Basic-Computing");
+    script.setAttribute("repo", "HaesunByun/Basic-Computing");
     script.setAttribute("issue-term", "pathname");
     script.setAttribute("theme", "github-light");
     script.setAttribute("label", "💬 comment");
@@ -98,9 +96,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'B_prac14';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="팀프로젝트템플릿" href="B_%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%85%9C%ED%94%8C%EB%A6%BF.html" />
     <link rel="prev" title="실습 WEEK13" href="B_prac13.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -197,12 +196,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="B_prac5.html">실습 WEEK5</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_prac6.html">실습 WEEK6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_prac7.html">실습 WEEK7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_step1_%EC%9A%94%EA%B5%AC%EC%82%AC%ED%95%AD%EB%AA%85%EC%84%B8%EC%84%9C%ED%85%9C%ED%94%8C%EB%A6%BF.html">요구사항명세서템플릿</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_step2_%EC%A0%9C%EC%9E%91%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8%ED%85%9C%ED%94%8C%EB%A6%BF.html">제작프로그램템플릿</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_prac9.html">실습 WEEK9</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_prac10.html">실습 WEEK10</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_prac11.html">실습 WEEK11</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_prac12.html">실습 WEEK12</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_prac13.html">실습 WEEK13</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">실습 WEEK14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%85%9C%ED%94%8C%EB%A6%BF.html">팀프로젝트템플릿</a></li>
 </ul>
 
     </div>
@@ -257,7 +259,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/haesunbyun/Basic-Computing/blob/gh-pages/_sources/B_prac14.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/HaesunByun/Basic-Computing/blob/gh-pages/_sources/B_prac14.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -382,8 +384,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="week14">
-<h1>실습 WEEK14<a class="headerlink" href="#week14" title="Permalink to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="week14">
+<h1>실습 WEEK14<a class="headerlink" href="#week14" title="Permalink to this headline">#</a></h1>
 <div class="info admonition">
 <p class="admonition-title">안내</p>
 <ul class="simple">
@@ -395,7 +397,7 @@ document.write(`
 <li><p>질문은 사전, 도전, 완전 그리고 수업과 관련된 모든 것에  대하여 교수자 or 조교 or 튜터에게 하시면 됩니다.</p></li>
 </ul>
 </div>
-</section>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -433,6 +435,15 @@ document.write(`
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">실습 WEEK13</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="B_%ED%8C%80%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%ED%85%9C%ED%94%8C%EB%A6%BF.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">팀프로젝트템플릿</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
