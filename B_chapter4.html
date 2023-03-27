@@ -3,12 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 4. 반복문 &#8212; First Adventures in Computing</title>
   
   
@@ -44,7 +43,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -101,7 +99,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Chapter 5. 리스트" href="B_chapter5.html" />
     <link rel="prev" title="Chapter 3. 조건문" href="B_chapter3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -403,8 +401,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-4">
-<h1>Chapter 4. 반복문<a class="headerlink" href="#chapter-4" title="Permalink to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-4">
+<h1>Chapter 4. 반복문<a class="headerlink" href="#chapter-4" title="Permalink to this headline">#</a></h1>
 <p>반복(iteration)문은 동일한 문장을 반복해서 실행하는 구조이다. 이 장에서는 반복문 while과 for에 대해서 알아본다.</p>
 <div class="info admonition">
 <p class="admonition-title">학습목표와 기대효과 </p>
@@ -423,11 +421,11 @@ document.write(`
 </li>
 </ul>
 </div>
-<section id="while-loop">
-<h2>While loop<a class="headerlink" href="#while-loop" title="Permalink to this heading">#</a></h2>
+<div class="section" id="while-loop">
+<h2>While loop<a class="headerlink" href="#while-loop" title="Permalink to this headline">#</a></h2>
 <p>먼저, while문에 대해 알아보자.</p>
-<section id="while-statement">
-<h3>while statement<a class="headerlink" href="#while-statement" title="Permalink to this heading">#</a></h3>
+<div class="section" id="while-statement">
+<h3>while statement<a class="headerlink" href="#while-statement" title="Permalink to this headline">#</a></h3>
 <p>while문의 형식은 다음과 같다. 조건 뒤에는 반드시 콜론(:)이 있어야 하며, 조건이 True인 동안 while문 안에 있는 실행 문장을 실행한다. 이때 실행 문장은 반드시 들여쓰기가 되어 있어야 한다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">조건</span><span class="p">:</span>
     <span class="n">실행</span> <span class="n">문장1</span>
@@ -512,9 +510,9 @@ count=5
 </div>
 </div>
 </div>
-</section>
-<section id="break">
-<h3>break<a class="headerlink" href="#break" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="break">
+<h3>break<a class="headerlink" href="#break" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>while문의 조건 부분에 조건식이 아닌 True 또는 숫자 1을 넣어줄 수도 있다.</p></li>
 <li><p>이 경우에는 <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">True:</span></code> 또는 <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">1:</span></code> 이므로 조건의 결과가 항상 True가 되어 무한 반복하게 된다.</p></li>
@@ -547,9 +545,9 @@ count=5
 <p class="admonition-title">True와 False의 의미</p>
 <p>프로그래밍에서 True는 1의 값을 가지며, False는 0의 값을 가진다. 엄밀히 말하면 False와 0을 제외한 모든 값은 True의 의미를 가진다. 따라서 while ‘a’: 와 같이 써도 무한 반복된다.</p>
 </div>
-</section>
-<section id="sample-source-code-4">
-<h3>Sample Source Code #4<a class="headerlink" href="#sample-source-code-4" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="sample-source-code-4">
+<h3>Sample Source Code #4<a class="headerlink" href="#sample-source-code-4" title="Permalink to this headline">#</a></h3>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -584,9 +582,9 @@ count=5
 </div>
 </div>
 </div>
-</section>
-<section id="while-else">
-<h3>while ~ else<a class="headerlink" href="#while-else" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="while-else">
+<h3>while ~ else<a class="headerlink" href="#while-else" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>while문에도 else가 있다.</p></li>
 <li><p>while문의 else 파트는 while문이 정상적으로 모든 반복을 다 한 경우에만 실행한다.</p></li>
@@ -603,9 +601,9 @@ count=5
     <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;로그인에 실패했습니다.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-</section>
-<section id="sample-source-code-5">
-<h3>Sample Source Code #5<a class="headerlink" href="#sample-source-code-5" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="sample-source-code-5">
+<h3>Sample Source Code #5<a class="headerlink" href="#sample-source-code-5" title="Permalink to this headline">#</a></h3>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -623,9 +621,9 @@ count=5
 </div>
 </div>
 </div>
-</section>
-<section id="continue">
-<h3>continue<a class="headerlink" href="#continue" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="continue">
+<h3>continue<a class="headerlink" href="#continue" title="Permalink to this headline">#</a></h3>
 <p>반복문에서 continue를 만나면 continue 아래쪽에 있는 모든 코드는 실행하지 않고 while문이 있는 라인으로 이동한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -704,9 +702,9 @@ count=5
 </div>
 </div>
 </div>
-</section>
-<section id="while">
-<h3>while 중첩문<a class="headerlink" href="#while" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="while">
+<h3>while 중첩문<a class="headerlink" href="#while" title="Permalink to this headline">#</a></h3>
 <p>중첩 while문은 while문 안에 다른 while문이 들어 있는 것을 말한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -731,13 +729,13 @@ count=5
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="for-loop">
-<h2>for loop<a class="headerlink" href="#for-loop" title="Permalink to this heading">#</a></h2>
+</div>
+</div>
+<div class="section" id="for-loop">
+<h2>for loop<a class="headerlink" href="#for-loop" title="Permalink to this headline">#</a></h2>
 <p>while문이 주어진 조건에 대해 반복하는 것이였다면 for문은 주어진 범위에 대해 순회한다.</p>
-<section id="for-statements">
-<h3>for statements<a class="headerlink" href="#for-statements" title="Permalink to this heading">#</a></h3>
+<div class="section" id="for-statements">
+<h3>for statements<a class="headerlink" href="#for-statements" title="Permalink to this headline">#</a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">변수</span> <span class="ow">in</span> <span class="n">범위</span><span class="p">(</span><span class="n">반복가능한</span> <span class="n">것들</span><span class="p">):</span>
     <span class="n">statements</span>
 <span class="n">next_statements</span>
@@ -759,11 +757,11 @@ count=5
 <li><p>끝: 범위의 끝값이며, 끝값은 범위에 미포함이다.</p></li>
 <li><p>간격: 범위의 간격이며, 생략하면 1이다.</p></li>
 </ul>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p>사용 방법</p></th>
-<th class="head text-left"><p>의미</p></th>
-<th class="head text-left"><p>예시</p></th>
+<tr class="row-odd"><th class="text-center head"><p>사용 방법</p></th>
+<th class="text-left head"><p>의미</p></th>
+<th class="text-left head"><p>예시</p></th>
 </tr>
 </thead>
 <tbody>
@@ -981,9 +979,9 @@ play park
 </div>
 </div>
 </div>
-</section>
-<section id="for-else">
-<h3>for~else<a class="headerlink" href="#for-else" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="for-else">
+<h3>for~else<a class="headerlink" href="#for-else" title="Permalink to this headline">#</a></h3>
 <p>for문에도 else가 있다. while ~ else와 마찬가지로 for문이 정상적으로 모든 반복을 다 한 경우에만 실행한다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">변수</span> <span class="ow">in</span> <span class="n">리스트</span><span class="p">(</span><span class="ow">or</span> <span class="n">문자열</span> <span class="n">등</span><span class="p">)</span> <span class="p">:</span>
     <span class="n">statements1</span>
@@ -1018,9 +1016,9 @@ END
 </div>
 </div>
 </div>
-</section>
-<section id="for">
-<h3>for 중첩문<a class="headerlink" href="#for" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="for">
+<h3>for 중첩문<a class="headerlink" href="#for" title="Permalink to this headline">#</a></h3>
 <p>중첩 for문은 for문 안에 다른 for문이 들어 있는 것을 말한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1124,10 +1122,10 @@ END
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="id1">
-<h2>마무리<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>마무리<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>반복구조는 조건 또는 범위에 따라 실행문장을 반복한다.</p></li>
 <li><p>while문은 조건비교 결과가 True인 동안 블록 소스코드를 반복 수행한다.</p></li>
@@ -1136,8 +1134,8 @@ END
 <li><p>for 다음의 변수는 in 뒤에 있는 자료값을 하나씩 차례대로 저장한다.</p></li>
 <li><p>for문은 숫자값의 범위를 만들어주는 range()함수를 유용하게 활용한다.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {

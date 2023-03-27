@@ -3,12 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Chapter 5. 리스트 &#8212; First Adventures in Computing</title>
   
   
@@ -44,7 +43,6 @@
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
@@ -100,7 +98,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Chapter 4. 반복문" href="B_chapter4.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -408,8 +406,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="chapter-5">
-<h1>Chapter 5. 리스트<a class="headerlink" href="#chapter-5" title="Permalink to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-5">
+<h1>Chapter 5. 리스트<a class="headerlink" href="#chapter-5" title="Permalink to this headline">#</a></h1>
 <div class="info admonition">
 <p class="admonition-title">학습목표와 기대효과 </p>
 <ul class="simple">
@@ -428,8 +426,8 @@ document.write(`
 </li>
 </ul>
 </div>
-<div align="center"><img src="https://haesunbyun.github.io/common/images/list1.png" style="width:500px;"></div><section id="id1">
-<h2>리스트 생성<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/list1.png" style="width:500px;"></div><div class="section" id="id1">
+<h2>리스트 생성<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>리스트는 숫자, 문자, 리스트, 딕셔너리 등 어떠한 데이터 타입이든 다 담을 수 있는 만물박스이다.</p></li>
 <li><p>리스트는 대괄호[   ]로 묶어준다.</p></li>
@@ -440,8 +438,8 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">아이템1</span><span class="p">,</span> <span class="n">아이템2</span><span class="p">,</span> <span class="n">아이템3</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">아이템n</span><span class="p">]</span>
 </pre></div>
 </div>
-<section id="id2">
-<h3>직접 생성<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<div class="section" id="id2">
+<h3>직접 생성<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>대괄호 안에 아이템을 콤마로 나열하여 직접 생성할 수 있다.</p></li>
 <li><p>아이템없이 대괄호만 있으면 비어있는 리스트를 생성한다.</p></li>
@@ -457,9 +455,9 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="list">
-<h3>list() 함수로 생성<a class="headerlink" href="#list" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="list">
+<h3>list() 함수로 생성<a class="headerlink" href="#list" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>list() 함수는 빈 리스트, 숫자리스트, 문자열을 낱개문자로 분리하여 리스트로 만드는 함수이다.</p></li>
 </ul>
@@ -488,11 +486,11 @@ document.write(`
 </div>
 <div class="tip admonition">
 <p class="admonition-title">range() 함수  </p>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p>사용 방법</p></th>
-<th class="head text-left"><p>의미</p></th>
-<th class="head text-left"><p>예시</p></th>
+<tr class="row-odd"><th class="text-center head"><p>사용 방법</p></th>
+<th class="text-left head"><p>의미</p></th>
+<th class="text-left head"><p>예시</p></th>
 </tr>
 </thead>
 <tbody>
@@ -523,11 +521,11 @@ document.write(`
 <ul class="simple">
 <li><p>문자열을 각 문자로 분리하여 리스트를 생성한다.</p></li>
 </ul>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p>사용 방법</p></th>
-<th class="head text-left"><p>의미</p></th>
-<th class="head text-left"><p>예시</p></th>
+<tr class="row-odd"><th class="text-center head"><p>사용 방법</p></th>
+<th class="text-left head"><p>의미</p></th>
+<th class="text-left head"><p>예시</p></th>
 </tr>
 </thead>
 <tbody>
@@ -550,24 +548,24 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-<section id="split">
-<h3>split() 메서드로 생성<a class="headerlink" href="#split" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="split">
+<h3>split() 메서드로 생성<a class="headerlink" href="#split" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>split() 함수는 문자열을 특정 기준에 따라 분리하여 리스트로 만드는 함수이다.</p></li>
 <li><p>문자열을 괄호안의 ‘분리기준’으로 분리하며, 괄호안에 분리기준이 없으면 공백을 기준으로 분리한다.</p></li>
 <li><p>분리되면서 분리기준은 제거된다.</p></li>
 </ul>
-<table class="table">
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p>사용 방법</p></th>
-<th class="head text-left"><p>의미</p></th>
-<th class="head text-left"><p>예시</p></th>
+<tr class="row-odd"><th class="text-center head"><p>사용 방법</p></th>
+<th class="text-left head"><p>의미</p></th>
+<th class="text-left head"><p>예시</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">split()</span></code></p></td>
-<td class="text-left"><p>공백(’ ‘)을 기준으로 문자열을 나눠 리스트를 생성</p></td>
+<td class="text-left"><p>공백(‘ ‘)을 기준으로 문자열을 나눠 리스트를 생성</p></td>
 <td class="text-left"><p>‘1 2 3 4 5’.split() → [‘1’, ‘2’, ‘3’, ‘4’, ‘5’]</p></td>
 </tr>
 <tr class="row-odd"><td class="text-center"><p><code class="docutils literal notranslate"><span class="pre">split(분리기준)</span></code></p></td>
@@ -611,15 +609,15 @@ document.write(`
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="indexing">
-<h2>인덱싱(Indexing)<a class="headerlink" href="#indexing" title="Permalink to this heading">#</a></h2>
+</div>
+</div>
+<div class="section" id="indexing">
+<h2>인덱싱(Indexing)<a class="headerlink" href="#indexing" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p><strong>인덱스</strong>는 리스트 내 아이템의 주소이다. 즉, 아이템에 접근하기 위해 인덱스를 사용한다.</p></li>
 </ul>
-<section id="positive-index">
-<h3>양의 인덱스(positive index)<a class="headerlink" href="#positive-index" title="Permalink to this heading">#</a></h3>
+<div class="section" id="positive-index">
+<h3>양의 인덱스(positive index)<a class="headerlink" href="#positive-index" title="Permalink to this headline">#</a></h3>
 <p>positive index는 가장 왼쪽 아이템에서 0부터 시작하여 오른쪽으로 1씩 증가한다.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -659,9 +657,9 @@ banana
 </div>
 </div>
 </div>
-</section>
-<section id="negative-index">
-<h3>음의 인덱스(negative index)<a class="headerlink" href="#negative-index" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="negative-index">
+<h3>음의 인덱스(negative index)<a class="headerlink" href="#negative-index" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>negative index는 가장 오른쪽 끝 아이템에서 -1부터 시작하여 왼쪽으로 1씩 감소한다.</p></li>
 </ul>
@@ -685,9 +683,9 @@ banana
 <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="o">-</span><span class="mi">5</span><span class="p">])</span>
 </pre></div>
 </div>
-</section>
-<section id="id3">
-<h3>아이템 수정<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="id3">
+<h3>아이템 수정<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>리스트안의 아이템은 인덱스를 이용하여 수정한다.</p></li>
 </ul>
@@ -711,10 +709,10 @@ banana
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="slicing">
-<h2>슬라이싱(Slicing)<a class="headerlink" href="#slicing" title="Permalink to this heading">#</a></h2>
+</div>
+</div>
+<div class="section" id="slicing">
+<h2>슬라이싱(Slicing)<a class="headerlink" href="#slicing" title="Permalink to this headline">#</a></h2>
 <p>슬라이싱이란 리스트의 아이템 일부를 자르는 것이다. 형식은 다음과 같다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">리스트변수</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">:</span><span class="n">step</span><span class="p">]</span>
 </pre></div>
@@ -854,14 +852,14 @@ thon
 </pre></div>
 </div>
 </div>
-</section>
-<section id="id4">
-<h2>리스트 주요 메서드<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
-<table class="table">
+</div>
+<div class="section" id="id4">
+<h2>리스트 주요 메서드<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p>사용 방법</p></th>
-<th class="head text-left"><p>의미</p></th>
-<th class="head text-left"><p>예시(a=[‘a’,’b’,’c’]일 때)</p></th>
+<tr class="row-odd"><th class="text-center head"><p>사용 방법</p></th>
+<th class="text-left head"><p>의미</p></th>
+<th class="text-left head"><p>예시(a=[‘a’,’b’,’c’]일 때)</p></th>
 </tr>
 </thead>
 <tbody>
@@ -915,8 +913,8 @@ thon
 </tr>
 </tbody>
 </table>
-<section id="id5">
-<h3>아이템 추가<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h3>
+<div class="section" id="id5">
+<h3>아이템 추가<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>append() 메서드는 아이템을 마지막에 추가한다.</p></li>
 <li><p>append() 메서드는 반환값이 없다. 따라서 print(shape.append(200))와 같이 쓰면 ‘None’이 출력된다.</p></li>
@@ -946,9 +944,9 @@ None
 </div>
 </div>
 </div>
-</section>
-<section id="insert-index-data">
-<h3>아이템 삽입 insert(index, data)<a class="headerlink" href="#insert-index-data" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="insert-index-data">
+<h3>아이템 삽입 insert(index, data)<a class="headerlink" href="#insert-index-data" title="Permalink to this headline">#</a></h3>
 <p>-리스트의 인덱스 위치에 값을 삽입힌다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">리스트변수명</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">인덱스</span><span class="p">,</span><span class="n">값</span><span class="p">)</span>
 </pre></div>
@@ -968,9 +966,9 @@ None
 </div>
 </div>
 </div>
-</section>
-<section id="id6">
-<h3>아이템 인덱스 번호 찾기<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="id6">
+<h3>아이템 인덱스 번호 찾기<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>아이템의 인덱스 번호를 반환한다.</p></li>
 <li><p>아이템이 없으면 에러가 난다.
@@ -989,9 +987,9 @@ None
 </div>
 </div>
 </div>
-</section>
-<section id="id7">
-<h3>아이템 제거<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="id7">
+<h3>아이템 제거<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>아이템을 제거한다.</p></li>
 <li><p>아이템이 없으면 에러가 난다.
@@ -1094,16 +1092,16 @@ Input Sample</p>
 </div>
 </div>
 </div>
-</section>
-</section>
-<section id="id8">
-<h2>리스트 연산자<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
-<table class="table">
+</div>
+</div>
+<div class="section" id="id8">
+<h2>리스트 연산자<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<table class="colwidths-auto table">
 <thead>
-<tr class="row-odd"><th class="head text-center"><p>연산 기호</p></th>
-<th class="head text-center"><p>의미</p></th>
-<th class="head text-center"><p>예시</p></th>
-<th class="head text-center"><p>실행 결과</p></th>
+<tr class="row-odd"><th class="text-center head"><p>연산 기호</p></th>
+<th class="text-center head"><p>의미</p></th>
+<th class="text-center head"><p>예시</p></th>
+<th class="text-center head"><p>실행 결과</p></th>
 </tr>
 </thead>
 <tbody>
@@ -1146,9 +1144,9 @@ Input Sample</p>
 </div>
 </div>
 </div>
-</section>
-<section id="list-comprehension">
-<h2>List comprehension(리스트 축약법)<a class="headerlink" href="#list-comprehension" title="Permalink to this heading">#</a></h2>
+</div>
+<div class="section" id="list-comprehension">
+<h2>List comprehension(리스트 축약법)<a class="headerlink" href="#list-comprehension" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>리스트를 생성할 때 더 간결한 방법으로 생성하는 문법이다.</p></li>
 <li><p>대괄호안에 for문이나 if문을 이용해 한 줄의 코드로 리스트를 만든다.</p></li>
@@ -1172,7 +1170,9 @@ Input Sample</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>풀어 쓴 코드======
-[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 축약형 코드======
 [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
 </pre></div>
@@ -1256,9 +1256,9 @@ Input Sample</p>
 </div>
 </div>
 </div>
-</section>
-<section id="id9">
-<h2>마무리<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+</div>
+<div class="section" id="id9">
+<h2>마무리<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>list는 다수의 데이터를 묶어 하나의 변수로 처리할 때 유용하다.</p></li>
 <li><p>리스트의 인덱스는 0부터 시작한다.</p></li>
@@ -1272,8 +1272,8 @@ Input Sample</p>
 <li><p>아이템의 인덱스 번호를 검색할 때에는 객체명.index( )를 활용한다.</p></li>
 <li><p>리스트의 아이템 정렬은 sort()와 sorted()를 활용한다.</p></li>
 </ul>
-</section>
-</section>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
