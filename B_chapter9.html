@@ -591,7 +591,7 @@ document.write(`
 <div class="section" id="urlopen">
 <h3>urlopen()으로 웹페이지 가져오기<a class="headerlink" href="#urlopen" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>웹크롤링을 하기 위해서는 먼저 웹페이지에서 접속부터 해야 한다.</p></li>
+<li><p>웹크롤링을 하기 위해서는 먼저 웹페이지에 접속부터 해야 한다.</p></li>
 <li><p>파이썬으로 웹페이지에 접속하기 위해서는 urllib.request 모듈의 urlopen() 함수를 통해 할 수 있다.</p>
 <ul>
 <li><p>urllib 패키지는 URL과 관련된 작업을 하기 위한 여러 모듈을 모은 패키지로, 그중에서 urllib.request 모듈은 URL을 여는것과 관련한 다양한 함수를 제공하고 있다.</p></li>
@@ -611,7 +611,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;http.client.HTTPResponse object at 0x000001865AB06308&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;http.client.HTTPResponse object at 0x000001C82506BB88&gt;
 </pre></div>
 </div>
 </div>
@@ -770,7 +770,7 @@ All I need is Love.
 </div>
 <ul class="simple">
 <li><p>점(.)을 통한 태그 접근은 반드시 순서대로 해야 하는 것은 아니다.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;body&gt;&lt;div&gt;&lt;p&gt;</span></code>태그가 차례대로 있는데 이 중 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>태그에 접근하려면 soup.p로 쓰면 현재 위치에서 아래쪽으로 가장 가까운 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>태그로 이동한다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;body&gt;&lt;div&gt;&lt;p&gt;</span></code>태그가 차례대로 있는데 이 중 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>태그에 접근하려면 soup.p로 쓰면 soup의 현재 위치인 가장 바깥쪽인 <html> 태그에서 아래쪽으로 가장 가까운 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>태그로 이동한다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -792,7 +792,7 @@ All I need is Love.
 <li><p>같은 부모 태그를 갖는 태그들을 형제(sibling)라고 하는데, 예를 들어,</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;p</span> <span class="pre">class=&quot;inner-text</span> <span class="pre">first-item&quot;</span> <span class="pre">...&gt;</span></code> 태그와, <code class="docutils literal notranslate"><span class="pre">&lt;p</span> <span class="pre">class=&quot;inner-text</span> <span class="pre">second-item&quot;&gt;</span></code>는 형제 태그이다.</p></li>
-<li><p>그런데 이 두 태그만 형제인 것이 아니다. 사실 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>태그와 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>태그 사이에는 줄바꿈 기호(‘\n’)가 들어가 있다. 즉, 줄바꿈 기호도 이들의 형제 태그이다.</p></li>
+<li><p>그런데 이 두 태그만 형제인 것이 아니다. 사실 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>태그와 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>태그 사이에는 줄바꿈 기호(‘\n’)가 들어가 있다. 즉, 줄바꿈 기호도 이들의 형제이다.</p></li>
 <li><p>이 셋의 부모 태그는 <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> 태그이다.</p></li>
 </ul>
 </li>
@@ -858,7 +858,7 @@ All I need is Love.
 </ul>
 </li>
 <li><p>text: 현재 태그를 포함하여 모든 하위 태그에 있는 텍스트를 추출한다.</p></li>
-<li><p>.string: 태그에 문자열이 하나인 경우만 추출가능하다.</p></li>
+<li><p>.string: 태그에 컨텐츠가 하나인 경우만 추출가능하다.</p></li>
 </ul>
 </li>
 <li><p>get_text()와 text는 정확히 동일한 결과를 반환한다. 차이점이 있다면 get_text()의 경우 괄호안에 별도의 옵션을 줄 수 있다는 것이다. 예) get_text(strip=True)</p></li>
@@ -948,7 +948,7 @@ All I need is Love.
 </div>
 </div>
 <ul class="simple">
-<li><p>soup.a 태그에는 문자열이 하나이므로 .string으로 문자열 추출이 가능하다.</p></li>
+<li><p>soup.a 태그에는 컨텐츠가 하나이므로 .string으로 문자열 추출이 가능하다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -963,7 +963,7 @@ All I need is Love.
 </div>
 </div>
 <ul class="simple">
-<li><p>soup에는 하위태그도 많고 문자열도 여러개 이므로 .string으로 추출할 수 없다.</p></li>
+<li><p>soup에는 하위태그도 많은데다가 각 하위태그마다 컨텐츠가 있어서, 컨텐츠가 여러개 이므로 .string으로 추출할 수 없다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1271,7 +1271,9 @@ Python
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;inner-text&#39;, &#39;first-item&#39;]
-[&#39;inner-text&#39;, &#39;second-item&#39;]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;inner-text&#39;, &#39;second-item&#39;]
 [&#39;outer-text&#39;, &#39;first-item&#39;]
 [&#39;outer-text&#39;]
 </pre></div>
