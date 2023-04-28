@@ -394,9 +394,16 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">속성값 추출하기</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">개발자 도구 활용하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">1단계: urlopen()으로 웹페이지를 가져오기</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">2단계: BeautifulSoup()으로 파싱하기</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">3단계: 개발자 도구 활용</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#find-all">4단계: find_all()로 찾기</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">마무리</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">마무리</a></li>
 </ul>
             </nav>
         </div>
@@ -611,7 +618,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;http.client.HTTPResponse object at 0x000001C82506BB88&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;http.client.HTTPResponse object at 0x000001A8C76F3508&gt;
 </pre></div>
 </div>
 </div>
@@ -729,7 +736,7 @@ All I need is Love.
 </div>
 </div>
 </div>
-<p>😄 웹사이트 <a class="reference external" href="https://haesunbyun.github.io/Basic-Computing/mypage3.html%EC%9D%98">https://haesunbyun.github.io/Basic-Computing/mypage3.html의</a> 페이지를 크롤링해와서 변수 mysoup에 저장하고 그 결과를 출력하시오.</p>
+<p>😄 웹사이트 <a class="reference external" href="https://haesunbyun.github.io/Basic-Computing/mypage3.html">https://haesunbyun.github.io/Basic-Computing/mypage3.html</a> 의 페이지를 크롤링해와서 변수 page에 저장하고 page를 HTML코드로 파싱하고 그 결과를 mysoup에 저장한 후 출력하시오.</p>
 <div class="section" id="id3">
 <h4>태그로 이동<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
@@ -1271,9 +1278,7 @@ Python
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;inner-text&#39;, &#39;first-item&#39;]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;inner-text&#39;, &#39;second-item&#39;]
+[&#39;inner-text&#39;, &#39;second-item&#39;]
 [&#39;outer-text&#39;, &#39;first-item&#39;]
 [&#39;outer-text&#39;]
 </pre></div>
@@ -1308,9 +1313,1264 @@ https://www.python.org : Python
 </div>
 </div>
 </div>
-</div>
 <div class="section" id="id8">
-<h2>마무리<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<h3>개발자 도구 활용하기<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>앞에서 말했던 바와 같이 HTML 문서는 매우 길고 많은 태그들이 중첩되어 있어서 구조를 파악하기가 쉽지 않다.</p></li>
+<li><p>이를 위해 웹페이지의 구조를 파악하기 쉽도록 구조를 보여주는 도구가 바로 <code class="docutils literal notranslate"><span class="pre">개발자</span> <span class="pre">도구</span></code>이다.</p></li>
+<li><p>개발자 도구는 브라우저에서 일반적으로 <code class="docutils literal notranslate"><span class="pre">오른쪽</span> <span class="pre">상단에</span> <span class="pre">(...)를</span> <span class="pre">클릭하여</span> <span class="pre">도구</span> <span class="pre">더보기</span> <span class="pre">&gt;</span> <span class="pre">개발자</span> <span class="pre">도구</span></code>를 클릭하면 보인다.</p></li>
+<li><p>단축키는 F12 또는 Ctrl+Shift+I이다.</p></li>
+<li><p>개발자 도구를 활용하여 태그를 찾아보는 연습을 해보자.</p></li>
+</ul>
+<div class="section" id="id9">
+<h4>1단계: urlopen()으로 웹페이지를 가져오기<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>예를 들어, 네이버 증권의 시장지표 사이트를 크롤링해보자.</p></li>
+<li><p>웹에서 추출하고자 데이터는 네이버 증권사이트에서 환전 고시 환율, 국제 시장 환율, 유가.금시세라고 가정해보자.</p></li>
+<li><p>먼저, 크롬 브라우저를 활용해 네이버에 접속해서 증권 메뉴에서 시장지표를 클릭하여 해당사이트까지 이동한다.</p></li>
+<li><p>브라우저의 주소 입력창에 나오는 링크를 복사한다.</p></li>
+<li><p>아래 코드의 urlopen()함수의 괄호안에 붙여넣는다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https://finance.naver.com/marketindex/&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;http.client.HTTPResponse object at 0x000001A8C8C8E688&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h4>2단계: BeautifulSoup()으로 파싱하기<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>BeautifulSoup()을 활용해 HTML 파싱을 해서 soup객체로 만든다.</p></li>
+<li><p>여기까지는 앞에서 했던 것과 동일하다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="n">soup</span><span class="o">=</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span><span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;script language=&quot;javascript&quot; src=&quot;/template/head_js.naver?referer=info.finance.naver.com&amp;amp;menu=marketindex&amp;amp;submenu=market&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/info/jindo.min.ns.1.5.3.euckr.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindo.1.5.3.element-text-patch.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;div id=&quot;container&quot; style=&quot;padding-bottom:0px;&quot;&gt;
+&lt;div class=&quot;market_include&quot;&gt;
+&lt;div class=&quot;market_data&quot;&gt;
+&lt;div class=&quot;market1&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;
+&lt;h2 class=&quot;h_market1&quot;&gt;&lt;span&gt;환전 고시 환율&lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;!-- data --&gt;
+&lt;div class=&quot;data&quot;&gt;
+&lt;ul class=&quot;data_lst&quot; id=&quot;exchangeList&quot;&gt;
+&lt;li class=&quot;on&quot;&gt;
+&lt;a class=&quot;head usd&quot; href=&quot;/marketindex/exchangeDetail.naver?marketindexCd=FX_USDKRW&quot; onclick=&quot;clickcr(this, &#39;fr1.usdt&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;미국 USD&lt;/span&gt;&lt;/h3&gt;
+&lt;div class=&quot;head_info point_dn&quot;&gt;
+&lt;span class=&quot;value&quot;&gt;1,339.80&lt;/span&gt;
+&lt;span class=&quot;txt_krw&quot;&gt;&lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;change&quot;&gt; 2.20&lt;/span&gt;
+&lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a class=&quot;graph_img&quot; href=&quot;/marketindex/exchangeDetail.naver?marketindexCd=FX_USDKRW&quot; onclick=&quot;clickcr(this, &#39;fr1.usdc&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;153&quot; src=&quot;https://ssl.pstatic.net/imgfinance/chart/marketindex/FX_USDKRW.png&quot; width=&quot;295&quot;/&gt;
+&lt;/a&gt;
+&lt;div class=&quot;graph_info&quot;&gt;
+&lt;span class=&quot;time&quot;&gt;2023.04.28 12:39&lt;/span&gt;
+&lt;span class=&quot;source&quot;&gt;하나은행 기준&lt;/span&gt;
+&lt;span class=&quot;count&quot;&gt;고시회차&lt;span class=&quot;num&quot;&gt;226&lt;/span&gt;회&lt;/span&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class=&quot;&quot;&gt;
+&lt;a class=&quot;head jpy&quot; href=&quot;/marketindex/exchangeDetail.naver?marketindexCd=FX_JPYKRW&quot; onclick=&quot;clickcr(this, &#39;fr1.jpyt&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;일본 JPY(100엔)&lt;/span&gt;&lt;/h3&gt;
+&lt;div class=&quot;head_info point_up&quot;&gt;
+&lt;span class=&quot;value&quot;&gt;1,001.31&lt;/span&gt;
+&lt;span class=&quot;txt_krw&quot;&gt;&lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;change&quot;&gt;0.08&lt;/span&gt;
+&lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a class=&quot;graph_img&quot; href=&quot;/marketindex/exchangeDetail.naver?marketindexCd=FX_JPYKRW&quot; onclick=&quot;clickcr(this, &#39;fr1.jpyc&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;153&quot; src=&quot;https://ssl.pstatic.net/imgfinance/chart/marketindex/FX_JPYKRW.png&quot; width=&quot;295&quot;/&gt;
+&lt;/a&gt;
+&lt;div class=&quot;graph_info&quot;&gt;
+&lt;span class=&quot;time&quot;&gt;2023.04.28 12:39&lt;/span&gt;
+&lt;span class=&quot;source&quot;&gt;하나은행 기준&lt;/span&gt;
+&lt;span class=&quot;count&quot;&gt;고시회차&lt;span class=&quot;num&quot;&gt;226&lt;/span&gt;회&lt;/span&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class=&quot;&quot;&gt;
+&lt;a class=&quot;head eur&quot; href=&quot;/marketindex/exchangeDetail.naver?marketindexCd=FX_EURKRW&quot; onclick=&quot;clickcr(this, &#39;fr1.eurt&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;유럽연합 EUR&lt;/span&gt;&lt;/h3&gt;
+&lt;div class=&quot;head_info point_dn&quot;&gt;
+&lt;span class=&quot;value&quot;&gt;1,476.46&lt;/span&gt;
+&lt;span class=&quot;txt_krw&quot;&gt;&lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;change&quot;&gt; 1.89&lt;/span&gt;
+&lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a class=&quot;graph_img&quot; href=&quot;/marketindex/exchangeDetail.naver?marketindexCd=FX_EURKRW&quot; onclick=&quot;clickcr(this, &#39;fr1.eurc&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;153&quot; src=&quot;https://ssl.pstatic.net/imgfinance/chart/marketindex/FX_EURKRW.png&quot; width=&quot;295&quot;/&gt;
+&lt;/a&gt;
+&lt;div class=&quot;graph_info&quot;&gt;
+&lt;span class=&quot;time&quot;&gt;2023.04.28 12:39&lt;/span&gt;
+&lt;span class=&quot;source&quot;&gt;하나은행 기준&lt;/span&gt;
+&lt;span class=&quot;count&quot;&gt;고시회차&lt;span class=&quot;num&quot;&gt;226&lt;/span&gt;회&lt;/span&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class=&quot;&quot;&gt;
+&lt;a class=&quot;head cny&quot; href=&quot;/marketindex/exchangeDetail.naver?marketindexCd=FX_CNYKRW&quot; onclick=&quot;clickcr(this, &#39;fr1.cnyt&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;중국 CNY&lt;/span&gt;&lt;/h3&gt;
+&lt;div class=&quot;head_info point_up&quot;&gt;
+&lt;span class=&quot;value&quot;&gt;193.52&lt;/span&gt;
+&lt;span class=&quot;txt_krw&quot;&gt;&lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;change&quot;&gt;0.16&lt;/span&gt;
+&lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a class=&quot;graph_img&quot; href=&quot;/marketindex/exchangeDetail.naver?marketindexCd=FX_CNYKRW&quot; onclick=&quot;clickcr(this, &#39;fr1.cnyc&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;153&quot; src=&quot;https://ssl.pstatic.net/imgfinance/chart/marketindex/FX_CNYKRW.png&quot; width=&quot;295&quot;/&gt;
+&lt;/a&gt;
+&lt;div class=&quot;graph_info&quot;&gt;
+&lt;span class=&quot;time&quot;&gt;2023.04.28 12:39&lt;/span&gt;
+&lt;span class=&quot;source&quot;&gt;하나은행 기준&lt;/span&gt;
+&lt;span class=&quot;count&quot;&gt;고시회차&lt;span class=&quot;num&quot;&gt;226&lt;/span&gt;회&lt;/span&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- //data --&gt;
+&lt;/div&gt;
+&lt;div class=&quot;market2&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;
+&lt;h2 class=&quot;h_market2&quot;&gt;&lt;span&gt;국제 시장 환율&lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;!-- data --&gt;
+&lt;div class=&quot;data&quot;&gt;
+&lt;ul class=&quot;data_lst&quot; id=&quot;worldExchangeList&quot;&gt;
+&lt;li class=&quot;on&quot;&gt;
+&lt;a class=&quot;head jpy_usd&quot; href=&quot;/marketindex/worldExchangeDetail.naver?marketindexCd=FX_USDJPY&quot; onclick=&quot;clickcr(this, &#39;fr2.jpyut&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;달러/일본 엔&lt;/span&gt;&lt;/h3&gt;
+&lt;div class=&quot;head_info point_up&quot;&gt;
+&lt;span class=&quot;value&quot;&gt;134.1100&lt;/span&gt;
+&lt;span class=&quot;txt_jpy&quot;&gt;&lt;span class=&quot;blind&quot;&gt;엔&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;change&quot;&gt;0.7600&lt;/span&gt;
+&lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a class=&quot;graph_img&quot; href=&quot;/marketindex/worldExchangeDetail.naver?marketindexCd=FX_USDJPY&quot; onclick=&quot;clickcr(this, &#39;fr2.jpyuc&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;153&quot; src=&quot;https://ssl.pstatic.net/imgfinance/chart/marketindex/FX_USDJPY.png&quot; width=&quot;295&quot;/&gt;
+&lt;/a&gt;
+&lt;div class=&quot;graph_info&quot;&gt;
+&lt;span class=&quot;time&quot;&gt;2023.04.27&lt;/span&gt;
+&lt;span class=&quot;source&quot;&gt;모닝스타 기준&lt;/span&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class=&quot;&quot;&gt;
+&lt;a class=&quot;head usd_eur&quot; href=&quot;/marketindex/worldExchangeDetail.naver?marketindexCd=FX_EURUSD&quot; onclick=&quot;clickcr(this, &#39;fr2.eurdt&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;유로/달러&lt;/span&gt;&lt;/h3&gt;
+&lt;div class=&quot;head_info point_dn&quot;&gt;
+&lt;span class=&quot;value&quot;&gt;1.1011&lt;/span&gt;
+&lt;span class=&quot;txt_usd&quot;&gt;&lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;change&quot;&gt; 0.0032&lt;/span&gt;
+&lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a class=&quot;graph_img&quot; href=&quot;/marketindex/worldExchangeDetail.naver?marketindexCd=FX_EURUSD&quot; onclick=&quot;clickcr(this, &#39;fr2.eurdc&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;153&quot; src=&quot;https://ssl.pstatic.net/imgfinance/chart/marketindex/FX_EURUSD.png&quot; width=&quot;295&quot;/&gt;
+&lt;/a&gt;
+&lt;div class=&quot;graph_info&quot;&gt;
+&lt;span class=&quot;time&quot;&gt;2023.04.27&lt;/span&gt;
+&lt;span class=&quot;source&quot;&gt;모닝스타 기준&lt;/span&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class=&quot;&quot;&gt;
+&lt;a class=&quot;head usd_gbp&quot; href=&quot;/marketindex/worldExchangeDetail.naver?marketindexCd=FX_GBPUSD&quot; onclick=&quot;clickcr(this, &#39;fr2.gbpdt&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;영국 파운드/달러&lt;/span&gt;&lt;/h3&gt;
+&lt;div class=&quot;head_info point_dn&quot;&gt;
+&lt;span class=&quot;value&quot;&gt;1.2466&lt;/span&gt;
+&lt;span class=&quot;txt_usd&quot;&gt;&lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;change&quot;&gt; 0.0002&lt;/span&gt;
+&lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a class=&quot;graph_img&quot; href=&quot;/marketindex/worldExchangeDetail.naver?marketindexCd=FX_GBPUSD&quot; onclick=&quot;clickcr(this, &#39;fr2.gbpdc&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;153&quot; src=&quot;https://ssl.pstatic.net/imgfinance/chart/marketindex/FX_GBPUSD.png&quot; width=&quot;295&quot;/&gt;
+&lt;/a&gt;
+&lt;div class=&quot;graph_info&quot;&gt;
+&lt;span class=&quot;time&quot;&gt;2023.04.27&lt;/span&gt;
+&lt;span class=&quot;source&quot;&gt;모닝스타 기준&lt;/span&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class=&quot;&quot;&gt;
+&lt;a class=&quot;head usd_idx&quot; href=&quot;/marketindex/worldExchangeDetail.naver?marketindexCd=FX_USDX&quot; onclick=&quot;clickcr(this, &#39;fr2.indt&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;달러인덱스&lt;/span&gt;&lt;/h3&gt;
+&lt;div class=&quot;head_info point_up&quot;&gt;
+&lt;span class=&quot;value&quot;&gt;101.2500&lt;/span&gt;
+&lt;span class=&quot;change&quot;&gt;0.0500&lt;/span&gt;
+&lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a class=&quot;graph_img&quot; href=&quot;/marketindex/worldExchangeDetail.naver?marketindexCd=FX_USDX&quot; onclick=&quot;clickcr(this, &#39;fr2.indc&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;153&quot; src=&quot;https://ssl.pstatic.net/imgfinance/chart/marketindex/FX_USDX.png&quot; width=&quot;295&quot;/&gt;
+&lt;/a&gt;
+&lt;div class=&quot;graph_info&quot;&gt;
+&lt;span class=&quot;time&quot;&gt;2023.04.27&lt;/span&gt;
+&lt;span class=&quot;source&quot;&gt;ICE 기준&lt;/span&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- //data --&gt;
+&lt;/div&gt;
+&lt;div class=&quot;market3&quot;&gt;
+&lt;div class=&quot;title&quot;&gt;
+&lt;h2 class=&quot;h_market3&quot;&gt;&lt;span&gt;유가·금시세&lt;/span&gt;&lt;/h2&gt;
+&lt;/div&gt;
+&lt;!-- data --&gt;
+&lt;div class=&quot;data&quot;&gt;
+&lt;ul class=&quot;data_lst&quot; id=&quot;oilGoldList&quot;&gt;
+&lt;li class=&quot;on&quot;&gt;
+&lt;a class=&quot;head wti&quot; href=&quot;/marketindex/worldOilDetail.naver?marketindexCd=OIL_CL&amp;amp;fdtc=2&quot; onclick=&quot;clickcr(this, &#39;fr3.wtit&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;WTI&lt;/span&gt;&lt;/h3&gt;
+&lt;div class=&quot;head_info point_up&quot;&gt;
+&lt;span class=&quot;value&quot;&gt;74.76&lt;/span&gt;
+&lt;span class=&quot;txt_usd&quot;&gt;&lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;change&quot;&gt;0.46&lt;/span&gt;
+&lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a class=&quot;graph_img&quot; href=&quot;/marketindex/worldOilDetail.naver?marketindexCd=OIL_CL&amp;amp;fdtc=2&quot; onclick=&quot;clickcr(this, &#39;fr3.wtic&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;153&quot; src=&quot;https://ssl.pstatic.net/imgfinance/chart/marketindex/OIL_CL.png&quot; width=&quot;295&quot;/&gt;
+&lt;/a&gt;
+&lt;div class=&quot;graph_info&quot;&gt;
+&lt;span class=&quot;time&quot;&gt;2023.04.27&lt;/span&gt;
+&lt;span class=&quot;source&quot;&gt;NYMEX(뉴욕상업거래소) 기준&lt;/span&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class=&quot;&quot;&gt;
+&lt;a class=&quot;head gasoline&quot; href=&quot;/marketindex/oilDetail.naver?marketindexCd=OIL_GSL&quot; onclick=&quot;clickcr(this, &#39;fr3.oilt&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;휘발유&lt;/span&gt;&lt;/h3&gt;
+&lt;div class=&quot;head_info point_dn&quot;&gt;
+&lt;span class=&quot;value&quot;&gt;1663.87&lt;/span&gt;
+&lt;span class=&quot;txt_krw&quot;&gt;&lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;change&quot;&gt; 0.51&lt;/span&gt;
+&lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a class=&quot;graph_img&quot; href=&quot;/marketindex/oilDetail.naver?marketindexCd=OIL_GSL&quot; onclick=&quot;clickcr(this, &#39;fr3.oilc&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;153&quot; src=&quot;https://ssl.pstatic.net/imgfinance/chart/marketindex/OIL_GSL.png&quot; width=&quot;295&quot;/&gt;
+&lt;/a&gt;
+&lt;div class=&quot;graph_info&quot;&gt;
+&lt;span class=&quot;time&quot;&gt;2023.04.28&lt;/span&gt;
+&lt;span class=&quot;source&quot;&gt;한국석유공사 Opinet 기준&lt;/span&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class=&quot;&quot;&gt;
+&lt;a class=&quot;head gold_inter&quot; href=&quot;/marketindex/worldGoldDetail.naver?marketindexCd=CMDT_GC&amp;amp;fdtc=2&quot; onclick=&quot;clickcr(this, &#39;fr3.agoldt&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;국제 금&lt;/span&gt;&lt;/h3&gt;
+&lt;div class=&quot;head_info point_up&quot;&gt;
+&lt;span class=&quot;value&quot;&gt;1999.0&lt;/span&gt;
+&lt;span class=&quot;txt_usd&quot;&gt;&lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;change&quot;&gt;3.00&lt;/span&gt;
+&lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a class=&quot;graph_img&quot; href=&quot;/marketindex/worldGoldDetail.naver?marketindexCd=CMDT_GC&amp;amp;fdtc=2&quot; onclick=&quot;clickcr(this, &#39;fr3.agoldc&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;153&quot; src=&quot;https://ssl.pstatic.net/imgfinance/chart/marketindex/CMDT_GC.png&quot; width=&quot;295&quot;/&gt;
+&lt;/a&gt;
+&lt;div class=&quot;graph_info&quot;&gt;
+&lt;span class=&quot;time&quot;&gt;2023.04.27&lt;/span&gt;
+&lt;span class=&quot;source&quot;&gt;COMEX(뉴욕상품거래소) 기준&lt;/span&gt;
+&lt;/div&gt;
+&lt;/li&gt;
+&lt;li class=&quot;&quot;&gt;
+&lt;a class=&quot;head gold_domestic&quot; href=&quot;/marketindex/goldDetail.naver&quot; onclick=&quot;clickcr(this, &#39;fr3.kgoldt&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;국내 금&lt;/span&gt;&lt;/h3&gt;
+&lt;div class=&quot;head_info point_dn&quot;&gt;
+&lt;span class=&quot;value&quot;&gt;85643.8&lt;/span&gt;
+&lt;span class=&quot;txt_krw&quot;&gt;&lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;change&quot;&gt; 63.23&lt;/span&gt;
+&lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;
+&lt;/div&gt;
+&lt;/a&gt;
+&lt;a class=&quot;graph_img&quot; href=&quot;/marketindex/goldDetail.naver&quot; onclick=&quot;clickcr(this, &#39;fr3.kgoldc&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;img alt=&quot;&quot; height=&quot;153&quot; src=&quot;https://ssl.pstatic.net/imgfinance/chart/marketindex/CMDT_GD.png&quot; width=&quot;295&quot;/&gt;
+&lt;/a&gt;
+&lt;div class=&quot;graph_info&quot;&gt;
+&lt;span class=&quot;time&quot;&gt;2023.04.28 12:38&lt;/span&gt;
+&lt;span class=&quot;source&quot;&gt;신한은행 기준&lt;/span&gt;
+							(&lt;span class=&quot;num&quot;&gt;144&lt;/span&gt;회차)			
+					&lt;/div&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;!-- //data --&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;marketindex_content&quot; id=&quot;content&quot;&gt;
+&lt;div class=&quot;section_news&quot;&gt;
+&lt;h3 class=&quot;h_news2&quot;&gt;&lt;span&gt;주요 뉴스&lt;/span&gt;&lt;/h3&gt;
+&lt;div class=&quot;list_area&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;/marketindex/news/newsRead.naver?officeId=417&amp;amp;articleId=0000916714&amp;amp;category=&quot; onclick=&quot;clickcr(this, &#39;mhn.list&#39;, &#39;417_0000916714&#39;, &#39;0&#39;, event);&quot;&gt;[오늘의 환율전망] 달러상승·뉴욕증시 반등&lt;/a&gt;&lt;img alt=&quot;NEW&quot; height=&quot;8&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_new.gif&quot; width=&quot;8&quot;/&gt;&lt;/p&gt;
+&lt;span&gt;04.28 08:12&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;/marketindex/news/newsRead.naver?officeId=018&amp;amp;articleId=0005474210&amp;amp;category=&quot; onclick=&quot;clickcr(this, &#39;mhn.list&#39;, &#39;018_0005474210&#39;, &#39;1&#39;, event);&quot;&gt;위험선호 회복+월말 네고…환율, 하락 전환&lt;/a&gt;&lt;img alt=&quot;NEW&quot; height=&quot;8&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_new.gif&quot; width=&quot;8&quot;/&gt;&lt;/p&gt;
+&lt;span&gt;04.28 08:10&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;/marketindex/news/newsRead.naver?officeId=029&amp;amp;articleId=0002797580&amp;amp;category=&quot; onclick=&quot;clickcr(this, &#39;mhn.list&#39;, &#39;029_0002797580&#39;, &#39;2&#39;, event);&quot;&gt;부동산 침체+원자재값 상승?...대형 건설&lt;/a&gt;&lt;img alt=&quot;NEW&quot; height=&quot;8&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_new.gif&quot; width=&quot;8&quot;/&gt;&lt;/p&gt;
+&lt;span&gt;04.28 05:45&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;/marketindex/news/newsRead.naver?officeId=001&amp;amp;articleId=0013909362&amp;amp;category=&quot; onclick=&quot;clickcr(this, &#39;mhn.list&#39;, &#39;001_0013909362&#39;, &#39;3&#39;, event);&quot;&gt;[뉴욕유가] 경기 둔화 우려 속 소폭 반등&lt;/a&gt;&lt;img alt=&quot;NEW&quot; height=&quot;8&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_new.gif&quot; width=&quot;8&quot;/&gt;&lt;/p&gt;
+&lt;span&gt;04.28 04:26&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;/marketindex/news/newsRead.naver?officeId=005&amp;amp;articleId=0001604657&amp;amp;category=&quot; onclick=&quot;clickcr(this, &#39;mhn.list&#39;, &#39;005_0001604657&#39;, &#39;4&#39;, event);&quot;&gt;설탕값 급등 조짐… 선물 가격 12년 만에&lt;/a&gt;&lt;img alt=&quot;NEW&quot; height=&quot;8&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_new.gif&quot; width=&quot;8&quot;/&gt;&lt;/p&gt;
+&lt;span&gt;04.28 04:08&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;/marketindex/news/newsRead.naver?officeId=001&amp;amp;articleId=0013908661&amp;amp;category=&quot; onclick=&quot;clickcr(this, &#39;mhn.list&#39;, &#39;001_0013908661&#39;, &#39;5&#39;, event);&quot;&gt;에코프로머티리얼즈, 유가증권시장 상장예비심&lt;/a&gt;&lt;img alt=&quot;NEW&quot; height=&quot;8&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_new.gif&quot; width=&quot;8&quot;/&gt;&lt;/p&gt;
+&lt;span&gt;04.27 17:31&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;/marketindex/news/newsRead.naver?officeId=001&amp;amp;articleId=0013908630&amp;amp;category=&quot; onclick=&quot;clickcr(this, &#39;mhn.list&#39;, &#39;001_0013908630&#39;, &#39;6&#39;, event);&quot;&gt;정부, 오는 5월 국고채 15조원 발행하기&lt;/a&gt;&lt;img alt=&quot;NEW&quot; height=&quot;8&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_new.gif&quot; width=&quot;8&quot;/&gt;&lt;/p&gt;
+&lt;span&gt;04.27 17:21&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;/marketindex/news/newsRead.naver?officeId=014&amp;amp;articleId=0005003959&amp;amp;category=&quot; onclick=&quot;clickcr(this, &#39;mhn.list&#39;, &#39;014_0005003959&#39;, &#39;7&#39;, event);&quot;&gt;기재부, 5월 국고채 발행 15조 규모…경&lt;/a&gt;&lt;img alt=&quot;NEW&quot; height=&quot;8&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_new.gif&quot; width=&quot;8&quot;/&gt;&lt;/p&gt;
+&lt;span&gt;04.27 17:20&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;/marketindex/news/newsRead.naver?officeId=032&amp;amp;articleId=0003220104&amp;amp;category=&quot; onclick=&quot;clickcr(this, &#39;mhn.list&#39;, &#39;032_0003220104&#39;, &#39;8&#39;, event);&quot;&gt;원·달러 환율 1338.0원 마감···은행&lt;/a&gt;&lt;img alt=&quot;NEW&quot; height=&quot;8&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_new.gif&quot; width=&quot;8&quot;/&gt;&lt;/p&gt;
+&lt;span&gt;04.27 16:27&lt;/span&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;/marketindex/news/newsRead.naver?officeId=009&amp;amp;articleId=0005122690&amp;amp;category=&quot; onclick=&quot;clickcr(this, &#39;mhn.list&#39;, &#39;009_0005122690&#39;, &#39;9&#39;, event);&quot;&gt;&#39;인플레 시대&#39; 내 재산 지키는 원자재ET&lt;/a&gt;&lt;img alt=&quot;NEW&quot; height=&quot;8&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_new.gif&quot; width=&quot;8&quot;/&gt;&lt;/p&gt;
+&lt;span&gt;04.27 16:06&lt;/span&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;a class=&quot;btn_more&quot; href=&quot;/marketindex/news/newsList.naver&quot; onclick=&quot;clickcr(this, &#39;mhn.more&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;&lt;img alt=&quot;더보기&quot; height=&quot;18&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/btn_more.gif&quot; width=&quot;34&quot;/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;div class=&quot;tab_default1&quot; id=&quot;tab_section&quot;&gt;
+&lt;ul&gt;
+&lt;li class=&quot;on&quot;&gt;&lt;a href=&quot;./?tabSel=exchange#tab_section&quot; onclick=&quot;clickcr(this, &#39;mtb.exnoti&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;&lt;span class=&quot;tab1&quot;&gt;환전고시 환율&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;&quot;&gt;&lt;a href=&quot;./?tabSel=worldExchange#tab_section&quot; onclick=&quot;clickcr(this, &#39;mtb.interex&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;&lt;span class=&quot;tab2&quot;&gt;국제시장 환율&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;&quot;&gt;&lt;a href=&quot;./?tabSel=gold#tab_section&quot; onclick=&quot;clickcr(this, &#39;mtb.oilgold&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;&lt;span class=&quot;tab3&quot;&gt;유가 금시세&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;&quot;&gt;&lt;a href=&quot;./?tabSel=materials#tab_section&quot; onclick=&quot;clickcr(this, &#39;mtb.material&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;&lt;span class=&quot;tab4&quot;&gt;원자재&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 class=&quot;blind&quot;&gt;환전고시 환율&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section_calculator&quot;&gt;
+&lt;h3 class=&quot;h_calculator&quot;&gt;&lt;span&gt;환율계산기 (매매기준율 기준)&lt;/span&gt;&lt;/h3&gt;
+&lt;div class=&quot;calculator&quot;&gt;
+&lt;div class=&quot;inner&quot;&gt;
+&lt;div class=&quot;input&quot;&gt;
+&lt;div class=&quot;selectbox-noscript&quot; id=&quot;sInput&quot;&gt;
+&lt;select class=&quot;selectbox-source&quot; id=&quot;select_from&quot;&gt;
+&lt;option label=&quot;1&quot; value=&quot;1&quot;&gt;대한민국 원 KRW&lt;/option&gt;
+&lt;option class=&quot;selectbox-default&quot; label=&quot;1&quot; selected=&quot;selected&quot; value=&quot;1339.8&quot;&gt; 미국 달러 USD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1339.8&quot;&gt; 미국 달러 USD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1476.46&quot;&gt; 유럽연합 유로 EUR&lt;/option&gt;
+&lt;option label=&quot;100&quot; value=&quot;10.0131&quot;&gt; 일본 엔 JPY&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;193.52&quot;&gt; 중국 위안 CNY&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;170.68&quot;&gt; 홍콩 달러 HKD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;43.63&quot;&gt; 대만 달러 TWD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1674.01&quot;&gt; 영국 파운드 GBP&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;3479.82&quot;&gt; 오만 리알 OMR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;984.82&quot;&gt; 캐나다 달러 CAD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1498.49&quot;&gt; 스위스 프랑 CHF&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;130.12&quot;&gt; 스웨덴 크로나 SEK&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;888.35&quot;&gt; 호주 달러 AUD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;824.65&quot;&gt; 뉴질랜드 달러 NZD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;62.88&quot;&gt; 체코 코루나 CZK&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1.67&quot;&gt; 칠레 페소 CLP&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;68.9&quot;&gt; 튀르키예 뉴리라 TRY&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;0.38&quot;&gt; 몽골 투그릭 MNT&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;368.68&quot;&gt; 이스라엘 세켈 ILS&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;198.08&quot;&gt; 덴마크 크로네 DKK&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;126.05&quot;&gt; 노르웨이 크로네 NOK&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;357.19&quot;&gt; 사우디아라비아 리얄 SAR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;4376.86&quot;&gt; 쿠웨이트 디나르 KWD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;3553.56&quot;&gt; 바레인 디나르 BHD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;364.83&quot;&gt; 아랍에미리트 디르함 AED&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1888.64&quot;&gt; 요르단 디나르 JOD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;43.36&quot;&gt; 이집트 파운드 EGP&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;39.27&quot;&gt; 태국 바트 THB&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1004.01&quot;&gt; 싱가포르 달러 SGD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;300.54&quot;&gt; 말레이시아 링깃 MYR&lt;/option&gt;
+&lt;option label=&quot;100&quot; value=&quot;0.0915&quot;&gt; 인도네시아 루피아 IDR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;367.59&quot;&gt; 카타르 리얄 QAR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;2.94&quot;&gt; 카자흐스탄 텡게 KZT&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1004.01&quot;&gt; 브루나이 달러 BND&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;16.39&quot;&gt; 인도 루피 INR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;4.72&quot;&gt; 파키스탄 루피 PKR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;12.62&quot;&gt; 방글라데시 타카 BDT&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;24.17&quot;&gt; 필리핀 페소 PHP&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;74.18&quot;&gt; 멕시코 페소 MXN&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;269.17&quot;&gt; 브라질 레알 BRL&lt;/option&gt;
+&lt;option label=&quot;100&quot; value=&quot;0.0571&quot;&gt; 베트남 동 VND&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;73.19&quot;&gt; 남아프리카 공화국 랜드 ZAR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;16.37&quot;&gt; 러시아 루블 RUB&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;3.95&quot;&gt; 헝가리 포린트 HUF&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;322.58&quot;&gt; 폴란드 즈워티 PLN&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;4.16&quot;&gt; 스리랑카 루피 LKR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;9.89&quot;&gt; 알제리 알제리 디나르 DZD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;9.86&quot;&gt; 케냐 실링 KES&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;0.29&quot;&gt; 콜롬비아 페소 COP&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;0.57&quot;&gt; 탄자니아 실링 TZS&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;10.24&quot;&gt; 네팔 루피 NPR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;299.0&quot;&gt; 루마니아 레우 RON&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;281.27&quot;&gt; 리비아 리비아 디나르 LYD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;165.63&quot;&gt; 마카오 파타카 MOP&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;0.64&quot;&gt; 미얀마 짯 MMK&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;24.57&quot;&gt; 에티오피아 비르 ETB&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;0.12&quot;&gt; 우즈베키스탄 숨 UZS&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;0.33&quot;&gt; 캄보디아 리엘 KHR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;603.85&quot;&gt; 피지 피지 달러 FJD&lt;/option&gt;
+&lt;/select&gt;
+&lt;div class=&quot;selectbox-box&quot; onclick=&quot;clickcr(this, &#39;exl*c.clist1&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;div class=&quot;selectbox-label&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;selectbox-layer ly_calculator&quot;&gt;
+&lt;div class=&quot;selectbox-list&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;input_area&quot; id=&quot;input_from&quot;&gt;
+&lt;input id=&quot;input_from_money&quot; maxlength=&quot;10&quot; onclick=&quot;clickcr(this, &#39;exl*c.unit1&#39;, &#39;&#39;, &#39;&#39;, event);&quot; onfocus=&quot;changeActiveInput(&#39;from&#39;, &#39;to&#39;); return false;&quot; onkeyup=&quot;calcExchange(&#39;from&#39;, &#39;to&#39;, &#39;on&#39;, event);&quot; type=&quot;text&quot; value=&quot;1&quot;/&gt;
+&lt;img alt=&quot;&quot; height=&quot;13&quot; id=&quot;img_from_monetary&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/img_money_USD.gif&quot; width=&quot;26&quot;/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;same&quot;&gt;&lt;img alt=&quot;&quot; height=&quot;15&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_same.gif&quot; width=&quot;28&quot;/&gt;&lt;/div&gt;
+&lt;div class=&quot;view&quot;&gt;
+&lt;div class=&quot;selectbox-noscript&quot; id=&quot;sView&quot;&gt;
+&lt;select class=&quot;selectbox-source&quot; id=&quot;select_to&quot;&gt;
+&lt;option class=&quot;selectbox-default&quot; label=&quot;1&quot; value=&quot;1&quot;&gt;대한민국 원 KRW&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1&quot;&gt;대한민국 원 KRW&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1339.8&quot;&gt;미국 달러 USD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1476.46&quot;&gt;유럽연합 유로 EUR&lt;/option&gt;
+&lt;option label=&quot;100&quot; value=&quot;10.0131&quot;&gt;일본 엔 JPY&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;193.52&quot;&gt;중국 위안 CNY&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;170.68&quot;&gt;홍콩 달러 HKD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;43.63&quot;&gt;대만 달러 TWD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1674.01&quot;&gt;영국 파운드 GBP&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;3479.82&quot;&gt;오만 리알 OMR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;984.82&quot;&gt;캐나다 달러 CAD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1498.49&quot;&gt;스위스 프랑 CHF&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;130.12&quot;&gt;스웨덴 크로나 SEK&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;888.35&quot;&gt;호주 달러 AUD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;824.65&quot;&gt;뉴질랜드 달러 NZD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;62.88&quot;&gt;체코 코루나 CZK&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1.67&quot;&gt;칠레 페소 CLP&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;68.9&quot;&gt;튀르키예 뉴리라 TRY&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;0.38&quot;&gt;몽골 투그릭 MNT&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;368.68&quot;&gt;이스라엘 세켈 ILS&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;198.08&quot;&gt;덴마크 크로네 DKK&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;126.05&quot;&gt;노르웨이 크로네 NOK&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;357.19&quot;&gt;사우디아라비아 리얄 SAR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;4376.86&quot;&gt;쿠웨이트 디나르 KWD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;3553.56&quot;&gt;바레인 디나르 BHD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;364.83&quot;&gt;아랍에미리트 디르함 AED&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1888.64&quot;&gt;요르단 디나르 JOD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;43.36&quot;&gt;이집트 파운드 EGP&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;39.27&quot;&gt;태국 바트 THB&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1004.01&quot;&gt;싱가포르 달러 SGD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;300.54&quot;&gt;말레이시아 링깃 MYR&lt;/option&gt;
+&lt;option label=&quot;100&quot; value=&quot;0.0915&quot;&gt;인도네시아 루피아 IDR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;367.59&quot;&gt;카타르 리얄 QAR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;2.94&quot;&gt;카자흐스탄 텡게 KZT&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;1004.01&quot;&gt;브루나이 달러 BND&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;16.39&quot;&gt;인도 루피 INR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;4.72&quot;&gt;파키스탄 루피 PKR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;12.62&quot;&gt;방글라데시 타카 BDT&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;24.17&quot;&gt;필리핀 페소 PHP&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;74.18&quot;&gt;멕시코 페소 MXN&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;269.17&quot;&gt;브라질 레알 BRL&lt;/option&gt;
+&lt;option label=&quot;100&quot; value=&quot;0.0571&quot;&gt;베트남 동 VND&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;73.19&quot;&gt;남아프리카 공화국 랜드 ZAR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;16.37&quot;&gt;러시아 루블 RUB&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;3.95&quot;&gt;헝가리 포린트 HUF&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;322.58&quot;&gt;폴란드 즈워티 PLN&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;4.16&quot;&gt;스리랑카 루피 LKR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;9.89&quot;&gt;알제리 알제리 디나르 DZD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;9.86&quot;&gt;케냐 실링 KES&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;0.29&quot;&gt;콜롬비아 페소 COP&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;0.57&quot;&gt;탄자니아 실링 TZS&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;10.24&quot;&gt;네팔 루피 NPR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;299.0&quot;&gt;루마니아 레우 RON&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;281.27&quot;&gt;리비아 리비아 디나르 LYD&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;165.63&quot;&gt;마카오 파타카 MOP&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;0.64&quot;&gt;미얀마 짯 MMK&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;24.57&quot;&gt;에티오피아 비르 ETB&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;0.12&quot;&gt;우즈베키스탄 숨 UZS&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;0.33&quot;&gt;캄보디아 리엘 KHR&lt;/option&gt;
+&lt;option label=&quot;1&quot; value=&quot;603.85&quot;&gt;피지 피지 달러 FJD&lt;/option&gt;
+&lt;/select&gt;
+&lt;div class=&quot;selectbox-box&quot; onclick=&quot;clickcr(this, &#39;exl*c.clist2&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;
+&lt;div class=&quot;selectbox-label&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;selectbox-layer ly_calculator&quot;&gt;
+&lt;div class=&quot;selectbox-list&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;input_area&quot; id=&quot;input_to&quot;&gt;
+&lt;input id=&quot;input_to_money&quot; maxlength=&quot;10&quot; onclick=&quot;clickcr(this, &#39;exl*c.unit2&#39;, &#39;&#39;, &#39;&#39;, event);&quot; onfocus=&quot;changeActiveInput(&#39;to&#39;, &#39;from&#39;); return false;&quot; onkeyup=&quot;calcExchange(&#39;to&#39;, &#39;from&#39;, &#39;on&#39;, event);&quot; type=&quot;text&quot;/&gt;
+&lt;img alt=&quot;&quot; height=&quot;13&quot; id=&quot;img_to_monetary&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/img_money_KRW.gif&quot; width=&quot;26&quot;/&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section_exchange&quot;&gt;
+&lt;div id=&quot;section_ex1&quot;&gt;
+&lt;h3 class=&quot;blind&quot; id=&quot;exchange1&quot;&gt;환전 고시 환율&lt;/h3&gt;
+&lt;div class=&quot;exchange_info&quot;&gt;
+&lt;span class=&quot;date&quot;&gt;2023.04.28 12:39&lt;/span&gt;
+&lt;span class=&quot;standard&quot;&gt;하나은행 기준&lt;/span&gt;
+&lt;span class=&quot;round&quot;&gt;고시회차 &lt;em&gt;226&lt;/em&gt;회&lt;/span&gt;
+&lt;/div&gt;
+&lt;iframe frameborder=&quot;0&quot; height=&quot;1800px&quot; id=&quot;frame_ex1&quot; marginheight=&quot;0&quot; marginwidth=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;/marketindex/exchangeList.naver&quot; title=&quot;환전 고시 환율&quot; width=&quot;100%&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;ul class=&quot;tbl_info&quot;&gt;
+&lt;li&gt;통화명과 심볼은 앞에 위치한 통화에 1이 생략된 형태로, 달러/일본 엔(심볼: USDJPY)인 경우 1 USD(달러)가 JPY(일본 엔)으로 얼마인가를 의미합니다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindoComponent/jindo.Component.1.0.3.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindoComponent/jindo.UIComponent.1.0.1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindoComponent/jindo.HTMLComponent.1.0.1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindoComponent/jindo.Timer.1.0.3.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindoComponent/jindo.LayerManager.1.0.1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindoComponent/jindo.LayerPosition.1.0.1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindoComponent/jindo.RolloverArea.1.0.1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindoComponent/jindo.RolloverClick.1.0.1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindoComponent/jindo.SelectBox.1.0.1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script charset=&quot;euckr&quot; language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindoComponent/jindo.TextRange.1.0.1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script charset=&quot;euckr&quot; language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindoComponent/jindo.WatchInput.1.0.1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script charset=&quot;euckr&quot; language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindoComponent/jindo.Formatter.1.1.0.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script charset=&quot;euckr&quot; language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindoComponent/jindo.NumberFormatter.1.0.1.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/exchange.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+// exchangeDetail.jsp에도 동일 스크립트 있음 - 로딩시 디자인이 0.5초간 디자인이 안뜬다는 이슈로 include하지 않고 같은 스크립트를 두벌로 관리함
+
+//환율 계산
+function calcExchange(str1, str2, cssOn, event) {
+	var oEvent = event || window.event;
+    var sKeyCode = (undefined === oEvent) ? undefined : jindo.$Event(oEvent).key().keyCode;
+	
+	if (sKeyCode != 13 &amp;&amp; sKeyCode != 27 &amp;&amp; sKeyCode != 37 &amp;&amp; sKeyCode != 38 &amp;&amp; sKeyCode != 110 &amp;&amp; sKeyCode != 229) {
+		if (str1 == &#39;&#39; &amp;&amp; str2 == &#39;&#39;) {
+			if (jindo.$(&#39;input_to&#39;).className == &#39;input_area&#39;) {
+				str1 = &#39;from&#39;;
+				str2 = &#39;to&#39;;
+			} else {
+				str1 = &#39;to&#39;;
+				str2 = &#39;from&#39;;
+			}
+		}
+		
+		var regExp = new RegExp(&quot;[^0-9\.\,]&quot;);
+	    var sInputValue = jindo.$(&#39;input_&#39; + str1 + &#39;_money&#39;).value;
+		
+	    if(regExp.test(sInputValue)){
+			alert(&#39;숫자, 소수점(.)만 입력하실 수 있습니다.&#39;);
+			jindo.$(&#39;input_&#39; + str1 + &#39;_money&#39;).value = revertInputText(sInputValue);
+			return false;
+		}
+		
+		// 사용자가 입력한 콤마(,) 제거
+	    if (sInputValue.substr(sInputValue.length - 1, 1) == &#39;,&#39;) {
+	    	jindo.$(&#39;input_&#39; + str1 + &#39;_money&#39;).value = revertInputText(sInputValue);
+	    	return false;
+	    }
+		
+		// 맨 앞에 있는 숫자 0 없애기
+		if (sInputValue == &#39;0&#39; || sInputValue == &#39;.&#39; || sInputValue == &#39;,&#39;) {
+			jindo.$(&#39;input_&#39; + str1 + &#39;_money&#39;).value = revertInputText(sInputValue);
+			return false;
+		}
+		
+		// 소수점 2개가 없도록
+		var match = sInputValue.match(/\./g);
+		if (match != null &amp;&amp; match.length &gt;= 2) {
+			jindo.$(&#39;input_&#39; + str1 + &#39;_money&#39;).value = revertInputText(sInputValue);
+			return false;
+		}
+		
+		// 소수점을 입력한 경우, 일단 대기
+		var pointPosIndex = sInputValue.indexOf(&#39;.&#39;);
+		if (pointPosIndex != -1 &amp;&amp; pointPosIndex == sInputValue.length - 1) {
+			return false;
+		}
+		
+		// 소수점 2자리 유지
+		if (pointPosIndex != -1 &amp;&amp; sInputValue.substring(pointPosIndex + 1, sInputValue.length).length &gt; 2) {
+			jindo.$(&#39;input_&#39; + str1 + &#39;_money&#39;).value = revertInputText(sInputValue);
+			return false;
+		}
+		
+		var e_select_from	= jindo.$(&#39;select_&#39;+str1);
+		var e_select_to	= jindo.$(&#39;select_&#39;+str2);
+	
+		var input_from_money	= jindo.$(&#39;input_&#39;+str1+&#39;_money&#39;).value ;
+		var input_from		= e_select_from.options[e_select_from.selectedIndex].value ;
+		var input_to		= e_select_to.options[e_select_to.selectedIndex].value ;
+		var unit_from	= e_select_from.options[e_select_from.selectedIndex].text ;
+		var unit_to		= e_select_to.options[e_select_to.selectedIndex].text ;
+		input_from_money = input_from_money.replace(/ |,|\t/g, &quot;&quot;) ;
+		input_from	= input_from.replace(/ |,|\t/g, &quot;&quot;) ;
+		input_to	= input_to.replace(/ |,|\t/g, &quot;&quot;) ;
+		unit_from = unit_from.substr(unit_from.length-3, 3);
+		unit_to = unit_to.substr(unit_to.length-3, 3);
+	
+		var str1_result = input_from_money * 1 ;
+		var str1_str	= str1_result.toFixed(0) ;
+		var str1_len = str1_str.length ;
+		var str1_result_str = new String(&quot;&quot;) ;
+	
+		if(str1_str &gt; str1_result)
+			str1_str = new String(str1_str-1) ;
+	
+		if (str1_len &gt;= 3) {
+			for (i = str1_len - 3; i &gt; 0; i-=3)
+				str1_result_str = &quot;,&quot; + str1_str.substr(i, 3) + str1_result_str ;
+	
+			str1_result_str = str1_str.substr(0, 3+i) + str1_result_str ;
+	
+			for (var i=0; i&lt;input_from_money.length; i++) {
+				if (input_from_money.substr(i,1) != &#39;0&#39;) {
+					input_from_money = input_from_money.substring(i,input_from_money.length) ;
+					break;
+				}
+			}
+	
+			if (str1_str != input_from_money) {
+				str1_result_str += str1_result.toFixed(input_from_money.split(&quot;.&quot;)[1].length).substr(str1_len, input_from_money.split(&quot;.&quot;)[1].length + 1) ;
+			}
+		} else
+			str1_result_str = input_from_money ;
+	
+		var str2_result = input_from_money * input_from / input_to ;
+		var str2_str	= str2_result.toFixed(0) ;
+		var str2_len = str2_str.length ;
+		var str2_result_str = new String(&quot;&quot;) ;
+	
+		if (str2_str &gt; str2_result)
+			str2_str = new String(str2_str-1) ;
+	
+		if (str2_len &gt;= 3) {
+			for (i = str2_len - 3; i &gt; 0; i-=3)
+				str2_result_str = &quot;,&quot; + str2_str.substr(i, 3) + str2_result_str ;
+	
+			str2_result_str = str2_str.substr(0, 3+i) + str2_result_str ;
+			str2_result_str += str2_result.toFixed(2).substr(str2_len, 3) ;
+		} else
+			str2_result_str = str2_result.toFixed(2) ;
+	
+		jindo.$(&#39;input_&#39;+str1+&#39;_money&#39;).value = str1_result_str;
+		jindo.$(&#39;input_&#39;+str2+&#39;_money&#39;).value = str2_result_str;
+		jindo.$(&#39;img_&#39;+str1+&#39;_monetary&#39;).src = &quot;https://ssl.pstatic.net/static/nfinance/img_money_&quot;+unit_from+&quot;.gif&quot;;
+		jindo.$(&#39;img_&#39;+str2+&#39;_monetary&#39;).src = &quot;https://ssl.pstatic.net/static/nfinance/img_money_&quot;+unit_to+&quot;.gif&quot;;
+		jindo.$Element(jindo.$(&#39;input_&#39;+str1)).addClass(&quot;on&quot;);
+		jindo.$Element(jindo.$(&#39;input_&#39;+str2)).removeClass(&quot;on&quot;);
+		if (cssOn == &quot;off&quot;){
+			jindo.$Element(jindo.$(&#39;input_&#39;+str1)).removeClass(&quot;on&quot;);
+		}
+	}
+}
+
+function revertInputText(sOrgText) {
+	var sResult = sOrgText;
+	
+	if (sOrgText != &#39;&#39;) {
+		sResult = sOrgText.substr(0, sOrgText.length - 1);
+	}
+	
+	return sResult;
+}
+
+jindo.$Fn(function(){
+	chartMouseOverEvent(&#39;exchangeList&#39;);		
+   }).attach(document, &quot;domready&quot;);
+&lt;/script&gt;
+&lt;/div&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/jindo_ellipse.js&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/util.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+
+function ellipseTopNewsTitle() {
+	jindo.EllipseText.factory(jindo.$$(&quot;.news_list ul li&quot;), {nAssistWidth: 10});
+}
+
+var basicDates;
+
+function initDate() {
+	basicDates = jindo.$H();
+	basicDates.add(&#39;&#39;, &#39;&#39;);
+	basicDates.add(&#39;&#39;, &#39;&#39;);
+	basicDates.add(&#39;&#39;, &#39;&#39;);
+	basicDates.add(&#39;&#39;, &#39;&#39;);
+	basicDates.add(&#39;&#39;, &#39;&#39;);
+	basicDates.add(&#39;&#39;, &#39;&#39;);
+}
+
+var basicDescriptions;
+
+function initDescription() {
+	basicDescriptions = jindo.$H();
+	basicDescriptions.add(&#39;CMDT_CDY&#39;,&#39;&lt;em&gt;&lt;/em&gt;  기준&lt;span&gt;단위:&lt;/span&gt;&#39;);
+	basicDescriptions.add(&#39;CMDT_PDY&#39;,&#39;&lt;em&gt;&lt;/em&gt;  기준&lt;span&gt;단위:&lt;/span&gt;&#39;);
+	basicDescriptions.add(&#39;CMDT_NG&#39;,&#39;&lt;em&gt;&lt;/em&gt;  기준&lt;span&gt;단위:&lt;/span&gt;&#39;);
+	basicDescriptions.add(&#39;CMDT_S&#39;,&#39;&lt;em&gt;&lt;/em&gt;  기준&lt;span&gt;단위:&lt;/span&gt;&#39;);
+	basicDescriptions.add(&#39;CMDT_C&#39;,&#39;&lt;em&gt;&lt;/em&gt;  기준&lt;span&gt;단위:&lt;/span&gt;&#39;);
+	basicDescriptions.add(&#39;CMDT_SB&#39;,&#39;&lt;em&gt;&lt;/em&gt;  기준&lt;span&gt;단위:&lt;/span&gt;&#39;);
+}
+
+function setEvent(num, imgChartUrl){	
+	var parentElemnt = jindo.$$(&#39;.tbl_market&#39;)[num];
+	var elementList = jindo.$$(&#39;tr&#39;,parentElemnt);
+	
+	jindo.$Fn(function(e){	
+		var elementListSize = elementList.length;
+		
+		for(var i = 0 ; i &lt; elementListSize ; i ++)
+		{
+			var selectedElement = jindo.$Element(elementList[i]);
+			var selectedClassName = selectedElement.className();
+			if (selectedClassName != &quot;&quot;) {
+				selectedElement.removeClass(selectedClassName);
+				selectedElement.addClass(selectedClassName.replace(&quot;on&quot;,&quot;&quot;));
+			}
+		} 
+		
+		var ele = jindo.$Element(jindo.$Event(e).currentElement);
+		var linkUrl = jindo.$$.getSingle(&#39;a&#39; , ele.$value()).href;
+		var marketindexCd = linkUrl.split(&#39;=&#39;)[1];
+		var className = ele.className();
+		ele.removeClass(className);
+		ele.addClass(className+&quot; on&quot;);
+		var graphElement = jindo.$Element(jindo.$$(&#39;.thum&#39;)[num]);
+		graphElement.html(&#39;&lt;a href=\&quot;&#39;+linkUrl+&#39;\&quot;&gt;&lt;img src=\&quot;https://ssl.pstatic.net/imgfinance/chart/marketindex/&#39; + marketindexCd + &#39;.png\&quot; width=\&quot;295\&quot; height=\&quot;153\&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&#39;);
+		
+		if (basicDates.hasKey(marketindexCd)) {
+			jindo.$Element(&quot;basicDate&quot;).text(basicDates.$(marketindexCd));
+		}
+		if (basicDescriptions.hasKey(marketindexCd)) {
+			jindo.$Element(&quot;basicDescription&quot;).html(basicDescriptions.$(marketindexCd));
+		}
+	
+	}).attach(elementList, &quot;mouseover&quot;);	
+}
+
+jindo.$Fn(function(){
+		initDate();
+		initDescription();
+		chartMouseOverEvent(&#39;exchangeList&#39;);
+		chartMouseOverEvent(&#39;worldExchangeList&#39;);
+		chartMouseOverEvent(&#39;oilGoldList&#39;);
+		jindo.$$(&#39;title&#39;)[0].innerHTML = &quot;시장지표 : 네이버 증권&quot;;
+}).attach(document, &quot;domready&quot;);
+
+&lt;/script&gt;
+&lt;div class=&quot;aside&quot; id=&quot;marketindex_aside&quot;&gt;
+&lt;div class=&quot;section_aside&quot;&gt;
+&lt;h3 class=&quot;h_interest&quot;&gt;&lt;span&gt;국내시장금리&lt;/span&gt;&lt;/h3&gt;
+&lt;table class=&quot;tbl_exchange market&quot; summary=&quot;국제시장 환율 리스트&quot;&gt;
+&lt;caption&gt;국내시장금리&lt;/caption&gt;
+&lt;colgroup&gt;
+&lt;col width=&quot;94&quot;/&gt;
+&lt;col width=&quot;50&quot;/&gt;
+&lt;col width=&quot;75&quot;/&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;구분&lt;/th&gt;
+&lt;th&gt;금리&lt;/th&gt;
+&lt;th&gt;등락율&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&quot;up&quot;&gt;
+&lt;th class=&quot;th_inter4&quot;&gt;&lt;a href=&quot;/marketindex/interestDetail.naver?marketindexCd=IRR_CD91&quot; onclick=&quot;clickcr(this, &#39;rid.local&#39;, &#39;IRR_CD91&#39;, &#39;1&#39;, event);&quot;&gt;&lt;span&gt;CD금리(91일)&lt;/span&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;td&gt;3.52&lt;/td&gt;
+&lt;td&gt;&lt;img alt=&quot;상승&quot; height=&quot;6&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_up.gif&quot; width=&quot;7&quot;/&gt; 0.02&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;down&quot;&gt;
+&lt;th class=&quot;th_inter1&quot;&gt;&lt;a href=&quot;/marketindex/interestDetail.naver?marketindexCd=IRR_CALL&quot; onclick=&quot;clickcr(this, &#39;met.8&#39;, &#39;IRR_CALL&#39;, &#39;2&#39;, event);&quot;&gt;&lt;span&gt;콜 금리&lt;/span&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;td&gt;3.48&lt;/td&gt;
+&lt;td&gt;&lt;img alt=&quot;하락&quot; height=&quot;6&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_down.gif&quot; width=&quot;7&quot;/&gt; 0.01&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;up&quot;&gt;
+&lt;th class=&quot;th_inter2&quot;&gt;&lt;a href=&quot;/marketindex/interestDetail.naver?marketindexCd=IRR_GOVT03Y&quot; onclick=&quot;clickcr(this, &#39;met.8&#39;, &#39;IRR_GOVT03Y&#39;, &#39;3&#39;, event);&quot;&gt;&lt;span&gt;국고채 (3년)&lt;/span&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;td&gt;3.28&lt;/td&gt;
+&lt;td&gt;&lt;img alt=&quot;상승&quot; height=&quot;6&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_up.gif&quot; width=&quot;7&quot;/&gt; 0.03&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;up&quot;&gt;
+&lt;th class=&quot;th_inter3&quot;&gt;&lt;a href=&quot;/marketindex/interestDetail.naver?marketindexCd=IRR_CORP03Y&quot; onclick=&quot;clickcr(this, &#39;met.8&#39;, &#39;IRR_CORP03Y&#39;, &#39;4&#39;, event);&quot;&gt;&lt;span&gt;회사채 (3년)&lt;/span&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;td&gt;4.09&lt;/td&gt;
+&lt;td&gt;&lt;img alt=&quot;상승&quot; height=&quot;6&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_up.gif&quot; width=&quot;7&quot;/&gt; 0.03&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;up&quot;&gt;
+&lt;th class=&quot;th_inter5&quot;&gt;&lt;a href=&quot;/marketindex/interestDetail.naver?marketindexCd=IRR_COFIXBAL&quot; onclick=&quot;clickcr(this, &#39;met.8&#39;, &#39;IRR_COFIXBAL&#39;, &#39;5&#39;, event);&quot;&gt;&lt;span&gt;COFIX 잔액&lt;/span&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;td&gt;3.71&lt;/td&gt;
+&lt;td&gt;&lt;img alt=&quot;상승&quot; height=&quot;6&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_up.gif&quot; width=&quot;7&quot;/&gt; 0.04&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&quot;up&quot;&gt;
+&lt;th class=&quot;th_inter6&quot;&gt;&lt;a href=&quot;/marketindex/interestDetail.naver?marketindexCd=IRR_COFIXNEW&quot; onclick=&quot;clickcr(this, &#39;met.8&#39;, &#39;IRR_COFIXNEW&#39;, &#39;6&#39;, event);&quot;&gt;&lt;span&gt;COFIX 신규취급액&lt;/span&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;td&gt;3.56&lt;/td&gt;
+&lt;td&gt;&lt;img alt=&quot;상승&quot; height=&quot;6&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_up.gif&quot; width=&quot;7&quot;/&gt; 0.03&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class=&quot;tbl_exchange tbl_exchange_v1 market&quot; style=&quot;margin-top:10px;&quot; summary=&quot;달러 인덱스&quot;&gt;
+&lt;caption&gt;달러 인덱스&lt;/caption&gt;
+&lt;colgroup&gt;
+&lt;col width=&quot;88&quot;/&gt;
+&lt;col width=&quot;46&quot;/&gt;
+&lt;col width=&quot;66&quot;/&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;구분&lt;/th&gt;
+&lt;th&gt;금리&lt;/th&gt;
+&lt;th&gt;등락율&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&quot;other_t1 up&quot;&gt;
+&lt;th class=&quot;th_inter7&quot;&gt;&lt;a href=&quot;/marketindex/worldExchangeDetail.naver?marketindexCd=FX_USDX&amp;amp;fdtc=4&quot; onclick=&quot;clickcr(this, &#39;rid.dollar&#39;, &#39;FX_USDX&#39;, &#39;&#39;, event);&quot;&gt;&lt;span&gt;달러 인덱스&lt;/span&gt;&lt;/a&gt;&lt;/th&gt;
+&lt;td&gt;101.2500&lt;/td&gt;
+&lt;td&gt;&lt;img alt=&quot;상승&quot; height=&quot;6&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/ico_up.gif&quot; width=&quot;7&quot;/&gt; 0.0500&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section_aside&quot;&gt;
+&lt;div class=&quot;tab_search search3&quot;&gt;
+&lt;a href=&quot;#&quot; onclick=&quot;clickcr(this, &#39;rch.1&#39;, &#39;&#39;, &#39;&#39;, event); return false;&quot;&gt;&lt;span&gt;최근조회&lt;/span&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; onclick=&quot;clickcr(this, &#39;rch.3&#39;, &#39;&#39;, &#39;&#39;, event); return false;&quot;&gt;&lt;span&gt;MY STOCK&lt;/span&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;h3 class=&quot;blind&quot;&gt;최근조회&lt;/h3&gt;
+&lt;table class=&quot;tbl_search&quot; summary=&quot;최근조회 리스트&quot;&gt;
+&lt;caption&gt;최근조회&lt;/caption&gt;
+&lt;colgroup&gt;
+&lt;col/&gt;
+&lt;col width=&quot;55&quot;/&gt;
+&lt;col width=&quot;87&quot;/&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;업체명&lt;/th&gt;
+&lt;th&gt;거래량&lt;/th&gt;
+&lt;th&gt;전일비&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class=&quot;more_info&quot;&gt;
+&lt;span&gt;
+&lt;a href=&quot;#&quot; onclick=&quot;clickcr(this, &#39;rch.5&#39;, &#39;&#39;, &#39;&#39;, event); return false;&quot;&gt;&lt;img alt=&quot;이전&quot; height=&quot;15&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/btn_prev2.gif&quot; width=&quot;17&quot;/&gt;&lt;/a&gt;
+&lt;a href=&quot;#&quot; onclick=&quot;clickcr(this, &#39;rch.6&#39;, &#39;&#39;, &#39;&#39;, event); return false;&quot;&gt;&lt;img alt=&quot;다음&quot; height=&quot;15&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/btn_next2.gif&quot; width=&quot;17&quot;/&gt;&lt;/a&gt;
+&lt;/span&gt;
+&lt;a class=&quot;btn_more _mystock_more_info&quot; href=&quot;#&quot; onclick=&quot;javascript:openMyitemNew(&#39;https://finance.naver.com&#39;); clickcr(this, &#39;rch.7&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;&lt;img alt=&quot;더보기&quot; height=&quot;10&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/btn_more5.gif&quot; width=&quot;33&quot;/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section_aside&quot;&gt;
+&lt;h3 class=&quot;h_report&quot;&gt;&lt;span&gt;경제분석 리포트 &lt;/span&gt;&lt;/h3&gt;
+&lt;ul class=&quot;list_report&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;/research/economy_read.naver?nid=8573&quot; onclick=&quot;clickcr(this, &#39;rer.list&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;미국 1Q GDP, 힘이 점점 빠...&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/research/economy_read.naver?nid=8572&quot; onclick=&quot;clickcr(this, &#39;rer.list&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;재고 조정 감안 시 눈높이 부합한...&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/research/economy_read.naver?nid=8571&quot; onclick=&quot;clickcr(this, &#39;rer.list&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;[자주포] 눈에 보이는 불확실성&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/research/economy_read.naver?nid=8570&quot; onclick=&quot;clickcr(this, &#39;rer.list&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;Market Weekly Chec...&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;/research/economy_read.naver?nid=8568&quot; onclick=&quot;clickcr(this, &#39;rer.list&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;미국 1Q GDP: 소비가 다했다&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a class=&quot;btn_more&quot; href=&quot;/research/economy_list.naver&quot; onclick=&quot;clickcr(this, &#39;rer.more&#39;, &#39;&#39;, &#39;&#39;, event);&quot;&gt;&lt;img alt=&quot;경제분석 리포트 더보기&quot; height=&quot;18&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/btn_more.gif&quot; width=&quot;34&quot;/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/info/myStock.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot; src=&quot;https://ssl.pstatic.net/imgstock/static.pc/20230426171159/js/util.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script language=&quot;javascript&quot;&gt;
+
+function toggleTabSearch(e){
+	var currentElement = jindo.$Element(jindo.$Event(e).currentElement);
+	var parentElement = currentElement.parent();
+	var id = currentElement.className();
+	var order = parentElement.indexOf(currentElement) + 3;
+	parentElement.className(&quot;tab_search search&quot;+ order);
+
+	// 페이징을 위해서 order값에 따라 최근조회인지 mystock인지 type을 저장
+	if (order == 3) {
+		currentType = &quot;recent&quot;;
+	} else {
+		currentType = &quot;mystock&quot;;
+	}
+}
+
+jindo.$Fn(function(){
+	if (&#39;true&#39; == &#39;true&#39;) {
+		getStockRightMenuData(&#39;000000&#39;, &#39;recent&#39;, 1, &#39;https://finance.naver.com&#39;, &#39;https://ssl.pstatic.net/static/nfinance&#39;);
+
+		var tabSearchArea = jindo.$$.getSingle(&#39;.tab_search&#39;);
+		var moreInfoArea = jindo.$Element(jindo.$$.getSingle(&#39;.tbl_search&#39;)).next().$value();
+
+		jindo.$Fn(function(e) {toggleTabSearch(e); getStockRightMenuData(&#39;000000&#39;, &#39;recent&#39;, 1, &#39;https://finance.naver.com&#39;, &#39;https://ssl.pstatic.net/static/nfinance&#39;); }).attach(jindo.$$.getSingle(&#39;a&#39; ,tabSearchArea), &#39;click&#39;);
+		jindo.$Fn(function(e) {toggleTabSearch(e); getStockRightMenuData(&#39;000000&#39;, &#39;mystock&#39;, 1, &#39;https://finance.naver.com&#39;, &#39;https://ssl.pstatic.net/static/nfinance&#39;); }).attach(jindo.$$(&#39;a&#39; ,tabSearchArea)[1], &#39;click&#39;);
+		jindo.$Fn(function(e) {updatePageForPaging (currentType, &#39;up&#39;, &#39;https://finance.naver.com&#39;, &#39;https://ssl.pstatic.net/static/nfinance&#39;); }).attach(jindo.$$.getSingle(&#39;a&#39;, moreInfoArea), &#39;click&#39;);
+		jindo.$Fn(function(e) {updatePageForPaging (currentType, &#39;down&#39;, &#39;https://finance.naver.com&#39;, &#39;https://ssl.pstatic.net/static/nfinance&#39;); }).attach(jindo.$$(&#39;a&#39;, moreInfoArea)[1], &#39;click&#39;);
+	}
+
+}).attach(document,&quot;domready&quot;);
+
+function openMyitemNew(stockHost) {
+	var selectedElement = jindo.$Element(jindo.$$.getSingle(&quot;.tab_search&quot;));
+	if (selectedElement != null) {
+		if (selectedElement.hasClass(&quot;search1&quot;)) {
+			document.location.href = stockHost + &#39;/mystock/recentSearchItemList.naver&#39;;
+		} else {
+			document.location.href = stockHost + &#39;/mystock/itemList.naver&#39;;
+		}
+	}
+}
+
+&lt;/script&gt;
+&lt;/div&gt;
+&lt;div id=&quot;footer&quot;&gt;
+&lt;ul&gt;
+&lt;li class=&quot;first&quot;&gt;
+&lt;a href=&quot;https://new-m.pay.naver.com/member/terms-policy/naver-financial-service&quot; onclick=&quot;clickcr(this, &#39;fot.service&#39;, &#39;&#39;, &#39;&#39;, event);&quot; target=&quot;_blank&quot;&gt;이용약관&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;https://new-m.pay.naver.com/member/terms-policy/privacy&quot; onclick=&quot;clickcr(this, &#39;fot.privacy&#39;, &#39;&#39;, &#39;&#39;, event);&quot; target=&quot;_blank&quot;&gt;&lt;strong&gt;개인정보처리방침&lt;/strong&gt;&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;/rules.naver&quot; onclick=&quot;clickcr(this, &#39;fot.policy&#39;, &#39;&#39;, &#39;&#39;, event);&quot; target=&quot;_blank&quot;&gt;게시판 운영원칙&lt;/a&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&quot;https://help.naver.com/service/5617/category/bookmark?lang=ko&quot; onclick=&quot;clickcr(this, &#39;fot.help&#39;, &#39;&#39;, &#39;&#39;, event);&quot; target=&quot;_blank&quot;&gt;증권 고객센터&lt;/a&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class=&quot;desc&quot;&gt;
+		네이버파이낸셜(주)이 제공하는 금융 정보는 &lt;a class=&quot;desc_help&quot; href=&quot;javascript:;&quot; onclick=&quot;togglePanelFooter(&#39;footerPanel0&#39;);&quot;&gt;콘텐츠 제공업체&lt;/a&gt;로부터 받는 투자 참고사항이며, 오류가 발생하거나 지연될 수 있습니다.&lt;br/&gt;
+		네이버파이낸셜(주)과 콘텐츠 제공업체는 제공된 정보에 의한 투자 결과에 법적인 책임을 지지 않습니다. 게시된 정보는 무단으로 배포할 수 없습니다.
+	&lt;/p&gt;
+&lt;div class=&quot;provider_layer&quot; id=&quot;footerPanel0&quot; onblur=&quot;hidePannel(&#39;footerPanel0&#39;)&quot; style=&quot;display:none&quot; tabindex=&quot;0&quot;&gt;
+&lt;strong class=&quot;provider_layer__tit&quot;&gt;네이버파이낸셜에 콘텐츠 제공&lt;/strong&gt;
+&lt;div class=&quot;provider_layer__txt&quot;&gt;
+&lt;strong&gt;에프앤가이드&lt;/strong&gt; 기업 및 재무정보&lt;br/&gt;
+&lt;strong&gt;KG제로인&lt;/strong&gt; 해외 시세, 시장지표 정보&lt;br/&gt;
+&lt;strong&gt;한국예탁결제원&lt;/strong&gt; 주주총회일, 전자투표 정보&lt;br/&gt;
+&lt;strong&gt;인포스탁&lt;/strong&gt; 국내 테마 정보
+		&lt;/div&gt;
+&lt;div class=&quot;provider_layer__info&quot;&gt;
+&lt;strong class=&quot;provider_layer__tit&quot;&gt;네이버에 콘텐츠 제공&lt;/strong&gt;
+&lt;div class=&quot;provider_layer__txt&quot;&gt;
+&lt;strong&gt;코스콤&lt;/strong&gt; 국내 시세 정보
+			&lt;/div&gt;
+&lt;/div&gt;
+&lt;button class=&quot;button_close&quot; onclick=&quot;hidePannel(&#39;footerPanel0&#39;)&quot; type=&quot;button&quot;&gt;
+&lt;img alt=&quot;닫기&quot; height=&quot;20&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/2022/footer_close.png&quot; width=&quot;20&quot;/&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;address&gt;
+&lt;a class=&quot;logo&quot; href=&quot;https://www.naverfincorp.com/&quot; onclick=&quot;clickcr(this, &#39;fot.nhn&#39;, &#39;&#39;, &#39;&#39;, event);&quot; target=&quot;_blank&quot;&gt;&lt;img alt=&quot;NAVER FINANCIAL&quot; height=&quot;12&quot; src=&quot;https://ssl.pstatic.net/static/nfinance/img/logo_financial.png&quot; width=&quot;160&quot;/&gt;&lt;/a&gt;
+&lt;/address&gt;
+&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function isVisible(obj) {
+    if (obj == document) return true
+ 
+    if (!obj) return false
+    if (!obj.parentNode) return false
+    if (obj.style) {
+        if (obj.style.display == &#39;none&#39;) return false
+        if (obj.style.visibility == &#39;hidden&#39;) return false
+    }
+ 
+    if (window.getComputedStyle) {
+        var style = window.getComputedStyle(obj, &quot;&quot;)
+        if (style.display == &#39;none&#39;) return false
+        if (style.visibility == &#39;hidden&#39;) return false
+    }
+ 
+    var style = obj.currentStyle
+    if (style) {
+        if (style[&#39;display&#39;] == &#39;none&#39;) return false
+        if (style[&#39;visibility&#39;] == &#39;hidden&#39;) return false
+    }
+ 
+    return isVisible(obj.parentNode)
+}
+
+function isChildOf(myobj, containerObj) {
+	while(myobj != undefined) {
+		if (myobj == document.body) {
+			break;
+		} 
+		if (myobj == containerObj) {
+			return true;
+		}
+		myobj = myobj.parentElement;
+	}
+	return false;	
+}
+
+function gnbLayerClose(e){
+	var target = e.target ? e.target : e.srcElement;
+	if (isVisible(document.getElementById(&#39;gnb_service_lyr&#39;)) || isVisible(document.getElementById(&#39;gnb_notice_lyr&#39;)) ||isVisible(document.getElementById(&#39;gnb_my_lyr&#39;)) ) {
+		if (!isChildOf(target, document.getElementById(&#39;gnb&#39;))) {
+			gnbAllLayerClose();
+		}
+	}	
+}
+
+function showPannel(layerId){
+	var layer = jindo.$(layerId);
+	layer.style.display=&#39;block&#39;;
+
+	if (layerId == &quot;summary_lyr&quot;) {
+		var layerHeight = jindo.$Element(layer).height();
+		jindo.$Element(&quot;summary_ifr&quot;).height(layerHeight);
+	}
+}
+
+function hidePannel(layerId){
+	var layer = jindo.$(layerId);
+	layer.style.display=&#39;none&#39;;
+}
+
+function togglePanelFooter(layerId) {
+	var elTargetLayer = jindo.$Element(jindo.$$.getSingle(&quot;#&quot; + layerId));
+
+	if (elTargetLayer != null) {
+		if (elTargetLayer.visible()) {
+			hidePannel(layerId);
+		} else {
+			showPannel(layerId);
+		}
+	}
+}
+
+var isIE = (navigator.userAgent.toLowerCase().indexOf(&quot;msie&quot;)!=-1 &amp;&amp; window.document.all) ? true:false;
+if (isIE) {
+	document.attachEvent(&#39;onmousedown&#39;, gnbLayerClose);
+} else {
+	window.addEventListener(&#39;mousedown&#39;, gnbLayerClose);
+}
+&lt;/script&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h4>3단계: 개발자 도구 활용<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>개발자 도구를 활용하여 추출하고자 하는 데이터가 어느 태그에 혹은 어떤 속성을 갖고 있는지 확인한다.</p></li>
+<li><p>이를 위해 개발자 도구 F12 또는 … &gt; 도구 더보기 &gt; 개발자 도구를 클릭한다.</p></li>
+</ul>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/html5.png" style="width:600px;"></div><ul class="simple">
+<li><p>요소(element) 선택 버튼을 클릭한다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">요소</span> <span class="pre">선택</span> <span class="pre">버튼</span></code>은 현재 로딩된 웹페이지의 컨텐츠로 마우스를 가져가면 해당 요소의 상세 정보(태그 정보, CSS 정보)와 소스보기의 해당 요소 위치로 바로 이동시켜주는 기능을 제공한다.</p></li>
+<li><p>마우스를 이동시킬 때마다 소스보기에서도 음영처리된 부분이 바뀌는 것을 볼 수 있을 것이다.</p></li>
+</ul>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/html6.png" style="width:600px;"></div><ul class="simple">
+<li><p>환전 고시 환율, 국제 시장 환율, 유가.금시세 정보를 추출하기 위해 미국USD 컨텐츠로 마우스를 가져가보자.</p></li>
+<li><p>도움말 기능으로 태그의 상세 정보인 h3.h_lst가 보인다.</p></li>
+<li><p>좀 더 자세히 확인해보기 위해 클릭한 후, 소스보기의 음영처리 된 부분으로 가보자.</p></li>
+<li><p>미국USD라는 텍스트는 <code class="docutils literal notranslate"><span class="pre">&lt;h3</span> <span class="pre">class=&quot;h_lst&quot;&gt;</span></code>에 들어있다.</p></li>
+<li><p>태그 옆에는 작은 삼각형이 보이는데, 이 삼각형을 클릭하여 소스보기를 접거나 펼칠 수 있다.</p></li>
+<li><p>삼각형을 눌러 펼쳐보면 <code class="docutils literal notranslate"><span class="pre">&lt;span</span> <span class="pre">class=&quot;blind&quot;&gt;미국</span> <span class="pre">USD&lt;/span&gt;</span></code>태그에 미국 USD 컨텐츠가 들어있다.</p></li>
+</ul>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/html7.png" style="width:600px;"></div><ul class="simple">
+<li><p>추출하고자 하는 데이터를 몇 개 더 동일한 방법으로 확인해보자.</p></li>
+<li><p>일본JPY나 유로/달러 등의 컨텐츠도 동일한 태그인 것을 확인했다면 이제 그 태그를 이용하여 데이터를 추출할 수 있다.</p></li>
+<li><p>이때 태그를 잘 선택하는 것이 매우 중요하다. 우리는 두 가지의 옵션을 가지고 있다.</p>
+<ul>
+<li><p>첫 번째 옵션은 <code class="docutils literal notranslate"><span class="pre">&lt;h3</span> <span class="pre">class=&quot;h_lst&quot;&gt;</span></code>로 태그가 h3이고 class가 h_lst인 컨텐츠를 찾는 것</p></li>
+<li><p>두 번째 옵션은 <code class="docutils literal notranslate"><span class="pre">&lt;span</span> <span class="pre">class=&quot;blind&quot;&gt;</span></code>로 태그가 span이고 class가 blind로 찾는 것</p></li>
+</ul>
+</li>
+<li><p>어떤 태그로 찾는 것이 가장 최소한의 노력으로 헛일하지 않고 원하는 데이터를 추출할 수 있는지 생각해야 한다.</p></li>
+</ul>
+</div>
+<div class="section" id="find-all">
+<h4>4단계: find_all()로 찾기<a class="headerlink" href="#find-all" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>두 가지 옵션 모두 테스트해보자.</p></li>
+<li><p>먼저 <code class="docutils literal notranslate"><span class="pre">soup.find_all('h3',</span> <span class="pre">class_=&quot;h_lst&quot;)</span></code>는 추출하려고 했던 데이터가 태그 안에 예쁘게 들어가 있다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;h_lst&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;미국 USD&lt;/span&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;일본 JPY(100엔)&lt;/span&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;유럽연합 EUR&lt;/span&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;중국 CNY&lt;/span&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;달러/일본 엔&lt;/span&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;유로/달러&lt;/span&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;영국 파운드/달러&lt;/span&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;달러인덱스&lt;/span&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;WTI&lt;/span&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;휘발유&lt;/span&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;국제 금&lt;/span&gt;&lt;/h3&gt;,
+ &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;국내 금&lt;/span&gt;&lt;/h3&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>두 번째 옵션은 <code class="docutils literal notranslate"><span class="pre">soup.find_all('span',</span> <span class="pre">class_=&quot;blind&quot;)</span></code>는 추출하려고 했던 데이터뿐만 아니라 원, 하락, 상승과 같은 필요하지 않은 데이터까지 포함되어 있다.</p></li>
+<li><p>어떤 태그를 활용해야 데이터를 잘 추출할 것인가는 여러 번의 연습과 시행착오를 거쳐서 감을 잡는 것이 필요하다.^^;;</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;blind&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;span class=&quot;blind&quot;&gt;미국 USD&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;일본 JPY(100엔)&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;유럽연합 EUR&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;중국 CNY&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;달러/일본 엔&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;엔&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;유로/달러&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;영국 파운드/달러&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;달러인덱스&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;WTI&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;휘발유&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;국제 금&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;국내 금&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>그럼 find_all()로 찾은 요소들을 변수에 저장해보자.</p></li>
+<li><p>앞에서도 설명한 바와 같이, find_all()의 결과는 ‘bs4.element.ResultSet’이다. 리스트는 아니지만 리스트처럼 보여지며, 리스트와 같이 접근이 가능하다고 얘기했었다.</p></li>
+<li><p>인덱스접근과 반복문에 활용 할 수 있다는 것이다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fList</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;h_lst&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fList</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;미국 USD&lt;/span&gt;&lt;/h3&gt;
+미국 USD
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">fList</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">each</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>미국 USD
+일본 JPY(100엔)
+유럽연합 EUR
+중국 CNY
+달러/일본 엔
+유로/달러
+영국 파운드/달러
+달러인덱스
+WTI
+휘발유
+국제 금
+국내 금
+</pre></div>
+</div>
+</div>
+</div>
+<p>😄 환전 고시 환율, 국제 시장 환율, 유가.금시세의 가격을 추출하여 아래와 같이 출력하시오.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">,</span><span class="mf">339.50</span>
+<span class="mi">1</span><span class="p">,</span><span class="mf">339.50</span>
+<span class="mf">999.51</span>
+<span class="mi">1</span><span class="p">,</span><span class="mf">478.00</span>
+<span class="mf">193.25</span>
+<span class="mf">134.1100</span>
+<span class="mf">1.1011</span>
+<span class="mf">1.2466</span>
+<span class="mf">101.2500</span>
+<span class="mf">74.76</span>
+<span class="mf">1664.17</span>
+<span class="mf">1999.0</span>
+<span class="mf">85538.28</span>
+</pre></div>
+</div>
+<p>😄 환전 고시 환율, 국제 시장 환율, 유가.금시세 최종 데이터를 아래와 같이 출력하시오.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">미국</span> <span class="n">USD</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="mf">339.50</span>
+<span class="n">일본</span> <span class="n">JPY</span><span class="p">(</span><span class="mi">100</span><span class="n">엔</span><span class="p">)</span> <span class="p">:</span> <span class="mf">999.51</span>
+<span class="n">유럽연합</span> <span class="n">EUR</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="mf">478.00</span>
+<span class="n">중국</span> <span class="n">CNY</span> <span class="p">:</span> <span class="mf">193.25</span>
+<span class="n">달러</span><span class="o">/</span><span class="n">일본</span> <span class="n">엔</span> <span class="p">:</span> <span class="mf">134.1100</span>
+<span class="n">유로</span><span class="o">/</span><span class="n">달러</span> <span class="p">:</span> <span class="mf">1.1011</span>
+<span class="n">영국</span> <span class="n">파운드</span><span class="o">/</span><span class="n">달러</span> <span class="p">:</span> <span class="mf">1.2466</span>
+<span class="n">달러인덱스</span> <span class="p">:</span> <span class="mf">101.2500</span>
+<span class="n">WTI</span> <span class="p">:</span> <span class="mf">74.76</span>
+<span class="n">휘발유</span> <span class="p">:</span> <span class="mf">1664.17</span>
+<span class="n">국제</span> <span class="n">금</span> <span class="p">:</span> <span class="mf">1999.0</span>
+<span class="n">국내</span> <span class="n">금</span> <span class="p">:</span> <span class="mf">85538.28</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>마무리<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>웹페이지를 만드는데 사용되는 언어중 하나가 바로 HTML이다.</p></li>
 <li><p>HTML은 태그와 내용으로 구성되어 있다.</p></li>
@@ -1329,6 +2589,8 @@ https://www.python.org : Python
 <li><p>tag의 Text 추출하기: get_text(), text, string 등으로 추출할 수 있다.</p></li>
 </ul>
 </li>
+<li><p>웹페이지의 구조를 파악하기 쉽도록 구조를 보여주는 도구가 바로 개발자 도구이다.</p></li>
+<li><p>개발자 도구를 활용하여 추출하고자 하는 데이터의 태그명과 속성을 확인할 수 있다.</p></li>
 </ul>
 </div>
 </div>
@@ -1401,9 +2663,16 @@ https://www.python.org : Python
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">속성값 추출하기</a></li>
 </ul>
 </li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">개발자 도구 활용하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">1단계: urlopen()으로 웹페이지를 가져오기</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">2단계: BeautifulSoup()으로 파싱하기</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">3단계: 개발자 도구 활용</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#find-all">4단계: find_all()로 찾기</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">마무리</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">마무리</a></li>
 </ul>
   </nav></div>
 
