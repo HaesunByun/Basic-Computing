@@ -96,6 +96,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'B_chapter9';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 10. 동적 웹크롤링" href="B_chapter10.html" />
     <link rel="prev" title="Chapter 7. 딕셔너리, 튜플, 셋" href="B_chapter7.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -201,6 +202,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Web Crawling</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 9. 웹과 웹크롤링</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. 동적 웹크롤링</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter10appendix.html">Chapter 10-appendix. 파일시스템의 이해</a></li>
 </ul>
 
     </div>
@@ -618,7 +621,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;http.client.HTTPResponse object at 0x000001FAF160DC48&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;http.client.HTTPResponse object at 0x000001E7EED9D788&gt;
 </pre></div>
 </div>
 </div>
@@ -1077,6 +1080,9 @@ All I need is Love.
 &lt;/p&gt;]
 </pre></div>
 </div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </div>
 </div>
 <ul class="simple">
@@ -1091,6 +1097,9 @@ All I need is Love.
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;bs4.element.ResultSet&#39;&gt;
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p class=&quot;inner-text first-item&quot; id=&quot;first&quot;&gt;Happy university life!
@@ -1340,7 +1349,7 @@ https://www.python.org : Python
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;http.client.HTTPResponse object at 0x000001FAF1A5CC88&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;http.client.HTTPResponse object at 0x000001E7EF1F3688&gt;
 </pre></div>
 </div>
 </div>
@@ -1438,7 +1447,7 @@ https://www.python.org : Python
  &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;일본 JPY(100엔)&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;유럽연합 EUR&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
@@ -1447,7 +1456,7 @@ https://www.python.org : Python
  &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;달러/일본 엔&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;엔&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;유로/달러&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
@@ -1455,10 +1464,10 @@ https://www.python.org : Python
  &lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;달러인덱스&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;WTI&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
+ &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;휘발유&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
@@ -1467,7 +1476,7 @@ https://www.python.org : Python
  &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;국내 금&lt;/span&gt;,
  &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;]
+ &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;]
 </pre></div>
 </div>
 </div>
@@ -1612,6 +1621,15 @@ WTI
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Chapter 7. 딕셔너리, 튜플, 셋</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="B_chapter10.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 10. 동적 웹크롤링</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
