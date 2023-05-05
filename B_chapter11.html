@@ -99,7 +99,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Chapter 12. Pandas" href="B_chapter12.html" />
-    <link rel="prev" title="Chapter 10-부록. 파일시스템의 이해" href="B_chapter10appendix.html" />
+    <link rel="prev" title="Chapter 10. 동적 웹크롤링" href="B_chapter10.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -203,9 +203,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="B_chapter8.html">Chapter 8. 파일시스템의 이해</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter9.html">Chapter 9. 웹과 웹크롤링</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. 동적 웹크롤링</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter10appendix.html">Chapter 10-부록. 파일시스템의 이해</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 11. Numpy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter12.html">Chapter 12. Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter13.html">Chapter 13. Visualization</a></li>
@@ -1231,9 +1231,7 @@ number of columns: 3
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Copy Data=============
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>리스트: [1, 2, 3, [10, 20, 30]]
+리스트: [1, 2, 3, [10, 20, 30]]
 딕셔너리: {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: [10, 20, 30]}
 집합: {1, 2, 3, (10, 20, 30)}
 배열: [[ 1  2  3]
@@ -1308,9 +1306,7 @@ Copy Data 수정 후 copy data=============
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
 True
 True
 </pre></div>
@@ -1340,9 +1336,7 @@ True
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Origin Data===================
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>리스트: [1, 2, 3, [10, 20, 30]]
+리스트: [1, 2, 3, [10, 20, 30]]
 딕셔너리: {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: [10, 20, 30]}
 집합: {1, 2, 3, (10, 20, 30)}
 배열: [[ 1  2  3]
@@ -1631,8 +1625,8 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.04028734 0.01027263 0.535955   0.45449346 0.17894479]
- [0.4088393  0.24686263 0.71875311 0.55660432 0.24361288]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.00926043 0.10674857 0.15858209 0.25040561 0.71397083]
+ [0.74980024 0.63424315 0.79671592 0.05106244 0.99478311]]
 </pre></div>
 </div>
 </div>
@@ -1644,9 +1638,9 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3.61764935 3.66077762]
- [3.94530579 3.99649487]
- [3.88179164 3.96265885]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3.54697583 3.98297398]
+ [3.97305479 3.776056  ]
+ [3.94879129 3.5916115 ]]
 </pre></div>
 </div>
 </div>
@@ -1658,13 +1652,13 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[-3 -4 -2  4]
-  [-3 -3  3  3]
-  [-3 -3  2 -3]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[-4 -5 -1 -1]
+  [-1 -3  3 -1]
+  [ 3 -2 -2  2]]
 
- [[ 3 -1 -3  0]
-  [-4 -4  2  1]
-  [-3 -5 -4 -3]]]
+ [[ 0  2 -4 -1]
+  [-5 -5  2 -4]
+  [ 2  3  2  4]]]
 </pre></div>
 </div>
 </div>
@@ -1688,7 +1682,7 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a30de71914c97fc19d5158fca7b5966a6771d809c3535969765423aef6f99311.png" src="_images/a30de71914c97fc19d5158fca7b5966a6771d809c3535969765423aef6f99311.png" />
+<img alt="_images/d2ec2a0654e515780fb213390f3071456a59069be6643e3444fcebb8c6dc6841.png" src="_images/d2ec2a0654e515780fb213390f3071456a59069be6643e3444fcebb8c6dc6841.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1701,16 +1695,16 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[86 22]
- [45 44]
- [96 63]
- [62 58]
- [45 39]
- [66 79]
- [ 2 29]
- [92 24]
- [94 24]
- [48 99]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[14 92]
+ [74 65]
+ [82 45]
+ [63 42]
+ [58  7]
+ [49 30]
+ [12 77]
+ [69 43]
+ [65 32]
+ [25  3]]
 </pre></div>
 </div>
 </div>
@@ -1879,19 +1873,19 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[0.11054858 0.78976618 0.8912856  0.10763325]
-  [0.23218622 0.4886535  0.11800103 0.59523689]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[0.1479853  0.4142818  0.6132885  0.77089006]
+  [0.33047905 0.12760851 0.86051744 0.22324539]]
 
- [[0.72939016 0.10093241 0.80094089 0.01453499]
-  [0.10979173 0.41625786 0.90963908 0.66348195]]]
-
-
-===결과===
-0.014534985390173283
+ [[0.24472516 0.85007727 0.83020182 0.47800185]
+  [0.545297   0.44192448 0.48667801 0.60445521]]]
 
 
 ===결과===
-0.8912856038470308
+0.12760850899370513
+
+
+===결과===
+0.8605174442404373
 </pre></div>
 </div>
 </div>
@@ -1911,8 +1905,8 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11
-14
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+6
 </pre></div>
 </div>
 </div>
@@ -1996,25 +1990,25 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[19.85799877 79.06680553 70.24366988 65.771412   16.49981768 71.60851809
- 38.02831484 69.77103636 57.77193551 39.57720755 32.53993363 59.78683744
- 66.64753273 18.24692862  4.21911349 52.12616739 66.74996135 85.82373484
- 76.89058359 22.12574166 86.75918158 42.92920397 55.92312776 55.60946975
- 13.44414212  1.82286453 60.53895368 37.13484616 20.30590826 63.81368909
- 87.63033174 13.16118414 24.07669546 43.58033941 51.68492408 15.13926251
- 47.05027356 42.17236078 65.71202874 89.02714617 58.09464144 79.11479725
- 50.65694718 21.78609793 32.64706959 96.84105178 43.38746361  1.14000897
- 74.25149452  2.58866838 27.98620499 62.12719887 93.73260201 17.96617279
- 51.19714261 25.95338633 83.54651489 73.45802467 33.46783722 47.37205413
- 67.54959606 77.11149975 18.04990592 84.61602905 49.90128521  2.82675773
- 95.5373589  51.77906296  1.94535653  3.47091833 34.63512288 97.14103387
- 35.29745689 37.80452281 72.76161292 73.78754941 44.10343651 10.69034891
- 65.32736708 77.77932129]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[57.3396254  35.80608918 79.05174558 28.83851971 35.32472607 42.22599364
+ 61.78641645 57.81446363 90.73491127  7.22857451 18.46131526 72.54224002
+ 66.7384016  53.20185202 28.63359295 16.64541208 16.59799771 56.03310879
+ 19.96312529 78.90088654 71.50174291 17.01077933 47.54390585 54.74497922
+ 83.23154568 34.58736967 28.1381634  13.71328902 95.08809799 73.77084242
+ 26.80810109 29.23360451 36.15578962  1.81913724 97.72250868 72.78611799
+  4.06829444 64.51672201 55.92619664 25.72629921 51.79393801 18.02395529
+ 89.54896084 61.56055705 60.10204187 24.60846678 25.33127461 75.86989696
+ 71.63619848 28.90818134 36.65848767 62.41348621 67.28219102  2.1074703
+ 36.80975177 93.99508398 91.26628673 13.61927723 35.58215504 86.19529596
+ 63.46964994 71.29116715 80.12764386 49.40034399 99.98016559 92.72296625
+ 18.15690531 79.39589098  8.50401663 94.02544679 77.05624841 77.84986457
+ 22.50178639 72.20586696 49.96343404 69.35196999 73.62595827 17.24977072
+ 98.6097329  96.95236562]
 
 
 ===결과===
-732.2878283153183
-27.060817214476696
+796.9433425901473
+28.23018495494047
 </pre></div>
 </div>
 </div>
@@ -2035,12 +2029,15 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 6  0  6 -6 -8]
- [ 2 -4  1 -8  5]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 7 -5  2  1 -6]
+ [ 5  1  2  1 -8]]
 
 
 ===결과===
-[-8 -6 -4  0  1  2  5  6]
+[-8 -6 -5  1  2  5  7]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
 </pre></div>
 </div>
 </div>
@@ -2061,13 +2058,13 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ -3   5   6  -6  -2]
- [ -9   5  -6 -10  -4]]
-
-
-===결과===
-[[ 3  5  6  6  2]
- [ 9  5  6 10  4]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 6  7 -6 -7  9]
+ [-5  8  9  4  4]]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>===결과===
+[[6 7 6 7 9]
+ [5 8 9 4 4]]
 </pre></div>
 </div>
 </div>
@@ -2212,12 +2209,12 @@ False
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="B_chapter10appendix.html"
+       href="B_chapter10.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter 10-부록. 파일시스템의 이해</p>
+        <p class="prev-next-title">Chapter 10. 동적 웹크롤링</p>
       </div>
     </a>
     <a class="right-next"
