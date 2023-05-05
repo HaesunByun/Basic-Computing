@@ -199,11 +199,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="B_chapter6.html">Chapter 6. 함수</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 7. 딕셔너리, 튜플, 셋</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Web Crawling</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="B_chapter9.html">Chapter 9. 웹과 웹크롤링</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. 동적 웹크롤링</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter10appendix.html">Chapter 10-appendix. 파일시스템의 이해</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter10appendix.html">Chapter 10-부록. 파일시스템의 이해</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter11.html">Chapter 11. Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter12.html">Chapter 12. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter13.html">Chapter 13. Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter14.html">Chapter 14. 종합 예제</a></li>
 </ul>
 
     </div>
@@ -431,7 +435,7 @@ document.write(`
 </div>
 <div class="section" id="id1">
 <h2>딕셔너리<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
-<p>인덱스는 항상 양의 정수로만 해야 할까?라는 생각을 한 번 쯤은 해본 적이 있을지도 모른다. 딕셔너리는 이러한 생각을 깨고 key를 인덱스로 사용한다.</p>
+<p>인덱스는 항상 정수로만 해야 할까?라는 생각을 한 번 쯤은 해본 적이 있을지도 모른다. 딕셔너리는 이러한 생각을 깨고 key를 인덱스로 사용한다.</p>
 <p>딕셔너리의 형식은 다음과 같다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">Key1</span><span class="p">:</span><span class="n">Value1</span><span class="p">,</span> <span class="n">Key2</span><span class="p">:</span><span class="n">Value2</span><span class="p">,</span> <span class="n">Key3</span><span class="p">:</span><span class="n">Value3</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
 </pre></div>
@@ -1027,7 +1031,7 @@ data
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;bar&#39;, &#39;qux&#39;, &#39;foo&#39;, &#39;baz&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;baz&#39;, &#39;qux&#39;, &#39;foo&#39;, &#39;bar&#39;}
 {}
 set()
 {1, 2, 3, 4, 6, 7, 8, 10}
@@ -1057,8 +1061,8 @@ set()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;tube&#39;, &#39;neo&#39;, &#39;muzi&#39;, &#39;con&#39;, &#39;jay-G&#39;, &#39;ryan&#39;, &#39;apeach&#39;, &#39;frodo&#39;, &#39;choonsik&#39;]
-(&#39;tube&#39;, &#39;neo&#39;, &#39;muzi&#39;, &#39;con&#39;, &#39;jay-G&#39;, &#39;ryan&#39;, &#39;apeach&#39;, &#39;frodo&#39;, &#39;choonsik&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;jay-G&#39;, &#39;neo&#39;, &#39;tube&#39;, &#39;choonsik&#39;, &#39;muzi&#39;, &#39;con&#39;, &#39;apeach&#39;, &#39;ryan&#39;, &#39;frodo&#39;]
+(&#39;jay-G&#39;, &#39;neo&#39;, &#39;tube&#39;, &#39;choonsik&#39;, &#39;muzi&#39;, &#39;con&#39;, &#39;apeach&#39;, &#39;ryan&#39;, &#39;frodo&#39;)
 </pre></div>
 </div>
 </div>
@@ -1074,15 +1078,17 @@ set()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kakao-tube
-kakao-neo
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kakao-jay-G
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kakao-neo
+kakao-tube
+kakao-choonsik
 kakao-muzi
 kakao-con
-kakao-jay-G
-kakao-ryan
 kakao-apeach
+kakao-ryan
 kakao-frodo
-kakao-choonsik
 </pre></div>
 </div>
 </div>
