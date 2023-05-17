@@ -1,0 +1,72 @@
+Traceback (most recent call last):
+  File "D:\users\anaconda3\lib\site-packages\jupyter_cache\executors\utils.py", line 64, in single_nb_execution
+    **kwargs,
+  File "D:\users\anaconda3\lib\site-packages\nbclient\client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "D:\users\anaconda3\lib\site-packages\nbclient\util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "D:\users\anaconda3\lib\site-packages\nbclient\util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "D:\users\anaconda3\lib\asyncio\base_events.py", line 579, in run_until_complete
+    return future.result()
+  File "D:\users\anaconda3\lib\site-packages\nbclient\client.py", line 664, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "D:\users\anaconda3\lib\site-packages\nbclient\client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "D:\users\anaconda3\lib\site-packages\nbclient\client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+print(d3['총점'].max())
+print(d3['총점'].min())
+------------------
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mKeyError[0m                                  Traceback (most recent call last)
+[1;32mD:\users\anaconda3\lib\site-packages\pandas\core\indexes\base.py[0m in [0;36mget_loc[1;34m(self, key, method, tolerance)[0m
+[0;32m   2896[0m             [1;32mtry[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[1;32m-> 2897[1;33m                 [1;32mreturn[0m [0mself[0m[1;33m.[0m[0m_engine[0m[1;33m.[0m[0mget_loc[0m[1;33m([0m[0mkey[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m   2898[0m             [1;32mexcept[0m [0mKeyError[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+
+[1;32mpandas\_libs\index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[1;34m()[0m
+
+[1;32mpandas\_libs\index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[1;34m()[0m
+
+[1;32mpandas\_libs\hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[1;34m()[0m
+
+[1;32mpandas\_libs\hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[1;34m()[0m
+
+[1;31mKeyError[0m: '총점'
+
+During handling of the above exception, another exception occurred:
+
+[1;31mKeyError[0m                                  Traceback (most recent call last)
+[1;32m<ipython-input-47-9b8e3290d354>[0m in [0;36m<module>[1;34m[0m
+[1;32m----> 1[1;33m [0mprint[0m[1;33m([0m[0md3[0m[1;33m[[0m[1;34m'총점'[0m[1;33m][0m[1;33m.[0m[0mmax[0m[1;33m([0m[1;33m)[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m      2[0m [0mprint[0m[1;33m([0m[0md3[0m[1;33m[[0m[1;34m'총점'[0m[1;33m][0m[1;33m.[0m[0mmin[0m[1;33m([0m[1;33m)[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+
+[1;32mD:\users\anaconda3\lib\site-packages\pandas\core\frame.py[0m in [0;36m__getitem__[1;34m(self, key)[0m
+[0;32m   2978[0m             [1;32mif[0m [0mself[0m[1;33m.[0m[0mcolumns[0m[1;33m.[0m[0mnlevels[0m [1;33m>[0m [1;36m1[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[0;32m   2979[0m                 [1;32mreturn[0m [0mself[0m[1;33m.[0m[0m_getitem_multilevel[0m[1;33m([0m[0mkey[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[1;32m-> 2980[1;33m             [0mindexer[0m [1;33m=[0m [0mself[0m[1;33m.[0m[0mcolumns[0m[1;33m.[0m[0mget_loc[0m[1;33m([0m[0mkey[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m   2981[0m             [1;32mif[0m [0mis_integer[0m[1;33m([0m[0mindexer[0m[1;33m)[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[0;32m   2982[0m                 [0mindexer[0m [1;33m=[0m [1;33m[[0m[0mindexer[0m[1;33m][0m[1;33m[0m[1;33m[0m[0m
+
+[1;32mD:\users\anaconda3\lib\site-packages\pandas\core\indexes\base.py[0m in [0;36mget_loc[1;34m(self, key, method, tolerance)[0m
+[0;32m   2897[0m                 [1;32mreturn[0m [0mself[0m[1;33m.[0m[0m_engine[0m[1;33m.[0m[0mget_loc[0m[1;33m([0m[0mkey[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m   2898[0m             [1;32mexcept[0m [0mKeyError[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+[1;32m-> 2899[1;33m                 [1;32mreturn[0m [0mself[0m[1;33m.[0m[0m_engine[0m[1;33m.[0m[0mget_loc[0m[1;33m([0m[0mself[0m[1;33m.[0m[0m_maybe_cast_indexer[0m[1;33m([0m[0mkey[0m[1;33m)[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0m[0;32m   2900[0m         [0mindexer[0m [1;33m=[0m [0mself[0m[1;33m.[0m[0mget_indexer[0m[1;33m([0m[1;33m[[0m[0mkey[0m[1;33m][0m[1;33m,[0m [0mmethod[0m[1;33m=[0m[0mmethod[0m[1;33m,[0m [0mtolerance[0m[1;33m=[0m[0mtolerance[0m[1;33m)[0m[1;33m[0m[1;33m[0m[0m
+[0;32m   2901[0m         [1;32mif[0m [0mindexer[0m[1;33m.[0m[0mndim[0m [1;33m>[0m [1;36m1[0m [1;32mor[0m [0mindexer[0m[1;33m.[0m[0msize[0m [1;33m>[0m [1;36m1[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+
+[1;32mpandas\_libs\index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[1;34m()[0m
+
+[1;32mpandas\_libs\index.pyx[0m in [0;36mpandas._libs.index.IndexEngine.get_loc[1;34m()[0m
+
+[1;32mpandas\_libs\hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[1;34m()[0m
+
+[1;32mpandas\_libs\hashtable_class_helper.pxi[0m in [0;36mpandas._libs.hashtable.PyObjectHashTable.get_item[1;34m()[0m
+
+[1;31mKeyError[0m: '총점'
+KeyError: '총점'
+
