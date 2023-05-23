@@ -362,7 +362,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -378,6 +380,50 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-numpy">Matplotlib: numpy 데이터 활용</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot">선그래프: .plot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">다중 선그래프</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter">산포도(산점도) 그래프: .scatter()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colorbar">칼라바가 있는 산포도 그래프: .colorbar()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar">세로 막대그래프: .bar()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barh">가로 막대그래프: .barh()</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib: 판다스 데이터 활용</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">한글 폰트 설치 및 설정</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">데이터프레임으로 그래프 그리기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kind-line">선그래프: kind=’line’</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">여러개 그래프 나타내기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kind-bar">세로 막대그래프: kind=’bar’</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">정렬한 세로 막대그래프</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kind-barh">가로 막대그래프: kind=’barh’</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kind-pie">파이 그래프: kind=’pie’</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">Seaborn</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lineplot">선그래프: .lineplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmap">히트맵 그래프: .heatmap()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">박스플롯 그래프: .boxplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#violinplot">바이올린 그래프: .violinplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">—붓꽃 데이터 활용—</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pairplot-pariplot">pairplot 그래프: .pariplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facetgrid-facetgrid">FacetGrid 그래프: .FacetGrid()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips">— tips 데이터 활용—</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barplot">막대 그래프: .barplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#count-countplot">count 그래프: .countplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regplot">회귀선이 있는 산포도 그래프: regplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lmplot">카테고리별 회귀선이 있는 산포도 그리기: lmplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displot">히스토그램과 커널밀도 그래프: displot()</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">마무리</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -389,6 +435,1228 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-13-visualization">
 <h1>Chapter 13. Visualization<a class="headerlink" href="#chapter-13-visualization" title="Permalink to this headline">#</a></h1>
+<div class="info admonition">
+<p class="admonition-title">학습목표와 기대효과 </p>
+<ul class="simple">
+<li><p>학습목표</p>
+<ul>
+<li><p>배열, 데이타프레임 데이터를 활용하여 다양한 그래프를 그려보자.</p></li>
+</ul>
+</li>
+<li><p>기대효과</p>
+<ul>
+<li><p>그래프를 통해 데이터를 시각적으로 나타내어 분석, 처리하거나 효과적으로 설명하는데 사용할 수 있다.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>데이터 분석 또는 분석 결과를 설명하기 위한 방법중 하나가 데이터 시각화이다. 파이썬 언어를 이용한 데이터 시각화는 matplitlib과 seaborn 라이브러리를 활용하여 가능하다. matplitlib과 seaborn은 다양한 그래프 함수를 제공한다. 이러한 함수를 이용하여 데이터를 시각화하는 것은 어렵지 않지만, 데이터에 적합한 시각화를 이끌어 내는 것이 매우 중요하고 어렵다.</p>
+<p><strong>Matplotlib</strong>는 데이터를 시각화하는데 사용되는 라이브러리이다.
+선, 산포도, 막대 그래프, 면적그래프, 히스토그램, 파이차트, 박스플롯 등 다양한 그래프를 그릴 수 있도록 한다.</p>
+<ul class="simple">
+<li><p>이번 장에서는 numpy데이터인 array(배열)과 pandas 데이터인 DataFrame을 활용하여 그래프를 그리는 방법을 익힌다.</p></li>
+<li><p>아래의 링크를 통해 다양한 그래프를 그리는 방법과 옵션을 학습할 수 있다.</p>
+<ul>
+<li><p>matplotlib 공식 사이트 : <a class="reference external" href="https://matplotlib.org/stable/index.html">https://matplotlib.org/stable/index.html</a></p></li>
+<li><p>seaborn 공식 사이트 : <a class="reference external" href="https://seaborn.pydata.org/">https://seaborn.pydata.org/</a></p></li>
+<li><p>문제해결 방법 : <a class="reference external" href="https://stackoverflow.com/">https://stackoverflow.com/</a></p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="matplotlib-numpy">
+<h2>Matplotlib: numpy 데이터 활용<a class="headerlink" href="#matplotlib-numpy" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>numpy 데이터를 활용하여 그래프를 그려보다. 필요한 모듈을 먼저 불러온다.</p></li>
+<li><p>matplotlib.pyplot 모듈은 보통 plt라는 별칭을 사용한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="plot">
+<h3>선그래프: .plot()<a class="headerlink" href="#plot" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>선 그래프</strong>는 수량을 점으로 표시하고 점과 점 사이의 거리를 직선으로 연결한 그래프이다.</p></li>
+<li><p>시간에 따른 데이터의 변화 추세를 파악하는데 유용하다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>선그래프에 사용될 수 있는 다양한 옵션이 있다.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>글자</p></th>
+<th class="text-center head"><p>색</p></th>
+<th class="text-center head"><p></p></th>
+<th class="text-center head"><p>글자</p></th>
+<th class="text-center head"><p>선/마커 모양</p></th>
+<th class="text-center head"><p></p></th>
+<th class="text-center head"><p>옵션명</p></th>
+<th class="text-center head"><p>옵션값</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>‘b’</p></td>
+<td class="text-center"><p>Blue</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>‘-‘</p></td>
+<td class="text-center"><p>Solid line</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>label</p></td>
+<td class="text-center"><p>‘라벨명’</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>‘g’</p></td>
+<td class="text-center"><p>Green</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>‘–’</p></td>
+<td class="text-center"><p>Dashed line</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>color/c</p></td>
+<td class="text-center"><p>‘선색’</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>‘r’</p></td>
+<td class="text-center"><p>Red</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>‘-.’</p></td>
+<td class="text-center"><p>Dash-dot line</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>linewidth/lw</p></td>
+<td class="text-center"><p>선굵기</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>‘c’</p></td>
+<td class="text-center"><p>Cyan</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>‘:’</p></td>
+<td class="text-center"><p>Dotted lin</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>linestyle/ls</p></td>
+<td class="text-center"><p>‘선모양’</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>‘m’</p></td>
+<td class="text-center"><p>Magenta</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>‘.’</p></td>
+<td class="text-center"><p>Point marker</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>marker</p></td>
+<td class="text-center"><p>‘마커모양’</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>‘y’</p></td>
+<td class="text-center"><p>Yellow</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>‘,’</p></td>
+<td class="text-center"><p>Pixel marker</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>markerfacecolor/mfc</p></td>
+<td class="text-center"><p>‘마커색’</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>‘k’</p></td>
+<td class="text-center"><p>Black</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>‘o’</p></td>
+<td class="text-center"><p>Circle marker</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p>markersize/ms</p></td>
+<td class="text-center"><p>마커크기</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>‘w’</p></td>
+<td class="text-center"><p>White</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>😄 배열 x, y에 대한 선그래프를 그려보자.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> 
+<span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-.&#39;</span><span class="p">)</span> <span class="c1"># &#39;ob&#39;, &#39;r-.&#39;, &#39;g+&#39;</span>
+<span class="c1">#plt.plot(x, y, color = &#39;green&#39;, linestyle = &#39;dashed&#39;, marker = &#39;o&#39;, mfc = &#39;blue&#39;, ms = 12)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="c1">#plt.savefig(&#39;line.png&#39;) #.show()를 주석처리하고 파일로 저장해야 한다.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/930f39a97e2d3eeff3b91406cd694d81ef920a9d74d081aca0ac9faebb9731eb.png" src="_images/930f39a97e2d3eeff3b91406cd694d81ef920a9d74d081aca0ac9faebb9731eb.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h3>다중 선그래프<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>여러 개의 그래프를 하나의 도화지에 그리고 싶을 때에는 그래프를 먼저 그리고 가장 마지막에 plt.show()하면 된다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;sin&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;cos&#39;</span><span class="p">)</span>             
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Example of sinewave&#39;</span><span class="p">)</span> <span class="c1"># 제목             </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> <span class="c1"># 범례</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>        <span class="c1"># x축 라벨</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>   <span class="c1"># y축 라벨</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9df7e253d49da28330b53aada469cbc6bf52c561acc3d9d932c3c88f39662bf0.png" src="_images/9df7e253d49da28330b53aada469cbc6bf52c561acc3d9d932c3c88f39662bf0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="scatter">
+<h3>산포도(산점도) 그래프: .scatter()<a class="headerlink" href="#scatter" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>산포도그래프</strong>는도표 위에 두 변수 x와 y 값이 만나는 지점을 표시한다.</p></li>
+<li><p>이 그래프를 통해 두 변수 사이의 관계를 알 수 있다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>산포도 그래프에 사용되는 옵션은 다음과 같다.</p></li>
+</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>옵션명</p></th>
+<th class="text-center head"><p>옵션값</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>color/c/facecolor/facecolors</p></td>
+<td class="text-center"><p>‘마커색’(하나의 색 대신 데이터 지정 가능)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>cmap</p></td>
+<td class="text-center"><p>colormap</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>marker</p></td>
+<td class="text-center"><p>‘o’, ‘+’, ‘*’, ‘.’, ‘&gt;’</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>alpha</p></td>
+<td class="text-center"><p>투명도</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>s</p></td>
+<td class="text-center"><p>마커크기</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference external" href="https://matplotlib.org/tutorials/colors/colormaps.html">https://matplotlib.org/tutorials/colors/colormaps.html</a></p>
+<p>😄 배열 x,y에 대해 산포도 그래프를 그려보자.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+            <span class="c1">#TODO</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="colorbar">
+<h3>칼라바가 있는 산포도 그래프: .colorbar()<a class="headerlink" href="#colorbar" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>color를 데이터와 연동시킬 수 있다.</p></li>
+<li><p>연동시킨 데이타가 colorbar의 색깔로 나타난다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>😄 배열 x,y에 대해 칼라바가 있는 산포도 그래프를 그려보자.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+             <span class="c1">#TODO</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bar">
+<h3>세로 막대그래프: .bar()<a class="headerlink" href="#bar" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>막대 그래프는 각 항목의 크기를 비교할 수 있도록 보여주는 그래프이다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>😄 배열 x, 리스트 y에 대해 세로 막대 그래프를 그려보자.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
+             <span class="c1">#TODO</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="barh">
+<h3>가로 막대그래프: .barh()<a class="headerlink" href="#barh" title="Permalink to this headline">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>😄 배열 x, 리스트 y에 대해 가로 막대 그래프를 그려보자.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">22</span><span class="p">]</span>
+             <span class="c1">#TODO</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="matplotlib">
+<h2>Matplotlib: 판다스 데이터 활용<a class="headerlink" href="#matplotlib" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id2">
+<h3>한글 폰트 설치 및 설정<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1. 현재 셀 실행</span>
+<span class="c1">#2. 런타임 -&gt; 런타임 다시 시작</span>
+<span class="o">!</span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>fonts-nanum
+<span class="o">!</span>sudo<span class="w"> </span>fc-cache<span class="w"> </span>-fv
+<span class="o">!</span>rm<span class="w"> </span>~/.cache/matplotlib<span class="w"> </span>-rf
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sudo&#39; is not recognized as an internal or external command,
+operable program or batch file.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sudo&#39; is not recognized as an internal or external command,
+operable program or batch file.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s1">&#39;NanumBarunGothic&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s1">&#39;한글&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/dfd740969b7475cc11c6f4e5cc919552e51814b0bba01e2bfec41284e30a4bb9.png" src="_images/dfd740969b7475cc11c6f4e5cc919552e51814b0bba01e2bfec41284e30a4bb9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">84</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">78</span><span class="p">],</span> <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">84</span><span class="p">],</span> <span class="p">[</span><span class="mi">87</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">76</span><span class="p">],</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">99</span><span class="p">],</span> <span class="p">[</span><span class="mi">59</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">59</span><span class="p">],</span> <span class="p">[</span><span class="mi">46</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">56</span><span class="p">]]</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;철수&#39;</span><span class="p">,</span> <span class="s1">&#39;영이&#39;</span><span class="p">,</span> <span class="s1">&#39;길동&#39;</span><span class="p">,</span> <span class="s1">&#39;미영&#39;</span><span class="p">,</span> <span class="s1">&#39;순이&#39;</span><span class="p">,</span> <span class="s1">&#39;철이&#39;</span><span class="p">]</span>
+<span class="n">lectures</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;국어&#39;</span><span class="p">,</span> <span class="s1">&#39;영어&#39;</span><span class="p">,</span> <span class="s1">&#39;수학&#39;</span><span class="p">]</span>
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">names</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">lectures</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>국어</th>
+      <th>영어</th>
+      <th>수학</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>철수</td>
+      <td>84</td>
+      <td>87</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>영이</td>
+      <td>21</td>
+      <td>15</td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <td>길동</td>
+      <td>87</td>
+      <td>84</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>미영</td>
+      <td>100</td>
+      <td>87</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <td>순이</td>
+      <td>59</td>
+      <td>99</td>
+      <td>59</td>
+    </tr>
+    <tr>
+      <td>철이</td>
+      <td>46</td>
+      <td>77</td>
+      <td>56</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;철수&#39;, &#39;영이&#39;, &#39;길동&#39;, &#39;미영&#39;, &#39;순이&#39;, &#39;철이&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;국어&#39;, &#39;영어&#39;, &#39;수학&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id3">
+<h3>데이터프레임으로 그래프 그리기<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>데이터프레임으로 그래프를 그리는 방법은 다음과 같이 두 가지를 사용할 수 있다.</p>
+<ul>
+<li><p>첫 번째는 plt.그래프함수명(x, y)와 같이 앞서 설명했던 방법으로 그리는 것이다.</p>
+<ul>
+<li><p>예) plt.plot(df.index, df[‘국어’])</p></li>
+</ul>
+</li>
+<li><p>두 번째는 데이터프레임명.plot(kind=’그래프종류’)와 같이 데이터프레임명을 .앞에 사용하는 것이다.</p>
+<ul>
+<li><p>예) df[‘국어’].plot(kind=’line’)</p></li>
+</ul>
+</li>
+<li><p>kind 옵션은 다음과 같다.</p>
+<ul>
+<li><p>‘line’: 선그래프</p></li>
+<li><p>‘bar’: 수직막대그래프</p></li>
+<li><p>‘barh’: 수평막대그래프</p></li>
+<li><p>‘pie’: 원그래프</p></li>
+<li><p>‘box’: 박스그래프</p></li>
+<li><p>‘kde’: 커널밀도그래프</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="kind-line">
+<h3>선그래프: kind=’line’<a class="headerlink" href="#kind-line" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;국어&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="s1">&#39;10&#39;</span><span class="p">,</span> <span class="n">markerfacecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="c1">#plt.plot(df.index, df[&#39;국어&#39;], marker=&#39;*&#39;, markersize=&#39;10&#39;, markerfacecolor=&#39;red&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;국어성적&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;이름&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;점수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/5e32f419fd1eee24d97c4ce1edc5e9d97110b71081ebe77f04f6db73b63e9c84.png" src="_images/5e32f419fd1eee24d97c4ce1edc5e9d97110b71081ebe77f04f6db73b63e9c84.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>여러개 그래프 나타내기<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>여러 개의 그래프를 하나의 도화지에 나타내보자.</p></li>
+<li><p>plt.figure(figsize = (12,3)) : 도화지의 사이즈를 가로 12, 세로 3 인치로 설정한다.</p></li>
+<li><p>plt.subplot(row, column, index): 하나의 도화지를 row와 column으로 나누고 그래프가 들어갈 위치 즉, index를 적어준다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> 
+  <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">df</span><span class="p">[</span><span class="n">lectures</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">)</span>
+  <span class="c1">#plt.plot(names,df[lectures[i]]) </span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">lectures</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;성적&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9bbe81615f135e74a00940de6ddafc7a79949efe10a0524b65f3278692ed3706.png" src="_images/9bbe81615f135e74a00940de6ddafc7a79949efe10a0524b65f3278692ed3706.png" />
+</div>
+</div>
+</div>
+<div class="section" id="kind-bar">
+<h3>세로 막대그래프: kind=’bar’<a class="headerlink" href="#kind-bar" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;국어&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="c1">#plt.bar(df.index, df[&#39;국어&#39;])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;학생들의 성적&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;점수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;이름&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/157f6f08098012da13db8c0e7296092d8d16ed1052c453c76b884a04db241338.png" src="_images/157f6f08098012da13db8c0e7296092d8d16ed1052c453c76b884a04db241338.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;학생들의 성적&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;점수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;이름&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/2f7929bf525acc67f43f0086c8c2ba5becf0aa880c871498ff14e538e24a7784.png" src="_images/2f7929bf525acc67f43f0086c8c2ba5becf0aa880c871498ff14e538e24a7784.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>정렬한 세로 막대그래프<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_math</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;수학&#39;</span><span class="p">)</span>
+<span class="n">sorted_math</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>국어</th>
+      <th>영어</th>
+      <th>수학</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>철이</td>
+      <td>46</td>
+      <td>77</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <td>순이</td>
+      <td>59</td>
+      <td>99</td>
+      <td>59</td>
+    </tr>
+    <tr>
+      <td>길동</td>
+      <td>87</td>
+      <td>84</td>
+      <td>76</td>
+    </tr>
+    <tr>
+      <td>철수</td>
+      <td>84</td>
+      <td>87</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>영이</td>
+      <td>21</td>
+      <td>15</td>
+      <td>84</td>
+    </tr>
+    <tr>
+      <td>미영</td>
+      <td>100</td>
+      <td>87</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_math</span><span class="p">[</span><span class="s1">&#39;수학&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;수학성적&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;이름&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;점수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ea23b0e3469738fa3fee983714739d7368ec2ade0bb7cc38352bbfc13f76fadb.png" src="_images/ea23b0e3469738fa3fee983714739d7368ec2ade0bb7cc38352bbfc13f76fadb.png" />
+</div>
+</div>
+</div>
+<div class="section" id="kind-barh">
+<h3>가로 막대그래프: kind=’barh’<a class="headerlink" href="#kind-barh" title="Permalink to this headline">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">,</span> <span class="n">stacked</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> 
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;학생들의 성적&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;이름&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;점수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/822fab2f5c5b4efdaf3f598fb025167f832e1a091741d3d2c1893ee98e25c590.png" src="_images/822fab2f5c5b4efdaf3f598fb025167f832e1a091741d3d2c1893ee98e25c590.png" />
+</div>
+</div>
+</div>
+<div class="section" id="kind-pie">
+<h3>파이 그래프: kind=’pie’<a class="headerlink" href="#kind-pie" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>autopct : 파이조각을 백분율로 나타낸다.</p></li>
+<li><p>startangle: 첫 번째 파이의 시작 각도</p></li>
+<li><p>explode: 특정 조각을 돌출시킨다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># df에 &#39;성별&#39; 열을 추가하세요.</span>
+<span class="n">gender</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;남&#39;</span><span class="p">,</span><span class="s1">&#39;여&#39;</span><span class="p">,</span><span class="s1">&#39;남&#39;</span><span class="p">,</span><span class="s1">&#39;여&#39;</span><span class="p">,</span><span class="s1">&#39;여&#39;</span><span class="p">,</span><span class="s1">&#39;남&#39;</span><span class="p">]</span>
+<span class="c1"># Todo</span>
+
+<span class="n">df</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># mean을 사용하여 &#39;평균&#39; column을 추가하세요.</span>
+<span class="c1"># Todo</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;평균&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;평균&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;S/U&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;S&quot;</span> <span class="k">if</span> <span class="n">s</span> <span class="o">&gt;=</span><span class="mi">75</span> <span class="k">else</span> <span class="s2">&quot;U&quot;</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;평균&#39;</span><span class="p">]]</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d3</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;성별&#39;</span><span class="p">,</span><span class="s1">&#39;S/U&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">d3</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">explode</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
+<span class="n">d3</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;pie&#39;</span><span class="p">,</span>
+                 <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> 
+                 <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> 
+                 <span class="n">startangle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                 <span class="n">explode</span> <span class="o">=</span> <span class="n">explode</span><span class="p">,</span>
+                 <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chocolate&#39;</span><span class="p">,</span><span class="s1">&#39;bisque&#39;</span><span class="p">,</span><span class="s1">&#39;cadetblue&#39;</span><span class="p">,</span><span class="s1">&#39;yellow&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="seaborn">
+<h2>Seaborn<a class="headerlink" href="#seaborn" title="Permalink to this headline">#</a></h2>
+<p>Matplotlib을 기반으로 다양한 색상 테마와 통계용 차트 등의 기능을 확장한 파이썬 시각화 도구의 고급 버전 라이브러리이다.</p>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/graph.png" height=300 style="width:600px;"></div><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="lineplot">
+<h3>선그래프: .lineplot()<a class="headerlink" href="#lineplot" title="Permalink to this headline">#</a></h3>
+<p>😄 lineplot()으로 과목별 선그래프를 그려보자.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/77e0a452aa93b20964e4864fb19410351947cfbb37bf95bf981b47a22ed7d0fb.png" src="_images/77e0a452aa93b20964e4864fb19410351947cfbb37bf95bf981b47a22ed7d0fb.png" />
+</div>
+</div>
+</div>
+<div class="section" id="heatmap">
+<h3>히트맵 그래프: .heatmap()<a class="headerlink" href="#heatmap" title="Permalink to this headline">#</a></h3>
+<p>색상으로 표현할 수 있는 다양한 데이터를 매트릭스 형태로 보여주는 그래프이다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>annot : 각 셀에 값을 나타낸다.</p></li>
+<li><p>fmt : 정수로 값을 나타낸다.</p></li>
+<li><p>cmap: 컬러맵을 적어준다. <a class="reference external" href="https://matplotlib.org/tutorials/colors/colormaps.html">https://matplotlib.org/tutorials/colors/colormaps.html</a></p></li>
+</ul>
+<p>😄 학생과 과목별 히트맵그래프를 그려보자.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;국어&#39;</span><span class="p">:</span><span class="s1">&#39;수학&#39;</span><span class="p">],</span><span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;YlGnBu&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1c107f37b5b98b27d8338aef23c075f1cb1a624ab1a581f7aa1d1dfcb6002c94.png" src="_images/1c107f37b5b98b27d8338aef23c075f1cb1a624ab1a581f7aa1d1dfcb6002c94.png" />
+</div>
+</div>
+</div>
+<div class="section" id="boxplot">
+<h3>박스플롯 그래프: .boxplot()<a class="headerlink" href="#boxplot" title="Permalink to this headline">#</a></h3>
+<p><strong>박스플롯</strong>은 수염상자, 봉, 캔들 등 다양한 이름을 가진 그래프이다.
+데이터의 분포와 이상치를 동시에 보여줘서 서로 다른 데이터군을 쉽게 비교할 수 있도록 최솟값, 최댓값, 제1사분위수(Q1), 제2사분위수(Q2, 중앙값), 제3사분위수(Q3) 등 다섯가지 통계로 데이터를 나타낸다.</p>
+<p>😄 성별별로 국어점수에 대해 박스플롯을 그려보자.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;성별&#39;</span><span class="p">]</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;남&#39;</span><span class="p">,</span><span class="s1">&#39;여&#39;</span><span class="p">,</span><span class="s1">&#39;남&#39;</span><span class="p">,</span><span class="s1">&#39;여&#39;</span><span class="p">,</span><span class="s1">&#39;여&#39;</span><span class="p">,</span><span class="s1">&#39;남&#39;</span><span class="p">]</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;성별&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;국어&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/9e08c90bef07af59d3b7513002bc27d3725f21ad3643ba9377430fc2a8d204f2.png" src="_images/9e08c90bef07af59d3b7513002bc27d3725f21ad3643ba9377430fc2a8d204f2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="violinplot">
+<h3>바이올린 그래프: .violinplot()<a class="headerlink" href="#violinplot" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>바이올린그래프</strong>는 커널 밀도 곡선(Kernel Density Curve)와 박스 플롯을 합친 형태의 그래프이다.</p></li>
+<li><p>하나의 변수의 연속형 데이터의 분포를 설명하기 위해 사용되는 그래프이며, 카테고리값에 전체 형상을 보여준다.</p></li>
+</ul>
+<p>😄 성별별로 국어점수에 대한 바이올린 그래프를 그려보자.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">violinplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;성별&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;국어&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>D:\users\anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py:211: RuntimeWarning: Glyph 8722 missing from current font.
+  font.set_text(s, 0.0, flags=flags)
+D:\users\anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py:180: RuntimeWarning: Glyph 8722 missing from current font.
+  font.set_text(s, 0, flags=flags)
+</pre></div>
+</div>
+<img alt="_images/d0b54f450980d37ebc5a6a4cccfdd55ea7bf3a37129e0c539fd76668451cd1af.png" src="_images/d0b54f450980d37ebc5a6a4cccfdd55ea7bf3a37129e0c539fd76668451cd1af.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>—붓꽃 데이터 활용—<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>이번에는 sns.load_dataset()으로 붓꽃(아이리스) 데이터를 불러와 그래프를 그려보자.</p></li>
+<li><p>붓꽃 데이터는 시각화에서 유명한 데이터라 seaborn에 데이터셋으로 들어가 있다. 이 외에도 titanic, tips, penquins, flights, diamonds 등이 있다.</p></li>
+<li><p>.head()로 붓꽃 데이터의 다섯 개 행의 정보를 확인해보자.</p></li>
+<li><p>붓꽃 데이터 열의 의미는 다음과 같다.</p>
+<ul>
+<li><p>sepal_length : 꽃받침 길이</p></li>
+<li><p>sepal_width : 꽃받침 너비</p></li>
+<li><p>petal_length : 꽃잎 길이</p></li>
+<li><p>petal_width : 꽃잎 너비</p></li>
+<li><p>species : 아이리스 종류(setosa, versicolor, virginica)</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;iris&quot;</span><span class="p">)</span> <span class="c1">#iris(붓꽃)데이터셋</span>
+<span class="n">iris</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sepal_length</th>
+      <th>sepal_width</th>
+      <th>petal_length</th>
+      <th>petal_width</th>
+      <th>species</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>5.1</td>
+      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>4.9</td>
+      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>4.7</td>
+      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4.6</td>
+      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>5.0</td>
+      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>setosa</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="pairplot-pariplot">
+<h3>pairplot 그래프: .pariplot()<a class="headerlink" href="#pairplot-pariplot" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>pairplot그래프</strong>는 데이터프레임의 열(변수)을 두 개씩 짝을 지을 수 있는 모든 조합에 대해 나타낸다.</p></li>
+<li><p>만들어진 짝의 개수만큼 화면을 그리드로 나눈다.</p></li>
+<li><p>같은 변수끼리 짝을 이루는 경우에는 <strong>히스토그램</strong>을 나타내고, 서로 다른 변수 간에는 <strong>산점도</strong>를 나타낸다.</p></li>
+<li><p>옵션 <code class="docutils literal notranslate"><span class="pre">hue</span></code>는 카테고리별로 보여준다.</p></li>
+</ul>
+<p>😄 붓꽃 데이터의 붓꽃 종류별 4가지(꽃받침, 꽃잎의 길이와 너비) 조합에 대해 pairplot()을 그려보자.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/42ceadb66c67463d1bb23c93ba24d5127e854bff78deaa971b2dc5616d0e40d9.png" src="_images/42ceadb66c67463d1bb23c93ba24d5127e854bff78deaa971b2dc5616d0e40d9.png" />
+</div>
+</div>
+</div>
+<div class="section" id="facetgrid-facetgrid">
+<h3>FacetGrid 그래프: .FacetGrid()<a class="headerlink" href="#facetgrid-facetgrid" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p><strong>FacetGrid그래프</strong>는 행, 열 방향으로 서로 다른 조건을 적용하여 여러 개의 서브 플롯을 만든다.</p></li>
+<li><p>map() 함수를 이용하여 각 서브 플롯에 적용할 그래프 종류를 전달한다.</p></li>
+<li><p>😄 붓꽃 종류별로 열방향으로 그리드를 나눠 히스토그램을 그려보자.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">FacetGrid</span><span class="p">(</span><span class="n">iris</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;species&#39;</span><span class="p">)</span>
+<span class="n">g</span><span class="o">=</span><span class="n">g</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">,</span> <span class="s1">&#39;sepal_length&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/3a59c7c9b6a10d13e930aafbfa9c9d7576c5ac00959c7b04827227f63721c015.png" src="_images/3a59c7c9b6a10d13e930aafbfa9c9d7576c5ac00959c7b04827227f63721c015.png" />
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="tips">
+<h3>— tips 데이터 활용—<a class="headerlink" href="#tips" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>tips 데이터를 불러와보자.</p>
+<ul>
+<li><p>total_bill: 식사금액</p></li>
+<li><p>tip: 팁금액</p></li>
+<li><p>sex: 성별</p></li>
+<li><p>smoker: 흡연여부</p></li>
+<li><p>day: 요일</p></li>
+<li><p>time: 점심/저녁</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s2">&quot;tips&quot;</span><span class="p">)</span>
+<span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>total_bill</th>
+      <th>tip</th>
+      <th>sex</th>
+      <th>smoker</th>
+      <th>day</th>
+      <th>time</th>
+      <th>size</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>16.99</td>
+      <td>1.01</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>10.34</td>
+      <td>1.66</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>21.01</td>
+      <td>3.50</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>23.68</td>
+      <td>3.31</td>
+      <td>Male</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>24.59</td>
+      <td>3.61</td>
+      <td>Female</td>
+      <td>No</td>
+      <td>Sun</td>
+      <td>Dinner</td>
+      <td>4</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="barplot">
+<h3>막대 그래프: .barplot()<a class="headerlink" href="#barplot" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>😄 요일별 total_bill의 평균을 .barplot()으로 막대그래프를 그려보자.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c58d5e4a990f128994b8960c11785a898f4cf526a89574a1312ef7102376f8a1.png" src="_images/c58d5e4a990f128994b8960c11785a898f4cf526a89574a1312ef7102376f8a1.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>수평막대를 그릴려면 orient=’h’ 옵션을 준다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7393046e8689c2bc2c6dca4fb6d4b207fc94de0fd34b1488d53210f46ff73af2.png" src="_images/7393046e8689c2bc2c6dca4fb6d4b207fc94de0fd34b1488d53210f46ff73af2.png" />
+</div>
+</div>
+</div>
+<div class="section" id="count-countplot">
+<h3>count 그래프: .countplot()<a class="headerlink" href="#count-countplot" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>고유한 값이나 범주 수가 제한된 변수(예: 성별 또는 종교)인 범주형 변수의 빈도수를 시각화하여 보여주는 그래프이다.</p></li>
+<li><p>😄 요일별 빈도수를 그래프로 그려보자.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f0428486046dce6a2f744e87cf2290af4cba9bfff3bffd479cdddbb0a2a6d37e.png" src="_images/f0428486046dce6a2f744e87cf2290af4cba9bfff3bffd479cdddbb0a2a6d37e.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hue</span></code>옵션을 통해 카테고리별로 그릴 수 있다.</p></li>
+<li><p>😄 시간(lunch, dinner)을 카테고리로 줘서 요일별 빈도수를 countplot()으로 그려보자.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;day&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/f8b67721c7d8abd6bacedfa5c8ee1ffb874020ac389fe75973ced6f57f978d7d.png" src="_images/f8b67721c7d8abd6bacedfa5c8ee1ffb874020ac389fe75973ced6f57f978d7d.png" />
+</div>
+</div>
+</div>
+<div class="section" id="regplot">
+<h3>회귀선이 있는 산포도 그래프: regplot()<a class="headerlink" href="#regplot" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>산포도와 선형회귀분석에 의한 회귀선, 95%의 신뢰구간을  함께 나타내는 그래프이다.</p>
+<ul>
+<li><p>회귀선: 산포도에 산재해 있는 점들의 관계에 근거하여 그어지는 선</p></li>
+<li><p>회귀선 위아래 음영처리 된 부분이 신뢰구간이다.</p></li>
+</ul>
+</li>
+<li><p>😄 ‘total_bill’과 ‘tip’간의 관계를 보기위해 회귀선이 있는 산포도 그래프를 그려보자.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">regplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/137a96903ad197485a4d049ad265a958d943dbb90a03b18ff58aac8cf6331321.png" src="_images/137a96903ad197485a4d049ad265a958d943dbb90a03b18ff58aac8cf6331321.png" />
+</div>
+</div>
+</div>
+<div class="section" id="lmplot">
+<h3>카테고리별 회귀선이 있는 산포도 그리기: lmplot()<a class="headerlink" href="#lmplot" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>regplot()과 비슷하나, hue 파라미터를 지정하여 카테고리별로 각각 데이터의 분포와 선형 관계를 표시할 수 있다.</p></li>
+<li><p>😄 성별을 카테고리로 줘서 ‘total_bill’과 ‘tip’간의 관계를  회귀선이 있는 산포도 그래프를 그려보자.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;tip&#39;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/b2a50f7ee46b148c52c9a2069aa2586c4ecd698c711b58d406b911b74df98a14.png" src="_images/b2a50f7ee46b148c52c9a2069aa2586c4ecd698c711b58d406b911b74df98a14.png" />
+</div>
+</div>
+</div>
+<div class="section" id="displot">
+<h3>히스토그램과 커널밀도 그래프: displot()<a class="headerlink" href="#displot" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>기본값으로 히스토그램과 커널 밀도 함수를 그래프로 보여준다.</p>
+<ul>
+<li><p>히스토그램은 연속형 데이터를 통계적으로 근사화하여 도수 분포를 나타낸 것이다.</p></li>
+<li><p>커널밀도함수 : 그래프와 x축 사이의 면적이 1이 되도록 그리는 밀도 분포 함수</p></li>
+<li><p>kde 옵션을 False로 주면 히스토그램만 보여준다.</p></li>
+<li><p>hue 옵션으로 카테고리를 넣어줄 수도 있다.</p></li>
+</ul>
+</li>
+<li><p>😄 ‘total_bill’의 히스토그램과 커널밀도 그래프를 그려보자.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">36</span><span class="o">-</span><span class="mf">9e3</span><span class="n">f5be2a1b7</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">sns</span><span class="o">.</span><span class="n">displot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span><span class="n">kde</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="ne">AttributeError</span>: module &#39;seaborn&#39; has no attribute &#39;displot&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>😄 sns.histplot()을 사용하여 히스토그램 그래프만 나타낼 수도 있다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;total_bill&quot;</span><span class="p">,</span><span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>마무리<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>선그래프:</p>
+<ul>
+<li><p>plt.plot()</p></li>
+<li><p>dt.plot(kind=’line’)</p></li>
+</ul>
+</li>
+<li><p>산포도그래프:</p>
+<ul>
+<li><p>plt.scatter()</p></li>
+<li><p>dt.plot(kind=’scatter’)</p></li>
+</ul>
+</li>
+<li><p>칼라바: plt.colorbar()</p></li>
+<li><p>세로막대 그래프:</p>
+<ul>
+<li><p>plt.bar()</p></li>
+<li><p>dt.plot(kind=’bar’)</p></li>
+</ul>
+</li>
+<li><p>가로막대 그래프:</p>
+<ul>
+<li><p>plt.barh()</p></li>
+<li><p>dt.plot(kind=’barh’)</p></li>
+</ul>
+</li>
+<li><p>히스토그램: dt.plot(kind=’hist’)</p></li>
+<li><p>파이차트: dt.plot(kind=’pie’)</p></li>
+<li><p>히트맵: sns.heatmap()</p></li>
+<li><p>이변수그래프: sns.pairplot()</p></li>
+<li><p>회귀선이 있는 산포도: sns.regplot()</p></li>
+<li><p>카테고리별 회귀선이 있는 산포도: sns.lmplot()</p></li>
+<li><p>히스토그램: sns.histplot()</p></li>
+<li><p>막대그래프: sns.barplot()</p></li>
+<li><p>빈도그래프: sns.countplot()</p></li>
+<li><p>박스플롯그래프: sns.boxplot()</p></li>
+<li><p>바이올린그래프: sns.violinplot()</p></li>
+<li><p>화면 그리드로 분할하기:
+sns.FacetGrid()</p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -443,6 +1711,56 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib-numpy">Matplotlib: numpy 데이터 활용</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot">선그래프: .plot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">다중 선그래프</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scatter">산포도(산점도) 그래프: .scatter()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colorbar">칼라바가 있는 산포도 그래프: .colorbar()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bar">세로 막대그래프: .bar()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barh">가로 막대그래프: .barh()</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matplotlib">Matplotlib: 판다스 데이터 활용</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">한글 폰트 설치 및 설정</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">데이터프레임으로 그래프 그리기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kind-line">선그래프: kind=’line’</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">여러개 그래프 나타내기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kind-bar">세로 막대그래프: kind=’bar’</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">정렬한 세로 막대그래프</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kind-barh">가로 막대그래프: kind=’barh’</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kind-pie">파이 그래프: kind=’pie’</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#seaborn">Seaborn</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lineplot">선그래프: .lineplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#heatmap">히트맵 그래프: .heatmap()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">박스플롯 그래프: .boxplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#violinplot">바이올린 그래프: .violinplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">—붓꽃 데이터 활용—</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pairplot-pariplot">pairplot 그래프: .pariplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facetgrid-facetgrid">FacetGrid 그래프: .FacetGrid()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips">— tips 데이터 활용—</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barplot">막대 그래프: .barplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#count-countplot">count 그래프: .countplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regplot">회귀선이 있는 산포도 그래프: regplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lmplot">카테고리별 회귀선이 있는 산포도 그리기: lmplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#displot">히스토그램과 커널밀도 그래프: displot()</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">마무리</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
