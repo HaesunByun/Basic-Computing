@@ -203,13 +203,14 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="B_chapter8.html">Chapter 8. 파일시스템의 이해</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter8.html">Chapter 8. 데이터과학의 이해</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter9.html">Chapter 9. 웹과 웹크롤링</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. 동적 웹크롤링</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 11. Numpy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter12.html">Chapter 12. Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter13.html">Chapter 13. Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter14.html">Chapter 14. 종합 예제</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter15.html">Chapter 15. 향후 학습 방향</a></li>
 </ul>
 
     </div>
@@ -922,7 +923,9 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;바나나&#39;, &#39;딸기&#39;, 100, 5.5, [&#39;BTS&#39;, &#39;블랙핑크&#39;]]
-[1. 2. 3.]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 2. 3.]
 [&#39;1&#39; &#39;2&#39; &#39;3.0&#39;]
 [1 2 None]
 &lt;class &#39;list&#39;&gt; &lt;class &#39;numpy.ndarray&#39;&gt; &lt;class &#39;numpy.ndarray&#39;&gt; &lt;class &#39;numpy.ndarray&#39;&gt;
@@ -1122,10 +1125,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
   [ 3  4  5]]
 
  [[ 6  7  8]
-  [ 9 10 11]]]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+  [ 9 10 11]]] 
 
 ===결과===
 11
@@ -1222,7 +1222,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 <p class="sd-card-text">😄Zero 배열 생성</p>
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">크기가 다음과 같은 임의의 배열을 생성하고 모두 0으로 채우시오.</p>
+<p class="sd-card-text">크기가 다음과 같은 배열을 생성하고 모두 0으로 채우시오.</p>
 <p class="sd-card-text">깊이 x 행 x 렬: 3 x 3 x 3</p>
 </div>
 </div>
@@ -1258,7 +1258,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 <p class="sd-card-text">😄 One 배열 생성</p>
 </div>
 <div class="sd-card-body docutils">
-<p class="sd-card-text">크기가 다음과 같은 임의의 배열을 생성하고 모두 1로 채우시오.</p>
+<p class="sd-card-text">크기가 다음과 같은 배열을 생성하고 모두 1로 채우시오.</p>
 <p class="sd-card-text">깊이 x 행 x 렬: 2 x 5 x 4</p>
 </div>
 </div>
@@ -1280,8 +1280,8 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.64016211 0.17318288 0.13313224 0.40440643 0.28558397]
- [0.95765376 0.71871035 0.82768651 0.57708738 0.07413543]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.91449814 0.99532905 0.22565171 0.87663259 0.37417334]
+ [0.63468249 0.0798952  0.06928904 0.44752758 0.01197316]]
 </pre></div>
 </div>
 </div>
@@ -1293,9 +1293,9 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3.71128407 3.94912162]
- [3.68470577 3.87766793]
- [3.56729023 3.87542385]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3.98688274 3.69162755]
+ [3.6245562  3.87871817]
+ [3.52136889 3.99539011]]
 </pre></div>
 </div>
 </div>
@@ -1307,13 +1307,13 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[-5  1 -3  2]
-  [-4 -3 -1 -4]
-  [-5  4 -4  4]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[-3  3 -5 -3]
+  [-5 -1 -2  0]
+  [ 3  4  1  2]]
 
- [[ 4 -3 -3  1]
-  [ 1 -2  0  4]
-  [-4  3 -4 -4]]]
+ [[ 2 -1  4  1]
+  [ 4 -2  4 -4]
+  [ 1 -2 -5  0]]]
 </pre></div>
 </div>
 </div>
@@ -1337,7 +1337,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6f8eb33e9469347b5077974dfa57dda34cb6ec8d929e21b1654d883e0f574c2f.png" src="_images/6f8eb33e9469347b5077974dfa57dda34cb6ec8d929e21b1654d883e0f574c2f.png" />
+<img alt="_images/4990544582446cf74f8cf2de1fd5070f1b7769826f320cc21e315cf0ada9ed53.png" src="_images/4990544582446cf74f8cf2de1fd5070f1b7769826f320cc21e315cf0ada9ed53.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1350,16 +1350,16 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[79  7]
- [26 59]
- [56 72]
- [25 27]
- [86 73]
- [78 66]
- [36 86]
- [22 27]
- [53 66]
- [13 48]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[87 94]
+ [40 56]
+ [53 43]
+ [65 45]
+ [99 91]
+ [16 41]
+ [15  0]
+ [64  0]
+ [13 72]
+ [50 15]]
 </pre></div>
 </div>
 </div>
@@ -1528,19 +1528,19 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[0.73568243 0.74127404 0.97236162 0.8890658 ]
-  [0.82518783 0.45929801 0.62632756 0.46671476]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[0.32727219 0.93591652 0.21000122 0.84251422]
+  [0.38588791 0.01048623 0.14680205 0.42294367]]
 
- [[0.11643628 0.64107728 0.05340939 0.61299649]
-  [0.62927362 0.03845146 0.15391886 0.78046595]]]
-
-
-===결과===
-0.038451459564409984
+ [[0.57463661 0.91036212 0.75501446 0.94477339]
+  [0.2404682  0.46719931 0.79780979 0.7505651 ]]]
 
 
 ===결과===
-0.9723616163828006
+0.01048622630955054
+
+
+===결과===
+0.9359165228142109
 </pre></div>
 </div>
 </div>
@@ -1560,8 +1560,8 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>13
-2
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+11
 </pre></div>
 </div>
 </div>
@@ -1645,25 +1645,25 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[82.88001087 46.96968055 41.16505043 16.86432733  3.06918635 61.52452593
- 89.49178948 51.1912068  61.90686682 44.48288978 78.49914975 32.08450375
-  4.25995442 56.91329569 99.91765739 64.11549129 22.48670118 71.93742629
- 45.18617883 33.16054835 26.64134475 69.8807921  40.05339863 56.18333893
- 96.30686914 61.9357609  42.64175049 76.730848   32.41715699 28.3879932
- 77.47211569 35.59713042 62.69363999 62.47569335  2.61059464 78.75110945
- 99.33651082 63.83378553 57.83389644 30.43728392 46.22804558 71.17902335
- 84.02884098 57.61878009 88.24237008 70.00770607 47.94330356 54.07466402
- 79.68177798 29.44466    55.63655879 38.71404333 42.1781912  75.77234038
- 66.30325654 52.79322551 64.44140352 13.05969508 27.07025573 18.76828473
- 14.77073042 62.21575797 64.65774576 90.08384346 11.04256223 91.21349541
- 91.77821872 10.18810388 12.94258423 39.95580285 72.2244018  64.18648877
- 38.55506603 87.21294464 28.5559821  99.56183359 95.42644038 61.99978754
- 38.61486962 49.32625283]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[78.50479868  1.1792385   2.13767022 85.77469239 78.18861671  7.56345558
+ 79.24625131 21.38955285 38.37696552 29.86799291 47.15355779 14.20243643
+ 90.90685315 93.14763064 68.86009654 43.00605846 38.86514645 49.49075701
+ 21.98195686 37.70560183 41.62390864 65.35024979 74.11967428  3.66637258
+ 65.52164435 77.95315522 72.1140192  51.87694731 48.22347169  2.62906436
+ 82.13777901  1.66509605 10.27555026 58.77509383 28.710578   87.28215724
+ 69.45510109 73.01025013 31.19002188 39.25439679 73.71940158 78.7688857
+ 50.80485194 55.22493993 98.35339568 50.22071893 97.68679939 59.12963144
+ 92.92752589 69.73279215  3.59526782 70.28840069 26.30573025 49.67304649
+ 45.95965397 85.3370464  48.33619173 22.77437097 29.13556968 64.738458
+ 91.20795806 88.60641342 84.88192195 76.29621875 41.7216593  22.56605327
+ 37.0851816  59.69897084 35.54917334 94.19394387 39.24249727 99.38749577
+ 82.92792431 47.50129525 73.26896149 19.66787085 62.68696017 31.6085926
+  9.28595621 34.18108211]
 
 
 ===결과===
-658.8273670856586
-25.667632673966224
+778.8603630538163
+27.908069855398747
 </pre></div>
 </div>
 </div>
@@ -1684,12 +1684,12 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-3  2 -4 -9  4]
- [ 6  0  7  2 -5]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 8 -4 -9 -2 -1]
+ [ 3  0 -5 -7  2]]
 
 
 ===결과===
-[-9 -5 -4 -3  0  2  4  6  7]
+[-9 -7 -5 -4 -2 -1  0  2  3  8]
 </pre></div>
 </div>
 </div>
@@ -1710,13 +1710,13 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ -3  -4  -1   4  -8]
- [  0   8 -10  -6   4]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  2 -3 -8 -5]
+ [ 8 -9 -2  5 -7]]
 
 
 ===결과===
-[[ 3  4  1  4  8]
- [ 0  8 10  6  4]]
+[[0 2 3 8 5]
+ [8 9 2 5 7]]
 </pre></div>
 </div>
 </div>
@@ -2061,7 +2061,9 @@ True
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Copy Data 수정 후 origin data=============
-리스트: [1, 2, 3, [10, 20, 30]]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>리스트: [1, 2, 3, [10, 20, 30]]
 딕셔너리: {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: [10, 20, 30]}
 집합: {1, 2, 3, (10, 20, 30)}
 배열: [[ 1  2  3]
@@ -2091,9 +2093,7 @@ Copy Data 수정 후 copy data=============
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+False
 False
 False
 </pre></div>

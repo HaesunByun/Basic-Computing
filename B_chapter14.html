@@ -96,6 +96,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'B_chapter14';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 15. 향후 학습 방향" href="B_chapter15.html" />
     <link rel="prev" title="Chapter 13. Visualization" href="B_chapter13.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -200,13 +201,14 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="B_chapter8.html">Chapter 8. 파일시스템의 이해</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter8.html">Chapter 8. 데이터과학의 이해</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter9.html">Chapter 9. 웹과 웹크롤링</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. 동적 웹크롤링</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter11.html">Chapter 11. Numpy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter12.html">Chapter 12. Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter13.html">Chapter 13. Visualization</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 14. 종합 예제</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter15.html">Chapter 15. 향후 학습 방향</a></li>
 </ul>
 
     </div>
@@ -361,7 +363,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -377,6 +381,28 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">준비작업</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">인구데이터 읽기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cctv">CCTV 데이터 읽기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">데이터 합치기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">합친 데이터 저장하고 불러오기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">데이터 분석</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">데이터 시각화</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">CCTV수의 시각화</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">인구수와 CCTV수의 시각화</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">인구수 대비 CCTV 기준선 긋기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">상위 10개구 구이름 표시하기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colorbar">colorbar 추가</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">마무리</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -388,6 +414,853 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-14">
 <h1>Chapter 14. 종합 예제<a class="headerlink" href="#chapter-14" title="Permalink to this headline">#</a></h1>
+<div class="info admonition">
+<p class="admonition-title">학습목표와 기대효과 </p>
+<ul class="simple">
+<li><p>학습목표</p>
+<ul>
+<li><p>CCTV와 인구수 데이터를 다뤄보고 분석하고 시각화해보자.</p></li>
+</ul>
+</li>
+<li><p>기대효과</p>
+<ul>
+<li><p>분석/처리한 데이터를 시각적으로 나타내어 효과적으로 설명할 수 있다.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>준비작업<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1. 현재 셀 실행</span>
+<span class="c1">#2. 런타임 -&gt; 런타임 다시 시작</span>
+<span class="o">!</span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>fonts-nanum
+<span class="o">!</span>sudo<span class="w"> </span>fc-cache<span class="w"> </span>-fv
+<span class="o">!</span>rm<span class="w"> </span>~/.cache/matplotlib<span class="w"> </span>-rf
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sudo&#39; is not recognized as an internal or external command,
+operable program or batch file.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;sudo&#39; is not recognized as an internal or external command,
+operable program or batch file.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s1">&#39;NanumBarunGothic&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s1">&#39;한글&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/dfd740969b7475cc11c6f4e5cc919552e51814b0bba01e2bfec41284e30a4bb9.png" src="_images/dfd740969b7475cc11c6f4e5cc919552e51814b0bba01e2bfec41284e30a4bb9.png" />
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>인구데이터 읽기<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>인구데이터를 read_csv()로 읽어온다.</p></li>
+<li><p>옵션 sep는 데이터가 탭으로 분리되어 있으니 탭기준으로 칼럼을 읽어라는 의미이다.</p></li>
+<li><p>옵션 header는 칼럼명(칼럼 인덱스)를 지정하는 옵션으로 아래 코드에서는 2행을 칼럼명로 사용하겠다는 의미이다.</p></li>
+<li><p>옵션 usecols는 사용할 칼럼 번호를 지정하는 옵션으로 리스트안에 적힌 칼럼번호에 해당하는 칼럼만 사용하겠다는 의미이다.</p></li>
+<li><p>옵션 thousands는 숫자 데이터에 세자리마다 들어가 있는 컴마를 제거하고 읽으라는 의미이다. 컴마를 제거하지 않고 읽으면 문자열로 처리된다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/HaesunByun/common/main/data/population_in_Seoul.txt&#39;</span>
+<span class="n">pop_Seoul</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span><span class="n">thousands</span> <span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> 
+
+<span class="n">pop_Seoul</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>자치구</th>
+      <th>계</th>
+      <th>계.1</th>
+      <th>계.2</th>
+      <th>65세이상고령자</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>합계</td>
+      <td>10013781</td>
+      <td>9733655</td>
+      <td>280126</td>
+      <td>1518239</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>종로구</td>
+      <td>161984</td>
+      <td>151217</td>
+      <td>10767</td>
+      <td>28073</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>중구</td>
+      <td>136469</td>
+      <td>126175</td>
+      <td>10294</td>
+      <td>23794</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>용산구</td>
+      <td>246165</td>
+      <td>229579</td>
+      <td>16586</td>
+      <td>39439</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>성동구</td>
+      <td>307193</td>
+      <td>299042</td>
+      <td>8151</td>
+      <td>44728</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>광진구</td>
+      <td>365990</td>
+      <td>350417</td>
+      <td>15573</td>
+      <td>48989</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>동대문구</td>
+      <td>362793</td>
+      <td>346156</td>
+      <td>16637</td>
+      <td>60367</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>중랑구</td>
+      <td>400678</td>
+      <td>395619</td>
+      <td>5059</td>
+      <td>66764</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>성북구</td>
+      <td>454532</td>
+      <td>442494</td>
+      <td>12038</td>
+      <td>72172</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>강북구</td>
+      <td>316750</td>
+      <td>312985</td>
+      <td>3765</td>
+      <td>61660</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>도봉구</td>
+      <td>333495</td>
+      <td>331238</td>
+      <td>2257</td>
+      <td>60023</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>노원구</td>
+      <td>535495</td>
+      <td>531037</td>
+      <td>4458</td>
+      <td>82682</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>은평구</td>
+      <td>482509</td>
+      <td>478019</td>
+      <td>4490</td>
+      <td>82245</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>서대문구</td>
+      <td>325875</td>
+      <td>312642</td>
+      <td>13233</td>
+      <td>53038</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>마포구</td>
+      <td>386086</td>
+      <td>374570</td>
+      <td>11516</td>
+      <td>53283</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>양천구</td>
+      <td>460532</td>
+      <td>456339</td>
+      <td>4193</td>
+      <td>62761</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>강서구</td>
+      <td>595703</td>
+      <td>589302</td>
+      <td>6401</td>
+      <td>85992</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>구로구</td>
+      <td>438308</td>
+      <td>405837</td>
+      <td>32471</td>
+      <td>67432</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>금천구</td>
+      <td>251370</td>
+      <td>232583</td>
+      <td>18787</td>
+      <td>38508</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>영등포구</td>
+      <td>404766</td>
+      <td>371903</td>
+      <td>32863</td>
+      <td>59373</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>동작구</td>
+      <td>407802</td>
+      <td>395014</td>
+      <td>12788</td>
+      <td>63378</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>관악구</td>
+      <td>516662</td>
+      <td>499374</td>
+      <td>17288</td>
+      <td>76664</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>서초구</td>
+      <td>434801</td>
+      <td>430568</td>
+      <td>4233</td>
+      <td>58332</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>강남구</td>
+      <td>549898</td>
+      <td>544804</td>
+      <td>5094</td>
+      <td>72602</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>송파구</td>
+      <td>680883</td>
+      <td>674095</td>
+      <td>6788</td>
+      <td>89539</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>강동구</td>
+      <td>457042</td>
+      <td>452646</td>
+      <td>4396</td>
+      <td>66401</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>데이터프레임을 확인해보고 어떤 작업이 필요한지 생각해보자.</p></li>
+</ul>
+<ul class="simple">
+<li><p>칼럼명을 변경해줘야 할 필요가 있다. 아래와 같이 칼럼명을 변경해주자.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pop_Seoul</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;지역구&#39;</span><span class="p">,</span> <span class="s1">&#39;인구수&#39;</span><span class="p">,</span> <span class="s1">&#39;한국인&#39;</span><span class="p">,</span> <span class="s1">&#39;외국인&#39;</span><span class="p">,</span> <span class="s1">&#39;고령자&#39;</span><span class="p">]</span>
+<span class="n">pop_Seoul</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>.set_index()함수로 ‘지역구’ 열을 인덱스로 지정해보자. 또한 inplace 옵션을 True로 줘서 원본 데이터프레임에 바로 업데이트해보자.</p></li>
+</ul>
+<ul class="simple">
+<li><p>자치구 인구수 대비 CCTV수를 분석하기 위한 작업이므로 index 0에 있는 ‘합계’ 행은 필요하지 않은 데이터인것 같다. 삭제하자. 또한 inplace 옵션을 True로 줘서 원본 데이터프레임에 바로 업데이트해보자.</p></li>
+</ul>
+</div>
+<div class="section" id="cctv">
+<h2>CCTV 데이터 읽기<a class="headerlink" href="#cctv" title="Permalink to this headline">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/HaesunByun/common/main/data/CCTV_in_Seoul.csv&#39;</span>
+<span class="n">CCTV_Seoul</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">CCTV_Seoul</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>기관명</th>
+      <th>소계</th>
+      <th>2017년도이전</th>
+      <th>2018년</th>
+      <th>2019년</th>
+      <th>2020년</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0</td>
+      <td>강남구</td>
+      <td>2780</td>
+      <td>1292</td>
+      <td>430</td>
+      <td>584</td>
+      <td>932</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>1</td>
+      <td>강동구</td>
+      <td>773</td>
+      <td>379</td>
+      <td>99</td>
+      <td>155</td>
+      <td>377</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>2</td>
+      <td>강북구</td>
+      <td>748</td>
+      <td>369</td>
+      <td>120</td>
+      <td>138</td>
+      <td>204</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>3</td>
+      <td>강서구</td>
+      <td>884</td>
+      <td>388</td>
+      <td>258</td>
+      <td>184</td>
+      <td>81</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>4</td>
+      <td>관악구</td>
+      <td>1496</td>
+      <td>846</td>
+      <td>260</td>
+      <td>390</td>
+      <td>613</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>5</td>
+      <td>광진구</td>
+      <td>707</td>
+      <td>573</td>
+      <td>78</td>
+      <td>53</td>
+      <td>174</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>6</td>
+      <td>구로구</td>
+      <td>1561</td>
+      <td>1142</td>
+      <td>173</td>
+      <td>246</td>
+      <td>323</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>7</td>
+      <td>금천구</td>
+      <td>1015</td>
+      <td>674</td>
+      <td>51</td>
+      <td>269</td>
+      <td>354</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>8</td>
+      <td>노원구</td>
+      <td>1265</td>
+      <td>542</td>
+      <td>57</td>
+      <td>451</td>
+      <td>516</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>9</td>
+      <td>도봉구</td>
+      <td>485</td>
+      <td>238</td>
+      <td>159</td>
+      <td>42</td>
+      <td>386</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>10</td>
+      <td>동대문구</td>
+      <td>1294</td>
+      <td>1070</td>
+      <td>23</td>
+      <td>198</td>
+      <td>579</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>11</td>
+      <td>동작구</td>
+      <td>1091</td>
+      <td>544</td>
+      <td>341</td>
+      <td>103</td>
+      <td>314</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>12</td>
+      <td>마포구</td>
+      <td>574</td>
+      <td>314</td>
+      <td>118</td>
+      <td>169</td>
+      <td>379</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>13</td>
+      <td>서대문구</td>
+      <td>962</td>
+      <td>844</td>
+      <td>50</td>
+      <td>68</td>
+      <td>292</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>14</td>
+      <td>서초구</td>
+      <td>1930</td>
+      <td>1406</td>
+      <td>157</td>
+      <td>336</td>
+      <td>398</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>15</td>
+      <td>성동구</td>
+      <td>1062</td>
+      <td>730</td>
+      <td>91</td>
+      <td>241</td>
+      <td>265</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>16</td>
+      <td>성북구</td>
+      <td>1464</td>
+      <td>1009</td>
+      <td>78</td>
+      <td>360</td>
+      <td>204</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>17</td>
+      <td>송파구</td>
+      <td>618</td>
+      <td>529</td>
+      <td>21</td>
+      <td>68</td>
+      <td>463</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>18</td>
+      <td>양천구</td>
+      <td>2034</td>
+      <td>1843</td>
+      <td>142</td>
+      <td>30</td>
+      <td>467</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>19</td>
+      <td>영등포구</td>
+      <td>904</td>
+      <td>495</td>
+      <td>214</td>
+      <td>195</td>
+      <td>373</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>20</td>
+      <td>용산구</td>
+      <td>1624</td>
+      <td>1368</td>
+      <td>218</td>
+      <td>112</td>
+      <td>398</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>21</td>
+      <td>은평구</td>
+      <td>1873</td>
+      <td>1138</td>
+      <td>224</td>
+      <td>278</td>
+      <td>468</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>22</td>
+      <td>종로구</td>
+      <td>1002</td>
+      <td>464</td>
+      <td>314</td>
+      <td>211</td>
+      <td>630</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>23</td>
+      <td>중구</td>
+      <td>671</td>
+      <td>413</td>
+      <td>190</td>
+      <td>72</td>
+      <td>348</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>24</td>
+      <td>중랑구</td>
+      <td>660</td>
+      <td>509</td>
+      <td>121</td>
+      <td>177</td>
+      <td>109</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<ul class="simple">
+<li><p>데이터프레임을 확인해보고 어떤 작업이 필요한지 생각해보자.</p></li>
+</ul>
+<ul class="simple">
+<li><p>‘기관명’을 인덱스로 지정해보자. 또한 inplace 옵션을 True로 줘서 원본 데이터프레임에 바로 업데이트해보자.</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2>데이터 합치기<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>CCTV_Seoul의 ‘소계’열 데이터를 pop_Seoul의 ‘CCTV수’ 열에 저장하여 데이터를 합쳐보자.</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>합친 데이터 저장하고 불러오기<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>to_csv(‘파일명’)로 합친 데이터를 저장하자. 파일명은 ‘CCTVnPop_in_Seoul.csv’로 한다.</p></li>
+<li><p>이렇게 전처리 작업을 거친 데이터프레임을 다음 사용을 위해 저장해 놓은 후 다운로드 받아 놓으면 추후에 동일 작업을 하지 않아도 된다.</p></li>
+</ul>
+<ul class="simple">
+<li><p>저장한 파일을 read_csv()로 불러와보자. 불러온 후, set_index()로 인덱스를 지정할 수 있지만, 파일을 불러올 때 index_col 옵션으로 인덱스를 지정할 수도 있다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;CCTVnPop_in_Seoul.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>데이터 분석<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>numpy의 corrcoef()함수를 통해 ‘인구수’와 ‘CCTV수’와의 상관계수를 확인해보자.</p></li>
+<li><p>corrcoef() 괄호안에 상관계수를 확인하고자 하는 칼럼의 이름을 명시한다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">corrcoef</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;인구수&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>corr()함수는 모든 칼럼 간의 상관 계수를 매트릭스 형태로 반환하는 함수이다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h2>데이터 시각화<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id7">
+<h3>CCTV수의 시각화<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>자치구별 ‘CCTV수’를 수평막대 그래프로 그려보자.</p></li>
+</ul>
+<ul class="simple">
+<li><p>color_palette()함수로 사용할 팔레트와 색 갯수를 지정한다.</p></li>
+<li><p>팔레트 이름은 다음 링크를 통해 확인 할 수 있다. <a class="reference external" href="https://seaborn.pydata.org/tutorial/color_palettes.html">https://seaborn.pydata.org/tutorial/color_palettes.html</a></p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">colors</span><span class="o">=</span><span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="n">palette</span><span class="o">=</span><span class="s1">&#39;hls&#39;</span><span class="p">,</span> <span class="n">n_colors</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">]))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">,</span> <span class="n">grid</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>정렬한 가로막대 그래프로 그려보자. 정렬은 sort_values()로 할 수 있다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">,</span> <span class="n">grid</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>인구수와 CCTV수의 시각화<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>‘인구수’와 ‘CCTV수’로 산포도 그래프를 그려보자.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;인구수&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;인구수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id9">
+<h3>인구수 대비 CCTV 기준선 긋기<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>인구수 대비 적정 CCTV 수 의 기준선을 그어보자.</p></li>
+<li><p>numpy의 polyfit(a, b, n)함수는 두 데이터 a, b를 대표하는 n차 방정식의 계수를 구하는 함수이다.</p></li>
+<li><p>‘인구수’와 ‘CCTV수’를 대표하는 1차 방정식의 계수를 구해보자.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;인구수&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>앞에서 구한 계수를 numpy의 poly1d()함수의 전달인자로 넣어주면 1차 다항식 함수를 구할 수 있다.</p></li>
+<li><p>poly1d()는 1차 다항식을 만들어 주는 함수이다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>df[‘인구수’]와 df[‘CCTV수’]를 대표하는 다항식 함수 f를 구했으므로 그 f에 인구수를 넣어보자.</p></li>
+<li><p>f에 넣을 인구수를 일정한 간격으로 만들기 위해 numpy의 linspace()함수로 일정한 간격으로 등분한 배열을 만든다.</p></li>
+<li><p>linspace()함수로 100000부터 700000까지 100개로 등분한 배열을 만들어 x축 데이터로 사용하자.</p></li>
+<li><p>여기서 100000~700000를 범위로 준 이유는 인구수가 가장 낮은 지역구가 136469, 가장 높은 지역구가 680883이기 때문이다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span> <span class="mi">700000</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fx</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>등분배열 fx를 x의 값으로 주고, 위에서 만든 함수 f에 fx를 넣어 y의 값을 계산한다. x와 y가 만나는 좌표에 점을 찍은 후, 선으로 이어 선그래프를 그려보자.</p></li>
+<li><p>옵션 ls는 line style, lw는 line width이다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fx</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">fx</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;인구수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>인구수 대비 CCTV수의 기준선(대표직선) 그래프와 산포도 그래프를 같이 나타내보자.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;인구수&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fx</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">fx</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;인구수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>실제 CCTV수와 실 인구수 대비 기준이 되는 CCTV수의 오차를 계산해보자.</p></li>
+<li><p>실 인구수 대비 CCTV수는 다음과 같이 구할 수 있다. 앞에서 구한 1차 다항식 f함수에 실 ‘인구수’를 넣으면 실 인구수 대비 적정 CCTV수가 나온다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;인구수&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>실 ‘CCTV수’에서 실 인구수 대비 적정 CCTV수를 빼면 그 오차를 구할 수 있다.</p></li>
+<li><p>실 ‘CCTV수’가 적정 CCTV수보다 많을 수도, 혹은 적을 수도 있으므로 오차를 계산하기 위해 절대값을 취한다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;오차&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;인구수&#39;</span><span class="p">]))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>오차가 큰 상위 10개구를 확인해보기 위해 내림차순으로 정렬해보자.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;오차&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3>상위 10개구 구이름 표시하기<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>오차가 큰 상위 10개구에 해당하는 산포도 점 위치에 구이름을 표시해보자.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;인구수&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">50</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fx</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">fx</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;인구수&#39;</span><span class="p">][</span><span class="n">n</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;인구수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="colorbar">
+<h3>colorbar 추가<a class="headerlink" href="#colorbar" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>오차데이터를 색과 연결하여 colorbar()를 생성해보자.</p></li>
+<li><p>scatter 그래프에서 c = df[‘오차’]와 같이 컬러(c) 옵션을 오차 데이터와 연동시켜준다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;인구수&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;오차&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>그런 후에 colorbar()를 보이게 한다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>plt.colorbar()까지 추가한 코드는 다음과 같다.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;인구수&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">],</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">50</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;오차&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fx</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">fx</span><span class="p">),</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+  <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;인구수&#39;</span><span class="p">][</span><span class="n">n</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">][</span><span class="n">n</span><span class="p">]</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">n</span><span class="p">],</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;인구수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;CCTV수&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>마무리<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>인구수 데이터와 CCTV 데이터를 각각 불러왔다.</p></li>
+<li><p>이들 데이터에서 불필요한 데이터는 제거하고 필요한 데이터로만 합치는 작업을 해서 하나의 데이터프레임으로 만들었다.</p></li>
+<li><p>인구수 대비 CCTV수의 상관관계를 파악해보았다.</p></li>
+<li><p>자치구별 CCTV수를 막대그래프로 나타내보았다.</p></li>
+<li><p>인구수 대비 CCTV수의 대표직선을 그려보았다.</p></li>
+<li><p>실인구수 대비 CCTV 수와 기준 인구수 대비 CCTV 수의 오차를 구해 보았다.</p></li>
+<li><p>산포도그래프와 colorbar()를 이용하여 오차를 표현해보았다.</p></li>
+<li><p>결론적으로 지역구별 인구수 대비 적정 CCTV수와 실 CCTV 수의 오차를 파악해보고 오차가 순 10개구를 표시해보는 예제를 다뤄보았다.</p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -427,12 +1300,49 @@ document.write(`
         <p class="prev-next-title">Chapter 13. Visualization</p>
       </div>
     </a>
+    <a class="right-next"
+       href="B_chapter15.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 15. 향후 학습 방향</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">준비작업</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">인구데이터 읽기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cctv">CCTV 데이터 읽기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">데이터 합치기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">합친 데이터 저장하고 불러오기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">데이터 분석</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">데이터 시각화</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">CCTV수의 시각화</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">인구수와 CCTV수의 시각화</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">인구수 대비 CCTV 기준선 긋기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">상위 10개구 구이름 표시하기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#colorbar">colorbar 추가</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">마무리</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

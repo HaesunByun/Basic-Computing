@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chapter 8. 파일시스템의 이해 &#8212; First Adventures in Computing</title>
+    <title>Chapter 8. 데이터과학의 이해 &#8212; First Adventures in Computing</title>
   
   
   
@@ -201,13 +201,14 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 8. 파일시스템의 이해</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 8. 데이터과학의 이해</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter9.html">Chapter 9. 웹과 웹크롤링</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. 동적 웹크롤링</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter11.html">Chapter 11. Numpy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter12.html">Chapter 12. Pandas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter13.html">Chapter 13. Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter14.html">Chapter 14. 종합 예제</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter15.html">Chapter 15. 향후 학습 방향</a></li>
 </ul>
 
     </div>
@@ -375,7 +376,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Chapter 8. 파일시스템의 이해</h1>
+    <h1>Chapter 8. 데이터과학의 이해</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -385,30 +386,24 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">파일시스템 관리 도구</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs">메인 메모리 vs. 파일 시스템 특징</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">메인 메모리(주기억 장치)의 특징</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">파일 시스템의 특징</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">데이터 과학의 이해</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">데이터 과학의 활용</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">기업마케팅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">범죄예방</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">의료분야</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">교통분야</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">메인 메모리 엑세스 vs. 파일 시스템 엑세스</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">메인 메모리 엑세스</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">파일 시스템 접근</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#open">파일 열기: open()</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#write">파일 쓰기: write()</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#close">파일 닫기: close()</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">파일 읽기</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#read">read()</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#readline">readline()</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#readlines">readlines()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">데이터 분석 절차</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-red-font"><font color="red">문제 정의</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><font color="red">전략 수립</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><font color="red">데이터 수집(수집, 정제, 집계)</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><font color="red">데이터 분석</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><font color="red">결과 적용</font></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">쉘커맨드로 읽기</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">마무리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">데이터 스토리텔링</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">마무리</a></li>
 </ul>
             </nav>
         </div>
@@ -421,340 +416,186 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-8">
-<h1>Chapter 8. 파일시스템의 이해<a class="headerlink" href="#chapter-8" title="Permalink to this headline">#</a></h1>
+<h1>Chapter 8. 데이터과학의 이해<a class="headerlink" href="#chapter-8" title="Permalink to this headline">#</a></h1>
 <div class="info admonition">
 <p class="admonition-title">학습목표와 기대효과 </p>
 <ul class="simple">
 <li><p>학습목표</p>
 <ul>
-<li><p>Main memory vs. File system의  특징을  알아보자.</p></li>
-<li><p>파이썬에서  파일을  open, read, write, close하는  방법을  알아보자.</p></li>
+<li><p>데이터 과학을 이해하고 활용 분야를 생각해보자.</p></li>
+<li><p>데이터 분석의 절차를 알아보자.</p></li>
+<li><p>데이터 분석을 위한 스토리텔링을 해보자.</p></li>
 </ul>
 </li>
 <li><p>기대효과</p>
 <ul>
-<li><p>코드를 통해 시스템과 연동시켜 파일을 관리(management) 할 수 있다.</p></li>
+<li><p>데이터 분석을 위한 절차를 이해하고 스토리텔링해 볼 수 있다.</p></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id1">
-<h2>파일시스템 관리 도구<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<h2>데이터 과학의 이해<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>윈도우, 리눅스, 맥 등 모든 컴퓨터에는 파일 시스템이 존재한다.</p></li>
-<li><p>파일 시스템은 파일들을 적절한 방식으로 관리 즉, 생성, 복사, 이동, 삭제 할 수 있도록 도와주는 시스템이다.</p></li>
-<li><p>파일을 관리할 수 있도록 도와주는 도구에는 대표적으로 <code class="docutils literal notranslate"><span class="pre">GUI를</span> <span class="pre">이용</span></code>한 파일관리 도구와 <code class="docutils literal notranslate"><span class="pre">쉘커맨드(shell</span> <span class="pre">command)를</span> <span class="pre">이용</span></code>한 파일관리 도구가 있다.</p></li>
+<li><p>데이터 과학 분야는 문제 해결을 위해 데이터를 준비하고, 분석하고, 적용하는 방법을 다루는 분야이다.</p></li>
+<li><p>데이터 수집과 분석은 통계학, 컴퓨터과학, 경영학, 경제학, 사회학, 생물학 등 오래 전부터 여러 분야에서 수행되어 왔다.</p></li>
+<li><p>그러나 이전의 데이터과학 분야에서의 과학적 탐구 방식은 원인을 알아내는데 치중했다. 예를 들어, 왜 경제가 어려운지, 왜 바람이 서쪽에서 부는지, 왜 특정 바이러스가 병을 일으키는지 등 현상이 일어난 원인을 알아내고, 이를 설명할 수 있는 원리와 이론 발견하는 방향으로 다루어졌다.</p></li>
 </ul>
 <ul class="simple">
-<li><p>GUI(Graphic User Interface)를 이용한 파일 관리도구로는 대표적으로 <code class="docutils literal notranslate"><span class="pre">파일</span> <span class="pre">탐색기</span></code>가 있다.</p></li>
-<li><p><strong>파일 탐색기</strong>를 통해 파일 목록을 볼 수도 있고 파일을 생성, 이동, 삭제, 복사 하는 등 다양한 파일 관리 작업을 할 수 있다.</p></li>
+<li><p>지금의 데이터 과학은 답을 얻을 수 있는 상관관계를 알아내는 것에 더 가치를 둔다.</p></li>
+<li><p>예를 들어, ‘어떤 특이한 현상이 발생하면 한달 내에 불경기가 온다.’, ‘어떤 키워드를 사람들이 많이 검색하면 그 지역에서 독감이 유행한다.’ 등 분석을 통해 현상에 대한 원인관계를 확인하는 것에 치중한다.</p></li>
+<li><p>하나의 예로, “허리케인이 오면 비상식량으로 생수가 많이 팔린다.”, “허리케인이 오면 손전등과 비상 장비가 많이 팔린다.” 이와 같은 현상은 예상 가능한 결과였다. 그런데, Walmart에서는 데이터 분석을 통한 수요 예측에서 의외의 결과가 나왔는데, 허리케인이 오면 탄산음료 판매가 급격하게 상승한다는 것이였다.</p></li>
+<li><p>그 원인 관계를 확인해 본 결과, 비상식량 중에는 마른 식품이 많고, 마른 식품은 갈증을 유발하게 되어 탄산음료 판매가 증가하였던 것이다.</p></li>
+<li><p>이와 같이 지금의 데이터 과학은 허리케인과 탄산음료의 상관관계를 알고, 이후 분석에서 원인관계를 확인하는 방향에 더 가치를 두고 있다.</p></li>
+<li><p>데이터 과학은 사건 발생의 정확한 원인은 밝히지 못하더라도 미래를 예측할 수 있는 방법을 찾아내거나 의사결정에도 도움을 준다.</p></li>
 </ul>
-<div align="center"><img src="https://haesunbyun.github.io/common/images/file1.png" style="width:400px;"></div><ul class="simple">
-<li><p>쉘커맨드를 이용한 파일 관리도구로는 대표적으로 <code class="docutils literal notranslate"><span class="pre">명령프롬프트</span></code>가 있다.</p></li>
-<li><p>쉘커맨드는 GUI가 나오기 전 파일 관리도구로 사용되었으며, 현재의 파일 탐색기에서 하는 모든 작업을 쉘커맨드로도 할 수 있어서 쉘커맨드에 익숙한 사용자들은 여전히 많이 사용한다.</p></li>
-</ul>
-<div align="center"><img src="https://haesunbyun.github.io/common/images/file2.png" style="width:400px;"></div><ul class="simple">
-<li><p>때로는 프로그램을 통해서도 파일 관리가 요구되기도 있다.</p></li>
-<li><p>프로그래밍 언어를 통해서도 파일 관리를 할 수 있으며, 파이썬에서도 파일관리를 위한 쉘커맨드를 지원한다.</p></li>
-<li><p>파이썬에서 파일관리를 하려면 먼저 모듈 os를 import해야 한다.</p></li>
-<li><p>모듈 os에는 system()이라는 함수가 있다.</p></li>
-<li><p>os.system() 함수는 파이썬이 컴퓨터의 운영체제(os: operating system,[윈도우, 맥, 리눅스 등])에게 명령어를 전달하도록 한다.</p></li>
-<li><p>os.system() 괄호안에 운영체제 명령어를 넣어주면 된다.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span> 
-<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="n">운영체제명령어</span><span class="p">)</span> 
-</pre></div>
 </div>
-<ul class="simple">
-<li><p>예를 들어, os.system(‘dir’) 하면 파일목록을 보여라는 dir 명령을 파이썬에서 수행한다.</p></li>
-<li><p>그러나, 파이썬의 쉘커맨드에서는 아래의 코드가 실행되어 현재 위치의 파일 목록을 나타내지만 코랩에서는 0(return value)으로 나온다.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span> 
-<span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;dir&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>이를 위해 실행한 시스템 명령어의 결괏값을 돌려받는 popen()함수를 사용할 수 있다.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">popen</span><span class="p">(</span><span class="s2">&quot;dir&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>더 간단한 방법은 파이썬 쉘명령어 앞에 <code class="docutils literal notranslate"><span class="pre">!</span></code>를 붙이면 운영체제 명령어가 실행된다.</p></li>
-<li><p>ls는 현재 위치의 파일목록을 보여주라는 리눅스 명령어이다.</p></li>
-<li><p>dir은 현재 위치의 파일목록을 보여주라는 윈도우 명령어이다.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!ls
-!dir
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>운영체제명령어를 실행하는 독립적인 함수들도 있다.</p>
-<ul>
-<li><p>listdir() : 폴더의 목록을 보여준다.</p></li>
-<li><p>chdir(폴더명): 폴더명이 적힌 폴더로 이동한다.</p></li>
-<li><p>getcwd(): 현재 폴더 경로를 반환</p></li>
-</ul>
-</li>
-<li><p>아래 코드를 실행시키면 현재 위치의 파일 목록이 나온다.</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span> 
-<span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span> 
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>아래 코드는 현재 위치를 ‘sample_data’ 폴더로 이동시킨다. 이동했다는 결과가 보이지는 않으므로 os.getcwd()을 통해 현재 위치를 반환해보면 폴더로 이동했음을 확인할 수 있다.</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="s1">&#39;sample_data&#39;</span><span class="p">)</span>
-<span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="vs">
-<h2>메인 메모리 vs. 파일 시스템 특징<a class="headerlink" href="#vs" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>파일 관리에 하나인 <code class="docutils literal notranslate"><span class="pre">자료를</span> <span class="pre">저장한다</span></code>는 측면에서 메인 메모리와 파일시스템의 역할을 비교해서 따져보자.</p></li>
-</ul>
 <div class="section" id="id2">
-<h3>메인 메모리(주기억 장치)의 특징<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
+<h2>데이터 과학의 활용<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>메인 메모리는 전원을 끄면 자료가 사라져버리는 Volatile(휘발성) 메모리이다.</p></li>
-<li><p>메인 메모리에는 주소가 있어서 그 주소에 있는 값을 읽어 올 수도 쓸 수도 있는 랜덤 엑세스(Random access)가 가능하다.</p></li>
-<li><p>랜덤엑세스가 가능해서 속도가 빠르지만 저장할 수 있는 양은 크지 않다(8 to 16Gb).</p></li>
-<li><p>가격이 비싸다.</p></li>
+<li><p>데이터 과학은 기업마케팅, 범죄예방, 의료분야, 교통분야 등 실제 다양한 분야에서 활용되어지고 있다.</p></li>
 </ul>
-</div>
 <div class="section" id="id3">
-<h3>파일 시스템의 특징<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>전원을 꺼도 자료가 사라지지 않는 비휘발성(Non-volatile)메모리이다.</p></li>
-<li><p>하드디스크(HDD), USB메모리 등이 파일시스템으로 사용되는 보조기억장치에 속한다.</p></li>
-<li><p>HDD는 자료를 읽어올 때 순차적 엑세스(Sequential access)로 처음부터 순서대로 읽어나간다. 물론 부분적으로 랜덤 엑세스가 가능하다.</p></li>
-<li><p>속도는 느리지만 저장할 수 있는 양은 메인 메모리보다 몇 백배 크다. (512Gb to 3Tb)</p></li>
-<li><p>떨어뜨리면 고장이 날 수도 있다.</p></li>
-<li><p>Tape: <a class="reference external" href="https://www.youtube.com/watch?v=7Lh4CMz_Z6M&amp;amp;ab_channel=CuriousMarc">https://www.youtube.com/watch?v=7Lh4CMz_Z6M&amp;ab_channel=CuriousMarc</a></p></li>
-<li><p>Disc: <a class="reference external" href="https://www.youtube.com/watch?v=3WFnVFrPf5Q&amp;amp;ab_channel=80sCompaqPC">https://www.youtube.com/watch?v=3WFnVFrPf5Q&amp;ab_channel=80sCompaqPC</a></p></li>
-<li><p>요즘의 대부분의 노트북들은 Flash 메모리(SSD, USB memory)를 사용한다.</p></li>
-<li><p>Flash 메모리는 주기억장치인 램과 HDD의 중간정도 위치라고 볼 수 있는데 자료를 읽을 때 랜덤 엑세스로 읽는다.</p></li>
+<h3>기업마케팅<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/ds1.png" height=250 style="width:600px;"></div><ul class="simple">
+<li><p>기업에서는 고객 들의 구매 관련 데이터를 수집해 놓았다가 고객 정보의 일부를 추출하여 고객들간의 유사성을 파악하고 취향에 맞는 책을 추천해 주는데 데이터 과학을 활용한다.</p></li>
+<li><p>또한 고객 구매 정보들을 추출하여 책들 간의 연관성을 파악하고 연관성 있는 분야의 책을 추천해 주기도 한다.</p></li>
 </ul>
-</div>
 </div>
 <div class="section" id="id4">
-<h2>메인 메모리 엑세스 vs. 파일 시스템 엑세스<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h2>
-<div class="section" id="id5">
-<h3>메인 메모리 엑세스<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>프로그래밍 언어에서는 변수를 선언하면 메인메모리에 저장하며 엑세스가 가능하다.</p></li>
+<h3>범죄예방<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/ds2.png" height=250 style="width:600px;">
+<img src="https://haesunbyun.github.io/common/images/ds8.png" width=200 height=250 >
+</div><ul class="simple">
+<li><p>2002년에 개봉한 범죄예방 영화로 탐크루즈 주연의 ‘마이너리티리포트’라는 영화가 있다. 이 영화에서는 2054년 워싱턴를 배경으로 범죄가 일어나기 전 범죄를 예측해 범죄자를 단죄하는 내용이다. 이 영화에서는 프리크라임이라는 최첨단 치안 시스템이 범죄가 일어날 시간과 장소, 범행을 저지를 사람까지 미리 예측해내고 특수 경찰들이 미래의 범죄자들을 체포한다는 내용이다. 아직 범죄를 저지르지 않았는데 체포한다는 것이 말이 될까 싶다.</p></li>
+<li><p>어쨌든, 데이터과학은 범죄예방에도 사용된다. 지난 수십년간의 범죄자료 데이터를 수집해 놓았다가 범죄시간, 범죄 발생 횟수 등을 토대로 범죄가 일어날 것 같은 시간대, 위험 지역을 선정하는데 데이터 과학을 활용한다.</p></li>
+<li><p>이와 같이 데이터 분석을 토대로 위험지역에 대해 집중적 순찰을 한 결과 범죄 발생률을 감소 시킬 수 있었다고 한다.</p></li>
 </ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">10</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
-</pre></div>
-</div>
-</div>
-</div>
+<div class="section" id="id5">
+<h3>의료분야<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/ds3.png" width=250 height=250 ></div><ul class="simple">
+<li><p>구글 독감 트렌드(GFT: Google Flu Trends)는 빅데이터의 성공 사례로 곧잘 언급되는 내용이다.</p></li>
+<li><p>구글은 미국 질병관리본부(CDC)가 공개한 2003년부터 2007년까지의 독감 데이터(독감 증상으로 병원을 방문한 환자의 수)와 동일한 시기에 구글 사용자가 입력한 검색어와의 상관관계를 분석하였다.</p></li>
+<li><p>이를 분석하여 과거 독감 데이터와 높은 상관관계를 보이는 사용자의 검색어 45개(고열, 기침 등)를 사용해 질병관리본부보다 2주 빨리 독감 유행을 예측할 수 있는 모형을 개발하는데 데이터과학을 활용하였다.</p></li>
+</ul>
 </div>
 <div class="section" id="id6">
-<h3>파일 시스템 접근<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>여기에서는 파일시스템에서 파일을 다루는 가장 단순한 기법만 언급할 것이다.</p></li>
-<li><p>왜냐면 더 낮은 레벨에서의 파일시스템을 건들거나 다룰 일이 거의 없을 것이기 때문이다.</p></li>
-<li><p>파일시스템을 다루는 작업이 필요하지 않을 수도 있고, 혹은 필요한 사람들은 파일시스템에서 다루는게 아니라 보통은 데이터베이스에서 다룰 일이 많을 것이기 때문이다.</p></li>
+<h3>교통분야<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/ds4.png" width=250 height=250></div><ul class="simple">
+<li><p>데이터 과학은 교통분야에서도 요긴하게 사용될 수 있다. 사람들의 휴대폰 사용 기록을 토대로 어느 시각, 어느 지역에서 가장 많이 사용하는지를 조사한 후, 이를 기반으로 새로운 노선을 결정하거나, 노선을 확대하는 등의 결정에 사용되기도 한다.</p></li>
 </ul>
-<ul class="simple">
-<li><p>파일시스템을 엑세스 할때에는 메인메모리를 엑세스처럼 간단하지 않다.</p></li>
-<li><p>파일시스템을 엑세스 할 때에는 파일을 오픈할 때 읽을 것인지 쓸 것인지 등 엑세스 모드를 미리 알려줘야 한다.</p></li>
-<li><p>엑세스 모드는 다음과 같다.</p>
-<ul>
-<li><p>r: 읽는 용도. 파일이 없을때는 에러가 난다.</p></li>
-<li><p>w: 쓰는 용도. 파일이 이미 있다면 다 지우고 처음부터 쓰고, 없다면 새로 만든다.</p></li>
-<li><p>a: 쓰는 용도. 파일이 이미 있다면 내용의 가장 마지막에 추가한다.</p></li>
-<li><p>r+: 읽기/쓰기 용도. r모드는 순서대로만 읽으나, r+ 모드에서는 읽을위치, 쓸위치로 직접 이동이 가능하다.</p></li>
-<li><p>w+ : 읽기/쓰기 용도. 파일이 이미 있다면 다 지우고 처음부터 쓴다.</p></li>
-</ul>
-</li>
-<li><p>파일을 오픈해보자.</p></li>
-</ul>
-<div class="section" id="open">
-<h4>파일 열기: open()<a class="headerlink" href="#open" title="Permalink to this headline">#</a></h4>
-<ul class="simple">
-<li><p>파일을 열 때 사용하며, 인자로 파일명과 엑세스 모드를 넣어준다.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">open</span><span class="p">(</span><span class="n">파일명</span><span class="p">,</span> <span class="n">엑세스</span> <span class="n">모드</span><span class="p">)</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>아래 코드에서는 newfile.txt파일을 쓰는 용도로 오픈한다.</p></li>
-<li><p>오픈한 파일 객체를 변수 f에 저장한다. 이제 변수 f를 통해서 파일에 접근할 수 있다.</p></li>
-<li><p>파일이 기존에 없었기 때문에 새로 만들어졌을 것이다.</p></li>
-<li><p>코랩 메뉴의 왼쪽의 파일 아이콘을 누르면 확인이 된다.</p></li>
-<li><p>파일은 아직은 내용이 없는 빈 파일이다.</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;newfile.txt&quot;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="write">
-<h4>파일 쓰기: write()<a class="headerlink" href="#write" title="Permalink to this headline">#</a></h4>
-<ul class="simple">
-<li><p>파일에 쓸 때 사용하며, 인자로 데이터를 넣어준다.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">파일객체</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">데이터</span><span class="p">)</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>반복문을 통해 파일에 문자열을 써보자.</p></li>
-<li><p>위에서 만들었던 파일객체 f는 쓰기모드로 열었기 때문에 파일에 데이터를 저장할 수 있다.</p></li>
-<li><p>아래 코드는 f.write(data)로 newfile.txt 파일에 데이터를 저장한다.</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">번째 줄입니다.</span><span class="se">\n</span><span class="s2">&quot;</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="close">
-<h4>파일 닫기: close()<a class="headerlink" href="#close" title="Permalink to this headline">#</a></h4>
-<ul class="simple">
-<li><p>파일을 닫을 때 사용한다. 파일을 열었다면 반드시 닫어줘야 한다. 파일을 닫지 않으면 파일 내부에 있는 데이터가 손상 될 수도 있고, 다른 프로세스에서 해당 파일에 엑세스를 못 할 수도 있다.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">파일객체</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>파일 객체 f를 닫아준다.</p></li>
-</ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>파일 닫는 부분을 with 문으로 대체하면 with를 벗어날 때 자동으로 파일을 닫아주므로 close() 함수를 사용할 필요가 없다.</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;newfile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">번째 줄입니다.</span><span class="se">\n</span><span class="s2">&quot;</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</pre></div>
 </div>
 </div>
 <div class="section" id="id7">
-<h4>파일 읽기<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
-<div class="section" id="read">
-<h5>read()<a class="headerlink" href="#read" title="Permalink to this headline">#</a></h5>
+<h2>데이터 분석 절차<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>파일의 전체의 내용을 하나의 문자열로 읽어온다.</p></li>
+<li><p>데이터 분석 절차는 데이터 분석을 통해 문제를 해결하는 과정을 일컫는다.</p></li>
+<li><p>다음과 같이 5단계로 정의할 수 있다.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">파일객체</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</pre></div>
-</div>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/ds5.png"  style="width:600px;"></div><div class="section" id="font-color-red-font">
+<h3><font color='red'>문제 정의</font><a class="headerlink" href="#font-color-red-font" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>이제 “newfile.txt” 파일을 읽기용으로 열어서 read()함수로 파일에서 데이터를 읽어보자.</p></li>
-<li><p>앞에서 저장했던 결과가 잘 출력 될 것이다.</p></li>
-<li><p>파일을 읽어온 후 한 번 더 read()를 실행시키면 더 이상 읽을 내용이 없어서 빈 문자열을 반환한다.</p></li>
+<li><p>해결하려는 문제를 명확히 정의하는 단계이다.</p></li>
+<li><p>큰 문제는 한번에 해결하기 어려우므로, 해결 가능한 크기의 작은 문제로 나누어 접근하는 전략이 필요하다.</p></li>
+<li><p>작은 문제로 나눌 때에는 분석 방법이 널리 알려진 문제 단위로 나눈다.</p></li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;newfile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="n">번째</span> <span class="n">줄입니다</span><span class="o">.</span>
-<span class="mi">2</span><span class="n">번째</span> <span class="n">줄입니다</span><span class="o">.</span>
-<span class="mi">3</span><span class="n">번째</span> <span class="n">줄입니다</span><span class="o">.</span>
-<span class="mi">4</span><span class="n">번째</span> <span class="n">줄입니다</span><span class="o">.</span>
-<span class="mi">5</span><span class="n">번째</span> <span class="n">줄입니다</span><span class="o">.</span>
-<span class="mi">6</span><span class="n">번째</span> <span class="n">줄입니다</span><span class="o">.</span>
-<span class="mi">7</span><span class="n">번째</span> <span class="n">줄입니다</span><span class="o">.</span>
-<span class="mi">8</span><span class="n">번째</span> <span class="n">줄입니다</span><span class="o">.</span>
-<span class="mi">9</span><span class="n">번째</span> <span class="n">줄입니다</span><span class="o">.</span>
-<span class="mi">10</span><span class="n">번째</span> <span class="n">줄입니다</span><span class="o">.</span>
-<span class="s1">&#39;&#39;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="readline">
-<h5>readline()<a class="headerlink" href="#readline" title="Permalink to this headline">#</a></h5>
-<ul class="simple">
-<li><p>한번에 한 줄씩 읽어온다.</p></li>
-<li><p>읽어온 내용의 맨 끝에는 줄바꿈 기호(‘\n’)가 들어가 있고, 반복문에서 print()에 의해 줄이 바뀌므로 결과는 내용 출력 후 빈줄이 출력될 것이다.</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;newfile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
-          <span class="k">break</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
-
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>rstrip()은 문자열 오른쪽 끝에 들어가 있는 공백을 모두 제거해준다. 줄바꿈도 공백이므로 제거된다. 참고로 lstrip()은 왼쪽 공백을 제거해준다.</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;newfile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span><span class="p">:</span>
-          <span class="k">break</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>  
-</pre></div>
-</div>
-</div>
-<div class="section" id="readlines">
-<h5>readlines()<a class="headerlink" href="#readlines" title="Permalink to this headline">#</a></h5>
-<ul class="simple">
-<li><p>파일 전체 내용을 한 줄씩 읽어와서 리스트를 만들어준다.</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;newfile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">rstrip</span><span class="p">())</span>
-</pre></div>
-</div>
-<ul class="simple">
-<li><p>리스트이므로 언팩킹(unpacking) 기호인 *를 붙여서 한번에 내용만 출력이 가능하다.</p></li>
-<li><p>이때 리스트의 아이템마다 분리해주는 기능인 한 칸 띄어쓰기 기능이 적용되어서 한 칸씩 들어가 출력된다.</p></li>
-</ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;newfile.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">lines</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="id8">
-<h4>쉘커맨드로 읽기<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
+<h3><font color='red'>전략 수립</font><a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>파일안의 내용이 길지 않다면 간단하게 리눅스 쉘커맨드로 내용을 확인할 수도 있다.</p></li>
+<li><p>문제해결을 위해 어떤 데이터를 어떻게 분석할지 결정하는 단계이다.</p></li>
+<li><p>문제의 본질을 파악하고 문제 해결 목표를 명확히 정해야 한다. 예를 들어, 비용 20% 줄이기, 문제 영역 3곳 찾기 등</p></li>
+<li><p>전략을 수립하면서 확인해야 할 사항으로는  데이터 수집 비용, 마감일, 최소한의 성능 요건, 가용 자원(인적자원, 사용 데이터 수), 전산 자원, 데이터 분석방법, 데이터 분석에 소요되는 비용 등을 확인해야 한다.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!cat newfile.txt
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="id9">
-<h2>마무리<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+<h3><font color='red'>데이터 수집(수집, 정제, 집계)</font><a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>파일 시스템 관리는 파일을 열고, 읽고, 쓰고, 닫고, 복사하고, 지우고 등의 파일을 관리하는 것을 의미한다.</p></li>
-<li><p>파이썬에서 파일시스템의 파일을 엑세스하는 open(), write(), close(), read() 함수에 대해서 알아보았다.</p></li>
-<li><p>파일시스템을 엑세스 할 때에는 파일을 오픈할 때 읽을 것인지 쓸 것인지 등 엑세스 모드를 미리 알려줘야 한다.</p></li>
-<li><p>엑세스 모드는 다음과 같다.</p>
+<li><p>분석에 필요한 데이터를 수집하는 단계이다.</p></li>
+<li><p>목적을 정하고 데이터를 수집하는 것이 일반적이며, 이상적인 절차이다.</p></li>
+<li><p>데이터 수집은 많은 비용과 시간이 필요한 단계이며, 일반적으로 전체 과정의 70~80%는 데이터를 모으고 준비하는데 소요된다.</p></li>
+<li><p>데이터를 수집하면서 수집한 데이터 전체 모습 및 데이터 자체에 문제가 있는지 확인이 필요하다.</p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h3><font color='red'>데이터 분석</font><a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>패턴 찾기, 분류, 예측 등 분석 모델 구현하는 단계이다.</p></li>
+<li><p>데이터 분석 유형으로는 기초 통계 분석(평균, 분산 등 데이터 분포 파악), 클러스터링(유사 항목 묶음), 연관관계 분석, 분류(정해진 카테고리에서 판별), 예측(주가, 매출 등 수치 예상) 등이 있다.</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h3><font color='red'>결과 적용</font><a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>분석 결과를 실제 상황에 적용하고 성능을 개선하는 단계이다.</p></li>
+<li><p>실제로 어떻게 적용할지 미리 시뮬레이션을 해 보는게 필요하다.</p></li>
+<li><p>분석 결과를 쉽게 이해시키기기 위해 시각화(visualization) 필요하다.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id12">
+<h2>데이터 스토리텔링<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>문제정의</p>
 <ul>
-<li><p>r: 읽는 용도. 파일이 없을때는 에러가 난다.</p></li>
-<li><p>w: 쓰는 용도. 파일이 이미 있다면 다 지우고 처음부터 쓰고, 없다면 새로 만든다.</p></li>
-<li><p>a: 쓰는 용도. 파일이 이미 있다면 내용의 가장 마지막에 추가한다.</p></li>
-<li><p>r+: 읽기/쓰기 용도. r모드는 순서대로만 읽으나, r+ 모드에서는 읽을위치, 쓸위치로 직접 이동이 가능하다.</p></li>
-<li><p>w+ : 읽기/쓰기 용도. 파일이 이미 있다면 다 지우고 처음부터 쓴다.</p></li>
+<li><p>각 구별 CCTV의 수는 인구수 대비 적절한가?</p></li>
+<li><p>CCTV 수가 많은 지역과 적은 지역은 어디인가?</p></li>
 </ul>
 </li>
+</ul>
+<hr class="docutils" />
+<ul>
+<li><p>관련된 자료의 수집</p>
+<ul>
+<li><p>필요한 데이터 정의: 서울시 구별 인구 데이터와 CCTV수 데이터</p></li>
+<li><p>어디서 수집할 것인가: 공공데이터로부터 획득</p>
+<ul class="simple">
+<li><p>서울시 CCTV 현황 데이터 구하기</p></li>
+</ul>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/ds6.png" height=300 style="width:600px;"></div>
+<ul class="simple">
+<li><p>서울시 인구 현황 데이터 구하기</p></li>
+</ul>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/ds7.png" height=300 style="width:600px;"></div>
+</li>
+<li><p>수집한 자료의 가공, 정제, 필터링, 정렬 등</p>
+<ul class="simple">
+<li><p>구별 인구 데이터와 CCTV수 데이터 합치기</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>데이터 분석</p>
+<ul>
+<li><p>통계 등을 사용한 요약 테이블 작성</p></li>
+<li><p>구별 인구 데이터와 CCTV수 사이의 상관관계 구하기</p></li>
+<li><p>자료 시각화</p>
+<ul>
+<li><p>구별 인구 데이터와 CCTV수 사이의 관계를 나타내는 대표직선 구하기</p></li>
+<li><p>대표직선으로부터의 오차 구하기</p></li>
+<li><p>인구 데이터와 CCTV수를 산포도로 표현 + 산포도 marker색을 오차로 표현</p></li>
+<li><p>대표직선을 선형 그래프로 표현</p></li>
+<li><p>오차가 큰 상위 10개구의 구 이름 표시</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>문제 정의에 대한 결론</p></li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h2>마무리<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>데이터 과학이란 정형, 비정형 데이터로부터 지식과 인사이트를 추출하는데 과학적 방법론, 프로세스, 알고리즘 및 시스템을 이용하여 데이터에서 가치를 도출하는 통합 학문이다.</p></li>
+<li><p>데이터 분석을 통해 미래를 예측할 수 있는 방법을 찾아내거나 의사결정에 도움을 준다.</p></li>
+<li><p>데이터 분석의 절차는 문제정의 -&gt; 전략수립 -&gt; 데이터 수집 -&gt;  데이터분석 -&gt; 결과적용으로 진행된다.</p></li>
 </ul>
 </div>
 </div>
@@ -820,30 +661,24 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">파일시스템 관리 도구</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vs">메인 메모리 vs. 파일 시스템 특징</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">메인 메모리(주기억 장치)의 특징</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">파일 시스템의 특징</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">데이터 과학의 이해</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">데이터 과학의 활용</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">기업마케팅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">범죄예방</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">의료분야</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">교통분야</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">메인 메모리 엑세스 vs. 파일 시스템 엑세스</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">메인 메모리 엑세스</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">파일 시스템 접근</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#open">파일 열기: open()</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#write">파일 쓰기: write()</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#close">파일 닫기: close()</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">파일 읽기</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#read">read()</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#readline">readline()</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#readlines">readlines()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">데이터 분석 절차</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#font-color-red-font"><font color="red">문제 정의</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><font color="red">전략 수립</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9"><font color="red">데이터 수집(수집, 정제, 집계)</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id10"><font color="red">데이터 분석</font></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11"><font color="red">결과 적용</font></a></li>
 </ul>
 </li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">쉘커맨드로 읽기</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">마무리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">데이터 스토리텔링</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">마무리</a></li>
 </ul>
   </nav></div>
 
