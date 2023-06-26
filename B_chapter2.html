@@ -420,7 +420,7 @@ document.write(`
 <h1>Chapter 2. 입출력과 타입변환<a class="headerlink" href="#chapter-2" title="Permalink to this headline">#</a></h1>
 <p>이 장에서는 주석을 처리하는 방법, 데이터를 입력하고, 출력하는 방법, 데이터 타입을 변환하는 방법에 대해 알아본다.</p>
 <div class="info admonition">
-<p class="admonition-title">학습목표와 기대효과 </p>
+<p class="admonition-title">학습목표와 기대효과</p>
 <ul class="simple">
 <li><p>학습목표</p>
 <ul>
@@ -441,7 +441,7 @@ document.write(`
 <h2>Sample Source Code<a class="headerlink" href="#sample-source-code" title="Permalink to this headline">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># This program says hello and asks for my name.</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Input your name. &#39;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Input your name. &#39;</span><span class="p">)</span>
 <span class="n">myName</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;Welcome, &#39;</span> <span class="o">+</span> <span class="n">myName</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="p">)</span>
 </pre></div>
@@ -491,8 +491,8 @@ ctrl + a를 누르면 현재 셀의 모든 코드를 한꺼번에 블럭설정 �
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello world!&#39;</span><span class="p">)</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">print(&#39;Input your name. &#39;)</span>
-<span class="sd">멀티라인 스트링 기호를 써서 </span>
-<span class="sd">여러 줄을 주석으로 처리할 수도 있다. </span>
+<span class="sd">멀티라인 스트링 기호를 써서</span>
+<span class="sd">여러 줄을 주석으로 처리할 수도 있다.</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Welcome!!&#39;</span><span class="p">)</span>
 </pre></div>
@@ -820,7 +820,7 @@ print(...)
 </pre></div>
 </div>
 <p>사용자에게 무엇을 입력받을 때에는 다짜고짜 입력하라고 하지말고 무엇을 입력할것인지를 알려주는 것이 좋다. 즉, 질문을 주고 입력을 받아야 한다. 질문을 넣어주려면 input() 괄호안에 넣어주면 된다. 이때 입력박스는 질문 오른쪽에 생긴다.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myName</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Input your name.&#39;</span><span class="p">)</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">myName</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Input your name.&#39;</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Welcome, </span><span class="si">{</span><span class="n">myName</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -830,7 +830,7 @@ print(...)
 </div>
 <p>input() 함수에는 절대 잊어서는 안될 중요한 특징 하나가 있다. <font color='red'>입력받은 모든 데이터를 문자열로 처리된다는 것이다.</font> 숫자를 입력해도 문자열로 처리된다. 아래 코드에서 변수 age에는 문자열이 들어 있으므로 문자열과 변수를 더해도 에러가 발생하지 않는다.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How old are you? &#39;</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;You are &#39;</span>  <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s1">&#39; years old.&#39;</span><span class="p">)</span> 
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;You are &#39;</span>  <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="s1">&#39; years old.&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>How old are you? 20
@@ -896,7 +896,7 @@ You are 20 years old.
 <p class="sd-card-text">😄Quiz 4. 입력값 20을 주었다면 출력결과는?</p>
 </div>
 <div class="sd-card-body docutils">
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How old are you?&#39;</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;How old are you? &#39;</span><span class="p">)</span>
 <span class="n">age</span> <span class="o">=</span> <span class="n">age</span> <span class="o">+</span> <span class="mi">10</span>  
 <span class="nb">print</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Ten years later, you will be </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s1"> years old.&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1041,7 +1041,7 @@ int()는 정수로 변환해주는 함수이다.</p>
 <p class="admonition-title">참고</p>
 <p>아래와 같이 입력받아서 변수 num에 저장한 후, 다음 라인에서 형변환을 했다. 그런 후에 type(num)을 통해 변수 num의 타입을 확인해보면 어떤 타입으로 나올까?
 그리고 그 타입으로 나오는 이유가 무엇인지 생각해보자.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span> 
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">num</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
 <span class="nb">int</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 </pre></div>
