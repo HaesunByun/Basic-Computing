@@ -419,7 +419,7 @@ document.write(`
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-7">
 <h1>Chapter 7. 딕셔너리, 튜플, 셋<a class="headerlink" href="#chapter-7" title="Permalink to this headline">#</a></h1>
 <div class="info admonition">
-<p class="admonition-title">학습목표와 기대효과 </p>
+<p class="admonition-title">학습목표와 기대효과</p>
 <ul class="simple">
 <li><p>학습목표</p>
 <ul>
@@ -436,7 +436,7 @@ document.write(`
 </div>
 <div class="section" id="id1">
 <h2>딕셔너리<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
-<p>인덱스는 항상 정수로만 해야 할까?라는 생각을 한 번 쯤은 해본 적이 있을지도 모른다. 딕셔너리는 이러한 생각을 깨고 key를 인덱스로 사용한다.</p>
+<p>인덱스는 항상 정수로만 해야 할까?라는 생각을 한 번 쯤은 해본 적이 있을지도 모른다. 딕셔너리는 이러한 제약을 깨고 key를 인덱스로 사용한다.</p>
 <p>딕셔너리의 형식은 다음과 같다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="n">Key1</span><span class="p">:</span><span class="n">Value1</span><span class="p">,</span> <span class="n">Key2</span><span class="p">:</span><span class="n">Value2</span><span class="p">,</span> <span class="n">Key3</span><span class="p">:</span><span class="n">Value3</span><span class="p">,</span> <span class="o">...</span><span class="p">}</span>
 </pre></div>
@@ -457,8 +457,8 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;Byun&#39;</span><span class="p">,</span> <span class="s1">&#39;phone&#39;</span><span class="p">:</span><span class="s1">&#39;010-111-2222&#39;</span><span class="p">,</span> <span class="s1">&#39;birth&#39;</span><span class="p">:</span> <span class="s1">&#39;09/08&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
 <span class="n">dict2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;L0444.000400&#39;</span><span class="p">,</span> <span class="s1">&#39;컴퓨팅기초&#39;</span> <span class="p">),</span> <span class="p">(</span><span class="s1">&#39;L0444.000500&#39;</span><span class="p">,</span> <span class="s1">&#39;컴퓨팅핵심&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;L0444.000600&#39;</span><span class="p">,</span> <span class="s1">&#39;컴퓨팅응용&#39;</span><span class="p">)])</span>
-<span class="n">dict3</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span> 
-<span class="n">dict4</span> <span class="o">=</span> <span class="p">{}</span>  
+<span class="n">dict3</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">dict4</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">dict1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dict2</span><span class="p">)</span>
@@ -490,9 +490,6 @@ document.write(`
 <tr class="row-odd"><td class="text-center"><p>강좌002</p></td>
 <td class="text-left"><p>박서준, 블랙핑크, 손흥민</p></td>
 </tr>
-<tr class="row-even"><td class="text-center"><p>강좌003</p></td>
-<td class="text-left"><p>유재석, 류현진, 김광현</p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -503,7 +500,8 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;Byun&#39;</span><span class="p">,</span> <span class="s1">&#39;phone&#39;</span><span class="p">:</span><span class="s1">&#39;010-111-2222&#39;</span><span class="p">,</span> <span class="s1">&#39;birth&#39;</span><span class="p">:</span> <span class="s1">&#39;09/08&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]}</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;phone&#39;</span><span class="p">]</span> <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;birth&#39;</span><span class="p">]</span> <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="p">)</span>
@@ -520,14 +518,13 @@ document.write(`
 </div>
 </div>
 <ul class="simple">
-<li><p>당연한 말이지만 value에 접근할 때 key가 딕셔너리에 없으면 에러가 난다.</p></li>
+<li><p>당연한 말이지만 key가 딕셔너리에 없으면 에러가 난다.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;address&#39;</span><span class="p">]</span> <span class="p">)</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span> <span class="n">dict1</span><span class="p">[</span><span class="s1">&#39;address&#39;</span><span class="p">]</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>😄 앞에서 만든 딕셔너리 sugang_dict의 강좌001의 값을 출력하시오.</p>
 <p>😄 앞에서 만든 딕셔너리 sugang_dict의 강좌001의 값의 인덱스 2의 데이터를 출력하시오.</p>
-<p>😄 앞에서 만든 딕셔너리 sugang_dict의 강좌001의 값에 ‘임영웅’을 추가하고 확인하시오.</p>
 </div>
 <div class="section" id="insertion-and-modification">
 <h3>Insertion and modification<a class="headerlink" href="#insertion-and-modification" title="Permalink to this headline">#</a></h3>
@@ -539,9 +536,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sports</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;걷기&#39;</span> <span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;조깅&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;수영&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">}</span> <span class="c1">#생성</span>
-<span class="n">sports</span><span class="p">[</span><span class="s1">&#39;계단오르기&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">15</span>  
+<span class="n">sports</span><span class="p">[</span><span class="s1">&#39;계단오르기&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">15</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sports</span><span class="p">)</span>
-<span class="n">sports</span><span class="p">[</span><span class="s1">&#39;계단오르기&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span> 
+<span class="n">sports</span><span class="p">[</span><span class="s1">&#39;계단오르기&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sports</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -562,10 +559,11 @@ document.write(`
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-center"><p>강좌003</p></td>
-<td class="text-left"><p>유재석, 류현진, 김광현</p></td>
+<td class="text-left"><p>유재석, 류현진</p></td>
 </tr>
 </tbody>
 </table>
+<p>😄 앞에서 만든 딕셔너리 sugang_dict의 강좌001의 값에 ‘임영웅’을 추가하고 확인하시오.</p>
 </div>
 <div class="section" id="iteration">
 <h3>딕셔너리 주요 메서드와 iteration<a class="headerlink" href="#iteration" title="Permalink to this headline">#</a></h3>
@@ -940,7 +938,9 @@ data
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-23345
 2023-23346
-2023-23346
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-23346
 2023-23347
 </pre></div>
 </div>
@@ -985,7 +985,7 @@ data
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myData</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">):</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<span class="n">myData</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span>  
+<span class="n">myData</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">80</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1030,7 +1030,7 @@ data
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;baz&#39;, &#39;qux&#39;, &#39;foo&#39;, &#39;bar&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;foo&#39;, &#39;baz&#39;, &#39;bar&#39;, &#39;qux&#39;}
 {}
 set()
 {1, 2, 3, 4, 6, 7, 8, 10}
@@ -1060,8 +1060,8 @@ set()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;apeach&#39;, &#39;con&#39;, &#39;frodo&#39;, &#39;ryan&#39;, &#39;tube&#39;, &#39;choonsik&#39;, &#39;muzi&#39;, &#39;jay-G&#39;, &#39;neo&#39;]
-(&#39;apeach&#39;, &#39;con&#39;, &#39;frodo&#39;, &#39;ryan&#39;, &#39;tube&#39;, &#39;choonsik&#39;, &#39;muzi&#39;, &#39;jay-G&#39;, &#39;neo&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;tube&#39;, &#39;neo&#39;, &#39;ryan&#39;, &#39;frodo&#39;, &#39;muzi&#39;, &#39;choonsik&#39;, &#39;jay-G&#39;, &#39;apeach&#39;, &#39;con&#39;]
+(&#39;tube&#39;, &#39;neo&#39;, &#39;ryan&#39;, &#39;frodo&#39;, &#39;muzi&#39;, &#39;choonsik&#39;, &#39;jay-G&#39;, &#39;apeach&#39;, &#39;con&#39;)
 </pre></div>
 </div>
 </div>
@@ -1077,15 +1077,15 @@ set()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kakao-apeach
-kakao-con
-kakao-frodo
-kakao-ryan
-kakao-tube
-kakao-choonsik
-kakao-muzi
-kakao-jay-G
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kakao-tube
 kakao-neo
+kakao-ryan
+kakao-frodo
+kakao-muzi
+kakao-choonsik
+kakao-jay-G
+kakao-apeach
+kakao-con
 </pre></div>
 </div>
 </div>
