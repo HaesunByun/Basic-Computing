@@ -395,23 +395,19 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">웹크롤링과 웹스크랩핑</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#urlopen">urlopen()으로 웹페이지 가져오기</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beautifulsoup">BeautifulSoup()으로 웹스크랩핑하기</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">태그로 이동</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">태그 이동</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">텍스트 추출하기</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">태그로 찾기</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">속성으로 찾기</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">속성값 추출하기</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">개발자 도구 활용하기</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">1단계: urlopen()으로 웹페이지를 가져오기</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">2단계: BeautifulSoup()으로 파싱하기</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">3단계: 개발자 도구 활용</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#find-all">4단계: find_all()로 찾기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">개발자 도구 활용하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">태그로 찾기</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">속성으로 찾기</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">속성값 추출하기</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">마무리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">마무리</a></li>
 </ul>
             </nav>
         </div>
@@ -426,11 +422,11 @@ document.write(`
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-9">
 <h1>Chapter 9. 웹과 웹크롤링<a class="headerlink" href="#chapter-9" title="Permalink to this headline">#</a></h1>
 <div class="info admonition">
-<p class="admonition-title">학습목표와 기대효과 </p>
+<p class="admonition-title">학습목표와 기대효과</p>
 <ul class="simple">
 <li><p>학습목표</p>
 <ul>
-<li><p>웹페이지의 구성과 동작을 이해해본다.</p></li>
+<li><p>웹페이지의 구성과 동작을 이해한다.</p></li>
 <li><p>웹크롤링(web crawling)과 웹스크래핑(web scraping)의 개념을 알아보자.</p></li>
 <li><p>urlopen() 함수로 웹크롤링을 해보자.</p></li>
 <li><p>BeautifulSoup() 함수로 웹스크랩핑을 해보자.</p></li>
@@ -449,10 +445,10 @@ document.write(`
 <p>웹주소를 보면 보통 시작이 www이다. www는 world wide web의 약자로 web이 거미줄이라는 뜻을 가지고 있어서 전 세계로 퍼진 거미줄로 직역할 수 있다.
 웹에서 보여지는 페이지(문서)를 웹페이지라고 하며, 웹페이지를 만드는데 사용되는 언어중 하나가 바로 HTML이다.</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">HTML</span></code>은 Hypertext Markup Language의 약자로, 웹페이지가 어떻게 구조화되어 있는지 웹브라우저(크롬, 익스플로러, 엣지, 사파리 등)가 인식하도록 하는 마크업 언어이다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HTML</span></code>은 Hypertext Markup Language의 약자로, 웹페이지가 어떻게 구조화되어 있는지를 웹브라우저(크롬, 익스플로러, 엣지, 사파리 등)가 인식하도록 하는 마크업 언어이다.</p></li>
 </ul>
 <div class="tip admonition">
-<p class="admonition-title">마크업(Markup)? 마크다운(Markdown)? </p>
+<p class="admonition-title">마크업(Markup)? 마크다운(Markdown)?</p>
 <ul class="simple">
 <li><p>마크업 언어(Markup Language)란 <code class="docutils literal notranslate"><span class="pre">태그</span></code> 등을 이용하여 문서가 화면에 표시되는 형식을 나타내거나 데이터의 논리적인 구조를 명시하기 위한 규칙들을 정의한 언어의 일종이다. 데이터를 기술한 언어라는 점에서 프로그래밍 언어와는 차이가 있다.</p></li>
 <li><p>마크다운 언어(Markdown Language)는 마크업 언어의 일종으로 마크업이 복잡한 태그로 구성되어 있어서 사용하기 힘들어서 만들어진 마크업의 파생형언어이다. 읽기도 쓰기도 쉬운 문서 양식을 지향하므로 복잡한 태그 구조가 사라지고 간단한 텍스트들과 몇 가지 문법만 알면 작성할 수 있다.</p></li>
@@ -472,7 +468,7 @@ document.write(`
 <ul class="simple">
 <li><p>예를 들어, 아래에서 여는 태그는 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>, 닫는 태그는 <code class="docutils literal notranslate"><span class="pre">&lt;/p&gt;</span></code>, 내용은 <code class="docutils literal notranslate"><span class="pre">아름다운</span> <span class="pre">날이에요.</span></code>가 된다.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">아름다운</span> <span class="n">날이에요</span><span class="o">.&lt;/</span><span class="n">p</span><span class="o">&gt;</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">아름다운</span> <span class="n">날이에요</span><span class="o">.&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -481,13 +477,13 @@ document.write(`
 <ul class="simple">
 <li><p>아래 매우 간단한 HTML문서를 살펴보자.</p></li>
 </ul>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html &gt; 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&lt;!DOCTYPE html &gt;
 &lt;html&gt;
-  &lt;head&gt; 
+  &lt;head&gt;
     &lt;title&gt; This is my page &lt;/title&gt;
-  &lt;/head&gt; 
+  &lt;/head&gt;
   &lt;body&gt;
-    &lt;p&gt;아름다운 날이에요.&lt;/p&gt; 
+    &lt;p&gt;아름다운 날이에요.&lt;/p&gt;
   &lt;/body&gt;
 &lt;/html &gt;
 </pre></div>
@@ -547,9 +543,10 @@ document.write(`
 </div>
 <ul class="simple">
 <li><p>img 태그의 <code class="docutils literal notranslate"><span class="pre">src</span></code> p 태그의 <code class="docutils literal notranslate"><span class="pre">class</span></code>, a 태그의 <code class="docutils literal notranslate"><span class="pre">href</span></code>, <code class="docutils literal notranslate"><span class="pre">title</span></code> 이 속성명이다.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&quot;https://haesunbyun.github.io/common/images/html2.png&quot;,</span> <span class="pre">&quot;editor-note&quot;,</span> <span class="pre">&quot;https://www.snu.ac.kr/&quot;,</span> <span class="pre">&quot;서울대학교</span> <span class="pre">홈페이지&quot;</span></code>는 속성 값이다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;editor-note&quot;,</span> <span class="pre">&quot;https://www.snu.ac.kr/&quot;,</span> <span class="pre">&quot;서울대학교</span> <span class="pre">홈페이지&quot;</span></code>는 속성 값이다.</p></li>
 <li><p>웹페이지에서 보여지는 결과는 아래와 같다. 속성이 많지만 웹페이지에서는 보이지 않는다.</p></li>
 </ul>
+<hr class="docutils" />
 <p class="editor-note"> 안녕하세요.</p>
 <p> 여기는 <a href="https://www.snu.ac.kr/" title="서울대학교 홈페이지">서울대학교</a>입니다.</p></div>
 <div class="section" id="id1">
@@ -575,7 +572,7 @@ document.write(`
 <li><p>웹 페이지에서 정보를 추출하는 프로그램을 웹크롤러(Web Crawler), 또는 스파이더(Spider), 봇(Bot)이라고도 부르며, 크롤러를 사용하여 데이터를 수집하는 것을 크롤링(Crawling)이라고 하다.</p></li>
 <li><p>즉, 웹크롤링은 웹페이지의 하이퍼링크를 순회하면서 웹 페이지를 다운로드 하는 작업을 의미한다.</p></li>
 <li><p>웹스크랩핑(Scraping)은 다운로드한 웹 페이지에서 필요한 정보를 추출하는 작업을 의미한다.</p></li>
-<li><p>일부 모듈들은 웹크롤링과 웹스크랩핑 기능을 모두 갖고 있기도 해서 이를 혼용하여 불리기도 한다.</p></li>
+<li><p>일부 모듈들은 웹크롤링과 웹스크랩핑 기능을 모두 갖고 있기도 해서 이를 혼용하여 부르기도 한다.</p></li>
 </ul>
 <ul class="simple">
 <li><p>웹크롤링은 다양하게 활용되고 있다.</p>
@@ -617,16 +614,16 @@ document.write(`
 <ul class="simple">
 <li><p>아래 웹페이지를 가져와보자.</p></li>
 </ul>
-<div align="center"><img src="https://haesunbyun.github.io/common/images/html4.png" style="width:400px;"></div><div class="cell docutils container">
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
-<span class="n">page</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https://haesunbyun.github.io/Basic-Computing/mypage2.html&#39;</span><span class="p">)</span>
+<span class="n">page</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https://haesunbyun.github.io/Basic-Computing/mypage3.html&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;http.client.HTTPResponse object at 0x0000018EA9826EC8&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;http.client.HTTPResponse object at 0x000001ED04BCA188&gt;
 </pre></div>
 </div>
 </div>
@@ -672,23 +669,31 @@ document.write(`
 &lt;title&gt;Very Simple HTML Code by Haesun&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;div&gt;
-&lt;p class=&quot;inner-text first-item&quot; id=&quot;first&quot;&gt;Happy university life!
-&lt;a href=&quot;http://www.snu.ac.kr&quot; id=&quot;first-meet&quot;&gt;서울대학교 바로가기&lt;/a&gt;
-&lt;/p&gt;
-&lt;p class=&quot;inner-text second-item&quot;&gt;Fun Python! Happy BasicComputing!
-&lt;a href=&quot;https://www.python.org&quot; id=&quot;computing&quot;&gt;Python&lt;/a&gt;
-&lt;/p&gt;
+&lt;div class=&quot;tex2jax_ignore mathjax_ignore section&quot; id=&quot;id1&quot;&gt;
+&lt;h1&gt;&lt;a class=&quot;headerlink&quot; href=&quot;#id1&quot; title=&quot;Permalink to this headline&quot;&gt;소개&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;L0444.000400 컴퓨팅 기초: 처음 만나는 컴퓨팅&lt;/p&gt;
+&lt;p&gt;프로그래밍 입문자와 비전공자를 위한 파이썬 프로그래밍 기초와 데이터 과학 기초를 다룬다.&lt;/p&gt;
+&lt;p&gt;컴퓨팅 기초: 처음 만나는 컴퓨팅 001,002,003 강좌 수강생들을 위한 자료이니 복제, 무단배포, 링크공유를 금합니다.&lt;/p&gt;
+&lt;div class=&quot;toctree-wrapper compound&quot;&gt;
+&lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;&lt;span class=&quot;caption-text&quot;&gt;Python&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter0.html&quot;&gt;Chapter 0. 프로그래밍 언어와 파이썬&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter1.html&quot;&gt;Chapter 1. 기본자료형과 변수&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter2.html&quot;&gt;Chapter 2. 입출력과 타입변환&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter3.html&quot;&gt;Chapter 3. 조건문&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter4.html&quot;&gt;Chapter 4. 반복문&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter5.html&quot;&gt;Chapter 5. 리스트&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter6.html&quot;&gt;Chapter 6. 함수&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter7.html&quot;&gt;Chapter 7. 딕셔너리, 튜플, 셋&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;&lt;span class=&quot;caption-text&quot;&gt;Web Crawing&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter9.html&quot;&gt;Chapter 9. 웹과 웹크롤링&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;&lt;span class=&quot;caption-text&quot;&gt;Data Science&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;p class=&quot;outer-text first-item&quot; id=&quot;second&quot;&gt;&lt;b&gt;Python is fun.&lt;/b&gt;&lt;/p&gt;
-&lt;p class=&quot;outer-text&quot;&gt;
-&lt;b&gt;
-Data science is fun.
-All I need is Love.
-&lt;/b&gt;
-&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;
+&lt;/div&gt;
+&lt;/body&gt;&lt;/html&gt;
 </pre></div>
 </div>
 </div>
@@ -713,45 +718,101 @@ All I need is Love.
   &lt;/title&gt;
  &lt;/head&gt;
  &lt;body&gt;
-  &lt;div&gt;
-   &lt;p class=&quot;inner-text first-item&quot; id=&quot;first&quot;&gt;
-    Happy university life!
-    &lt;a href=&quot;http://www.snu.ac.kr&quot; id=&quot;first-meet&quot;&gt;
-     서울대학교 바로가기
+  &lt;div class=&quot;tex2jax_ignore mathjax_ignore section&quot; id=&quot;id1&quot;&gt;
+   &lt;h1&gt;
+    &lt;a class=&quot;headerlink&quot; href=&quot;#id1&quot; title=&quot;Permalink to this headline&quot;&gt;
+     소개
     &lt;/a&gt;
+   &lt;/h1&gt;
+   &lt;p&gt;
+    L0444.000400 컴퓨팅 기초: 처음 만나는 컴퓨팅
    &lt;/p&gt;
-   &lt;p class=&quot;inner-text second-item&quot;&gt;
-    Fun Python! Happy BasicComputing!
-    &lt;a href=&quot;https://www.python.org&quot; id=&quot;computing&quot;&gt;
-     Python
-    &lt;/a&gt;
+   &lt;p&gt;
+    프로그래밍 입문자와 비전공자를 위한 파이썬 프로그래밍 기초와 데이터 과학 기초를 다룬다.
    &lt;/p&gt;
+   &lt;p&gt;
+    컴퓨팅 기초: 처음 만나는 컴퓨팅 001,002,003 강좌 수강생들을 위한 자료이니 복제, 무단배포, 링크공유를 금합니다.
+   &lt;/p&gt;
+   &lt;div class=&quot;toctree-wrapper compound&quot;&gt;
+    &lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;
+     &lt;span class=&quot;caption-text&quot;&gt;
+      Python
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;ul&gt;
+     &lt;li class=&quot;toctree-l1&quot;&gt;
+      &lt;a class=&quot;reference internal&quot; href=&quot;B_chapter0.html&quot;&gt;
+       Chapter 0. 프로그래밍 언어와 파이썬
+      &lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li class=&quot;toctree-l1&quot;&gt;
+      &lt;a class=&quot;reference internal&quot; href=&quot;B_chapter1.html&quot;&gt;
+       Chapter 1. 기본자료형과 변수
+      &lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li class=&quot;toctree-l1&quot;&gt;
+      &lt;a class=&quot;reference internal&quot; href=&quot;B_chapter2.html&quot;&gt;
+       Chapter 2. 입출력과 타입변환
+      &lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li class=&quot;toctree-l1&quot;&gt;
+      &lt;a class=&quot;reference internal&quot; href=&quot;B_chapter3.html&quot;&gt;
+       Chapter 3. 조건문
+      &lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li class=&quot;toctree-l1&quot;&gt;
+      &lt;a class=&quot;reference internal&quot; href=&quot;B_chapter4.html&quot;&gt;
+       Chapter 4. 반복문
+      &lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li class=&quot;toctree-l1&quot;&gt;
+      &lt;a class=&quot;reference internal&quot; href=&quot;B_chapter5.html&quot;&gt;
+       Chapter 5. 리스트
+      &lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li class=&quot;toctree-l1&quot;&gt;
+      &lt;a class=&quot;reference internal&quot; href=&quot;B_chapter6.html&quot;&gt;
+       Chapter 6. 함수
+      &lt;/a&gt;
+     &lt;/li&gt;
+     &lt;li class=&quot;toctree-l1&quot;&gt;
+      &lt;a class=&quot;reference internal&quot; href=&quot;B_chapter7.html&quot;&gt;
+       Chapter 7. 딕셔너리, 튜플, 셋
+      &lt;/a&gt;
+     &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;
+     &lt;span class=&quot;caption-text&quot;&gt;
+      Web Crawing
+     &lt;/span&gt;
+    &lt;/p&gt;
+    &lt;ul&gt;
+     &lt;li class=&quot;toctree-l1&quot;&gt;
+      &lt;a class=&quot;reference internal&quot; href=&quot;B_chapter9.html&quot;&gt;
+       Chapter 9. 웹과 웹크롤링
+      &lt;/a&gt;
+     &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;
+     &lt;span class=&quot;caption-text&quot;&gt;
+      Data Science
+     &lt;/span&gt;
+    &lt;/p&gt;
+   &lt;/div&gt;
   &lt;/div&gt;
-  &lt;p class=&quot;outer-text first-item&quot; id=&quot;second&quot;&gt;
-   &lt;b&gt;
-    Python is fun.
-   &lt;/b&gt;
-  &lt;/p&gt;
-  &lt;p class=&quot;outer-text&quot;&gt;
-   &lt;b&gt;
-    Data science is fun.
-All I need is Love.
-   &lt;/b&gt;
-  &lt;/p&gt;
  &lt;/body&gt;
 &lt;/html&gt;
 </pre></div>
 </div>
 </div>
 </div>
-<p>😄 웹사이트 <a class="reference external" href="https://haesunbyun.github.io/Basic-Computing/mypage3.html">https://haesunbyun.github.io/Basic-Computing/mypage3.html</a> 의 페이지를 크롤링해와서 변수 page에 저장하고 page를 HTML코드로 파싱하고 그 결과를 mysoup에 저장한 후 출력하시오.</p>
 <div class="section" id="id3">
-<h4>태그로 이동<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
+<h4>태그 이동<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
 <li><p>가져온 웹페이지에서 원하는 데이터를 추출하기 위해서는 데이터에 접근부터 해야한다.</p></li>
 <li><p>먼저 데이터가 있는 태그까지 접근하는 방법을 알아보자.</p></li>
 <li><p>BeautifulSoup은 객체(soup)에 점(.)을 붙여서 태그간 이동을 지원한다. 즉 점을 통해 원하는 태그에 접근할 수 있다.</p></li>
-<li><p>변수 soup의 현재 위치는 태그의 가장 바깥쪽인 <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> 태그에 위치하고 있고, 구조상 <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> 다음 태그로는 <code class="docutils literal notranslate"><span class="pre">&lt;head&gt;</span></code> 태그와 <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code>가 있다.</p></li>
+<li><p><font color="red">변수 soup의 현재 위치는 태그의 가장 바깥쪽인 <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> 태그에 위치</font>하고 있고, 구조상 <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> 다음 태그로는 <code class="docutils literal notranslate"><span class="pre">&lt;head&gt;</span></code> 태그와 <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code>가 있다.</p></li>
 <li><p>이 가운데 <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> 태그로 이동하려면 soup.body와 같이 쓴다.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> 태그로 이동하면 <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> 태그가 가장 바깥쪽 태그로 보여진다.</p></li>
 </ul>
@@ -763,28 +824,37 @@ All I need is Love.
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;body&gt;
-&lt;div&gt;
-&lt;p class=&quot;inner-text first-item&quot; id=&quot;first&quot;&gt;Happy university life!
-&lt;a href=&quot;http://www.snu.ac.kr&quot; id=&quot;first-meet&quot;&gt;서울대학교 바로가기&lt;/a&gt;
-&lt;/p&gt;
-&lt;p class=&quot;inner-text second-item&quot;&gt;Fun Python! Happy BasicComputing!
-&lt;a href=&quot;https://www.python.org&quot; id=&quot;computing&quot;&gt;Python&lt;/a&gt;
-&lt;/p&gt;
+&lt;div class=&quot;tex2jax_ignore mathjax_ignore section&quot; id=&quot;id1&quot;&gt;
+&lt;h1&gt;&lt;a class=&quot;headerlink&quot; href=&quot;#id1&quot; title=&quot;Permalink to this headline&quot;&gt;소개&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;L0444.000400 컴퓨팅 기초: 처음 만나는 컴퓨팅&lt;/p&gt;
+&lt;p&gt;프로그래밍 입문자와 비전공자를 위한 파이썬 프로그래밍 기초와 데이터 과학 기초를 다룬다.&lt;/p&gt;
+&lt;p&gt;컴퓨팅 기초: 처음 만나는 컴퓨팅 001,002,003 강좌 수강생들을 위한 자료이니 복제, 무단배포, 링크공유를 금합니다.&lt;/p&gt;
+&lt;div class=&quot;toctree-wrapper compound&quot;&gt;
+&lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;&lt;span class=&quot;caption-text&quot;&gt;Python&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter0.html&quot;&gt;Chapter 0. 프로그래밍 언어와 파이썬&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter1.html&quot;&gt;Chapter 1. 기본자료형과 변수&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter2.html&quot;&gt;Chapter 2. 입출력과 타입변환&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter3.html&quot;&gt;Chapter 3. 조건문&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter4.html&quot;&gt;Chapter 4. 반복문&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter5.html&quot;&gt;Chapter 5. 리스트&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter6.html&quot;&gt;Chapter 6. 함수&lt;/a&gt;&lt;/li&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter7.html&quot;&gt;Chapter 7. 딕셔너리, 튜플, 셋&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;&lt;span class=&quot;caption-text&quot;&gt;Web Crawing&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class=&quot;toctree-l1&quot;&gt;&lt;a class=&quot;reference internal&quot; href=&quot;B_chapter9.html&quot;&gt;Chapter 9. 웹과 웹크롤링&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;&lt;span class=&quot;caption-text&quot;&gt;Data Science&lt;/span&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;p class=&quot;outer-text first-item&quot; id=&quot;second&quot;&gt;&lt;b&gt;Python is fun.&lt;/b&gt;&lt;/p&gt;
-&lt;p class=&quot;outer-text&quot;&gt;
-&lt;b&gt;
-Data science is fun.
-All I need is Love.
-&lt;/b&gt;
-&lt;/p&gt;
+&lt;/div&gt;
 &lt;/body&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <ul class="simple">
-<li><p>점(.)을 통한 태그 접근은 반드시 순서대로 해야 하는 것은 아니다.</p></li>
+<li><p>점(.)을 통한 태그 접근은 반드시 태그 순서대로 해야 하는 것은 아니다.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;body&gt;&lt;div&gt;&lt;p&gt;</span></code>태그가 차례대로 있는데 이 중 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>태그에 접근하려면 soup.p로 쓰면 soup의 현재 위치인 가장 바깥쪽인 <html> 태그에서 아래쪽으로 가장 가까운 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>태그로 이동한다.</p></li>
 </ul>
 <div class="cell docutils container">
@@ -794,71 +864,10 @@ All I need is Love.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p class=&quot;inner-text first-item&quot; id=&quot;first&quot;&gt;Happy university life!
-&lt;a href=&quot;http://www.snu.ac.kr&quot; id=&quot;first-meet&quot;&gt;서울대학교 바로가기&lt;/a&gt;
-&lt;/p&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p&gt;L0444.000400 컴퓨팅 기초: 처음 만나는 컴퓨팅&lt;/p&gt;
 </pre></div>
 </div>
 </div>
-</div>
-<ul class="simple">
-<li><p>그렇다면 다음 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>태그에 접근하려면 어떻게 해야 할까?</p></li>
-<li><p>어느 태그의 동일 레벨 즉, 형제 태그에 접근하려면 next_sibling과 previous_sibling을 사용하면 된다.</p></li>
-<li><p>같은 부모 태그를 갖는 태그들을 형제(sibling)라고 하는데, 예를 들어,</p>
-<ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;p</span> <span class="pre">class=&quot;inner-text</span> <span class="pre">first-item&quot;</span> <span class="pre">...&gt;</span></code> 태그와, <code class="docutils literal notranslate"><span class="pre">&lt;p</span> <span class="pre">class=&quot;inner-text</span> <span class="pre">second-item&quot;&gt;</span></code>는 형제 태그이다.</p></li>
-<li><p>그런데 이 두 태그만 형제인 것이 아니다. 사실 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>태그와 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>태그 사이에는 줄바꿈 기호(‘\n’)가 들어가 있다. 즉, 줄바꿈 기호도 이들의 형제이다.</p></li>
-<li><p>이 셋의 부모 태그는 <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> 태그이다.</p></li>
-</ul>
-</li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">next_sibling</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\n&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">next_sibling</span><span class="o">.</span><span class="n">next_sibling</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p class=&quot;inner-text second-item&quot;&gt;Fun Python! Happy BasicComputing!
-&lt;a href=&quot;https://www.python.org&quot; id=&quot;computing&quot;&gt;Python&lt;/a&gt;
-&lt;/p&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">a</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;a href=&quot;http://www.snu.ac.kr&quot; id=&quot;first-meet&quot;&gt;서울대학교 바로가기&lt;/a&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p>😄 mysoup에서 아래의 결과가 나오도록 태그로 접근해보세요.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">L0444</span><span class="mf">.000400</span> <span class="n">컴퓨팅</span> <span class="n">기초</span><span class="p">:</span> <span class="n">처음</span> <span class="n">만나는</span> <span class="n">컴퓨팅</span><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
-
-</pre></div>
-</div>
-<p>😄 mysoup에서 아래의 결과가 나오도록 태그로 접근해보세요.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">li</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;toctree-l1&quot;</span><span class="o">&gt;&lt;</span><span class="n">a</span> <span class="n">class</span><span class="o">=</span><span class="s2">&quot;reference internal&quot;</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;B_chapter1.html&quot;</span><span class="o">&gt;</span><span class="n">Chapter</span> <span class="mf">1.</span> <span class="n">기본자료형과</span> <span class="n">변수</span><span class="o">&lt;/</span><span class="n">a</span><span class="o">&gt;&lt;/</span><span class="n">li</span><span class="o">&gt;</span>
-
-</pre></div>
 </div>
 </div>
 <div class="section" id="id4">
@@ -889,18 +898,27 @@ All I need is Love.
 
 
 
-Happy university life!
-서울대학교 바로가기
+소개
+L0444.000400 컴퓨팅 기초: 처음 만나는 컴퓨팅
+프로그래밍 입문자와 비전공자를 위한 파이썬 프로그래밍 기초와 데이터 과학 기초를 다룬다.
+컴퓨팅 기초: 처음 만나는 컴퓨팅 001,002,003 강좌 수강생들을 위한 자료이니 복제, 무단배포, 링크공유를 금합니다.
 
-Fun Python! Happy BasicComputing!
 Python
 
+Chapter 0. 프로그래밍 언어와 파이썬
+Chapter 1. 기본자료형과 변수
+Chapter 2. 입출력과 타입변환
+Chapter 3. 조건문
+Chapter 4. 반복문
+Chapter 5. 리스트
+Chapter 6. 함수
+Chapter 7. 딕셔너리, 튜플, 셋
 
-Python is fun.
+Web Crawing
 
+Chapter 9. 웹과 웹크롤링
 
-Data science is fun.
-All I need is Love.
+Data Science
 </pre></div>
 </div>
 </div>
@@ -916,24 +934,33 @@ All I need is Love.
 
 
 
-Happy university life!
-서울대학교 바로가기
+소개
+L0444.000400 컴퓨팅 기초: 처음 만나는 컴퓨팅
+프로그래밍 입문자와 비전공자를 위한 파이썬 프로그래밍 기초와 데이터 과학 기초를 다룬다.
+컴퓨팅 기초: 처음 만나는 컴퓨팅 001,002,003 강좌 수강생들을 위한 자료이니 복제, 무단배포, 링크공유를 금합니다.
 
-Fun Python! Happy BasicComputing!
 Python
 
+Chapter 0. 프로그래밍 언어와 파이썬
+Chapter 1. 기본자료형과 변수
+Chapter 2. 입출력과 타입변환
+Chapter 3. 조건문
+Chapter 4. 반복문
+Chapter 5. 리스트
+Chapter 6. 함수
+Chapter 7. 딕셔너리, 튜플, 셋
 
-Python is fun.
+Web Crawing
 
+Chapter 9. 웹과 웹크롤링
 
-Data science is fun.
-All I need is Love.
+Data Science
 </pre></div>
 </div>
 </div>
 </div>
 <ul class="simple">
-<li><p>문자열 앞뒤의 여백(whitespace)를 지울 때에는 strip() 메서드를 사용하면 된다.</p></li>
+<li><p>문자열 앞뒤의 여백(whitespace)를 지울 때에는 strip() 메서드를 사용하면 된다. 여기서 문자열의 기준은 soup위치 기준이다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -946,18 +973,27 @@ All I need is Love.
 
 
 
-Happy university life!
-서울대학교 바로가기
+소개
+L0444.000400 컴퓨팅 기초: 처음 만나는 컴퓨팅
+프로그래밍 입문자와 비전공자를 위한 파이썬 프로그래밍 기초와 데이터 과학 기초를 다룬다.
+컴퓨팅 기초: 처음 만나는 컴퓨팅 001,002,003 강좌 수강생들을 위한 자료이니 복제, 무단배포, 링크공유를 금합니다.
 
-Fun Python! Happy BasicComputing!
 Python
 
+Chapter 0. 프로그래밍 언어와 파이썬
+Chapter 1. 기본자료형과 변수
+Chapter 2. 입출력과 타입변환
+Chapter 3. 조건문
+Chapter 4. 반복문
+Chapter 5. 리스트
+Chapter 6. 함수
+Chapter 7. 딕셔너리, 튜플, 셋
 
-Python is fun.
+Web Crawing
 
+Chapter 9. 웹과 웹크롤링
 
-Data science is fun.
-All I need is Love.
+Data Science
 </pre></div>
 </div>
 </div>
@@ -972,13 +1008,14 @@ All I need is Love.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>서울대학교 바로가기
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>소개
 </pre></div>
 </div>
 </div>
 </div>
 <ul class="simple">
-<li><p>soup에는 하위태그도 많은데다가 각 하위태그마다 컨텐츠가 있어서, 컨텐츠가 여러개 이므로 .string으로 추출할 수 없다.</p></li>
+<li><p>그러나 .string 추출하려는 태그 안에 컨텐츠가 여러 개이면 추출할 수 없다.</p></li>
+<li><p>예를 들어, soup에는 하위태그도 많은데다가 각 하위태그마다 컨텐츠가 있어서, 컨텐츠가 여러개 이므로 .string으로는 추출할 수 없다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -987,43 +1024,27 @@ All I need is Love.
 </div>
 </div>
 </div>
-<p>😄 mysoup에서 아래의 결과가 나오도록 문자열을 추출해보세요.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Chapter</span> <span class="mf">0.</span> <span class="n">프로그래밍</span> <span class="n">언어와</span> <span class="n">파이썬</span>
-
-</pre></div>
-</div>
-<p>😄 mysoup에서 아래의 결과가 나오도록 문자열을 추출해보세요.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">소개</span><span class="c1">#</span>
-<span class="n">L0444</span><span class="mf">.000400</span> <span class="n">컴퓨팅</span> <span class="n">기초</span><span class="p">:</span> <span class="n">처음</span> <span class="n">만나는</span> <span class="n">컴퓨팅</span>
-<span class="n">프로그래밍</span> <span class="n">입문자와</span> <span class="n">비전공자를</span> <span class="n">위한</span> <span class="n">파이썬</span> <span class="n">프로그래밍</span> <span class="n">기초와</span> <span class="n">데이터</span> <span class="n">과학</span> <span class="n">기초를</span> <span class="n">다룬다</span><span class="o">.</span>
-<span class="n">컴퓨팅</span> <span class="n">기초</span><span class="p">:</span> <span class="n">처음</span> <span class="n">만나는</span> <span class="n">컴퓨팅</span> <span class="mi">001</span><span class="p">,</span><span class="mi">002</span><span class="p">,</span><span class="mi">003</span> <span class="n">강좌</span> <span class="n">수강생들을</span> <span class="n">위한</span> <span class="n">자료이니</span> <span class="n">복제</span><span class="p">,</span> <span class="n">무단배포</span><span class="p">,</span> <span class="n">링크공유를</span> <span class="n">금합니다</span><span class="o">.</span>
-
-<span class="n">Python</span>
-
-<span class="n">Chapter</span> <span class="mf">0.</span> <span class="n">프로그래밍</span> <span class="n">언어와</span> <span class="n">파이썬</span>
-<span class="n">Chapter</span> <span class="mf">1.</span> <span class="n">기본자료형과</span> <span class="n">변수</span>
-<span class="n">Chapter</span> <span class="mf">2.</span> <span class="n">입출력과</span> <span class="n">타입변환</span>
-<span class="n">Chapter</span> <span class="mf">3.</span> <span class="n">조건문</span>
-<span class="n">Chapter</span> <span class="mf">4.</span> <span class="n">반복문</span>
-<span class="n">Chapter</span> <span class="mf">5.</span> <span class="n">리스트</span>
-<span class="n">Chapter</span> <span class="mf">6.</span> <span class="n">함수</span>
-<span class="n">Chapter</span> <span class="mf">7.</span> <span class="n">딕셔너리</span><span class="p">,</span> <span class="n">튜플</span><span class="p">,</span> <span class="n">셋</span>
-
-<span class="n">Web</span> <span class="n">Crawing</span>
-
-<span class="n">Chapter</span> <span class="mf">9.</span> <span class="n">웹과</span> <span class="n">웹크롤링</span>
-
-<span class="n">Data</span> <span class="n">Science</span>
-</pre></div>
 </div>
 </div>
 <div class="section" id="id5">
-<h4>태그로 찾기<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h4>
+<h3>개발자 도구 활용하기<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>위의 예제는 매우 간단한 HTML문서였으므로 태그로 이동하여 데이터까지 접근하는 것이 별로 어려운 일이 아니었다.</p></li>
-<li><p>그러나 일반적으로 HTML 문서는 매우 길고, 매우 많은 태그들이 중첩되어 있는 형태를 가진다.</p></li>
-<li><p>이와 같을 때는 태그 이동으로 원하는 데이터까지 접근하기에는 사실 매우 번거로운 일이다.</p></li>
-<li><p>BeautifulSoup은 태그나 속성으로 찾을 수 있도록 find()와 find_all() 메서드를 지원한다.</p></li>
+<li><p>HTML 문서는 매우 길고 많은 태그들이 중첩되어 있어서 구조를 파악하기가 쉽지 않다. 구조 파악이 어렵기 때문에 점(.)을 통한 이동으로 데이터를 추출하기가 매우 어렵다.</p></li>
+<li><p>이를 위해 웹페이지의 구조를 파악하기 쉽도록 구조를 보여주는 도구가 바로 <code class="docutils literal notranslate"><span class="pre">개발자</span> <span class="pre">도구</span></code>이다.</p></li>
+<li><p>개발자 도구를 활용하면 추출하고자 하는 데이터가 어느 태그에 혹은 어떤 속성을 갖고 있는지 쉽게 확인할 수 있다.</p></li>
+<li><p>개발자 도구는 브라우저에서 일반적으로 <code class="docutils literal notranslate"><span class="pre">오른쪽</span> <span class="pre">상단에</span> <span class="pre">(...)를</span> <span class="pre">클릭하여</span> <span class="pre">도구</span> <span class="pre">더보기</span> <span class="pre">&gt;</span> <span class="pre">개발자</span> <span class="pre">도구</span></code>를 클릭하면 보인다.</p></li>
+<li><p>단축키는 F12 또는 Ctrl+Shift+I이다.</p></li>
+</ul>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/web1.png" width="500",></div><ul class="simple">
+<li><p>개발자 도구로 들어가면 왼쪽에 창이 열리면서 웹페이지의 소스코드를 구조적으로 볼 수 있다.</p></li>
+<li><p>소스코드 창 왼쪽 상단에 화살표 모양의 요소(element) 선택 버튼을 클릭한다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">요소</span> <span class="pre">선택</span> <span class="pre">버튼</span></code>은 현재 로딩된 웹페이지의 컨텐츠로 마우스를 가져가면 해당 요소의 상세 정보(태그 정보, CSS 정보)와 소스보기의 해당 요소 위치로 바로 이동시켜주는 기능을 제공한다.</p></li>
+<li><p>마우스를 이동시킬 때마다 소스보기에서도 음영처리된 부분이 바뀌는 것을 볼 수 있을 것이다.</p></li>
+</ul>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/web2.png" width="500",></div><div class="section" id="id6">
+<h4>태그로 찾기<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
+<ul class="simple">
+<li><p>BeautifulSoup의 태그나 속성으로 찾을 수 있도록 하는 find()와 find_all() 메서드를 지원한다.</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;tag명&#39;</span><span class="p">):</span> <span class="n">가장</span> <span class="n">처음에</span> <span class="n">있는</span> <span class="o">&lt;</span><span class="n">tag명</span><span class="o">&gt;</span> <span class="n">하나만</span> <span class="n">반환</span>
 <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;tag명&#39;</span><span class="p">):</span> <span class="o">&lt;</span><span class="n">tag명</span><span class="o">&gt;</span><span class="n">을</span> <span class="n">모두</span> <span class="n">찾아내어</span> <span class="n">리스트와</span> <span class="n">비슷한</span> <span class="n">형태로</span> <span class="n">반환</span><span class="o">.</span>
@@ -1031,7 +1052,9 @@ All I need is Love.
 </div>
 <ul class="simple">
 <li><p>먼저, find() 메서드를 사용해보자.</p></li>
-<li><p>아래 코드에서는 tag가 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>인 하나를 찾는데, 가장 먼저 있는 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>태그가 검색된다.</p></li>
+<li><p>추출하려는 데이터가 “L0444.000400 컴퓨팅 기초: 처음 만나는 컴퓨팅”이라고 해보자.</p></li>
+<li><p>추출하려는 데이터가 어떤 태그에 있는지 혹은 어떤 속성을 갖고 있는지 개발자 도구를 통해 확인한다.</p></li>
+<li><p>확인을 했다면, 다시 코드로 와서 find()나 find_all()을 이용해 찾는다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1040,9 +1063,7 @@ All I need is Love.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p class=&quot;inner-text first-item&quot; id=&quot;first&quot;&gt;Happy university life!
-&lt;a href=&quot;http://www.snu.ac.kr&quot; id=&quot;first-meet&quot;&gt;서울대학교 바로가기&lt;/a&gt;
-&lt;/p&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p&gt;L0444.000400 컴퓨팅 기초: 처음 만나는 컴퓨팅&lt;/p&gt;
 </pre></div>
 </div>
 </div>
@@ -1057,7 +1078,7 @@ All I need is Love.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Happy university life!\r\n서울대학교 바로가기\n&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;L0444.000400 컴퓨팅 기초: 처음 만나는 컴퓨팅&#39;
 </pre></div>
 </div>
 </div>
@@ -1073,16 +1094,7 @@ All I need is Love.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;p class=&quot;inner-text first-item&quot; id=&quot;first&quot;&gt;Happy university life!
-&lt;a href=&quot;http://www.snu.ac.kr&quot; id=&quot;first-meet&quot;&gt;서울대학교 바로가기&lt;/a&gt;
-&lt;/p&gt;, &lt;p class=&quot;inner-text second-item&quot;&gt;Fun Python! Happy BasicComputing!
-&lt;a href=&quot;https://www.python.org&quot; id=&quot;computing&quot;&gt;Python&lt;/a&gt;
-&lt;/p&gt;, &lt;p class=&quot;outer-text first-item&quot; id=&quot;second&quot;&gt;&lt;b&gt;Python is fun.&lt;/b&gt;&lt;/p&gt;, &lt;p class=&quot;outer-text&quot;&gt;
-&lt;b&gt;
-Data science is fun.
-All I need is Love.
-&lt;/b&gt;
-&lt;/p&gt;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;p&gt;L0444.000400 컴퓨팅 기초: 처음 만나는 컴퓨팅&lt;/p&gt;, &lt;p&gt;프로그래밍 입문자와 비전공자를 위한 파이썬 프로그래밍 기초와 데이터 과학 기초를 다룬다.&lt;/p&gt;, &lt;p&gt;컴퓨팅 기초: 처음 만나는 컴퓨팅 001,002,003 강좌 수강생들을 위한 자료이니 복제, 무단배포, 링크공유를 금합니다.&lt;/p&gt;, &lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;&lt;span class=&quot;caption-text&quot;&gt;Python&lt;/span&gt;&lt;/p&gt;, &lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;&lt;span class=&quot;caption-text&quot;&gt;Web Crawing&lt;/span&gt;&lt;/p&gt;, &lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;&lt;span class=&quot;caption-text&quot;&gt;Data Science&lt;/span&gt;&lt;/p&gt;]
 </pre></div>
 </div>
 </div>
@@ -1101,9 +1113,7 @@ All I need is Love.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;bs4.element.ResultSet&#39;&gt;
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p class=&quot;inner-text first-item&quot; id=&quot;first&quot;&gt;Happy university life!
-&lt;a href=&quot;http://www.snu.ac.kr&quot; id=&quot;first-meet&quot;&gt;서울대학교 바로가기&lt;/a&gt;
-&lt;/p&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;p&gt;L0444.000400 컴퓨팅 기초: 처음 만나는 컴퓨팅&lt;/p&gt;
 </pre></div>
 </div>
 </div>
@@ -1118,7 +1128,7 @@ All I need is Love.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Happy university life!\r\n서울대학교 바로가기\n&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;L0444.000400 컴퓨팅 기초: 처음 만나는 컴퓨팅&#39;
 </pre></div>
 </div>
 </div>
@@ -1135,18 +1145,12 @@ All I need is Love.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Happy university life!
-서울대학교 바로가기
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fun Python! Happy BasicComputing!
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>L0444.000400 컴퓨팅 기초: 처음 만나는 컴퓨팅
+프로그래밍 입문자와 비전공자를 위한 파이썬 프로그래밍 기초와 데이터 과학 기초를 다룬다.
+컴퓨팅 기초: 처음 만나는 컴퓨팅 001,002,003 강좌 수강생들을 위한 자료이니 복제, 무단배포, 링크공유를 금합니다.
 Python
-
-Python is fun.
-
-
-Data science is fun.
-All I need is Love.
+Web Crawing
+Data Science
 </pre></div>
 </div>
 </div>
@@ -1159,27 +1163,23 @@ All I need is Love.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>서울대학교 바로가기
-Python
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>소개
+Chapter 0. 프로그래밍 언어와 파이썬
+Chapter 1. 기본자료형과 변수
+Chapter 2. 입출력과 타입변환
+Chapter 3. 조건문
+Chapter 4. 반복문
+Chapter 5. 리스트
+Chapter 6. 함수
+Chapter 7. 딕셔너리, 튜플, 셋
+Chapter 9. 웹과 웹크롤링
 </pre></div>
 </div>
 </div>
 </div>
-<p>😄 mysoup에서 아래의 내용을 출력해보세요.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Chapter</span> <span class="mf">0.</span> <span class="n">프로그래밍</span> <span class="n">언어와</span> <span class="n">파이썬</span>
-<span class="n">Chapter</span> <span class="mf">1.</span> <span class="n">기본자료형과</span> <span class="n">변수</span>
-<span class="n">Chapter</span> <span class="mf">2.</span> <span class="n">입출력과</span> <span class="n">타입변환</span>
-<span class="n">Chapter</span> <span class="mf">3.</span> <span class="n">조건문</span>
-<span class="n">Chapter</span> <span class="mf">4.</span> <span class="n">반복문</span>
-<span class="n">Chapter</span> <span class="mf">5.</span> <span class="n">리스트</span>
-<span class="n">Chapter</span> <span class="mf">6.</span> <span class="n">함수</span>
-<span class="n">Chapter</span> <span class="mf">7.</span> <span class="n">딕셔너리</span><span class="p">,</span> <span class="n">튜플</span><span class="p">,</span> <span class="n">셋</span>
-<span class="n">Chapter</span> <span class="mf">9.</span> <span class="n">웹과</span> <span class="n">웹크롤링</span>
-</pre></div>
 </div>
-</div>
-<div class="section" id="id6">
-<h4>속성으로 찾기<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h4>
+<div class="section" id="id7">
+<h4>속성으로 찾기<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
 <li><p>find()나 find_all()함수에서 전달인자로 태그 안에 있는 속성명이나 속성값을 함께 지정하여 찾을 수도 있다.</p></li>
 <li><p>조건을 여러개 지정하면 찾고자 하는 데이터에 더 근접하여 추출할 수 있다.</p></li>
@@ -1190,56 +1190,50 @@ Python
 </pre></div>
 </div>
 <ul class="simple">
-<li><p>예를들어, 태그가 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>이면서 class가 ‘outer-text’인 것을 모두 찾는다면 아래와 같이 쓸 수 있다.</p></li>
+<li><p>예를들어, 태그가 <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>이면서 class가 ‘caption’인 것을 모두 찾는다면 아래와 같이 쓸 수 있다.</p></li>
 <li><p>이때 주의해야 할 것은 class라는 속성명은 반드시 class_로 써야 한다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;outer-text&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;caption&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;p class=&quot;outer-text first-item&quot; id=&quot;second&quot;&gt;&lt;b&gt;Python is fun.&lt;/b&gt;&lt;/p&gt;,
- &lt;p class=&quot;outer-text&quot;&gt;
- &lt;b&gt;
- Data science is fun.
- All I need is Love.
- &lt;/b&gt;
- &lt;/p&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;&lt;span class=&quot;caption-text&quot;&gt;Python&lt;/span&gt;&lt;/p&gt;,
+ &lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;&lt;span class=&quot;caption-text&quot;&gt;Web Crawing&lt;/span&gt;&lt;/p&gt;,
+ &lt;p aria-level=&quot;2&quot; class=&quot;caption&quot; role=&quot;heading&quot;&gt;&lt;span class=&quot;caption-text&quot;&gt;Data Science&lt;/span&gt;&lt;/p&gt;]
 </pre></div>
 </div>
 </div>
 </div>
 <ul class="simple">
-<li><p>속성명 id가 ‘first’인 것을 모두 찾아서 내용만 출력한다.</p></li>
+<li><p>속성명 class가 ‘toctree-l1’인 것을 모두 찾아서 내용만 출력한다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;toctree-l1&#39;</span><span class="p">):</span>
   <span class="nb">print</span><span class="p">(</span><span class="n">each</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Happy university life!
-서울대학교 바로가기
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>😄 mysoup에서 속성명이 class이면서 속성값이 caption인 것을 모두 찾아 출력하시오.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Python</span>
-<span class="n">Web</span> <span class="n">Crawing</span>
-<span class="n">Data</span> <span class="n">Science</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Chapter 0. 프로그래밍 언어와 파이썬
+Chapter 1. 기본자료형과 변수
+Chapter 2. 입출력과 타입변환
+Chapter 3. 조건문
+Chapter 4. 반복문
+Chapter 5. 리스트
+Chapter 6. 함수
+Chapter 7. 딕셔너리, 튜플, 셋
+Chapter 9. 웹과 웹크롤링
 </pre></div>
 </div>
 </div>
-<div class="section" id="id7">
-<h4>속성값 추출하기<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h4>
+</div>
+</div>
+<div class="section" id="id8">
+<h4>속성값 추출하기<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h4>
 <ul class="simple">
 <li><p>어떤 경우에는 속성값을 추출해야 할 필요가 있기도 하다.  대표적인 예로 링크주소를 추출하고 싶을 때가 그렇다.</p></li>
 <li><p>이럴 때에는 속성명을 활용하여 속성값을 추출하면 된다.</p></li>
@@ -1253,12 +1247,12 @@ Python
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;inner-text&#39;, &#39;first-item&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;#id1&#39;
 </pre></div>
 </div>
 </div>
@@ -1268,12 +1262,12 @@ Python
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)[</span><span class="s1">&#39;class&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;inner-text&#39;, &#39;first-item&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;#id1&#39;
 </pre></div>
 </div>
 </div>
@@ -1283,16 +1277,22 @@ Python
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">):</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">each</span><span class="p">[</span><span class="s1">&#39;class&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">):</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">each</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;inner-text&#39;, &#39;first-item&#39;]
-[&#39;inner-text&#39;, &#39;second-item&#39;]
-[&#39;outer-text&#39;, &#39;first-item&#39;]
-[&#39;outer-text&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#id1
+B_chapter0.html
+B_chapter1.html
+B_chapter2.html
+B_chapter3.html
+B_chapter4.html
+B_chapter5.html
+B_chapter6.html
+B_chapter7.html
+B_chapter9.html
 </pre></div>
 </div>
 </div>
@@ -1305,265 +1305,25 @@ Python
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>http://www.snu.ac.kr : 서울대학교 바로가기
-https://www.python.org : Python
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>#id1 : 소개
+B_chapter0.html : Chapter 0. 프로그래밍 언어와 파이썬
+B_chapter1.html : Chapter 1. 기본자료형과 변수
+B_chapter2.html : Chapter 2. 입출력과 타입변환
+B_chapter3.html : Chapter 3. 조건문
+B_chapter4.html : Chapter 4. 반복문
+B_chapter5.html : Chapter 5. 리스트
+B_chapter6.html : Chapter 6. 함수
+B_chapter7.html : Chapter 7. 딕셔너리, 튜플, 셋
+B_chapter9.html : Chapter 9. 웹과 웹크롤링
 </pre></div>
 </div>
 </div>
 </div>
-<p>😄 mysoup에서 속성명이 href인 속성값을 모두 찾아 다음과 같은 형태로 출력하시오.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">B_chapter0</span><span class="o">.</span><span class="n">html</span> <span class="o">----&gt;</span> <span class="n">Chapter</span> <span class="mf">0.</span> <span class="n">프로그래밍</span> <span class="n">언어와</span> <span class="n">파이썬</span>
-<span class="n">B_chapter1</span><span class="o">.</span><span class="n">html</span> <span class="o">----&gt;</span> <span class="n">Chapter</span> <span class="mf">1.</span> <span class="n">기본자료형과</span> <span class="n">변수</span>
-<span class="n">B_chapter2</span><span class="o">.</span><span class="n">html</span> <span class="o">----&gt;</span> <span class="n">Chapter</span> <span class="mf">2.</span> <span class="n">입출력과</span> <span class="n">타입변환</span>
-<span class="n">B_chapter3</span><span class="o">.</span><span class="n">html</span> <span class="o">----&gt;</span> <span class="n">Chapter</span> <span class="mf">3.</span> <span class="n">조건문</span>
-<span class="n">B_chapter4</span><span class="o">.</span><span class="n">html</span> <span class="o">----&gt;</span> <span class="n">Chapter</span> <span class="mf">4.</span> <span class="n">반복문</span>
-<span class="n">B_chapter5</span><span class="o">.</span><span class="n">html</span> <span class="o">----&gt;</span> <span class="n">Chapter</span> <span class="mf">5.</span> <span class="n">리스트</span>
-<span class="n">B_chapter6</span><span class="o">.</span><span class="n">html</span> <span class="o">----&gt;</span> <span class="n">Chapter</span> <span class="mf">6.</span> <span class="n">함수</span>
-<span class="n">B_chapter7</span><span class="o">.</span><span class="n">html</span> <span class="o">----&gt;</span> <span class="n">Chapter</span> <span class="mf">7.</span> <span class="n">딕셔너리</span><span class="p">,</span> <span class="n">튜플</span><span class="p">,</span> <span class="n">셋</span>
-<span class="n">B_chapter9</span><span class="o">.</span><span class="n">html</span> <span class="o">----&gt;</span> <span class="n">Chapter</span> <span class="mf">9.</span> <span class="n">웹과</span> <span class="n">웹크롤링</span>
-</pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="id8">
-<h3>개발자 도구 활용하기<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
-<ul class="simple">
-<li><p>앞에서 말했던 바와 같이 HTML 문서는 매우 길고 많은 태그들이 중첩되어 있어서 구조를 파악하기가 쉽지 않다.</p></li>
-<li><p>이를 위해 웹페이지의 구조를 파악하기 쉽도록 구조를 보여주는 도구가 바로 <code class="docutils literal notranslate"><span class="pre">개발자</span> <span class="pre">도구</span></code>이다.</p></li>
-<li><p>개발자 도구는 브라우저에서 일반적으로 <code class="docutils literal notranslate"><span class="pre">오른쪽</span> <span class="pre">상단에</span> <span class="pre">(...)를</span> <span class="pre">클릭하여</span> <span class="pre">도구</span> <span class="pre">더보기</span> <span class="pre">&gt;</span> <span class="pre">개발자</span> <span class="pre">도구</span></code>를 클릭하면 보인다.</p></li>
-<li><p>단축키는 F12 또는 Ctrl+Shift+I이다.</p></li>
-<li><p>개발자 도구를 활용하여 태그를 찾아보는 연습을 해보자.</p></li>
-</ul>
 <div class="section" id="id9">
-<h4>1단계: urlopen()으로 웹페이지를 가져오기<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h4>
-<ul class="simple">
-<li><p>예를 들어, 네이버 증권의 시장지표 사이트를 크롤링해보자.</p></li>
-<li><p>웹에서 추출하고자 데이터는 네이버 증권사이트에서 환전 고시 환율, 국제 시장 환율, 유가.금시세라고 가정해보자.</p></li>
-<li><p>먼저, 크롬 브라우저를 활용해 네이버에 접속해서 증권 메뉴에서 시장지표를 클릭하여 해당사이트까지 이동한다.</p></li>
-<li><p>브라우저의 주소 입력창에 나오는 링크를 복사한다.</p></li>
-<li><p>아래 코드의 urlopen()함수의 괄호안에 붙여넣는다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlopen</span>
-<span class="n">page</span> <span class="o">=</span> <span class="n">urlopen</span><span class="p">(</span><span class="s1">&#39;https://finance.naver.com/marketindex/&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">page</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;http.client.HTTPResponse object at 0x0000018EA9C9E148&gt;
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="id10">
-<h4>2단계: BeautifulSoup()으로 파싱하기<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h4>
-<ul class="simple">
-<li><p>BeautifulSoup()을 활용해 HTML 파싱을 해서 soup객체로 만든다.</p></li>
-<li><p>여기까지는 앞에서 했던 것과 동일하다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
-<span class="n">soup</span><span class="o">=</span><span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">page</span><span class="p">,</span><span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
-<span class="c1">#print(soup)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="id11">
-<h4>3단계: 개발자 도구 활용<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h4>
-<ul class="simple">
-<li><p>개발자 도구를 활용하여 추출하고자 하는 데이터가 어느 태그에 혹은 어떤 속성을 갖고 있는지 확인한다.</p></li>
-<li><p>이를 위해 개발자 도구 F12 또는 … &gt; 도구 더보기 &gt; 개발자 도구를 클릭한다.</p></li>
-</ul>
-<div align="center"><img src="https://haesunbyun.github.io/common/images/html5.png" style="width:600px;"></div><ul class="simple">
-<li><p>요소(element) 선택 버튼을 클릭한다.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">요소</span> <span class="pre">선택</span> <span class="pre">버튼</span></code>은 현재 로딩된 웹페이지의 컨텐츠로 마우스를 가져가면 해당 요소의 상세 정보(태그 정보, CSS 정보)와 소스보기의 해당 요소 위치로 바로 이동시켜주는 기능을 제공한다.</p></li>
-<li><p>마우스를 이동시킬 때마다 소스보기에서도 음영처리된 부분이 바뀌는 것을 볼 수 있을 것이다.</p></li>
-</ul>
-<div align="center"><img src="https://haesunbyun.github.io/common/images/html6.png" style="width:600px;"></div><ul class="simple">
-<li><p>환전 고시 환율, 국제 시장 환율, 유가.금시세 정보를 추출하기 위해 미국USD 컨텐츠로 마우스를 가져가보자.</p></li>
-<li><p>도움말 기능으로 태그의 상세 정보인 h3.h_lst가 보인다.</p></li>
-<li><p>좀 더 자세히 확인해보기 위해 클릭한 후, 소스보기의 음영처리 된 부분으로 가보자.</p></li>
-<li><p>미국USD라는 텍스트는 <code class="docutils literal notranslate"><span class="pre">&lt;h3</span> <span class="pre">class=&quot;h_lst&quot;&gt;</span></code>에 들어있다.</p></li>
-<li><p>태그 옆에는 작은 삼각형이 보이는데, 이 삼각형을 클릭하여 소스보기를 접거나 펼칠 수 있다.</p></li>
-<li><p>삼각형을 눌러 펼쳐보면 <code class="docutils literal notranslate"><span class="pre">&lt;span</span> <span class="pre">class=&quot;blind&quot;&gt;미국</span> <span class="pre">USD&lt;/span&gt;</span></code>태그에 미국 USD 컨텐츠가 들어있다.</p></li>
-</ul>
-<div align="center"><img src="https://haesunbyun.github.io/common/images/html7.png" style="width:600px;"></div><ul class="simple">
-<li><p>추출하고자 하는 데이터를 몇 개 더 동일한 방법으로 확인해보자.</p></li>
-<li><p>일본JPY나 유로/달러 등의 컨텐츠도 동일한 태그인 것을 확인했다면 이제 그 태그를 이용하여 데이터를 추출할 수 있다.</p></li>
-<li><p>이때 태그를 잘 선택하는 것이 매우 중요하다. 우리는 두 가지의 옵션을 가지고 있다.</p>
-<ul>
-<li><p>첫 번째 옵션은 <code class="docutils literal notranslate"><span class="pre">&lt;h3</span> <span class="pre">class=&quot;h_lst&quot;&gt;</span></code>로 태그가 h3이고 class가 h_lst인 컨텐츠를 찾는 것</p></li>
-<li><p>두 번째 옵션은 <code class="docutils literal notranslate"><span class="pre">&lt;span</span> <span class="pre">class=&quot;blind&quot;&gt;</span></code>로 태그가 span이고 class가 blind로 찾는 것</p></li>
-</ul>
-</li>
-<li><p>어떤 태그로 찾는 것이 가장 최소한의 노력으로 헛일하지 않고 원하는 데이터를 추출할 수 있는지 생각해야 한다.</p></li>
-</ul>
-</div>
-<div class="section" id="find-all">
-<h4>4단계: find_all()로 찾기<a class="headerlink" href="#find-all" title="Permalink to this headline">#</a></h4>
-<ul class="simple">
-<li><p>두 가지 옵션 모두 테스트해보자.</p></li>
-<li><p>먼저 <code class="docutils literal notranslate"><span class="pre">soup.find_all('h3',</span> <span class="pre">class_=&quot;h_lst&quot;)</span></code>는 추출하려고 했던 데이터가 태그 안에 예쁘게 들어가 있다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;h_lst&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;미국 USD&lt;/span&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;일본 JPY(100엔)&lt;/span&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;유럽연합 EUR&lt;/span&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;중국 CNY&lt;/span&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;달러/일본 엔&lt;/span&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;유로/달러&lt;/span&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;영국 파운드/달러&lt;/span&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;달러인덱스&lt;/span&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;WTI&lt;/span&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;휘발유&lt;/span&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;국제 금&lt;/span&gt;&lt;/h3&gt;,
- &lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;국내 금&lt;/span&gt;&lt;/h3&gt;]
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>두 번째 옵션은 <code class="docutils literal notranslate"><span class="pre">soup.find_all('span',</span> <span class="pre">class_=&quot;blind&quot;)</span></code>는 추출하려고 했던 데이터뿐만 아니라 원, 하락, 상승과 같은 필요하지 않은 데이터까지 포함되어 있다.</p></li>
-<li><p>어떤 태그를 활용해야 데이터를 잘 추출할 것인가는 여러 번의 연습과 시행착오를 거쳐서 감을 잡는 것이 필요하다.^^;;</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;span&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;blind&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;span class=&quot;blind&quot;&gt;미국 USD&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;일본 JPY(100엔)&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;유럽연합 EUR&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;중국 CNY&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;달러/일본 엔&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;엔&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;유로/달러&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;영국 파운드/달러&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;달러인덱스&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;WTI&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;휘발유&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;하락&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;국제 금&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;달러&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;국내 금&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;원&lt;/span&gt;,
- &lt;span class=&quot;blind&quot;&gt;상승&lt;/span&gt;]
-</pre></div>
-</div>
-</div>
-</div>
-<ul class="simple">
-<li><p>그럼 find_all()로 찾은 요소들을 변수에 저장해보자.</p></li>
-<li><p>앞에서도 설명한 바와 같이, find_all()의 결과는 ‘bs4.element.ResultSet’이다. 리스트는 아니지만 리스트처럼 보여지며, 리스트와 같이 접근이 가능하다고 얘기했었다.</p></li>
-<li><p>인덱스접근과 반복문에 활용 할 수 있다는 것이다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fList</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;h3&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;h_lst&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fList</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">fList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;h3 class=&quot;h_lst&quot;&gt;&lt;span class=&quot;blind&quot;&gt;미국 USD&lt;/span&gt;&lt;/h3&gt;
-미국 USD
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">fList</span><span class="p">:</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">each</span><span class="o">.</span><span class="n">string</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>미국 USD
-일본 JPY(100엔)
-유럽연합 EUR
-중국 CNY
-달러/일본 엔
-유로/달러
-영국 파운드/달러
-달러인덱스
-WTI
-휘발유
-국제 금
-국내 금
-</pre></div>
-</div>
-</div>
-</div>
-<p>😄 환전 고시 환율, 국제 시장 환율, 유가.금시세의 가격을 추출하여 아래와 같이 출력하시오.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span><span class="p">,</span><span class="mf">339.50</span>
-<span class="mi">1</span><span class="p">,</span><span class="mf">339.50</span>
-<span class="mf">999.51</span>
-<span class="mi">1</span><span class="p">,</span><span class="mf">478.00</span>
-<span class="mf">193.25</span>
-<span class="mf">134.1100</span>
-<span class="mf">1.1011</span>
-<span class="mf">1.2466</span>
-<span class="mf">101.2500</span>
-<span class="mf">74.76</span>
-<span class="mf">1664.17</span>
-<span class="mf">1999.0</span>
-<span class="mf">85538.28</span>
-</pre></div>
-</div>
-<p>😄 환전 고시 환율, 국제 시장 환율, 유가.금시세 최종 데이터를 아래와 같이 출력하시오.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">미국</span> <span class="n">USD</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="mf">339.50</span>
-<span class="n">일본</span> <span class="n">JPY</span><span class="p">(</span><span class="mi">100</span><span class="n">엔</span><span class="p">)</span> <span class="p">:</span> <span class="mf">999.51</span>
-<span class="n">유럽연합</span> <span class="n">EUR</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span><span class="mf">478.00</span>
-<span class="n">중국</span> <span class="n">CNY</span> <span class="p">:</span> <span class="mf">193.25</span>
-<span class="n">달러</span><span class="o">/</span><span class="n">일본</span> <span class="n">엔</span> <span class="p">:</span> <span class="mf">134.1100</span>
-<span class="n">유로</span><span class="o">/</span><span class="n">달러</span> <span class="p">:</span> <span class="mf">1.1011</span>
-<span class="n">영국</span> <span class="n">파운드</span><span class="o">/</span><span class="n">달러</span> <span class="p">:</span> <span class="mf">1.2466</span>
-<span class="n">달러인덱스</span> <span class="p">:</span> <span class="mf">101.2500</span>
-<span class="n">WTI</span> <span class="p">:</span> <span class="mf">74.76</span>
-<span class="n">휘발유</span> <span class="p">:</span> <span class="mf">1664.17</span>
-<span class="n">국제</span> <span class="n">금</span> <span class="p">:</span> <span class="mf">1999.0</span>
-<span class="n">국내</span> <span class="n">금</span> <span class="p">:</span> <span class="mf">85538.28</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="id12">
-<h2>마무리<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h2>
+<h2>마무리<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>웹페이지를 만드는데 사용되는 언어중 하나가 바로 HTML이다.</p></li>
 <li><p>HTML은 태그와 내용으로 구성되어 있다.</p></li>
@@ -1658,23 +1418,19 @@ WTI
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">웹크롤링과 웹스크랩핑</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#urlopen">urlopen()으로 웹페이지 가져오기</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beautifulsoup">BeautifulSoup()으로 웹스크랩핑하기</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">태그로 이동</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">태그 이동</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">텍스트 추출하기</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">태그로 찾기</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">속성으로 찾기</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">속성값 추출하기</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">개발자 도구 활용하기</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">1단계: urlopen()으로 웹페이지를 가져오기</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">2단계: BeautifulSoup()으로 파싱하기</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">3단계: 개발자 도구 활용</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#find-all">4단계: find_all()로 찾기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">개발자 도구 활용하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">태그로 찾기</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">속성으로 찾기</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">속성값 추출하기</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">마무리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">마무리</a></li>
 </ul>
   </nav></div>
 
