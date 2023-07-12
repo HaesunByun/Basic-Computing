@@ -442,7 +442,7 @@ document.write(`
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-11-numpy">
 <h1>Chapter 11. Numpy<a class="headerlink" href="#chapter-11-numpy" title="Permalink to this headline">#</a></h1>
 <div class="info admonition">
-<p class="admonition-title">학습목표와 기대효과 </p>
+<p class="admonition-title">학습목표와 기대효과</p>
 <ul class="simple">
 <li><p>학습목표</p>
 <ul>
@@ -496,7 +496,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
-<span class="n">ar11</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span> 
+<span class="n">ar11</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="n">ar111</span><span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ar1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ar11</span><span class="p">)</span>
@@ -531,7 +531,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>  
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -544,28 +544,16 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-header bg-light docutils">
-<p class="sd-card-text">😄 1차원 배열 생성하기</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">다음과 같은 배열을 생성하시오.</p>
-<p class="sd-card-text">array([10,  8, 15,  7, 19])</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+<p>😄 1차원 배열 생성하기</p>
+<p>다음과 같은 배열을 생성하시오.</p>
+<p>array([10,  8, 15,  7, 19])</p>
 </div>
 <div class="section" id="id1">
 <h3>2-D array 생성하기<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>2차원 배열은 행(Row)과 열(Column)로 구성되어 있다.</p></li>
 </ul>
-<div align="center"><img src="https://haesunbyun.github.io/Core-Computing/_images/ch11/array.png" style="width:400px;"></div>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/array.png" style="width:400px;"></div>
 <ul class="simple">
 <li><p>행은 가로 방향으로 줄을 세운 것이며, 열은 세로 방향으로 줄을 세운 것이다.</p></li>
 <li><p>2차원 배열은 array()에 중첩 리스트를 넣어주거나, arange()로 1차원 배열을 만든 후 배열모양을 바꿔주는 reshape()을 통해서 2차원 배열을 생성할 수 있다.</p></li>
@@ -623,24 +611,12 @@ number of columns: 3
 </div>
 </div>
 </div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-header bg-light docutils">
-<p class="sd-card-text">😄 2차원 배열 생성하기</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">다음과 같은 배열을 생성하시오.</p>
+<p>😄 2차원 배열 생성하기</p>
+<p>다음과 같은 배열을 생성하시오.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
  <span class="p">[</span><span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">],</span>
  <span class="p">[</span><span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">90</span><span class="p">]])</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="id2">
@@ -655,7 +631,7 @@ number of columns: 3
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span>
                 <span class="p">[[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ar3</span><span class="p">)</span>
 </pre></div>
@@ -671,15 +647,8 @@ number of columns: 3
 </div>
 </div>
 </div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-header bg-light docutils">
-<p class="sd-card-text">😄3차원 배열 생성하기1</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">다음과 같은 배열을 생성하시오.</p>
+<p>😄3차원 배열 생성하기1</p>
+<p>다음과 같은 배열을 생성하시오.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[[</span><span class="mi">100</span>  <span class="mi">90</span>  <span class="mi">80</span><span class="p">]</span>
   <span class="p">[</span> <span class="mi">70</span>  <span class="mi">60</span>  <span class="mi">50</span><span class="p">]]</span>
 
@@ -690,29 +659,12 @@ number of columns: 3
   <span class="p">[</span> <span class="mi">44</span>  <span class="mi">55</span>  <span class="mi">66</span><span class="p">]]]</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-header bg-light docutils">
-<p class="sd-card-text">😄3차원 배열 생성하기2</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">arange()와 reshape()으로 변수 ar3와 동일한 3차원 배열을 만들어보세요.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ar3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span> 
+<p>😄3차원 배열 생성하기2</p>
+<p>arange()와 reshape()으로 변수 ar3와 동일한 3차원 배열을 만들어보세요.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ar3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]],</span>
                 <span class="p">[[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ar3</span><span class="p">)</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p>3차원 배열의 열의 개수는 <code class="docutils literal notranslate"><span class="pre">len(배열명[행인덱스,열인덱스])</span></code>로 확인할 수 있다.</p></li>
@@ -749,8 +701,8 @@ number of columns: 3
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ar3</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ar3</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">ar3</span><span class="o">.</span><span class="n">size</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">ar3</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ar3</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -794,7 +746,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 <ul class="simple">
 <li><p>행렬끼리 연산할때 크기가 다른 경우 이를 자동으로 확대해 주는 기능을 브로드캐스팅이라고 한다.</p></li>
 </ul>
-<div align="center"><img src="https://haesunbyun.github.io/Core-Computing/_images/broadcasting.png" style="width:400px;"></div><div class="cell docutils container">
+<div align="center"><img src="https://haesunbyun.github.io/common/images/broadcasting.png" style="width:400px;"></div><div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">ar1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
@@ -923,9 +875,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;바나나&#39;, &#39;딸기&#39;, 100, 5.5, [&#39;BTS&#39;, &#39;블랙핑크&#39;]]
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1. 2. 3.]
+[1. 2. 3.]
 [&#39;1&#39; &#39;2&#39; &#39;3.0&#39;]
 [1 2 None]
 &lt;class &#39;list&#39;&gt; &lt;class &#39;numpy.ndarray&#39;&gt; &lt;class &#39;numpy.ndarray&#39;&gt; &lt;class &#39;numpy.ndarray&#39;&gt;
@@ -1050,7 +1000,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;배열 실행시간: </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;배열 실행시간: </span><span class="si">{</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="section" id="id4">
@@ -1116,7 +1066,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">===결과===&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ar</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ar</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">ar</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1145,9 +1095,9 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ar</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ar</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">===연속된 대괄호 결과===&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ar</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="mi">1</span><span class="p">:])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">ar</span><span class="p">[</span><span class="mi">1</span><span class="p">:][</span><span class="mi">1</span><span class="p">:])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">===하나의 대괄호 결과===&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ar</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">ar</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">1</span><span class="p">:])</span>
 </pre></div>
 </div>
 </div>
@@ -1214,21 +1164,9 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 </div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-header bg-light docutils">
-<p class="sd-card-text">😄Zero 배열 생성</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">크기가 다음과 같은 배열을 생성하고 모두 0으로 채우시오.</p>
-<p class="sd-card-text">깊이 x 행 x 렬: 3 x 3 x 3</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+<p>😄Zero 배열 생성</p>
+<p>크기가 다음과 같은 배열을 생성하고 모두 0으로 채우시오.</p>
+<p>깊이 x 행 x 렬: 3 x 3 x 3</p>
 </div>
 <div class="section" id="ones">
 <h3>ones()<a class="headerlink" href="#ones" title="Permalink to this headline">#</a></h3>
@@ -1250,21 +1188,9 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 </div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-header bg-light docutils">
-<p class="sd-card-text">😄 One 배열 생성</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">크기가 다음과 같은 배열을 생성하고 모두 1로 채우시오.</p>
-<p class="sd-card-text">깊이 x 행 x 렬: 2 x 5 x 4</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+<p>😄 One 배열 생성</p>
+<p>크기가 다음과 같은 배열을 생성하고 모두 1로 채우시오.</p>
+<p>깊이 x 행 x 렬: 2 x 5 x 4</p>
 </div>
 <div class="section" id="np-random">
 <h3>np.random<a class="headerlink" href="#np-random" title="Permalink to this headline">#</a></h3>
@@ -1280,8 +1206,8 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.91449814 0.99532905 0.22565171 0.87663259 0.37417334]
- [0.63468249 0.0798952  0.06928904 0.44752758 0.01197316]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.72019721 0.80309767 0.24619818 0.53256476 0.31341792]
+ [0.14302163 0.60530654 0.8632073  0.49241751 0.60831646]]
 </pre></div>
 </div>
 </div>
@@ -1293,9 +1219,9 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3.98688274 3.69162755]
- [3.6245562  3.87871817]
- [3.52136889 3.99539011]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[3.93460081 3.95829638]
+ [3.51186433 3.55999528]
+ [3.68150546 3.55697977]]
 </pre></div>
 </div>
 </div>
@@ -1307,13 +1233,13 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[-3  3 -5 -3]
-  [-5 -1 -2  0]
-  [ 3  4  1  2]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[ 4  0  0  2]
+  [ 4  0  2  3]
+  [-2  4 -4 -3]]
 
- [[ 2 -1  4  1]
-  [ 4 -2  4 -4]
-  [ 1 -2 -5  0]]]
+ [[-2 -4  1 -4]
+  [ 1  2  0 -3]
+  [-4  3  2 -4]]]
 </pre></div>
 </div>
 </div>
@@ -1337,7 +1263,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/4990544582446cf74f8cf2de1fd5070f1b7769826f320cc21e315cf0ada9ed53.png" src="_images/4990544582446cf74f8cf2de1fd5070f1b7769826f320cc21e315cf0ada9ed53.png" />
+<img alt="_images/cf6ade8457ec8fceba03664d30ae88e4fe33b7912668ff2d4380be1029d726cf.png" src="_images/cf6ade8457ec8fceba03664d30ae88e4fe33b7912668ff2d4380be1029d726cf.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1350,50 +1276,26 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[87 94]
- [40 56]
- [53 43]
- [65 45]
- [99 91]
- [16 41]
- [15  0]
- [64  0]
- [13 72]
- [50 15]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[34 97]
+ [53 91]
+ [49 47]
+ [12 59]
+ [37 13]
+ [39 31]
+ [74 59]
+ [68 29]
+ [33 41]
+ [15 13]]
 </pre></div>
 </div>
 </div>
 </div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-header bg-light docutils">
-<p class="sd-card-text">😄 랜덤 배열 생성</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">크기가 다음과 같은 임의의 배열을 생성하고, 0이상 1미만의 임의의 실수로   채우시오.</p>
-<p class="sd-card-text">깊이 x 행 x 렬: 5 x 5 x 2</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-header bg-light docutils">
-<p class="sd-card-text">😄 랜덤 배열 생성</p>
-</div>
-<div class="sd-card-body docutils">
-<p class="sd-card-text">크기가 다음과 같은 임의의 배열을 생성하고 4.5이상 7미만의 임의의 실수로  채우시오.</p>
-<p class="sd-card-text">깊이 x 행 x 렬: 7 x 1 x 4</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+<p>😄 랜덤 배열 생성</p>
+<p>크기가 다음과 같은 임의의 배열을 생성하고, 0이상 1미만의 임의의 실수로   채우시오.</p>
+<p>깊이 x 행 x 렬: 5 x 5 x 2</p>
+<p>😄 랜덤 배열 생성</p>
+<p>크기가 다음과 같은 임의의 배열을 생성하고 4.5이상 7미만의 임의의 실수로  채우시오.</p>
+<p>깊이 x 행 x 렬: 7 x 1 x 4</p>
 </div>
 <div class="section" id="linspace">
 <h3>linspace()<a class="headerlink" href="#linspace" title="Permalink to this headline">#</a></h3>
@@ -1528,19 +1430,19 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[0.32727219 0.93591652 0.21000122 0.84251422]
-  [0.38588791 0.01048623 0.14680205 0.42294367]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[[0.02965016 0.29137916 0.55647028 0.23729644]
+  [0.35242069 0.22918705 0.33467727 0.61817353]]
 
- [[0.57463661 0.91036212 0.75501446 0.94477339]
-  [0.2404682  0.46719931 0.79780979 0.7505651 ]]]
-
-
-===결과===
-0.01048622630955054
+ [[0.41337666 0.07642055 0.56508949 0.9825427 ]
+  [0.8912324  0.98832848 0.1790681  0.39154363]]]
 
 
 ===결과===
-0.9359165228142109
+0.029650155509040155
+
+
+===결과===
+0.6181735323444193
 </pre></div>
 </div>
 </div>
@@ -1560,8 +1462,8 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
-11
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+13
 </pre></div>
 </div>
 </div>
@@ -1589,8 +1491,8 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">ar</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">ar</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">===결과===&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> 
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> 
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ar</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1610,23 +1512,11 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 </div>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-1 sd-row-cols-lg-1 docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-header bg-light docutils">
-<p class="sd-card-text">😄아래 값들의 평균을 백분율로 소수점 2자리까지 나타내시오. 소수점을 구할때는 round()함수를 사용하세요.</p>
-</div>
-<div class="sd-card-body docutils">
+<p>😄아래 값들의 평균을 백분율로 소수점 2자리까지 나타내시오. 소수점을 구할때는 round()함수를 사용하세요.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.83333333</span><span class="p">,</span> <span class="mf">0.76404494</span><span class="p">,</span> <span class="mf">0.85393258</span><span class="p">,</span> <span class="mf">0.82022472</span><span class="p">,</span> <span class="mf">0.86516854</span><span class="p">,</span><span class="mf">0.80898876</span><span class="p">,</span> <span class="mf">0.80898876</span><span class="p">,</span> <span class="mf">0.7752809</span> <span class="p">,</span> <span class="mf">0.84269663</span><span class="p">,</span> <span class="mf">0.82022472</span><span class="p">])</span>
 </pre></div>
 </div>
-<p class="sd-card-text">round(데이터, n): 데이터를 소수점 n자리까지 나타낸다.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+<p>round(데이터, n): 데이터를 소수점 n자리까지 나타낸다.</p>
 </div>
 <div class="section" id="var-std">
 <h3>var(), std()<a class="headerlink" href="#var-std" title="Permalink to this headline">#</a></h3>
@@ -1645,25 +1535,25 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[78.50479868  1.1792385   2.13767022 85.77469239 78.18861671  7.56345558
- 79.24625131 21.38955285 38.37696552 29.86799291 47.15355779 14.20243643
- 90.90685315 93.14763064 68.86009654 43.00605846 38.86514645 49.49075701
- 21.98195686 37.70560183 41.62390864 65.35024979 74.11967428  3.66637258
- 65.52164435 77.95315522 72.1140192  51.87694731 48.22347169  2.62906436
- 82.13777901  1.66509605 10.27555026 58.77509383 28.710578   87.28215724
- 69.45510109 73.01025013 31.19002188 39.25439679 73.71940158 78.7688857
- 50.80485194 55.22493993 98.35339568 50.22071893 97.68679939 59.12963144
- 92.92752589 69.73279215  3.59526782 70.28840069 26.30573025 49.67304649
- 45.95965397 85.3370464  48.33619173 22.77437097 29.13556968 64.738458
- 91.20795806 88.60641342 84.88192195 76.29621875 41.7216593  22.56605327
- 37.0851816  59.69897084 35.54917334 94.19394387 39.24249727 99.38749577
- 82.92792431 47.50129525 73.26896149 19.66787085 62.68696017 31.6085926
-  9.28595621 34.18108211]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[14.49020125 56.64032325 34.23953193 57.63701572 69.71837325 91.10775903
+ 63.57648069 45.07996185 96.88203391 57.4371205  85.80142206 38.34629124
+  4.43153198 22.34291836 27.89441511 46.49134999 67.34230446 25.88415832
+ 22.95647714 24.6939718  95.57172495 22.69988437 53.41911696 88.60414393
+ 86.17733056 60.30673529 90.15231705 62.30258398 82.94049439 10.17635565
+ 97.45202046  2.84220889 83.16770458 31.41136418 15.17189503 74.35147191
+ 92.91231168 44.68383454 32.86895887 28.79864782 33.26310484 11.68791663
+ 75.33534867 44.32294891 27.08596893 79.55828429 43.72686356 48.65967083
+ 90.93513704 44.59043106 26.37558972 97.55632641 57.20600375 13.68077021
+ 88.07054141 17.55664647 13.24671791  7.11035676 93.87012587 74.76819787
+ 10.15599357 41.33601431 23.89346223 62.71730455 99.68134167 33.3649112
+ 95.34003271 84.21178705 17.85863646 85.59500448 70.34894217  9.79989041
+ 60.32032181 42.76423381 50.0222966  20.02204512 53.4425727  41.31891026
+ 16.0486845  36.31030188]
 
 
 ===결과===
-778.8603630538163
-27.908069855398747
+836.5710273073908
+28.92353760015173
 </pre></div>
 </div>
 </div>
@@ -1684,12 +1574,12 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 8 -4 -9 -2 -1]
- [ 3  0 -5 -7  2]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 4 -3 -9 -8  7]
+ [-1  0  5 -7  5]]
 
 
 ===결과===
-[-9 -7 -5 -4 -2 -1  0  2  3  8]
+[-9 -8 -7 -3 -1  0  4  5  7]
 </pre></div>
 </div>
 </div>
@@ -1710,13 +1600,13 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 0  2 -3 -8 -5]
- [ 8 -9 -2  5 -7]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[ 2 -8 -2 -6  2]
+ [ 5 -8  1  3  3]]
 
 
 ===결과===
-[[0 2 3 8 5]
- [8 9 2 5 7]]
+[[2 8 2 6 2]
+ [5 8 1 3 3]]
 </pre></div>
 </div>
 </div>
@@ -1765,7 +1655,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">1</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="mi">7</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="mi">11</span><span class="p">],</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="mi">1</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="mi">7</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="mi">9</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="mi">11</span><span class="p">],</span>
  <span class="p">[</span><span class="mi">1</span><span class="o">*</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="mi">6</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="mi">8</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="o">*</span><span class="mi">12</span><span class="p">]</span>
 
  <span class="p">[</span><span class="mi">6</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">7</span><span class="o">*</span><span class="mi">5</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="mi">7</span> <span class="o">+</span> <span class="mi">9</span><span class="o">*</span><span class="mi">9</span> <span class="o">+</span><span class="mi">10</span><span class="o">*</span><span class="mi">11</span><span class="p">],</span>
@@ -1806,7 +1696,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 </div>
 </div>
 </div>
-<div align="center"><img src="https://haesunbyun.github.io/AISW/_images/ch11/dot.png" style="width:400px;"></div></div>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/dot.png" style="width:400px;"></div></div>
 <div class="section" id="savetxt-loadtxt">
 <h3>파일저장 savetxt() , 읽어오기 loadtxt<a class="headerlink" href="#savetxt-loadtxt" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
@@ -1837,7 +1727,7 @@ numpy에서는 사칙연산, 논리연산, 비교연산에 대해 모두 벡터�
 <li><p>그러나 이와 같은 복사의 문제는 복사 배열의 데이터를 작업을 하면 원조 배열의 데이터도 똑같이 작업된다는 것이다.</p></li>
 <li><p>그 이유는 복사변수와 원조변수가 같은 메모리 주소를 참조하기 때문이다.</p></li>
 </ul>
-<div align="center"><img src="https://haesunbyun.github.io/Core-Computing/_images/C_chapter4_id3.png" style="width:400px;"></div>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/id3.png" style="width:400px;"></div>
 <ul class="simple">
 <li><p>다음 코드를 통해 확인해보자.</p></li>
 <li><p>리스트, 딕셔너리, 집합, 배열 각각에 변수 a, b, c, d를  정의하였다.</p></li>
@@ -2104,7 +1994,7 @@ False
 <li><p>하지만 결론부터 말하면 리스트안에 리스트이거나, 딕셔너리안에 리스트가 있는 경우 이를 수정했을 때 여전히 원조변수의 값이 같이 수정되는 문제가 발생한다.</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]]</span>
-<span class="n">b</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]}</span> 
+<span class="n">b</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]}</span>
 <span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([{</span><span class="s1">&#39;a&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]},{</span><span class="s1">&#39;b&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]},{</span><span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]}])</span>
 </pre></div>
 </div>
@@ -2114,7 +2004,7 @@ False
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]]</span>
-<span class="n">b</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]}</span> 
+<span class="n">b</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">]}</span>
 <span class="n">c</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([{</span><span class="s1">&#39;a&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]},{</span><span class="s1">&#39;b&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]},{</span><span class="s1">&#39;c&#39;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]}])</span>
 </pre></div>
 </div>
@@ -2138,7 +2028,7 @@ False
 </div>
 </div>
 </div>
-<div align="center"><img src="https://haesunbyun.github.io/Core-Computing/_images/C_chapter4_id4.png" style="width:400px;"></div><ul class="simple">
+<div align="center"><img src="https://haesunbyun.github.io/common/images/id4.png" width="350"></div><ul class="simple">
 <li><p>원본 데이터와 복사 데이터가 모두 수정된 것을 확인할 수 있다.</p></li>
 </ul>
 <div class="cell docutils container">
@@ -2150,7 +2040,10 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, [&#39;here&#39;, 20, 30]] [1, 2, 3, [&#39;here&#39;, 20, 30]]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3, [&#39;here&#39;, 20, 30]]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> [1, 2, 3, [&#39;here&#39;, 20, 30]]
 {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: [&#39;here&#39;, 20, 30]} {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: [&#39;here&#39;, 20, 30]}
 [{&#39;a&#39;: [100, 2]} {&#39;b&#39;: [1, 2]} {&#39;c&#39;: [1, 2]}] [{&#39;a&#39;: [100, 2]} {&#39;b&#39;: [1, 2]} {&#39;c&#39;: [1, 2]}]
 </pre></div>
