@@ -1012,20 +1012,15 @@ data
 <h3>set 생성<a class="headerlink" href="#set" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>중괄호 { }안에 아이템을 콤마로 나열하여 직접 생성할 수 있다.</p></li>
-<li><p>또한 <code class="docutils literal notranslate"><span class="pre">변수명</span> <span class="pre">=</span> <span class="pre">set()</span></code>나 <code class="docutils literal notranslate"><span class="pre">변수명</span> <span class="pre">=</span> <span class="pre">{}</span></code>와 같이 쓰면 비어있는 set을 생성할 수 있다.</p></li>
+<li><p>또한 <code class="docutils literal notranslate"><span class="pre">변수명</span> <span class="pre">=</span> <span class="pre">set()</span></code>와 같이 쓰면 비어있는 set을 생성할 수 있다.</p></li>
 <li><p>set은 아이템의 중복을 수용하지 않기 때문에 중복을 제거할 필요가 있는 데이터라면 set으로 만들면 된다.</p></li>
 </ul>
-<div class="tip admonition">
-<p class="admonition-title">동적타이핑(Dynamic typing)  </p>
-<p>빈 딕셔너리를 만들거나 빈 set을 만들때 <code class="docutils literal notranslate"><span class="pre">변수명</span> <span class="pre">=</span> <span class="pre">{}</span></code>와 같이 선언하는데, 그렇다면 어떻게 딕셔너리 변수인지 set변수인지 구분할 수 있을까? 파이썬은 동적으로 형(type)을 정의해주는 동적타이핑 기능을 지원하고 있다. 따라서 변수에 저장되는 데이터가 딕셔너리 형태이면 딕셔너리변수가 되고, set형태이면 set변수가 된다. 다른 언어를 다뤄본 사람이라면 파이썬에서 지원하는 이 기능이 얼마나 프로그래머에게 편의를 제공해주는지 말하지 않아도 알 것이다.😄</p>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">}</span>
-<span class="n">s2</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">s3</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
-<span class="n">s4</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s3</span><span class="p">,</span> <span class="n">s4</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s3</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
