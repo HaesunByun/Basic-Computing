@@ -202,10 +202,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="B_chapter8.html">Chapter 8. 데이터과학의 이해</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter9.html">Chapter 9. 웹과 웹크롤링</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. 동적 웹크롤링</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter11.html">Chapter 11. Numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter12.html">Chapter 12. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter9-1.html">Chapter 9-1. 웹과 웹크롤링</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter9-2.html">Chapter 9-2. 동적 웹크롤링</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter11.html">Chapter 11. Pandas I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter12.html">Chapter 12. Pandas II</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter13.html">Chapter 13. Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter14.html">Chapter 14. 종합 예제</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter15.html">Chapter 15. 향후 학습 방향</a></li>
@@ -396,15 +397,15 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">튜플</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">튜플 생성</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">튜플 주요 메서드와 iteration</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">튜플 전달과 반환</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced">(Advanced)튜플 전달과 반환</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">집합</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">집합</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set">set 생성</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-iteration">set 주요 메서드와 iteration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-set-iteration">(Advanced) set 주요 메서드와 iteration</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">마무리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">마무리</a></li>
 </ul>
             </nav>
         </div>
@@ -443,7 +444,7 @@ document.write(`
 </div>
 <ul class="simple">
 <li><p>딕셔너리는 key와 value가 쌍(pair)으로 이루어진 자료구조이며, 중괄호 { }로 묶는다.</p></li>
-<li><p>딕셔너리의 key로는 숫자, 문자열, 튜플(숫자,문자열,튜플만 원소로 갖고 있는) 등 불변(immutable) 데이터 타입만 사용할 수 있다.</p></li>
+<li><p>딕셔너리의 key로는 숫자, 문자열, 튜플 등의 데이터 타입을 사용할 수 있다.</p></li>
 <li><p>딕셔너리의 value에는 숫자, 문자열, 리스트, 튜플, 집합, 딕셔너리까지 다양한 자료형이 들어갈 수 있다.</p></li>
 </ul>
 <div class="section" id="id2">
@@ -496,7 +497,7 @@ document.write(`
 <div class="section" id="key-value">
 <h3>key를 통한 value 접근(활용)<a class="headerlink" href="#key-value" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
-<li><p>딕셔너리의 value에 접근하기 위해서는 딕셔너리변수명[key]를 이용한다.</p></li>
+<li><p>딕셔너리의 value에 접근하기 위해서는 <code class="docutils literal notranslate"><span class="pre">딕셔너리변수명[key]</span></code>를 이용한다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -531,7 +532,7 @@ document.write(`
 <ul class="simple">
 <li><p>딕셔너리에 아이템을 추가 또는 수정하려면
 <code class="docutils literal notranslate"><span class="pre">딕셔너리변수명[key]</span> <span class="pre">=</span> <span class="pre">value</span></code>와 같이 하면 된다.</p></li>
-<li><p>이때 key가 없으면 딕셔너리에 추가가 되고, key가 있으면 value가 수정이 된다.</p></li>
+<li><p><font color='red'>이때 key가 없으면 딕셔너리에 추가가 되고, key가 있으면 value가 수정이 된다.</font></p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -607,7 +608,7 @@ document.write(`
 </table>
 <ul class="simple">
 <li><p>위 테이블에서 설명한 메서드를 하나씩 실행해보자.</p></li>
-<li><p>딕셔너리에 key가 없더라도 에러없이 실행시키고 싶을 때에는 dict.get(key)을 사용한다.</p></li>
+<li><p>딕셔너리의 딕셔너리변수명[key]를 이용 시, key가 없으면 에러가 나온다고 했다. 만약 딕셔너리에 key가 없더라도 에러없이 실행시키고 싶을 때에는 dict.get(key)을 사용한다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -660,8 +661,8 @@ document.write(`
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sports</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">sports</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">each</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -803,6 +804,8 @@ document.write(`
 </pre></div>
 </div>
 <p>😄 컴기 강좌의 수강생 명단 sugang 리스트와 학번 stdid 리스트가 주어졌을 때, ‘이름:학번’에 대하여 딕셔너리를 만드시오.</p>
+<p><code class="docutils literal notranslate"><span class="pre">hint</span></code>
+두 개의 리스트에서 동시에 데이터를 하나씩 가져오는 것을 반복하고 싶다면 zip()함수로 묶어 줄 수 있다. zip(리스트 변수명1, 리스트변수명 2)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sugang</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;muzi&#39;</span><span class="p">,</span> <span class="s1">&#39;con&#39;</span><span class="p">,</span> <span class="s1">&#39;apeach&#39;</span><span class="p">,</span> <span class="s1">&#39;jay-G&#39;</span><span class="p">,</span> <span class="s1">&#39;frodo&#39;</span><span class="p">,</span> <span class="s1">&#39;neo&#39;</span><span class="p">,</span> <span class="s1">&#39;tube&#39;</span><span class="p">,</span> <span class="s1">&#39;ryan&#39;</span><span class="p">,</span> <span class="s1">&#39;choonsik&#39;</span><span class="p">]</span>
 <span class="n">stdid</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2023-23345&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-23346&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-23347&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-23348&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-23349&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-23350&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-23351&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-23352&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-23353&#39;</span><span class="p">]</span>
 </pre></div>
@@ -901,7 +904,7 @@ data
 </tbody>
 </table>
 <ul class="simple">
-<li><p>튜플의 아이템을 수정 또는 추가하지 못하여 에러가 발생한다.</p></li>
+<li><p>아래와 같이 쓰면, 튜플의 아이템을 수정 또는 추가하지 못하여 에러가 발생한다.</p></li>
 </ul>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">std_ID</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;23345&#39;</span><span class="p">,</span> <span class="s1">&#39;23346&#39;</span><span class="p">,</span> <span class="s1">&#39;23346&#39;</span><span class="p">,</span> <span class="s1">&#39;23347&#39;</span><span class="p">)</span>
 <span class="n">std_ID</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span> <span class="s1">&#39;23348&#39;</span> <span class="c1">#수정</span>
@@ -922,7 +925,9 @@ data
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
-2
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
 </pre></div>
 </div>
 </div>
@@ -938,17 +943,15 @@ data
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-23345
 2023-23346
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-23346
+2023-23346
 2023-23347
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-<div class="section" id="id6">
-<h3>튜플 전달과 반환<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<div class="section" id="advanced">
+<h3>(Advanced)튜플 전달과 반환<a class="headerlink" href="#advanced" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>함수에서 return으로 값을 반환할때 여러개의 값을 컴마로 나열해서 반환하면 tuple 타입으로 반환한다.</p></li>
 <li><p>이때 반환받은 값 각각의 항목을 변수에 할당하여 사용할 수 있다.</p></li>
@@ -1004,15 +1007,15 @@ data
 </div>
 </div>
 </div>
-<div class="section" id="id7">
-<h2>집합<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id6">
+<h2>집합<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h2>
 <p>리스트에서는 index를, 딕셔너리에서는 key를 사용하여 value에 접근할 수 있었다. 그렇다면 index나 key는 반드시 필요할까?</p>
 <p>집합(set)은 index나 key가 없다. 그렇기 때문에 순서가 없으며, 값이 중복되지 않는 특징을 가진 자료구조이다. 수학의 집합과 개념적으로 아주 비슷하다.</p>
 <div class="section" id="set">
 <h3>set 생성<a class="headerlink" href="#set" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>중괄호 { }안에 아이템을 콤마로 나열하여 직접 생성할 수 있다.</p></li>
-<li><p>또한 <code class="docutils literal notranslate"><span class="pre">변수명</span> <span class="pre">=</span> <span class="pre">set()</span></code>와 같이 쓰면 비어있는 set을 생성할 수 있다.</p></li>
+<li><p>또한 <code class="docutils literal notranslate"><span class="pre">변수명</span> <span class="pre">=</span> <span class="pre">set()</span></code>나 <code class="docutils literal notranslate"><span class="pre">변수명</span> <span class="pre">=</span> <span class="pre">{}</span></code>와 같이 쓰면 비어있는 set을 생성할 수 있다.</p></li>
 <li><p>set은 아이템의 중복을 수용하지 않기 때문에 중복을 제거할 필요가 있는 데이터라면 set으로 만들면 된다.</p></li>
 </ul>
 <div class="cell docutils container">
@@ -1025,8 +1028,7 @@ data
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;foo&#39;, &#39;baz&#39;, &#39;bar&#39;, &#39;qux&#39;}
-{}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;foo&#39;, &#39;qux&#39;, &#39;baz&#39;, &#39;bar&#39;}
 set()
 {1, 2, 3, 4, 6, 7, 8, 10}
 </pre></div>
@@ -1055,8 +1057,8 @@ set()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;tube&#39;, &#39;neo&#39;, &#39;ryan&#39;, &#39;frodo&#39;, &#39;muzi&#39;, &#39;choonsik&#39;, &#39;jay-G&#39;, &#39;apeach&#39;, &#39;con&#39;]
-(&#39;tube&#39;, &#39;neo&#39;, &#39;ryan&#39;, &#39;frodo&#39;, &#39;muzi&#39;, &#39;choonsik&#39;, &#39;jay-G&#39;, &#39;apeach&#39;, &#39;con&#39;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;frodo&#39;, &#39;con&#39;, &#39;tube&#39;, &#39;jay-G&#39;, &#39;neo&#39;, &#39;muzi&#39;, &#39;ryan&#39;, &#39;apeach&#39;, &#39;choonsik&#39;]
+(&#39;frodo&#39;, &#39;con&#39;, &#39;tube&#39;, &#39;jay-G&#39;, &#39;neo&#39;, &#39;muzi&#39;, &#39;ryan&#39;, &#39;apeach&#39;, &#39;choonsik&#39;)
 </pre></div>
 </div>
 </div>
@@ -1072,20 +1074,22 @@ set()
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kakao-tube
-kakao-neo
-kakao-ryan
-kakao-frodo
-kakao-muzi
-kakao-choonsik
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kakao-frodo
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kakao-con
+kakao-tube
 kakao-jay-G
+kakao-neo
+kakao-muzi
+kakao-ryan
 kakao-apeach
-kakao-con
+kakao-choonsik
 </pre></div>
 </div>
 </div>
 </div>
-<p>😄 아래의 문장에서 모든 단어의 개수와 중복되지 않은 단어의 개수가 몇 개인지 출력해보세요.</p>
+<p>😄 아래의 문장에서 모든 단어의 개수와 중복되는 단어를 하나만 남겨놓고 제거한 후 남아있는 전체 단어의 개수가 몇 개인지 출력해보세요.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">전체</span> <span class="n">단어의</span> <span class="n">개수</span><span class="p">:</span> <span class="mi">119</span>
 <span class="n">유일한</span> <span class="n">단어</span> <span class="n">개수</span><span class="p">:</span> <span class="mi">90</span>
 </pre></div>
@@ -1110,8 +1114,8 @@ kakao-con
 </div>
 </div>
 </div>
-<div class="section" id="set-iteration">
-<h3>set 주요 메서드와 iteration<a class="headerlink" href="#set-iteration" title="Permalink to this headline">#</a></h3>
+<div class="section" id="advanced-set-iteration">
+<h3>(Advanced) set 주요 메서드와 iteration<a class="headerlink" href="#advanced-set-iteration" title="Permalink to this headline">#</a></h3>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-center head"><p>사용 방법</p></th>
@@ -1176,7 +1180,9 @@ kakao-con
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{4, 7}
-{4, 7}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{4, 7}
 </pre></div>
 </div>
 </div>
@@ -1193,7 +1199,9 @@ kakao-con
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1}
-{1}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1}
 </pre></div>
 </div>
 </div>
@@ -1212,7 +1220,9 @@ kakao-con
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{3, 4, 6, 7, 8, 10}
-{3, 4, 6, 7, 8, 10}
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{3, 4, 6, 7, 8, 10}
 {3, 4, 6, 7, 8, 10}
 </pre></div>
 </div>
@@ -1220,7 +1230,7 @@ kakao-con
 </div>
 <p>😄 컴기 강좌의 수강생 명단 sugang과 S학점 명단이 리스트 s_set으로 주어졌을 때, S학점을 받지 못한 사람들의 명단 u_set을 리스트로 출력하는 코드를 작성하여라. 참여자 중 동명이인은 없고, 순서는 중요하지 않다.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sugang</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;muzi&#39;</span><span class="p">,</span> <span class="s1">&#39;con&#39;</span><span class="p">,</span> <span class="s1">&#39;apeach&#39;</span><span class="p">,</span> <span class="s1">&#39;jay-G&#39;</span><span class="p">,</span> <span class="s1">&#39;frodo&#39;</span><span class="p">,</span> <span class="s1">&#39;neo&#39;</span><span class="p">,</span> <span class="s1">&#39;tube&#39;</span><span class="p">,</span> <span class="s1">&#39;ryan&#39;</span><span class="p">,</span> <span class="s1">&#39;choonsik&#39;</span><span class="p">]</span>
-<span class="n">s_set</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;jay-G&#39;</span><span class="p">,</span> <span class="s1">&#39;frodo&#39;</span><span class="p">,</span> <span class="s1">&#39;tube&#39;</span><span class="p">,</span> <span class="s1">&#39;Choonsik&#39;</span><span class="p">]</span>
+<span class="n">s_set</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;jay-G&#39;</span><span class="p">,</span> <span class="s1">&#39;frodo&#39;</span><span class="p">,</span> <span class="s1">&#39;tube&#39;</span><span class="p">,</span> <span class="s1">&#39;choonsik&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Output</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;ryan&#39;</span><span class="p">,</span> <span class="s1">&#39;con&#39;</span><span class="p">,</span> <span class="s1">&#39;muzi&#39;</span><span class="p">,</span> <span class="s1">&#39;apeach&#39;</span><span class="p">,</span> <span class="s1">&#39;neo&#39;</span><span class="p">]</span>
@@ -1228,8 +1238,8 @@ kakao-con
 </div>
 </div>
 </div>
-<div class="section" id="id8">
-<h2>마무리<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id7">
+<h2>마무리<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>딕셔너리는 key와 value가 쌍(pair)으로 이루어진 자료구조이며, 중괄호 { }로 묶는다.</p></li>
 <li><p>딕셔너리의 key로는 숫자, 문자열, 튜플(숫자,문자열,튜플만 원소로 갖고 있는) 등 불변(immutable) 데이터 타입만 사용할 수 있다.</p></li>
@@ -1313,15 +1323,15 @@ kakao-con
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">튜플</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">튜플 생성</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">튜플 주요 메서드와 iteration</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">튜플 전달과 반환</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced">(Advanced)튜플 전달과 반환</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">집합</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">집합</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set">set 생성</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-iteration">set 주요 메서드와 iteration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-set-iteration">(Advanced) set 주요 메서드와 iteration</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">마무리</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">마무리</a></li>
 </ul>
   </nav></div>
 

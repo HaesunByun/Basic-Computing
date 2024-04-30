@@ -202,10 +202,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="B_chapter8.html">Chapter 8. 데이터과학의 이해</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter9.html">Chapter 9. 웹과 웹크롤링</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. 동적 웹크롤링</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter11.html">Chapter 11. Numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter12.html">Chapter 12. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter9-1.html">Chapter 9-1. 웹과 웹크롤링</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter9-2.html">Chapter 9-2. 동적 웹크롤링</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter11.html">Chapter 11. Pandas I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter12.html">Chapter 12. Pandas II</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter13.html">Chapter 13. Visualization</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 14. 종합 예제</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter15.html">Chapter 15. 향후 학습 방향</a></li>
@@ -415,7 +416,7 @@ document.write(`
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-14">
 <h1>Chapter 14. 종합 예제<a class="headerlink" href="#chapter-14" title="Permalink to this headline">#</a></h1>
 <div class="info admonition">
-<p class="admonition-title">학습목표와 기대효과 </p>
+<p class="admonition-title">학습목표와 기대효과</p>
 <ul class="simple">
 <li><p>학습목표</p>
 <ul>
@@ -458,8 +459,13 @@ operable program or batch file.
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s1">&#39;NanumBarunGothic&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s1">&#39;font&#39;</span><span class="p">,</span> <span class="n">family</span><span class="o">=</span><span class="s1">&#39;NanumBarunGothic&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -490,7 +496,7 @@ operable program or batch file.
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/HaesunByun/common/main/data/population_in_Seoul.txt&#39;</span>
-<span class="n">pop_Seoul</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span><span class="n">thousands</span> <span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span> 
+<span class="n">pop_Seoul</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">header</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span><span class="n">thousands</span> <span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 
 <span class="n">pop_Seoul</span>
 </pre></div>

@@ -93,6 +93,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'B_chapter6';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -202,10 +204,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="B_chapter8.html">Chapter 8. 데이터과학의 이해</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter9.html">Chapter 9. 웹과 웹크롤링</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. 동적 웹크롤링</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter11.html">Chapter 11. Numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter12.html">Chapter 12. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter9-1.html">Chapter 9-1. 웹과 웹크롤링</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter9-2.html">Chapter 9-2. 동적 웹크롤링</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter11.html">Chapter 11. Pandas I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter12.html">Chapter 12. Pandas II</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter13.html">Chapter 13. Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter14.html">Chapter 14. 종합 예제</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter15.html">Chapter 15. 향후 학습 방향</a></li>
@@ -403,7 +406,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">전역변수</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#map">(참고)알아두면 유용한 map() 함수</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-map">(Advanced)알아두면 유용한 map() 함수</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">마무리</a></li>
 </ul>
             </nav>
@@ -429,7 +432,7 @@ document.write(`
 </li>
 <li><p>기대효과</p>
 <ul>
-<li><p>컴퓨팅 디바이스들의 기능 또는 동작이 어떤 방법으로 모듈화되었는지를 이해할 수 있다.</p></li>
+<li><p>자주 사용하는 기능을 함수로 만들어놓고 사용할 수 있다.</p></li>
 </ul>
 </li>
 </ul>
@@ -507,39 +510,6 @@ document.write(`
 <span class="s1">                          ,--____&gt;    /\.         ./&#39;</span>
 <span class="s1">                          </span><span class="se">\&#39;</span><span class="s1">-__________&gt;  \.______/&#39;</span>
 <span class="s1">      &#39;&#39;&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="info admonition">
-<p class="admonition-title">함수에 도움말 기능 넣기</p>
-<ul class="simple">
-<li><p>여러분이 정의한 함수가 어떤 함수이고 어떻게 사용하면 되는 것인지 도움말을 넣어주고 싶다면 함수안에서 멀티라인 스트링으로 넣어줄 수 있다.</p></li>
-<li><p>도움말을 넣어주면 help(함수명) 했을 때 도움말이 출력된다.</p></li>
-</ul>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
-<span class="w">  </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">  안녕하세요. 반갑습니다를 출력한다.</span>
-<span class="sd">  &#39;&#39;&#39;</span>
-  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;안녕하세요. 반갑습니다.&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function hello in module __main__:
-
-hello()
-    안녕하세요. 반갑습니다를 출력한다.
 </pre></div>
 </div>
 </div>
@@ -631,6 +601,21 @@ Gives you my treasure!
 </div>
 </div>
 </div>
+<p>😄 아래 output sample과 같이 메뉴를 출력하는 함수 menu()를 정의하고 호출해보세요.
+줄(===)은 ‘=’*70으로 그리세요.</p>
+<p>Output Sample</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">======================================================================</span>
+<span class="p">[</span><span class="s1">&#39;햄에그&#39;</span><span class="p">,</span> <span class="s1">&#39;BLT&#39;</span><span class="p">,</span> <span class="s1">&#39;치킨샐러드&#39;</span><span class="p">,</span> <span class="s1">&#39;리코다치즈&#39;</span><span class="p">,</span> <span class="s1">&#39;런치샌드위치&#39;</span><span class="p">,</span> <span class="s1">&#39;미니버거&#39;</span><span class="p">]</span>
+<span class="o">======================================================================</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">menulist</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;햄에그&#39;</span><span class="p">,</span><span class="s1">&#39;BLT&#39;</span><span class="p">,</span><span class="s1">&#39;치킨샐러드&#39;</span><span class="p">,</span><span class="s1">&#39;리코다치즈&#39;</span><span class="p">,</span><span class="s1">&#39;런치샌드위치&#39;</span><span class="p">,</span> <span class="s1">&#39;미니버거&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="id5">
@@ -705,6 +690,48 @@ Gives you my treasure!
 </div>
 </div>
 </div>
+<p>😄 메뉴를 입력받아 해당 메뉴의 주문을 확인하는 메시지를 출력하는 order()함수를 정의하고 호출하세요. 메뉴 입력은 함수 밖에서 이루어집니다.</p>
+<p>Input Sample</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">치킨샐러드</span>
+</pre></div>
+</div>
+<p>Output Sample</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">======================================================================</span>
+<span class="p">[</span><span class="s1">&#39;햄에그&#39;</span><span class="p">,</span> <span class="s1">&#39;BLT&#39;</span><span class="p">,</span> <span class="s1">&#39;치킨샐러드&#39;</span><span class="p">,</span> <span class="s1">&#39;리코타치즈&#39;</span><span class="p">,</span> <span class="s1">&#39;런치샌드위치&#39;</span><span class="p">,</span> <span class="s1">&#39;미니버거&#39;</span><span class="p">]</span>
+<span class="o">======================================================================</span>
+<span class="n">메뉴를</span> <span class="n">선택해주세요</span><span class="p">:</span> <span class="n">치킨샐러드</span>
+<span class="n">당신은</span> <span class="n">치킨샐러드를</span> <span class="n">주문하셨습니다</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">menulist</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;햄에그&#39;</span><span class="p">,</span><span class="s1">&#39;BLT&#39;</span><span class="p">,</span><span class="s1">&#39;치킨샐러드&#39;</span><span class="p">,</span><span class="s1">&#39;리코타치즈&#39;</span><span class="p">,</span><span class="s1">&#39;런치샌드위치&#39;</span><span class="p">,</span> <span class="s1">&#39;미니버거&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">menu</span><span class="p">():</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">70</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">menulist</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="o">*</span><span class="mi">70</span><span class="p">)</span>
+
+<span class="c1"># order() 함수 정의</span>
+<span class="k">def</span>
+
+
+<span class="nf">menu</span><span class="p">()</span>
+<span class="n">inputOrder</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">&#39;메뉴를 선택해주세요: &#39;</span><span class="p">)</span>
+
+<span class="c1"># order() 함수 호출</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">  File</span><span class="nn"> &quot;&lt;ipython-input-11-a4ccbd0b5de3&gt;&quot;</span><span class="gt">, line </span><span class="mi">9</span>
+    <span class="k">def</span>
+       <span class="o">^</span>
+<span class="ne">SyntaxError</span>: invalid syntax
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="return">
@@ -742,13 +769,6 @@ Gives you my treasure!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>샤부작~샤부작~
-초코바닐라아이스크림, 완성되었습니다.
-초코바닐라아이스크림, 받았습니다.
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p>함수로부터 반환 받은 값을 위에서와 같이 바로 출력할 수도 있지만, 아래와 같이 변수에 저장할 수도 있다.</p></li>
@@ -757,13 +777,6 @@ Gives you my treasure!
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">r_dessert</span> <span class="o">=</span> <span class="n">dessert</span><span class="p">(</span><span class="s2">&quot;딸기&quot;</span><span class="p">,</span> <span class="s2">&quot;바닐라&quot;</span><span class="p">,</span> <span class="n">order_dessert</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;맛있는 </span><span class="si">{</span><span class="n">r_dessert</span><span class="si">}</span><span class="s1">입니다.&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>샤부작~샤부작~
-딸기바닐라아이스크림, 완성되었습니다.
-맛있는 딸기바닐라아이스크림입니다.
 </pre></div>
 </div>
 </div>
@@ -784,13 +797,6 @@ Gives you my treasure!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>샤부작~샤부작~
-수박키위아이스크림, 완성되었습니다.
-맛있는 수박키위아이스크림입니다.
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p>함수로부터 return이 없는데 반환값을 출력하면 <code class="docutils literal notranslate"><span class="pre">None</span></code>을 출력한다.</p></li>
@@ -805,13 +811,6 @@ Gives you my treasure!
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>샤부작~샤부작~
-초코바닐라아이스크림, 완성되었습니다.
-None, 받았습니다.
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -820,10 +819,26 @@ None, 받았습니다.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>샤부작~샤부작~
-수박키위아이스크림, 완성되었습니다.
-맛있는 None입니다.
+</div>
+<p>😄 정수 두개 x,y를 전달받아 <span class="math notranslate nohighlight">\(x^y\)</span>를 반환하는 mypow() 함수를 정의하시오.</p>
+<p>Input Sample</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">5</span>
+<span class="mi">2</span>
+</pre></div>
+</div>
+<p>Output Sample</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">25</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#함수 정의</span>
+<span class="k">def</span>
+
+<span class="c1">#함수 호출</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;First num: &#39;</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s1">&#39;Second num: &#39;</span><span class="p">))</span>
+<span class="n">mypow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -859,12 +874,6 @@ None, 받았습니다.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>func1의 local area: 100
-func2의 local area: 200
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p>하지만 지역변수 v1, v2는 그 변수가 정의된 함수 내에서만 유효하므로 전역지역에서는 v1, v2가 유효하지 않다.</p></li>
@@ -897,56 +906,22 @@ func2의 local area: 200
 <span class="n">func2</span><span class="p">()</span>
 </pre></div>
 </div>
-<ul class="simple">
-<li><p>함수안에 다른 함수가 정의되어 있는 것을 내부함수라 한다. 아래 코드에서 func3()는 func1()의 내부함수이다. 따라서 func1()에서 정의된 지역변수 v1은 func3()에서도 유효하다.</p></li>
-<li><p>그러나 func3()에서 정의된 지역변수 v3는 func1()에서는 유효하지 않다.</p></li>
-</ul>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func1</span><span class="p">():</span>
-  <span class="n">v1</span> <span class="o">=</span> <span class="mi">100</span>
-
-  <span class="k">def</span> <span class="nf">func3</span><span class="p">():</span>
-    <span class="n">v3</span> <span class="o">=</span> <span class="mi">300</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;func3의 local area: </span><span class="si">{</span><span class="n">v1</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
-
-  <span class="n">func3</span><span class="p">()</span>
-
-<span class="n">func1</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>func3의 local area: 100
-</pre></div>
-</div>
-</div>
-</div>
 </div>
 <div class="section" id="id9">
 <h3>전역변수<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>함수밖 Global area에서 정의되어 있는 변수를 전역변수라 한다.</p></li>
 <li><p>아래 코드 v4 = 400에서 변수 v4는 전역변수이다.</p></li>
-<li><p>전역변수는 유효범위가 프로그램 전체이므로 함수(또는 내부함수)에서도 변수 v4을 참조할 수 있다.</p></li>
+<li><p>전역변수는 유효범위가 프로그램 전체이므로 함수에서도 변수 v4을 참조할 수 있다.</p></li>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func1</span><span class="p">():</span>
   <span class="n">v1</span> <span class="o">=</span> <span class="mi">100</span>
-  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;func1의 local area: </span><span class="si">{</span><span class="n">v4</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-  <span class="k">def</span> <span class="nf">func3</span><span class="p">():</span>
-    <span class="n">v3</span> <span class="o">=</span> <span class="mi">300</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;func3의 local area: </span><span class="si">{</span><span class="n">v3</span><span class="p">,</span><span class="w"> </span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">v4</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;func1의 local area: </span><span class="si">{</span><span class="n">v1</span><span class="p">,</span><span class="w"> </span><span class="n">v4</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="n">v4</span> <span class="o">=</span> <span class="mi">400</span>
 <span class="n">func1</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>func1의 local area: 400
 </pre></div>
 </div>
 </div>
@@ -979,12 +954,6 @@ func2의 local area: 200
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>func1의 local area: 400
-Global area: 400
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -996,14 +965,6 @@ Global area: 400
 <span class="n">v4</span> <span class="o">=</span> <span class="mi">400</span>
 <span class="n">func1</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Global area: </span><span class="si">{</span><span class="n">v4</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>func1의 local area: 800
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Global area: 800
 </pre></div>
 </div>
 </div>
@@ -1030,18 +991,13 @@ Global area: 400
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>func1의 local area: 유재석
-func2의 local area: 유재석
-Global area: 유재석
-</pre></div>
+</div>
+<p>수업은 여기까지 입니다.</p>
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="section" id="map">
-<h2>(참고)알아두면 유용한 map() 함수<a class="headerlink" href="#map" title="Permalink to this headline">#</a></h2>
+<hr class="docutils" />
+<div class="section" id="advanced-map">
+<h2>(Advanced)알아두면 유용한 map() 함수<a class="headerlink" href="#advanced-map" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>지금 당장 몰라도 되지만 알아두면 유용하게 사용할 수 있다.</p></li>
 <li><p>map() 함수는 함수명과 반복가능한 데이터를 전달인자로 받아 함수에 의해 수행된 결과를 반환해주는 함수이다.</p></li>
@@ -1063,11 +1019,6 @@ Global area: 유재석
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 3]
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p>여러분들이 정의한 사용자 정의함수 또한 map()함수의 전달인자로 줄 수 있다.</p></li>
@@ -1083,11 +1034,6 @@ Global area: 유재석
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hi&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <ul class="simple">
 <li><p>앞에서 정의한 wow()함수와 리스트변수 a를 map()의 전달인자로 사용해보자.</p></li>
@@ -1098,11 +1044,6 @@ Global area: 유재석
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;welcome&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">,</span> <span class="s1">&#39;wow&#39;</span><span class="p">]</span>
 <span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">wow</span><span class="p">,</span> <span class="n">a</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Hello&#39;, &#39;Welcome&#39;, &#39;Fun&#39;, &#39;Wow&#39;]
 </pre></div>
 </div>
 </div>
@@ -1206,7 +1147,7 @@ Global area: 유재석
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">전역변수</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#map">(참고)알아두면 유용한 map() 함수</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-map">(Advanced)알아두면 유용한 map() 함수</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">마무리</a></li>
 </ul>
   </nav></div>

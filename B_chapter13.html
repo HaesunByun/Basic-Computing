@@ -97,7 +97,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Chapter 14. 종합 예제" href="B_chapter14.html" />
-    <link rel="prev" title="Chapter 12. Pandas" href="B_chapter12.html" />
+    <link rel="prev" title="Chapter 12. Pandas II" href="B_chapter12.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -202,10 +202,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="B_chapter8.html">Chapter 8. 데이터과학의 이해</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter9.html">Chapter 9. 웹과 웹크롤링</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. 동적 웹크롤링</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter11.html">Chapter 11. Numpy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="B_chapter12.html">Chapter 12. Pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter9-1.html">Chapter 9-1. 웹과 웹크롤링</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter9-2.html">Chapter 9-2. 동적 웹크롤링</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter11.html">Chapter 11. Pandas I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter12.html">Chapter 12. Pandas II</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 13. Visualization</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter14.html">Chapter 14. 종합 예제</a></li>
 <li class="toctree-l1"><a class="reference internal" href="B_chapter15.html">Chapter 15. 향후 학습 방향</a></li>
@@ -412,7 +413,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">박스플롯 그래프: .boxplot()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#violinplot">바이올린 그래프: .violinplot()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">—붓꽃 데이터 활용—</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pairplot-pariplot">pairplot 그래프: .pariplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pairplot-pairplot">pairplot 그래프: .pairplot()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facetgrid-facetgrid">FacetGrid 그래프: .FacetGrid()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips">— tips 데이터 활용—</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barplot">막대 그래프: .barplot()</a></li>
@@ -437,7 +438,7 @@ document.write(`
   <div class="tex2jax_ignore mathjax_ignore section" id="chapter-13-visualization">
 <h1>Chapter 13. Visualization<a class="headerlink" href="#chapter-13-visualization" title="Permalink to this headline">#</a></h1>
 <div class="info admonition">
-<p class="admonition-title">학습목표와 기대효과 </p>
+<p class="admonition-title">학습목표와 기대효과</p>
 <ul class="simple">
 <li><p>학습목표</p>
 <ul>
@@ -467,7 +468,7 @@ document.write(`
 <div class="section" id="matplotlib-numpy">
 <h2>Matplotlib: numpy 데이터 활용<a class="headerlink" href="#matplotlib-numpy" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>numpy 데이터를 활용하여 그래프를 그려보다. 필요한 모듈을 먼저 불러온다.</p></li>
+<li><p>numpy 데이터를 활용하여 그래프를 그려보자. 필요한 모듈을 먼저 불러온다.</p></li>
 <li><p>matplotlib.pyplot 모듈은 보통 plt라는 별칭을 사용한다.</p></li>
 </ul>
 <div class="cell docutils container">
@@ -580,7 +581,7 @@ document.write(`
 <p>😄 배열 x, y에 대한 선그래프를 그려보자.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;r-.&#39;</span><span class="p">)</span> <span class="c1"># &#39;ob&#39;, &#39;r-.&#39;, &#39;g+&#39;</span>
 <span class="c1">#plt.plot(x, y, color = &#39;green&#39;, linestyle = &#39;dashed&#39;, marker = &#39;o&#39;, mfc = &#39;blue&#39;, ms = 12)</span>
@@ -605,8 +606,8 @@ document.write(`
 <span class="n">y1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;sin&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;cos&#39;</span><span class="p">)</span>             
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Example of sinewave&#39;</span><span class="p">)</span> <span class="c1"># 제목             </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;cos&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Example of sinewave&#39;</span><span class="p">)</span> <span class="c1"># 제목</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span> <span class="c1"># 범례</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>        <span class="c1"># x축 라벨</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Amplitude&#39;</span><span class="p">)</span>   <span class="c1"># y축 라벨</span>
@@ -736,7 +737,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#1. 현재 셀 실행</span>
-<span class="c1">#2. 런타임 -&gt; 런타임 다시 시작</span>
+<span class="c1">#2. 런타임 -&gt; 세션 다시 시작</span>
 <span class="o">!</span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>fonts-nanum
 <span class="o">!</span>sudo<span class="w"> </span>fc-cache<span class="w"> </span>-fv
 <span class="o">!</span>rm<span class="w"> </span>~/.cache/matplotlib<span class="w"> </span>-rf
@@ -933,10 +934,10 @@ operable program or batch file.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span> 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
   <span class="n">df</span><span class="p">[</span><span class="n">lectures</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;line&#39;</span><span class="p">)</span>
-  <span class="c1">#plt.plot(names,df[lectures[i]]) </span>
+  <span class="c1">#plt.plot(names,df[lectures[i]])</span>
   <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">lectures</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;성적&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -966,7 +967,7 @@ operable program or batch file.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;학생들의 성적&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;점수&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;이름&#39;</span><span class="p">)</span>
@@ -1072,7 +1073,7 @@ operable program or batch file.
 <h3>가로 막대그래프: kind=’barh’<a class="headerlink" href="#kind-barh" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">,</span> <span class="n">stacked</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">,</span> <span class="n">stacked</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;학생들의 성적&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;이름&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;점수&#39;</span><span class="p">)</span>
@@ -1120,8 +1121,8 @@ operable program or batch file.
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">explode</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
 <span class="n">d3</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;pie&#39;</span><span class="p">,</span>
-                 <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> 
-                 <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> 
+                 <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+                 <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.1f%%</span><span class="s1">&#39;</span><span class="p">,</span>
                  <span class="n">startangle</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                  <span class="n">explode</span> <span class="o">=</span> <span class="n">explode</span><span class="p">,</span>
                  <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;chocolate&#39;</span><span class="p">,</span><span class="s1">&#39;bisque&#39;</span><span class="p">,</span><span class="s1">&#39;cadetblue&#39;</span><span class="p">,</span><span class="s1">&#39;yellow&#39;</span><span class="p">])</span>
@@ -1319,8 +1320,8 @@ D:\users\anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py:180: Run
 </div></div></div>
 </div>
 </div>
-<div class="section" id="pairplot-pariplot">
-<h3>pairplot 그래프: .pariplot()<a class="headerlink" href="#pairplot-pariplot" title="Permalink to this headline">#</a></h3>
+<div class="section" id="pairplot-pairplot">
+<h3>pairplot 그래프: .pairplot()<a class="headerlink" href="#pairplot-pairplot" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p><strong>pairplot그래프</strong>는 데이터프레임의 열(변수)을 두 개씩 짝을 지을 수 있는 모든 조합에 대해 나타낸다.</p></li>
 <li><p>만들어진 짝의 개수만큼 화면을 그리드로 나눈다.</p></li>
@@ -1478,7 +1479,7 @@ D:\users\anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py:180: Run
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0acf9ce309b73e6a9f5d11497cda3050fc391ceb7f55b5ed1fbf70dbca11e37f.png" src="_images/0acf9ce309b73e6a9f5d11497cda3050fc391ceb7f55b5ed1fbf70dbca11e37f.png" />
+<img alt="_images/2420c0ea405a366989778a4f9c9b5a692a538328ee9fd822ffbd786c447ef255.png" src="_images/2420c0ea405a366989778a4f9c9b5a692a538328ee9fd822ffbd786c447ef255.png" />
 </div>
 </div>
 <ul class="simple">
@@ -1492,7 +1493,7 @@ D:\users\anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py:180: Run
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d7f1b0558004c98d113443a4beddd0a3587aeba198d144854d86d868704b6a1c.png" src="_images/d7f1b0558004c98d113443a4beddd0a3587aeba198d144854d86d868704b6a1c.png" />
+<img alt="_images/51a5f9976eb21f64712fa887633afe94c802cd5aa5554c6b3ae2f1ac042281af.png" src="_images/51a5f9976eb21f64712fa887633afe94c802cd5aa5554c6b3ae2f1ac042281af.png" />
 </div>
 </div>
 </div>
@@ -1548,7 +1549,7 @@ D:\users\anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py:180: Run
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c1308d693eabe382d67ae82690abea542dac34216310a07e072aa66f5c0de9a9.png" src="_images/c1308d693eabe382d67ae82690abea542dac34216310a07e072aa66f5c0de9a9.png" />
+<img alt="_images/985192f26422639cfd2c72e9a3f243470bcd0279046bd77c6893c812726207ff.png" src="_images/985192f26422639cfd2c72e9a3f243470bcd0279046bd77c6893c812726207ff.png" />
 </div>
 </div>
 </div>
@@ -1566,7 +1567,7 @@ D:\users\anaconda3\lib\site-packages\matplotlib\backends\backend_agg.py:180: Run
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9e8edad10d0f238ab1557d700dcf86ed90f853b77147cb7c4a4b6abfd7193d56.png" src="_images/9e8edad10d0f238ab1557d700dcf86ed90f853b77147cb7c4a4b6abfd7193d56.png" />
+<img alt="_images/6abcd0427567167bf8e2690c273318358fddcc9fe97a3ee6b3b3fa9adcc8ed43.png" src="_images/6abcd0427567167bf8e2690c273318358fddcc9fe97a3ee6b3b3fa9adcc8ed43.png" />
 </div>
 </div>
 </div>
@@ -1694,7 +1695,7 @@ sns.FacetGrid()</p></li>
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Chapter 12. Pandas</p>
+        <p class="prev-next-title">Chapter 12. Pandas II</p>
       </div>
     </a>
     <a class="right-next"
@@ -1747,7 +1748,7 @@ sns.FacetGrid()</p></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boxplot">박스플롯 그래프: .boxplot()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#violinplot">바이올린 그래프: .violinplot()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">—붓꽃 데이터 활용—</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pairplot-pariplot">pairplot 그래프: .pariplot()</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pairplot-pairplot">pairplot 그래프: .pairplot()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#facetgrid-facetgrid">FacetGrid 그래프: .FacetGrid()</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tips">— tips 데이터 활용—</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#barplot">막대 그래프: .barplot()</a></li>

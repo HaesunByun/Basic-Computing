@@ -1,0 +1,1090 @@
+
+
+<!DOCTYPE html>
+
+
+<html >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chapter 9-2. 동적 웹크롤링 &#8212; First Adventures in Computing</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script kind="utterances">
+
+    var commentsRunWhenDOMLoaded = cb => {
+    if (document.readyState != 'loading') {
+        cb()
+    } else if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', cb)
+    } else {
+        document.attachEvent('onreadystatechange', function() {
+        if (document.readyState == 'complete') cb()
+        })
+    }
+}
+
+var addUtterances = () => {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://utteranc.es/client.js";
+    script.async = "async";
+
+    script.setAttribute("repo", "HaesunByun/Basic-Computing");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("theme", "github-light");
+    script.setAttribute("label", "💬 comment");
+    script.setAttribute("crossorigin", "anonymous");
+
+    sections = document.querySelectorAll("div.section");
+    if (sections !== null) {
+        section = sections[sections.length-1];
+        section.appendChild(script);
+    }
+}
+commentsRunWhenDOMLoaded(addUtterances);
+</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'B_chapter9-2';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Chapter 10. Numpy" href="B_chapter10.html" />
+    <link rel="prev" title="Chapter 9-1. 웹과 웹크롤링" href="B_chapter9-1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="None"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo_bc.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo_bc.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    소개
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Python</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="B_chapter0.html">Chapter 0. 프로그래밍 언어와 파이썬</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter1.html">Chapter 1. 기본자료형과 변수</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter2.html">Chapter 2. 입출력과 타입변환</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter3.html">Chapter 3. 조건문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter4.html">Chapter 4. 반복문</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter5.html">Chapter 5. 리스트</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter6.html">Chapter 6. 함수</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter7.html">Chapter 7. 딕셔너리, 튜플, 셋</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Science</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="B_chapter8.html">Chapter 8. 데이터과학의 이해</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter9-1.html">Chapter 9-1. 웹과 웹크롤링</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Chapter 9-2. 동적 웹크롤링</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter10.html">Chapter 10. Numpy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter11.html">Chapter 11. Pandas I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter12.html">Chapter 12. Pandas II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter13.html">Chapter 13. Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter14.html">Chapter 14. 종합 예제</a></li>
+<li class="toctree-l1"><a class="reference internal" href="B_chapter15.html">Chapter 15. 향후 학습 방향</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/HaesunByun/Basic-Computing/blob/gh-pages/_sources/B_chapter9-2.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/B_chapter9-2.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Chapter 9-2. 동적 웹크롤링</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">셀레니움이란?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">설치 및 환경설정</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">환경설정</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">웹브라우저 한글폰트 깨짐 방지</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">크롬드라이버 설치</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">셀레니움 설치</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">크롬드라이버 구동</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">네이버 접속</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">#1. 네이버 접속하여 검색하기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">#2. 네이버 검색어 입력</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">검색어 입력박스 찾기와 검색어 입력</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">검색버튼 클릭되게 하기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">연습: 검색어 입력받아 검색하기</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">#3. 네이버 블로그에서 검색하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">연습: 네이버 블로그 검색하기</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">#4. 웹페이지 컨텐츠 추출하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beautifulsoup">BeautifulSoup으로 추출하기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">셀레니움으로 추출하기</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">#5. 페이지 이동하면서 컨텐츠 추출하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xpath">페이지 번호의 xpath 추출하기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">반복적으로 일시키기</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">#6. 속성값 추출하기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">#7. 제어 종료</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">마무리</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="chapter-9-2">
+<h1>Chapter 9-2. 동적 웹크롤링<a class="headerlink" href="#chapter-9-2" title="Permalink to this headline">#</a></h1>
+<div class="info admonition">
+<p class="admonition-title">학습목표와 기대효과</p>
+<ul class="simple">
+<li><p>학습목표</p>
+<ul>
+<li><p>셀레니움(selenium) 모듈에 대해서 알아보자.</p></li>
+<li><p>웹드라이버를 활용하여 자바스크립트가 적용된 웹페이지를 스크랩핑 해보자.</p></li>
+<li><p>셀레니움에서 지원하는 중요한 메서드들을 알아보자.</p></li>
+</ul>
+</li>
+<li><p>기대효과</p>
+<ul>
+<li><p>로그인이 필요하거나, 클릭이 필요한 웹페이지에서 데이터를 추출할 수 있다.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>셀레니움이란?<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>요즘 대부분의 웹페이지는 HTML안에 자바스크립트가 들어가 있어서 동적으로 사용자와 소통한다. 즉, 웹페이지가 사용자의 키보드 입력, 사용자의 마우스 클릭에 동적으로 반응한다는 의미이다.</p></li>
+<li><p>이와 같이 자바스크립트를 활용한 웹 페이지를 스크랩핑 하려면 자바스크립트를 해석할 수 있는 크롤러가 필요하다.</p></li>
+<li><p>셀레니움은 자바스크립트가 적용된 웹페이지에서 스크랩핑을 지원하는 모듈로 웹드라이버 기능을 활용하여 다양한 웹브라우저를 자동으로 조작한다.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2>설치 및 환경설정<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id3">
+<h3>환경설정<a class="headerlink" href="#id3" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>2023년 1월 초까지만 해도 아래와 같은 코드없이 코랩에서 크롬브라우저와 셀레니움이 단 몇줄의 코드로 잘 설치되었다.</p></li>
+<li><p>그러나 1월 중순부터 우분투(Linux 배포판중에 하나) 운영체제를 사용하고 있는 코랩에서 크롬브라우저 배포를 더 이상 지원하지 않은 관계로 아래와 같은 복잡한 환경 설정이 필요하게 되었다.</p></li>
+<li><p>이 코드는 크롬브라우저와 셀레니움 설치하고 동작시키기 위한 환경설정 코드이다.</p></li>
+<li><p>한줄 한줄 의미가 무엇인지 알지 못해도 상관없다. 그냥 실행시키면 된다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">shell</span>
+# Ubuntu no longer distributes chromium-browser outside of snap
+#
+# Proposed solution: https://askubuntu.com/questions/1204571/how-to-install-chromium-without-snap
+
+# Add debian buster
+cat &gt; /etc/apt/sources.list.d/debian.list &lt;&lt;&#39;EOF&#39;
+deb [arch=amd64 signed-by=/usr/share/keyrings/debian-buster.gpg] http://deb.debian.org/debian buster main
+deb [arch=amd64 signed-by=/usr/share/keyrings/debian-buster-updates.gpg] http://deb.debian.org/debian buster-updates main
+deb [arch=amd64 signed-by=/usr/share/keyrings/debian-security-buster.gpg] http://deb.debian.org/debian-security buster/updates main
+EOF
+
+# Add keys
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys DCC9EFBF77E11517
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 648ACFD622F3D138
+apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 112695A0E562B32A
+
+apt-key export 77E11517 | gpg --dearmour -o /usr/share/keyrings/debian-buster.gpg
+apt-key export 22F3D138 | gpg --dearmour -o /usr/share/keyrings/debian-buster-updates.gpg
+apt-key export E562B32A | gpg --dearmour -o /usr/share/keyrings/debian-security-buster.gpg
+
+# Prefer debian repo for chromium* packages only
+# Note the double-blank lines between entries
+cat &gt; /etc/apt/preferences.d/chromium.pref &lt;&lt; &#39;EOF&#39;
+Package: *
+Pin: release a=eoan
+Pin-Priority: 500
+
+
+Package: *
+Pin: origin &quot;deb.debian.org&quot;
+Pin-Priority: 300
+
+
+Package: chromium*
+Pin: origin &quot;deb.debian.org&quot;
+Pin-Priority: 700
+EOF
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UsageError: Cell magic `%%shell` not found.
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3>웹브라우저 한글폰트 깨짐 방지<a class="headerlink" href="#id4" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>코랩에서 웹브라우저를 구동시켜 웹페이지에 접속했을 때 한글 폰트가 깨져서 네모로 나오는 것을 방지한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>apt-get<span class="w"> </span>install<span class="w"> </span>fonts-unfonts-core
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h3>크롬드라이버 설치<a class="headerlink" href="#id5" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>코랩에서 크롬드라이버(웹드라이버)를 동작시키기 위해 크롬 드라이버를 설치한다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>!apt-get update
+!apt-get install chromium chromium-driver
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>apt-get<span class="w"> </span>update
+<span class="o">!</span>apt-get<span class="w"> </span>install<span class="w"> </span>chromium<span class="w"> </span>chromium-driver
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>셀레니움 설치<a class="headerlink" href="#id6" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>동적 웹크롤링/스크랩핑을 위한 모듈인 셀레니움을 설치한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>selenium
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>크롬드라이버 구동<a class="headerlink" href="#id7" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>설치가 성공적으로 완료되었다면 크롬 드라이버의 옵션 몇 가지를 설정해줘야 한다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">options.add_argument(&quot;--headless&quot;)</span></code>는 코랩에서는 윈도우 탭을 열 수 없으므로 윈도우 탭을 생성하지 않겠다는 옵션이다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">options.add_argument(&quot;--no-sandbox&quot;)</span></code>는 보안기능을 비활성화하는 옵션이다. 일부 사이트에 접근할 때 웹브라우저에 보안기능이 적용되서 팝업을 차단시킨다거나, 웹사이트 접근을 차단하는 등의 기능이 적용되기도 한다. 이러한 기능이 적용되면 웹페이지에 접속할 수 없으므로 이 기능을 비활성화 시킨다.</p></li>
+<li><p>웹드라이버(크롬브라우저)를 구동시켜서 변수 driver에 저장한다.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">driver</span> <span class="pre">=</span> <span class="pre">webdriver.Chrome(options=options)</span></code></p></li>
+</ul>
+</li>
+<li><p>여기까지 진행하면 실제 브라우저가 구동되는 것이 보이지는 않지만 내부적으로 브라우저가 구동된다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.chrome.options</span> <span class="kn">import</span> <span class="n">Options</span>
+
+<span class="n">options</span> <span class="o">=</span> <span class="n">Options</span><span class="p">()</span>
+<span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--headless&quot;</span><span class="p">)</span>
+<span class="n">options</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&quot;--no-sandbox&quot;</span><span class="p">)</span>
+
+<span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Chrome</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="n">options</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h2>네이버 접속<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h2>
+</div>
+<div class="section" id="id9">
+<h2>#1. 네이버 접속하여 검색하기<a class="headerlink" href="#id9" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>이제 웹드라이버를 통해 네이버에 접속해보자.</p></li>
+<li><p>웹페이지에 접속할 때에는 driver.get() 함수를 사용한다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>웹페이지에 접속은 네트워크 상황에 따라 몇 초정도 소요될 수도 있다. 따라서 로딩되는 시간을 기다려야 한다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">driver.implicitly_wait(s)</span></code>은 웹드라이버에게 웹페이지가 로딩되는 시간 또는 엘리먼트를 찾는데 걸리는 최대 대기 시간을 설정하는 함수이다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">driver.title</span></code>는 웹페이지 잘 접속 되었는지 확인하기 위해 웹페이지의 제목표시줄의 내용을 출력한다.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">driver.save_screenshot('파일명')</span></code>은 웹페이지에 잘 접속 되었는지 확인하기 위해 웹페이지의 스크린샷을 찍는다. 스크린샷이 성공적으로 찍히면 True를 반환한다.</p></li>
+<li><p>스크린샷을 찍은 파일은 코랩 왼쪽의 파일 아이콘을 클릭하여 확인 할 수 있다. 파일이 보인다면 더블클릭해보자.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://naver.com&quot;</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">driver</span><span class="o">.</span><span class="n">title</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">save_screenshot</span><span class="p">(</span><span class="s1">&#39;screenshot_001.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/selenium2.png" style="width:700px;"></div></div>
+<div class="section" id="id10">
+<h2>#2. 네이버 검색어 입력<a class="headerlink" href="#id10" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>동적 웹페이지에서 웹크롤링을 하려면 <strong>사람이 하는 동작 그대로 코드에게 일을 시켜야 한다.</strong></p></li>
+<li><p>네이버 검색어 입력박스에 검색어가 입력되도록 해보자. 사람은 눈으로 보고 검색어 입력박스를 찾을 수 있지만 코드는 그렇게 하지 못한다.</p></li>
+<li><p>따라서 검색어 입력박스의 엘리먼트(element)를 찾아서 알려줘야 한다.</p></li>
+</ul>
+<div align="center"><img src="https://haesunbyun.github.io/common/images/selenium.png" style="width:700px;"></div>
+<ul class="simple">
+<li><p>개발자 도구를 활용하여 검색어 입력박스 엘리먼트의 태그와 속성을 확인한다.</p>
+<ul>
+<li><p>검색어 입력박스의 태그와 속성은 <code class="docutils literal notranslate"><span class="pre">&lt;input</span> <span class="pre">id=&quot;query&quot;</span> <span class="pre">name=&quot;query&quot;</span> <span class="pre">...&gt;</span></code>이다.</p></li>
+</ul>
+</li>
+<li><p>셀레니움에서 엘리먼트를 찾는 방법은 다음과 같다.</p>
+<ul>
+<li><p>find_element(): 하나의 엘리먼트를 찾는다.</p></li>
+<li><p>find_elements(): 여러개의 엘리먼트를 찾는다.</p></li>
+</ul>
+</li>
+<li><p>find_element(), find_elements() 함수의 괄호안에는 추출할 옵션을 넣어준다. 옵션의 종류는 다음과 같다.</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">By</span><span class="o">.</span><span class="n">ID</span>	<span class="n">태그의</span> <span class="n">id값으로</span> <span class="n">추출</span>
+<span class="n">By</span><span class="o">.</span><span class="n">NAME</span>	<span class="n">태그의</span> <span class="n">name값으로</span> <span class="n">추출</span>
+<span class="n">By</span><span class="o">.</span><span class="n">XPATH</span>	<span class="n">태그의</span> <span class="n">경로로</span> <span class="n">추출</span>
+<span class="n">By</span><span class="o">.</span><span class="n">LINK_TEXT</span>	<span class="n">링크</span> <span class="n">텍스트값으로</span> <span class="n">추출</span>
+<span class="n">By</span><span class="o">.</span><span class="n">PARTIAL_LINK_TEXT</span>	<span class="n">링크</span> <span class="n">텍스트의</span> <span class="n">자식</span> <span class="n">텍스트</span> <span class="n">값을</span> <span class="n">추출</span>
+<span class="n">By</span><span class="o">.</span><span class="n">TAG_NAME</span>	<span class="n">태그명으로</span> <span class="n">추출</span>
+<span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span>	<span class="n">태그의</span> <span class="n">클래스명으로</span> <span class="n">추출</span>
+<span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span>	<span class="n">css선택자로</span> <span class="n">추출</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>위 옵션을 사용하려면 By 클래스를 먼저 import해야 한다.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">selenium.webdriver.common.by</span> <span class="pre">import</span> <span class="pre">By</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="id11">
+<h3>검색어 입력박스 찾기와 검색어 입력<a class="headerlink" href="#id11" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>예를 들어, 검색어 입력박스의 속성가운데 하나인 ID로 찾는다면 find_element(<a class="reference external" href="http://By.ID">By.ID</a>, “query”)로 넣어준다.</p></li>
+<li><p>검색어 입력박스 엘리먼트를 찾았다면 <code class="docutils literal notranslate"><span class="pre">엘리먼트.send_keys()</span></code> 괄호안에 검색어를 넣어준다.</p></li>
+<li><p>아래 코드에서는 엘리먼트를 box_elem으로 저장했으므로 box_elem.send_keys(‘공휴일’)과 같이 작성하였다.</p></li>
+<li><p>검색박스의 문자열을 지우려면 엘리먼트.clear()하면 된다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">selenium.webdriver.common.by</span> <span class="kn">import</span> <span class="n">By</span>
+<span class="n">box_elem</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">&quot;query&quot;</span><span class="p">)</span> <span class="c1">#검색어 입력박스</span>
+<span class="n">box_elem</span><span class="o">.</span><span class="n">send_keys</span><span class="p">(</span><span class="s1">&#39;공휴일&#39;</span><span class="p">)</span> <span class="c1">#검색어 입력</span>
+<span class="c1">#box_elem.clear()</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">save_screenshot</span><span class="p">(</span><span class="s1">&#39;screenshot_002.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id12">
+<h3>검색버튼 클릭되게 하기<a class="headerlink" href="#id12" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>검색어가 입력된 것을 확인했으니 검색이 이루어지도록 검색버튼이 클릭되게 해보자.</p></li>
+<li><p>이때 버튼의 경우는 개발자도구에서 xpath를 찾아 넣어주자.</p></li>
+<li><p>xpath는 XML Path Language로, 문서의 특정 요소나 속성에 접근하기 위한 경로이다.</p></li>
+<li><p>개발자도구 &gt; 엘리먼트 선택 버튼 &gt; 네이버의 검색버튼으로 가서 클릭해보자. 오른쪽 개발자도구의 소스코드영역에 해당 검색버튼이 있는 html 코드가 있을 것이다.</p></li>
+<li><p>그 html 코드 위에서 마우스 오른쪽 버튼을 클릭하여 copy &gt; copy xpath를 클릭한다.</p></li>
+<li><p>그러면 xpath 값이 클립보드에 저장된다. 이를 코랩에서 변수 xpath에 붙여넣기 하여 문자열로 저장한다.</p></li>
+<li><p>find_element(By.XPATH, value=xpath)로 검색버튼 엘리먼트를 찾아 click()함수로 클릭되게 한다.</p></li>
+<li><p>검색 버튼이 클릭되면 검색 결과 페이지가 나온다. 스크린샷을 찍어서 검색이 잘 되었는지 확인해보자.</p></li>
+<li><p>이전 페이지로 이동하려면 driver.back()한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xpath</span> <span class="o">=</span> <span class="s1">&#39;여러분이 채워주세요.&#39;</span>    <span class="c1">#검색버튼 xpath</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">xpath</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">save_screenshot</span><span class="p">(</span><span class="s1">&#39;screenshot_003.png&#39;</span><span class="p">)</span>
+<span class="c1">#driver.back()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id13">
+<h3>연습: 검색어 입력받아 검색하기<a class="headerlink" href="#id13" title="Permalink to this headline">#</a></h3>
+<p>😄 검색어를 입력받아 네이버에서 검색하도록 소스코드를 작성해보세요. 결과를 ‘screenshot_004.png’로 저장하세요.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.naver.com/&#39;</span><span class="p">)</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1">#Todo</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id14">
+<h2>#3. 네이버 블로그에서 검색하기<a class="headerlink" href="#id14" title="Permalink to this headline">#</a></h2>
+<div class="section" id="id15">
+<h3>연습: 네이버 블로그 검색하기<a class="headerlink" href="#id15" title="Permalink to this headline">#</a></h3>
+<p>😄 네이버 블로그에서 ‘워터파크’을 검색하도록 코드를 작성하고 실행하여 ‘screenshot_005.png’로 저장하시오.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://section.blog.naver.com/">https://section.blog.naver.com/</a></p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id16">
+<h2>#4. 웹페이지 컨텐츠 추출하기<a class="headerlink" href="#id16" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>이제 웹페이지 검색결과에서 필요한 데이터를 추출해보자.</p></li>
+<li><p>두 가지 방법을 모두 사용해보자.</p>
+<ul>
+<li><p>이전에 배웠던 BeautifulSoup으로 추출해 본다.</p></li>
+<li><p>셀레니움으로 추출해본다.</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="beautifulsoup">
+<h3>BeautifulSoup으로 추출하기<a class="headerlink" href="#beautifulsoup" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>BeautifulSoup으로 추출할 때에는 먼저 검색된 웹페이지를 <code class="docutils literal notranslate"><span class="pre">driver.page_source</span></code>로 HTML 코드를 가져와 변수 html에 저장한다.</p></li>
+<li><p>BeautifulSoup(html, ‘html.parser’)으로 파싱한다.</p></li>
+<li><p>추출하려고 하는 컨텐츠가 어떤 태그와 속성을 가지고 있는지 개발자 도구를 활용하여 알아낸 후, find_all()로 검색한다.</p></li>
+<li><p>검색된 결과에서 필요한 컨텐츠만 추출한다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+
+<span class="n">html</span><span class="o">=</span><span class="n">driver</span><span class="o">.</span><span class="n">page_source</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">html</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<span class="n">subject_list</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="n">class_</span><span class="o">=</span><span class="s2">&quot;title_post&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">subject_list</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">each</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id17">
+<h3>셀레니움으로 추출하기<a class="headerlink" href="#id17" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>셀레니움으로 추출하면 페이지를 가져올 필요없이 바로 추출 가능하다.</p></li>
+<li><p>단 셀리니움으로 찾은 결과는 BeautifulSoup에서와 달리 selenium.webdriver.remote.webelement.WebElement로 나온다. 아래 코드에서 print(subject_list)를 해보고 그 결과를 확인하자.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">subject_list</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s2">&quot;title_post&quot;</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">subject_list</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">each</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id18">
+<h2>#5. 페이지 이동하면서 컨텐츠 추출하기<a class="headerlink" href="#id18" title="Permalink to this headline">#</a></h2>
+<div class="section" id="xpath">
+<h3>페이지 번호의 xpath 추출하기<a class="headerlink" href="#xpath" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>1페이지의 제목은 추출했으니 2페이지, 3페이지 이동하면서 제목을 추출해보자.</p></li>
+<li><p>사람이 2페이지 검색결과를 보려면 페이지번호 중에 2를 클릭 할 것이다. 이를 코드가 나 대신 클릭하도록 해줘야 한다.</p></li>
+<li><p>이를 위해 개발자 도구를 활용하여 페이지번호 2의 xpath를 추출한다.</p></li>
+<li><p>xpath를 활용하여 그 엘리먼트가 클릭되게 한 후, 페이지가 로딩되었다면 다시 제목을 추출해보자.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xpath</span> <span class="o">=</span> <span class="s1">&#39;//*[@id=&quot;content&quot;]/section/div[3]/span[2]/a&#39;</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">xpath</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+<span class="n">driver</span><span class="o">.</span><span class="n">implicitly_wait</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">subject_list</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s2">&quot;title_post&quot;</span> <span class="p">)</span>
+<span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">subject_list</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">each</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id19">
+<h3>반복적으로 일시키기<a class="headerlink" href="#id19" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>개발자 도구를 활용하여 페이지번호 2, 페이지번호 3, 페이지번호 4 등의 xpath를 확인해 보고 어느 부분이 바뀌고 있는지 체크하자.</p></li>
+<li><p>xpath의 값이 거의 비슷한데 span[2], span[3], span[4]와 같이 페이지번호에 따라 span[] 대괄호안의 숫자만 달라지고 있다.</p></li>
+<li><p>반복문으로 실행시키기 딱 좋은 구조이다. 2, 3, 4라는 상수값을 변수로 줘서 반복문으로 실행시킬 수 있다.</p></li>
+<li><p>1페이지부터 5페이지까지 제목만 추출해서 리스트로 만들어보자.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">titleList</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+  <span class="n">xpath</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;//*[@id=&quot;content&quot;]/section/div[3]/span[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">]/a&#39;</span>
+  <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">xpath</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+  <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+  <span class="n">subject_list</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s2">&quot;title_post&quot;</span> <span class="p">)</span>
+
+  <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">subject_list</span><span class="p">:</span>
+    <span class="n">titleList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">each</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;-------</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">/5&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">titleList</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id20">
+<h2>#6. 속성값 추출하기<a class="headerlink" href="#id20" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>블로그에서 검색어에 대한 제목뿐만 아니라 블로그 링크까지 추출해보자.</p></li>
+<li><p>셀레니움으로 속성값을 추출할 때에는 get_attribute() 메서드의 괄호안에 속성명을 넣어준다.</p></li>
+<li><p>블로그 링크의 주소는 일반적으로 <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> 태그에 있으나 <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> 태그를 가진 엘리먼트를 검색하면 대상으로 하지 않은 불필요한 <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> 태그까지 모두 검색된다.</p></li>
+<li><p>따라서 검색 조건을 좀 더 명확하게 주자. <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> 태그에 보니 class= ‘desc_inner’이다.</p></li>
+<li><p>링크의 주소가 들어있는 속성명을 확인해보니 <code class="docutils literal notranslate"><span class="pre">ng-href</span></code>이다.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a_tag_list</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s1">&#39;desc_inner&#39;</span><span class="p">)</span>
+<span class="n">a_tag_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s1">&#39;ng-href&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>반복문으로 제목과 링크를 모두 리스트로 만들어보자.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+<span class="n">titleList</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">titleLinkList</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">):</span>
+  <span class="n">xpath</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;//*[@id=&quot;content&quot;]/section/div[3]/span[</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">]/a&#39;</span>
+  <span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">xpath</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+
+  <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+  <span class="n">subject_list</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s2">&quot;title_post&quot;</span> <span class="p">)</span>
+  <span class="n">a_tag_list</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span><span class="p">,</span> <span class="s1">&#39;desc_inner&#39;</span><span class="p">)</span>
+
+  <span class="k">for</span> <span class="n">sub</span><span class="p">,</span> <span class="n">link</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">subject_list</span><span class="p">,</span> <span class="n">a_tag_list</span><span class="p">):</span>
+    <span class="n">titleList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+    <span class="n">titleLinkList</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">link</span><span class="o">.</span><span class="n">get_attribute</span><span class="p">(</span><span class="s1">&#39;ng-href&#39;</span><span class="p">))</span>
+  <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;-------</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">/5&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">titleList</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">titleLinkList</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">implicitly_wait() vs. time.sleep()</p>
+<p>implicitly_wait(s)은 웹드라이버에게 최대 s초 동안 대기하도록 하는 메서드로
+웹페이지가 로딩되는 시간 또는 엘리먼트를 찾는데 걸리는 최대 대기 시간을 설정하는 메서드이다. s초가 지나도 작업을 완료하지 못하면 NoSuchElementException 에러를 발생시킨다. 즉, 웹페이지가 준비도 안되었는데 엘리먼트를 찾으라 하면 NoSuchElementException 에러가 발생한다.</p>
+<p>time.sleep(s)은 time 모듈에 포함된 함수로 실행을 s초 동안 일시 중지하였다가 시간이 경과하면 실행이 계속된다.
+time.sleep(s)을 웹페이지가 로딩되는 시간을 기다리는데 유용하게 사용할 수 있다.
+이 경우, time.sleep(5)를 호출하면 프로그램 실행이 5초 동안 일시 중지된다. 이는 페이지 로드를 기다리거나, 웹 페이지의 스크립트가 실행되고 결과를 가져오는 데 시간이 필요한 경우 유용하게 사용된다.</p>
+<p>​이 두 코드는 서로 목적이 다르지만, 웹 스크래핑 작업에서 적절한 시점에 기다리는 용도로 사용할 수 있다.</p>
+</div>
+</div>
+<div class="section" id="id21">
+<h2>#7. 제어 종료<a class="headerlink" href="#id21" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>driver.close()를 통해 웹드라이버를 제어 종료한다.</p></li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h2>마무리<a class="headerlink" href="#id22" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>셀레니움은 사용자와 상호 인터렉션을 하는 동적 웹페이지에서 데이터를 추출하기 위한 라이브러리이다.</p></li>
+<li><p>셀레니움을 통해 웹브라우저를 구동시켜 웹페이지 접속하려면</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">driver.get('웹페이지주소')</span></code></p></li>
+</ul>
+</li>
+<li><p>접속 중인 페이지의 HTML 소스코드를 가져오려면</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">html</span> <span class="pre">=</span> <span class="pre">driver.page_source</span></code></p></li>
+</ul>
+</li>
+<li><p>find_element(), find_elements()는 웹페이지에서 엘리먼트를 찾을 때 사용한다. 괄호안에 들어갈 옵션의 종류는 다음과 같다.</p></li>
+<li><p>아래 옵션을 사용하려면 By 클래스를 먼저 import해야 한다.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">from selenium.webdriver.common.by import By</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">By</span><span class="o">.</span><span class="n">ID</span>	<span class="n">태그의</span> <span class="n">id값으로</span> <span class="n">추출</span>
+<span class="n">By</span><span class="o">.</span><span class="n">NAME</span>	<span class="n">태그의</span> <span class="n">name값으로</span> <span class="n">추출</span>
+<span class="n">By</span><span class="o">.</span><span class="n">XPATH</span>	<span class="n">태그의</span> <span class="n">경로로</span> <span class="n">추출</span>
+<span class="n">By</span><span class="o">.</span><span class="n">LINK_TEXT</span>	<span class="n">링크</span> <span class="n">텍스트값으로</span> <span class="n">추출</span>
+<span class="n">By</span><span class="o">.</span><span class="n">PARTIAL_LINK_TEXT</span>	<span class="n">링크</span> <span class="n">텍스트의</span> <span class="n">자식</span> <span class="n">텍스트</span> <span class="n">값을</span> <span class="n">추출</span>
+<span class="n">By</span><span class="o">.</span><span class="n">TAG_NAME</span>	<span class="n">태그</span> <span class="n">이름으로</span> <span class="n">추출</span>
+<span class="n">By</span><span class="o">.</span><span class="n">CLASS_NAME</span>	<span class="n">태그의</span> <span class="n">클래스명으로</span> <span class="n">추출</span>
+<span class="n">By</span><span class="o">.</span><span class="n">CSS_SELECTOR</span>	<span class="n">css선택자로</span> <span class="n">추출</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>버튼처럼 클릭하는 부분의 엘리먼트는 Xpath를 활용한다. xpath는 XML Path Language로, 문서의 특정 요소나 속성에 접근하기 위한 경로로 개발자 도구에서 Copy – Copy Xpath를 이용하여 Xpath를 얻어올 수 있다.</p></li>
+<li><p>입력박스에 텍스트를 입력할 때에는</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">text입력:</span> <span class="pre">element.send_keys('입력할text')</span></code></p></li>
+</ul>
+</li>
+<li><p>엘리먼트를 클릭되게 하려면</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">element.click()</span></code></p></li>
+</ul>
+</li>
+<li><p>제어 종료는 driver.close()이다.</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="B_chapter9-1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Chapter 9-1. 웹과 웹크롤링</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="B_chapter10.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Chapter 10. Numpy</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">셀레니움이란?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">설치 및 환경설정</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">환경설정</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">웹브라우저 한글폰트 깨짐 방지</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">크롬드라이버 설치</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">셀레니움 설치</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">크롬드라이버 구동</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">네이버 접속</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">#1. 네이버 접속하여 검색하기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">#2. 네이버 검색어 입력</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">검색어 입력박스 찾기와 검색어 입력</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">검색버튼 클릭되게 하기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">연습: 검색어 입력받아 검색하기</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">#3. 네이버 블로그에서 검색하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">연습: 네이버 블로그 검색하기</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">#4. 웹페이지 컨텐츠 추출하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#beautifulsoup">BeautifulSoup으로 추출하기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">셀레니움으로 추출하기</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">#5. 페이지 이동하면서 컨텐츠 추출하기</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#xpath">페이지 번호의 xpath 추출하기</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">반복적으로 일시키기</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">#6. 속성값 추출하기</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">#7. 제어 종료</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">마무리</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By hs Byun
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
